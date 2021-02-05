@@ -593,7 +593,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `type`, `created_at`, `update
 (86, 'JTBUOE6U', '$2b$14$n5O5G6F4XrtxrWI/Y.j4b.w29mzPaFLptQgRYF2X1KvQlDADONiSm', 'admin', '2020-08-24 03:52:47', '2020-08-24 03:52:47'),
 (87, 'YZQGGWZM', '$2b$14$zfsO/dWD0hX5CG.WWV83aeKUn9FpKG5x9oMjF.HGfv1Fs/r1WxH1C', 'user', '2020-08-24 04:08:48', '2020-08-24 04:08:58'),
 (88, 'TTNIMUI1', '$2b$14$3/mPnuG..z8xcthls6IQtuQDp6nSMsPMEqMN.7ddvY3ISARRL5Uz2', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
-(89, 'TTNIMUI12', '$2b$14$sP26f4N/n3FXaODtAJoDOODaLiF1HWRKLUBi8JP0ILTrdIHCGZALe', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40');
+(89, 'TTNIMUI12', '$2b$14$sP26f4N/n3FXaODtAJoDOODaLiF1HWRKLUBi8JP0ILTrdIHCGZALe', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
+(111, 'admin', '$2b$14$P6FNMJbuGmL9DNgMCPgj9.bUl7S23TaJcIm.5T0fETuTmY2aZOgjC', 'admin', '2021-02-03 12:07:34', '2021-02-03 22:34:06');
 
 --
 -- Dumping data for table `user_factor`
