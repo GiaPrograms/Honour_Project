@@ -1,0 +1,47 @@
+.tab-nav-header-item{
+  width: 100%;
+  position:relative;
+  text-align: center;
+}
+
+.tab-nav-header-navlink{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-flow: column-reverse;
+  color:white;
+  padding: 1rem 0.5rem;
+}
+
+.home-subheader-content h3{
+  color: white;
+}
+
+.tab-nav-header-navlink.active{
+  color: white;
+  /* background-color: var(--secondary-colour); */
+}
+
+/* .tab-nav-header-navlink.active h2{
+  color: var(--secondary-colour);
+} */
+
+/* .tab-nav-header-navlink.active {
+  background-color: var(--secondary-colour);
+} */
+
+
+.tab-nav-header-navlink.active::before, 
+.tab-nav-header-navlink.active ~ *::before,
+/* .tab-nav-header-navlink.active>div, */
+.tab-nav-header-navlink.active ~ *>div {
+  background-color: #FFF;
+}
+
+/* .tab-nav-header-navlink.active>div>h2, */
+.tab-nav-header-navlink.active ~ *>div>h2{
+  color: var(--primary-colour);
+}
+
+.tab-nav-header-navlink.active::before {
+  background-color: var(--secondary-colour);
+}
