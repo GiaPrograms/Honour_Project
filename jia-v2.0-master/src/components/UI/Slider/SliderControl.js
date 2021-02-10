@@ -41,15 +41,15 @@ const PrettoSlider = withStyles({
     },
   },
   track: {
-    //background: 'none',
-    background: 'linear-gradient(to right,green,orange,yellow,red)',
+    background: 'none',
+    //background: 'linear-gradient(to right,green,orange,yellow,red)',
     height: 20,
     borderRadius: 6,
   },
   rail: {
     height: 20,
     borderRadius: 8,
-    //background: 'linear-gradient(to right,green,orange,yellow,red)',
+    background: 'linear-gradient(to right,green,orange,yellow,red)',
     opacity: 1,
   },
 })(Slider);
@@ -63,8 +63,8 @@ const SliderControl = props => {
   const [sliderColour, setSliderColour] = useState()
   const [leftColour, setLeftColour] = useState()
   //added here
-  const[mid1Colour, setMid1Colour] = useState() 
-  const[mid2Colour, setMid2Colour] = useState()
+  //const[mid1Colour, setMid1Colour] = useState() 
+  //const[mid2Colour, setMid2Colour] = useState()
   const [rightColour, setRightColour] = useState()
 
   /**
@@ -81,24 +81,24 @@ const SliderControl = props => {
   }, [props.value])
 
   useEffect(() => {
-    if(props.reversed === true) {
-      /*setSliderColour('reversed')
-      setLeftColour('#4DAA33')
-      setRightColour('#B10921')*/
+    if(props.reversed === true) { //page1  ---> 1,2
       setSliderColour('reversed')
+      setLeftColour('#4DAA33')
+      setRightColour('#B10921')
+      /*setSliderColour('reversed')
       setLeftColour('green')
       setMid1Colour('orange')
       setMid2Colour('yellow')
-      setRightColour('red')
-    } else {
+      setRightColour('red')*/
+    } else {                  //page 2,4 ---->4
+      //setSliderColour('normal')
+      setLeftColour('#4DAA33')
+      setRightColour('#B10921')
       /*setSliderColour('normal')
-      setLeftColour('#B10921')
-      setRightColour('#4DAA33')*/
-      setSliderColour('normal')
       setLeftColour('red')
       setMid2Colour('yellow')
       setMid1Colour('orange')
-      setRightColour('green')
+      setRightColour('green')*/
     }
    
   }, [props.reversed])
