@@ -54,6 +54,8 @@ exports.update = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
   try {
+    console.log(req.params
+      )
     const currentUser = await User.findByPk(req.user.id)
     if(currentUser.type !== 'admin') throw new ForbiddenError('User is not authenticated')
     const {treatment_id} = req.body
