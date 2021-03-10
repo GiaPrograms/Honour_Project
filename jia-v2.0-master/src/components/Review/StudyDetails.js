@@ -85,11 +85,13 @@ const StudyDetails = ({study}) => {
         </div>
 
         <div className="icon-container">
+
           <LightTooltip title="Click for More Info" placement="right" arrow>
             <InfoIcon className="material-icons info-icon" onClick={toggle}>
               info
             </InfoIcon>
           </LightTooltip>
+          
           <Modal isOpen={open} toggle={toggle}>
             <ModalHeader toggle={toggle}>Study Details</ModalHeader>
             <ModalBody>
