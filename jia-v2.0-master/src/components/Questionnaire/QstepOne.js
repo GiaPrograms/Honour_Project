@@ -137,7 +137,6 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           value={painLevel}
         /> */}
 
-        
             {/* <h4 className="Step-subHeading">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             No Pain &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -175,9 +174,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
                 <div value="Pain5" onClick={checkedFive}></div>
               </div>
             </div>
-          
-        
-
+        /> 
       </Collapse>
     </div>
   )
