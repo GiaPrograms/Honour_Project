@@ -112,8 +112,9 @@ padding: 2rem;
 }
 .box-container-numbered{
   margin: 2rem auto;
-  box-shadow: 3px 3px 14px rgba(0,0,0,0.16);
   background-color: #FFF;
+  box-shadow: 5px 10px 10px 10px rgba(0, 0, 0, .3);
+  border-radius: 16px;
 }
 .padding-class{
   padding: 1rem 1.5rem;
@@ -842,16 +843,18 @@ padding: 2rem;
   cursor: pointer;
 }
 .info-icon {
-  font-size: 46px !important;
+  font-size: 65px !important;
   position: absolute;
-  right: 0;
+  left: 0;
+  top: -30px;
+  margin-left: 30rem;
 }
 .print-icon{
   margin-left: 0.5rem;
 }
 
 .study-container{
-   margin: 1rem 1.5rem;
+  margin: 1rem 1.5rem;
   cursor: auto;
  }
 p.collapsed-icon{
@@ -1363,7 +1366,7 @@ p.collapsed-icon{
     right: 12rem;
   }
   .study-container{
-    padding:1rem 0;
+    padding:1.5rem 0;
   }
 
   #image_and_description{

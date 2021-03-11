@@ -115,9 +115,11 @@ const TreatmentDetails = (props) => {
                 <p>{treatment.experts_suggest}</p>
               </div>
               {/* Studies section */}
+              <div> 
+                <h3>What does the research say?</h3>
+              </div>
               {studies &&
                 <div className="treatment_details_study_container">
-                  <h3>What does the research say?</h3>
                   {studies.map((study, i) => (
                     <Study 
                         key={study.id} 
