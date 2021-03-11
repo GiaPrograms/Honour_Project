@@ -36,7 +36,9 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     sessionStorage.setItem('painlevel-collapse', !collapse)
   }
   //=============checked to change color
-  const checkedOne = ev => {
+
+
+  const checkedZero = ev => {
     let buttonList = document.querySelectorAll(".StepFour-div-other div");
     buttonList.forEach((button) => {
       if (button.style.backgroundColor) button.style.backgroundColor = ""
@@ -51,12 +53,27 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     setSaveStatus('default')
   }
 
+  const checkedOne = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#8FE381";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+  
+    setSaved(false)
+    setSaveStatus('default')
+  }
+
   const checkedTwo = ev => {
     let buttonList = document.querySelectorAll(".StepFour-div-other div");
     buttonList.forEach((button) => {
       if (button.style.backgroundColor) button.style.backgroundColor = ""
     });
-    ev.target.style.backgroundColor = "#8FE381 ";
+    ev.target.style.backgroundColor = "#B0F5AB";
     //10434F
 
     let medVal = ev.target.getAttribute("value")
@@ -86,7 +103,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     buttonList.forEach((button) => {
       if (button.style.backgroundColor) button.style.backgroundColor = ""
     });
-    ev.target.style.backgroundColor = "#FFCCCB";
+    ev.target.style.backgroundColor = "#FC6C85";
     //10434F
 
     let medVal = ev.target.getAttribute("value")
@@ -152,6 +169,11 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
             </h4>
             
             <div className="StepFour-div-group other">
+            <div className="StepFour-div-other">
+                <label>0</label>
+                <div value="Pain0" onClick={checkedZero}></div>
+                
+              </div>
               <div className="StepFour-div-other">
                 <label>1</label>
                 <div value="Pain1" onClick={checkedOne}></div>
@@ -173,8 +195,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
                 <label>5</label>
                 <div value="Pain5" onClick={checkedFive}></div>
               </div>
-            </div>
-        /> 
+            </div> 
       </Collapse>
     </div>
   )

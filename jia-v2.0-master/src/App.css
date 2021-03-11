@@ -519,15 +519,13 @@ padding: 2rem;
   width: 100%;
   padding: 0.75rem;
   color: #000;
-  background-color: var(--light);
   border-radius: 0.9375rem 0.9375rem 0 0;
-  margin-left:120px
+  margin-left:10px
 }
 
 .text-left-right {
   text-align: right;
   position: relative;
-  background-color: var(--light);
   padding: 0.75rem;
   border-radius: 0.9375rem 0.9375rem 0 0;
 }
