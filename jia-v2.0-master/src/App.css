@@ -813,6 +813,10 @@ padding: 2rem;
 
 }
 
+.traffic-description p{
+  font-size: 18px;
+}
+
 #treatment_details_div{
   display: flex;
   justify-content: center;
