@@ -521,7 +521,27 @@ padding: 2rem;
   color: #000;
   background-color: var(--light);
   border-radius: 0.9375rem 0.9375rem 0 0;
+  margin-left:120px
 }
+
+.text-left-right {
+  text-align: right;
+  position: relative;
+  background-color: var(--light);
+  padding: 0.75rem;
+  border-radius: 0.9375rem 0.9375rem 0 0;
+}
+.left-text {
+  left: 0;
+  position: absolute;
+  margin-left:135px;
+  color:#008000;
+}
+.byline {
+  color: #DC143C;
+  margin-right:95px
+}
+
 
 .StepTwo-h3,
 .StepTwo-desc,
