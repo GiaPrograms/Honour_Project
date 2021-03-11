@@ -56,7 +56,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           forSlider="pain-level"
           reversed={true}
           value={painLevel}
-        />
+        /> 
       </Collapse>
     </div>
   )

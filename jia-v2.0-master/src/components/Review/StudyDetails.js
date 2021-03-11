@@ -3,7 +3,9 @@ import Happyface from '../UI/Happyface';
 import Star from '../UI/Star';
 
 import InfoIcon from '@material-ui/icons/Info';
+import Tooltip from '@material-ui/core/Tooltip';
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {withStyles} from '@material-ui/core/styles';
 import {getRequest} from "../../API/ApiHandler"
 
 const StudyDetails = ({study}) => {
@@ -18,6 +20,15 @@ const StudyDetails = ({study}) => {
     if(data) setResults(data)
   }
 
+  const LightTooltip = withStyles((theme) => ({
+    tooltip: {
+      backgroundColor: theme.palette.text.secondary,
+      color: 'rgba(255, 255, 255, 1)',
+      boxShadow: theme.shadows[3],
+      fontSize: 20,
+    },
+  }))(Tooltip);
+
   useEffect(() => {
     getResults()
   },[])
@@ -28,29 +39,6 @@ const StudyDetails = ({study}) => {
     <div className="study-container">
       {study &&
       <React.Fragment>
-        <div className="icon-container">
-          <InfoIcon className="material-icons info-icon" onClick={toggle}>
-            info
-          </InfoIcon>
-          <Modal isOpen={open} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Study Details</ModalHeader>
-            <ModalBody>
-              <h3>Methods</h3>
-              <p>{study.methods}</p>
-              <h3>Treatments</h3>
-              <p>{study.treatments}</p>
-              <h3>results</h3>
-              <p>{study.treatment_results}</p>
-              <h3>reference</h3>
-              <p>{study.reference}</p>
-              <h3>PubMed link</h3>
-              <a href={study.pubMed} target="_blank" rel="noopener noreferrer">{study.pubMed}</a>
-            </ModalBody>
-            <ModalFooter>
-              <Button className="next-btn" onClick={toggle}>Close</Button>
-            </ModalFooter>
-          </Modal>
-        </div>
 
         <h3 id="experts_suggest">Does it work?</h3>
         <p>{study.does_work}</p>
@@ -94,6 +82,35 @@ const StudyDetails = ({study}) => {
           <div className="starMessage-Container">{results.statistics}</div>
           }
         </div>
+
+        <div className="icon-container">
+          
+          <LightTooltip title="Click for More Info" placement="right" arrow>
+            <InfoIcon className="material-icons info-icon" onClick={toggle}>
+              info
+            </InfoIcon>
+          </LightTooltip>
+          
+          <Modal isOpen={open} toggle={toggle}>
+            <ModalHeader toggle={toggle}>Study Details</ModalHeader>
+            <ModalBody>
+              <h3>Methods</h3>
+              <p>{study.methods}</p>
+              <h3>Treatments</h3>
+              <p>{study.treatments}</p>
+              <h3>results</h3>
+              <p>{study.treatment_results}</p>
+              <h3>reference</h3>
+              <p>{study.reference}</p>
+              <h3>PubMed link</h3>
+              <a href={study.pubMed} target="_blank" rel="noopener noreferrer">{study.pubMed}</a>
+            </ModalBody>
+            <ModalFooter>
+              <Button className="next-btn" onClick={toggle}>Close</Button>
+            </ModalFooter>
+          </Modal>
+        </div>
+        
       </React.Fragment>
       }
     </div>
