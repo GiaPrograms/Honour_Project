@@ -5,14 +5,13 @@ import Star from '../UI/Star';
 import InfoIcon from '@material-ui/icons/Info';
 import Tooltip from '@material-ui/core/Tooltip';
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {getRequest} from "../../API/ApiHandler"
 
 const StudyDetails = ({study}) => {
   const [results, setResults] = useState([])
   const [open, setOpen] = useState(false)
   const [mapHappyFace] = useState([...Array(100).keys()])
-  const [tooltipIsOpen, setTooltipIsOpen] = React.useState(false);
   
   const stars = [1, 2, 3, 4, 5]
 
@@ -85,7 +84,7 @@ const StudyDetails = ({study}) => {
         </div>
 
         <div className="icon-container">
-
+          
           <LightTooltip title="Click for More Info" placement="right" arrow>
             <InfoIcon className="material-icons info-icon" onClick={toggle}>
               info
