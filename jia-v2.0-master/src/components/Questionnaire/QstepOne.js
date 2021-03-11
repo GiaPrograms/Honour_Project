@@ -71,7 +71,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     buttonList.forEach((button) => {
       if (button.style.backgroundColor) button.style.backgroundColor = ""
     });
-    ev.target.style.backgroundColor = "#CDFFCC";
+    ev.target.style.backgroundColor = "#ffff7f";
     //10434F
 
     let medVal = ev.target.getAttribute("value")
