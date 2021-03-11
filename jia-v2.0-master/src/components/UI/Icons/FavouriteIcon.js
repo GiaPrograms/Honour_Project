@@ -2,8 +2,8 @@ import React from 'react'
 import Tooltip from '@material-ui/core/Tooltip';
 
 const FavouriteIcon = ({toggleFav, isFav}) => {
-  const favon = {fill: '#e50019', stroke: 'rgba(0, 0, 0, 0.133)', strokeMiterlimit: 10, strokeWidth: '5px'}
-  const favoff = {fill: '#FFF', stroke: 'rgba(0, 0, 0, 0.133)', strokeMiterlimit: 10, strokeWidth: '8px'}
+  const favon = {fill: '#e50019', stroke: 'rgba(0, 0, 0, 1)', strokeMiterlimit: 10, strokeWidth: '8px'}
+  const favoff = {fill: '#FFFFFF', stroke: 'rgba(0, 0, 0, 1)', strokeMiterlimit: 10, strokeWidth: '8px'}
 
   return(
     <Tooltip title={isFav ? "Remove from favourites" : "Add to favourites"}>
