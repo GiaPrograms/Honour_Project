@@ -40,30 +40,6 @@ const StudyDetails = ({study}) => {
       {study &&
       <React.Fragment>
 
-        <div className="icon-container">
-          <InfoIcon className="material-icons info-icon" onClick={toggle}>
-            info
-          </InfoIcon>
-          <Modal isOpen={open} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Study Details</ModalHeader>
-            <ModalBody>
-              <h3>Methods</h3>
-              <p>{study.methods}</p>
-              <h3>Treatments</h3>
-              <p>{study.treatments}</p>
-              <h3>Results</h3>
-              <p>{study.treatment_results}</p>
-              <h3>Reference</h3>
-              <p>{study.reference}</p>
-              <h3>PubMed Link</h3>
-              <a href={study.pubMed} target="_blank" rel="noopener noreferrer">{study.pubMed}</a>
-            </ModalBody>
-            <ModalFooter>
-              <Button className="next-btn" onClick={toggle}>Close</Button>
-            </ModalFooter>
-          </Modal>
-        </div>
-
         <h3 id="experts_suggest">Does it work?</h3>
         <p>{study.does_work}</p>
         <div className="study_happyFace_container">
@@ -122,11 +98,11 @@ const StudyDetails = ({study}) => {
               <p>{study.methods}</p>
               <h3>Treatments</h3>
               <p>{study.treatments}</p>
-              <h3>results</h3>
+              <h3>Results</h3>
               <p>{study.treatment_results}</p>
-              <h3>reference</h3>
+              <h3>Reference</h3>
               <p>{study.reference}</p>
-              <h3>PubMed link</h3>
+              <h3>PubMed Link</h3>
               <a href={study.pubMed} target="_blank" rel="noopener noreferrer">{study.pubMed}</a>
             </ModalBody>
             <ModalFooter>
