@@ -57,6 +57,9 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
     }
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   // Filter the list of classifications to ones belonging to the presrcibed section
   // Create a container for the classification
   const classificationsList = classifications.length && classifications.filter(classification => {
@@ -79,7 +82,9 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
         <div  className="box-container-numbered collapsable">
           <div onClick={handleCollapse}>
             <h4 className="numbered-subheading">
-              3. What prescribed medications are you using?
+              {lang === "English" ? 
+              "3. What prescribed medications are you using?" : 
+              "3. Quels médicaments prescrits utilisez-vous?"}
               <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
             </h4>
           </div>

@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import "./Header.css"
+import TranslateButton from "../../components/UI/TranslateButton";
+import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
+
+//Get value of language from local storage
+let lang = localStorage.getItem("language")
 
 export default class Header extends Component{
   handleClick(ev, link){
@@ -33,35 +38,40 @@ export default class Header extends Component{
                 <img className="logo-link" alt="logo" src={require("../../img/logo.png")}/>
               </NavLink>
               <NavLink className="tab-nav-header-item tab-nav-header-navlink" to='/questionnaire' onClick={(ev)=>this.handleClick(ev, "/questionnaire")}>
-                <p>Pain & treatments</p>
+                <p>{lang === "English" ? "Pain & treatments" : "Douleur et traitements"}</p>
                 <div className="tab-navlink-div">
                   <h2>1</h2>
                 </div>
               </NavLink>
               <NavLink className="tab-nav-header-item tab-nav-header-navlink" to='whats-important-to-you' onClick={(ev)=>this.handleClick(ev, "/whats-important-to-you")}>
-                <p>What's important</p>
+                <p>{lang === "English" ? "What's important" : "Ce qui est important"}</p>
                 <div className="tab-navlink-div">
                   <h2>2</h2>
                 </div>
               </NavLink>
               <NavLink className="tab-nav-header-item tab-nav-header-navlink" to='/review-and-select/recommendations' onClick={(ev)=>this.handleClick(ev, "/review-and-select/recommendations")}>
-                <p>Review & select</p>
+                <p>{lang === "English" ? "Review & select" : "Examiner et sélectionner"}</p>
                 <div className="tab-navlink-div">
                   <h2>3</h2>
                 </div>
               </NavLink>
               <NavLink className="tab-nav-header-item tab-nav-header-navlink" to='/make-your-plan' onClick={(ev)=>this.handleClick(ev, "/make-your-plan")}>
-                <p>Plan</p>
+                <p>{lang === "English" ? "Plan" : "Plan"}</p>
                 <div className="tab-navlink-div">
                   <h2>4</h2>
                 </div>
               </NavLink>
               <NavLink className="tab-nav-header-item tab-nav-header-navlink" to='/summary' onClick={(ev)=>this.handleClick(ev, "/summary")}>
-                <p>Summary</p>
+                <p>{lang === "English" ? "Summary" : "Résumé"}</p>
                 <div className="tab-navlink-div">
                   <h2>5</h2>
                 </div>
               </NavLink>
+
+              <div>
+                <div className="tab-nav-header-translation"> <TranslateButton/> </div>
+              </div>
+              
             </div>
           </ul>
         </div>

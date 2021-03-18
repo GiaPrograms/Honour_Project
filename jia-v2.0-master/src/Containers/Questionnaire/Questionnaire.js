@@ -21,6 +21,8 @@ import Footer from "../../components/Footer";
 
 import DialogBox from "../../components/UI/DialogBox";
 import SaveButton from "../../components/UI/SaveButton";
+import TranslateButtonEN from "../../components/UI/TranslateButtonEN";
+import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
 import {handleRecommendations} from "../../components/GenerateRecommendations"
 import NavigationButton from "../../components/UI/Buttons/NavigationButton";
 import NavigationDialog from "../../components/UI/NavigationDialog"
@@ -218,7 +220,14 @@ const Questionnaire = props => {
       </div>
       <Subheader title="Pain & treatments"/>
       <div className="body-container">
+
+        {/* <div className="btn-container">
+          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+        </div> */}
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+
         <QStepOne 
           setPainLevel = {setPainLevel} 
           painLevel = {painLevel}
@@ -261,7 +270,14 @@ const Questionnaire = props => {
           setSaved = {setSaved}
           setSaveStatus={setSaveStatus}
         />
+        {/* <div className="btn-container">
+          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+        </div> */}
+
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+
       </div>
       {/* Component for navigation button and title above the button */}
       <NavigationButton 
@@ -275,6 +291,8 @@ const Questionnaire = props => {
       <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
       <FailedSaveDialog open={open} setOpen={setOpen}/>
     </div>
+
+
   )
 }
 

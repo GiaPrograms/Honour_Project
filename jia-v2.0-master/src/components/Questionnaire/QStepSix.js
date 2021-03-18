@@ -37,11 +37,17 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
     }
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <React.Fragment>
       <div className="pain-div box-container-numbered collapsable">
         <div id="sixth" onClick={handleCollapse}>
-          <h4 className="numbered-subheading">6. How well does your treatment ...
+          <h4 className="numbered-subheading">
+            {lang === "English" ? 
+            "6. How well does your treatment ..." : 
+            "6. Dans quelle mesure votre traitement ..."}
             <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
           </h4>
         </div>

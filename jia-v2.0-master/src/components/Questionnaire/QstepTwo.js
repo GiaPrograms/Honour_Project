@@ -16,10 +16,16 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
     }
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="pain-div box-container-numbered collapsable">
       <div onClick={handleCollapse}>
-        <h4 className="numbered-subheading">2. Where is your pain?
+        <h4 className="numbered-subheading">
+          {lang === "English" ? 
+          "2. Where is your pain?" : 
+          "2. Où est votre douleur?"}
           <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
         </h4>
       </div>

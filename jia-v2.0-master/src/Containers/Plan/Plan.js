@@ -10,6 +10,8 @@ import PlanReview from '../../components/Plan/PlanReview';
 import HowMotivated from '../../components/Plan/HowMotivated';
 import HowConfident from '../../components/Plan/HowConfident';
 
+import TranslateButtonEN from "../../components/UI/TranslateButtonEN";
+import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
 import SaveButton from "../../components/UI/SaveButton";
 import DialogBox from '../../components/UI/DialogBox';
 import Subheader from '../../components/UI/Subheader/Subheader';
@@ -177,6 +179,11 @@ const Plan = props => {
       </div>
       <Subheader title="Make your plan"/>
       <div className="body-container">
+        {/* <div className="btn-container">
+          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+        </div> */}
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
         <PlanList 
           favs={favs}
@@ -216,6 +223,11 @@ const Plan = props => {
           setSaved={setSaved}
           setSaveStatus={setSaveStatus}
         />
+        {/* <div className="btn-container">
+          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+        </div> */}
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
       </div>
       {/* Component for navigation button and title above the button */}

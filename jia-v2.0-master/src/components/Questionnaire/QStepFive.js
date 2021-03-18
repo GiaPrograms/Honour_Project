@@ -87,11 +87,17 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
     }
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <React.Fragment>
       <div className="box-container-numbered collapsable">
         <div id="fifth" onClick={handleCollapse}>
-          <h4 className="numbered-subheading">5. How often do you use your treatments?
+          <h4 className="numbered-subheading">
+            {lang === "English" ? 
+            "5. How often do you use your treatments?" : 
+            "5. À quelle fréquence utilisez-vous vos traitements?"}
             <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
           </h4>
         </div>

@@ -8,6 +8,8 @@ import Footer from "../../components/Footer";
 import SliderControl from '../../components/UI/Slider/SliderControl';
 import Header from '../../components/Home/Header';
 import DialogBox from "../../components/UI/DialogBox";
+import TranslateButtonEN from "../../components/UI/TranslateButtonEN";
+import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
 import SaveButton from "../../components/UI/SaveButton";
 import {handleRecommendations} from "../../components/GenerateRecommendations"
 import Subheader from '../../components/UI/Subheader/Subheader';
@@ -179,7 +181,12 @@ const WhatsImportant = props => {
       </div>
       <Subheader title="What's important to you"/>
         <div className="body-container">
-        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+          {/* <div className="btn-container">
+            <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+            <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+            <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+          </div> */}
+          <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
           <div className="slider-component-div box-container">
             {sliders.length && sliders.map((slider, index) => (
               <div key={slider.id}>
@@ -215,6 +222,11 @@ const WhatsImportant = props => {
             />
             </ThemeProvider>
         </div>
+        {/* <div className="btn-container">
+          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
+          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
+          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
+        </div> */}
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
       </div>
       {/* Component for navigation button and title above the button */}
