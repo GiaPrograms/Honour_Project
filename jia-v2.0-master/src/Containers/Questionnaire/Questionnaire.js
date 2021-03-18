@@ -213,12 +213,15 @@ const Questionnaire = props => {
     if(localStorage.getItem('s1Trial')) setDidSelect(true)
   })
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title="Pain & treatments"/>
+      <Subheader title={lang === "English" ? "Pain & treatments" : "Douleur et traitements"}/>
       <div className="body-container">
 
         {/* <div className="btn-container">
