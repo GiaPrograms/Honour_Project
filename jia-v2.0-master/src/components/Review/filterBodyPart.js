@@ -11,12 +11,14 @@ function checkSpecs(checkforpart){
         // case "shoulder":
         // case "elbow":
         case "wrists":
+        case "fingers":
         arrayOfSpecifications.hands = true;
         break;
         case "hips":
         case "knees":
         case "ankles":
         case "lower_back":
+        case "toes":
         arrayOfSpecifications.feet = true;
         break;
         default:
