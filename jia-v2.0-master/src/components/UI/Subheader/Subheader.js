@@ -15,14 +15,17 @@ const Subheader = ({title, history}) => {
     getUserType()
   })
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <div className='sub-header'>
       <div className="subheader-content">
         <h3>{title}</h3>
         <div className="subheader-right">
-          {type === 'admin' && <NavLink to='/adminPanel/users'><h5>Admin Panel</h5></NavLink>}
+          {type === 'admin' && <NavLink to='/adminPanel/users'><h5>{lang === "English" ? "Admin Panel" : "panneau d'administration"}</h5></NavLink>}
           {<NavLink to='/userPanel/average'><h5>Dashboard</h5></NavLink>}
-          <h5 onClick={handleLogout}>Logout</h5>
+          <h5 onClick={handleLogout}> {lang === "English" ? "Logout" : "Se déconnecter"} </h5>
         </div>
       </div>
     </div>

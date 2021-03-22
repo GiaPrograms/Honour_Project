@@ -48,6 +48,9 @@ const Summary = props => {
     window.scrollTo(0, 0)
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <React.Fragment>
       <div className="summary-container">
@@ -55,7 +58,7 @@ const Summary = props => {
           <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
         </div>
         <div className="wrapper">
-          <Subheader title="Summary"/>
+          <Subheader title={lang === "English" ? "Summary" : "Résumé"}/>
           <div className="body-container">
             <div className="notice summary-notice">
               <div>

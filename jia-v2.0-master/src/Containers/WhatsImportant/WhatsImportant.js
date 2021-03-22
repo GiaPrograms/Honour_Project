@@ -265,14 +265,17 @@ const WhatsImportant = props => {
     if(!isLoading) getUserPrefs()
   }, [isLoading])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <div className="wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title="What's important to you"/>
+      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"}/>
         <div className="body-container">
-        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+          <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
           <div className="slider-component-div box-container">
             {sliders.length && sliders.map((slider, index) => (
               <div key={slider.id}>
