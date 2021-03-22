@@ -27,6 +27,11 @@ import SuggestionsList from './Containers/Admin/Suggestions/SuggestionsList';
 import Categories from './Containers/Admin/Categories/Categories';
 import NotFoundPage from './components/PageNotFound/PageNotFound';
 
+import PainAvg from './Containers/UserDash/PainAvg/PainAvg';
+import Plots from './Containers/UserDash/Plots/Plots';
+import PastSum from './Containers/UserDash/PastSum/PastSum';
+import TreatmentAvg from './Containers/UserDash/TreatmentAvg/TreatmentAvg';
+
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
   return null;
@@ -62,7 +67,15 @@ const App = () => {
           <AdminRoute exact path="/adminPanel/factors" component={FactorsList}/>
           <AdminRoute exact path="/adminPanel/suggestions" component={SuggestionsList}/>
           <AdminRoute exact path="/adminPanel/categories" component={Categories}/>
+
+          <Redirect exact from='/userPanel' to='/userPanel/average'/>
+          <PrivateRoute exact path="/userPanel/average" component={PainAvg}/>
+          <PrivateRoute exact path="/userPanel/manage" component={Plots}/>
+          <PrivateRoute exact path="/userPanel/treatments" component={TreatmentAvg}/>
+          <PrivateRoute exact path="/userPanel/summary" component={PastSum}/>
+
           <Route path="" component={NotFoundPage} />
+
           {/* <Redirect to="" /> */}
         </Switch>
       </div>
