@@ -21,6 +21,7 @@ const Subheader = ({title, history}) => {
         <h3>{title}</h3>
         <div className="subheader-right">
           {type === 'admin' && <NavLink to='/adminPanel/users'><h5>Admin Panel</h5></NavLink>}
+          {<NavLink to='/userPanel/average'><h5>Dashboard</h5></NavLink>}
           <h5 onClick={handleLogout}>Logout</h5>
         </div>
       </div>
