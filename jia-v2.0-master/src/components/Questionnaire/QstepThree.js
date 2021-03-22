@@ -92,8 +92,9 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
           <Collapse isOpen={collapse}>
             <div className="padding-class">
               <p className="StepTwo-desc">
-                These are medications you use to control your arthritis, but they might also
-                help manage your pain. Select all that apply.
+                {lang === "English" ? 
+                "These are medications you use to control your arthritis, but they might also help manage your pain. Select all that apply." : 
+                "Ce sont des médicaments que vous utilisez pour contrôler votre arthrite, mais ils peuvent également vous aider à gérer votre douleur. Sélectionnez tout ce qui s'y rapporte."}
               </p>
 
               {classificationsList}
@@ -102,8 +103,8 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
                 <TextField
                     onChange={handleTextChange}
                     className="text-field"
-                    label="Others"
-                    placeholder="Other prescribed medications you are using..."
+                    label={lang === "English" ? "Others" : "Autres"}
+                    placeholder={lang === "English" ? "Other prescribed medications you are using..." : "D'autres médicaments prescrits que vous utilisez ..."}
                     variant="outlined"
                     fullWidth
                     multiline

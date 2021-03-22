@@ -21,8 +21,6 @@ import Footer from "../../components/Footer";
 
 import DialogBox from "../../components/UI/DialogBox";
 import SaveButton from "../../components/UI/SaveButton";
-import TranslateButtonEN from "../../components/UI/TranslateButtonEN";
-import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
 import {handleRecommendations} from "../../components/GenerateRecommendations"
 import NavigationButton from "../../components/UI/Buttons/NavigationButton";
 import NavigationDialog from "../../components/UI/NavigationDialog"
@@ -224,11 +222,6 @@ const Questionnaire = props => {
       <Subheader title={lang === "English" ? "Pain & treatments" : "Douleur et traitements"}/>
       <div className="body-container">
 
-        {/* <div className="btn-container">
-          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
-          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
-          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
-        </div> */}
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
 
         <QStepOne 
@@ -273,20 +266,16 @@ const Questionnaire = props => {
           setSaved = {setSaved}
           setSaveStatus={setSaveStatus}
         />
-        {/* <div className="btn-container">
-          <div className="btn-container-elem"> <TranslateButtonEN/> </div>
-          <div className="btn-container-elem"> <TranslateButtonFR/> </div>
-          <div className="btn-container-elem"> <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/> </div>
-        </div> */}
 
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
 
       </div>
       {/* Component for navigation button and title above the button */}
       <NavigationButton 
-        title={`Now that you have considered your pain and treatments,\n let\`s go to the next step to clarify what\`s
-        important to you!`}
-        btnText="Continue to Step 2"
+        title={lang === "English" ? 
+        "Now that you have considered your pain and treatments,\n let\`s go to the next step to clarify what\`simportant to you" : 
+        "Maintenant que vous avez considéré votre douleur et vos traitements, \n passons à l'étape suivante pour clarifier ce qui est important pour vous"}
+        btnText={lang === "English" ? "Continue to Step 2" : "Passez à l'étape 2"}
         handleNavigation={handleButtonNav}
       />
       <Footer/>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import "./Header.css"
 import TranslateButton from "../../components/UI/TranslateButton";
-import TranslateButtonFR from "../../components/UI/TranslateButtonFR";
 
 //Get value of language from local storage
 let lang = localStorage.getItem("language")

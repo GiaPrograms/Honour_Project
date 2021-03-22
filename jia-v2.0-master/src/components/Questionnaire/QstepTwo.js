@@ -32,7 +32,9 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
 
       <Collapse isOpen={collapse}>
         <div className="padding-class">
-          <p>Select all the parts of your body where you have had pain in the past 7 days</p>
+          <p>{lang === "English" ? 
+            "Select all the parts of your body where you have had pain in the past 7 days" : 
+            "Sélectionnez toutes les parties de votre corps où vous avez eu des douleurs au cours des 7 derniers jours?"}</p>
           <HumansvgTest setPainAreas={setPainAreas} setSaved={setSaved} setSaveStatus={setSaveStatus}/>
         </div>
       </Collapse>
