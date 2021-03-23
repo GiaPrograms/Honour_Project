@@ -87,51 +87,41 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
     }
   },[])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return(
     <React.Fragment>
       <div className="box-container-numbered collapsable">
         <div id="fifth" onClick={handleCollapse}>
-          <h4 className="numbered-subheading">
-            {lang === "English" ? 
-            "5. How often do you use your treatments?" : 
-            "5. À quelle fréquence utilisez-vous vos traitements?"}
+          <h4 className="numbered-subheading">5. How often do you use your treatments?
             <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
           </h4>
         </div>
         <Collapse isOpen={collapse}>
           <div className="padding-class">
           <div className="Step-group-container">
-            <h4 className="Step-subHeading">
-              {lang === "English" ? 
-              "Prescribed arthritis medication" : 
-              "Médicaments contre l'arthrite prescrits"}
-            </h4>
+            <h4 className="Step-subHeading">Prescribed arthritis medications</h4>
             <div className="StepFour-div-group">
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Never" : "Jamais"}</label>
+                <label>Never</label>
                 <div value="Never" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Sometimes" : "quelquefois"}</label>
+                <label>Sometimes</label>
                 <div value="Sometimes" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Half the time" : "La moitié du temps"}</label>
+                <label>Half the time</label>
                 <div value="Half the time" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Most times" : "La plupart du temps"}</label>
+                <label>Most times</label>
                 <div value="Most times" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Always" : "Toujours"}</label>
+                <label>Always</label>
                 <div value="Always" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Not applicable" : "N'est pas applicable"}</label>
+                <label>Not applicable</label>
                 <div value="Not applicable" onClick={checked}></div>
               </div>
             </div>
@@ -139,10 +129,9 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
             <React.Fragment>
               <div className="Notice text-center">
                 <img src={require(`../../img/warning.png`)} alt="warning icon"/>
-                <h5>
-                  {lang === "English" ? 
-                  "If you aren't using your treatments as prescribed by your doctor, you may have more pain." : 
-                  "5. À quelle fréquence utilisez-vous vos traitements?"}
+                <h5>If you aren't using your treatments as prescribed by your doctor, you may
+                  have more
+                  pain.
                 </h5>
                 <p>Make sure to discuss any changes or concerns with your doctor to decide what is best.</p>
                 <div value="GotIt" id="GotIt-div">

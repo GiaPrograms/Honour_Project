@@ -72,10 +72,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
     }
   },[])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
-  // Filter the list of classifications to ones belonging to the presrcibed section
+   // Filter the list of classifications to ones belonging to the presrcibed section
   // Create a container for the classification
   const classificationsList = classifications.length && classifications.filter(classification => {
     if(classification.section === "other") return true
@@ -96,7 +93,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
     <TreatmentsClassification 
       key = {classification.id} 
       id = {classification.id} 
-      classification ={lang === "English" ? classification.name : classification.fr_name}
+      classification ={classification.name}
       selectedTreatments = {selectedTreatments}
       setSelectedTreatments = {setSelectedTreatments}
       setSaved={setSaved}
@@ -108,10 +105,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
         <React.Fragment>
           <div className="pain-div box-container-numbered collapsable">
           <div onClick={handleCollapse}>
-             <h4 className="numbered-subheading">
-             {lang === "English" ? 
-              "4. What other treatments are you using for your arthritis pain?" : 
-              "4. Quels autres traitements utilisez-vous pour vos douleurs arthritiques?"}
+             <h4 className="numbered-subheading">4. What other treatments are you using for your arthritis pain?
              <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
              </h4>
            </div>
@@ -119,23 +113,22 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
             <Collapse isOpen={collapse}>
               <div className="padding-class">
                 <p className="StepThree-desc">
-                  {lang === "English" ? 
-                  "These are the medications and other treatments you use when you have pain. Select all the treatments you are using." : 
-                  "Ce sont les médicaments et autres traitements que vous utilisez lorsque vous ressentez de la douleur. Sélectionnez tous les traitements que vous utilisez."}
+                  These are the medications and other treatments you use when you have pain.
+                  Select all the treatments you are using.
                 </p>
                
                 {classificationsList}
                
                 <div className="StepThree">
-                  <h3 className="StepThree-h3">{lang === "English" ? "B. Other treatments" : "B. Autres traitements"}</h3>
+                  <h3 className="StepThree-h3">B. Other treatments</h3>
                   {treatmentClassList}
                 </div> 
                 <ThemeProvider theme={theme}>
                   <TextField
                     onChange={handleTextChange}
                     className="text-field"
-                    label={lang === "English" ? "Others" : "Autres"}
-                    placeholder={lang === "English" ? "Other medications and treatments you are using..." : "D'autres médicaments et traitements que vous utilisez ..."}
+                    label="Others"
+                    placeholder="Other medications and treatments you are using..."
                     variant="outlined"
                     fullWidth
                     multiline

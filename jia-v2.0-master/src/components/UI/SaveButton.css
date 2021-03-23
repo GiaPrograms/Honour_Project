@@ -13,7 +13,6 @@ Button.save-btn{
   transition: all .3s ease-out;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.225);
   margin-left: auto;
-  /* left:26rem; */
 }
 
 Button.save-btn:hover{
