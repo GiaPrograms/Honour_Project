@@ -211,6 +211,10 @@ const Questionnaire = props => {
     if(localStorage.getItem('s1Trial')) setDidSelect(true)
   })
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+  console.log(localStorage)
+
   return (
     <div className="wrapper">
       <div className='page-header'>
