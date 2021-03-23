@@ -170,15 +170,12 @@ const Plan = props => {
     getUserFavourite()
   },[])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return (
     <div className="wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title={lang === "English" ? "Make your plan" : "Faites votre plan"}/>
+      <Subheader title="Make your plan"/>
       <div className="body-container">
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
         <PlanList 

@@ -39,15 +39,12 @@ const ReviewAndSelect = props => {
     getUserFavourite()
   },[])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return (
     <div className="reviewDiv wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title={lang === "English" ? "Review & select treatment options" : "Examiner et sélectionner les options de traitement"}/>
+      <Subheader title="Review & select treatment options"/>
       <div className="body-container">
         <TabNavReview current={props}/>
         <div className="review-box-container">

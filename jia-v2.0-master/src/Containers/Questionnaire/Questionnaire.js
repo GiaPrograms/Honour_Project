@@ -211,19 +211,14 @@ const Questionnaire = props => {
     if(localStorage.getItem('s1Trial')) setDidSelect(true)
   })
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return (
     <div className="wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title={lang === "English" ? "Pain & treatments" : "Douleur et traitements"}/>
+      <Subheader title="Pain & treatments"/>
       <div className="body-container">
-
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
-
         <QStepOne 
           setPainLevel = {setPainLevel} 
           painLevel = {painLevel}
@@ -266,16 +261,13 @@ const Questionnaire = props => {
           setSaved = {setSaved}
           setSaveStatus={setSaveStatus}
         />
-
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
-
       </div>
       {/* Component for navigation button and title above the button */}
       <NavigationButton 
-        title={lang === "English" ? 
-        "Now that you have considered your pain and treatments,\n let\`s go to the next step to clarify what\`simportant to you" : 
-        "Maintenant que vous avez considéré votre douleur et vos traitements, \n passons à l'étape suivante pour clarifier ce qui est important pour vous"}
-        btnText={lang === "English" ? "Continue to Step 2" : "Passez à l'étape 2"}
+        title={`Now that you have considered your pain and treatments,\n let\`s go to the next step to clarify what\`s
+        important to you!`}
+        btnText="Continue to Step 2"
         handleNavigation={handleButtonNav}
       />
       <Footer/>
@@ -283,8 +275,6 @@ const Questionnaire = props => {
       <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
       <FailedSaveDialog open={open} setOpen={setOpen}/>
     </div>
-
-
   )
 }
 

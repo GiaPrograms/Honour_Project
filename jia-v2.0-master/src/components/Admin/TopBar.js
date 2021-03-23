@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink, withRouter} from 'react-router-dom';
-import { logout } from '../AuthenticationService';
+import { logout, type } from '../AuthenticationService';
 
 import "./TopBar.css"
 
