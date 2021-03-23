@@ -66,11 +66,9 @@ export default class Header extends Component{
                   <h2>5</h2>
                 </div>
               </NavLink>
-
               <div>
                 <div className="tab-nav-header-translation"> <TranslateButton/> </div>
               </div>
-              
             </div>
           </ul>
         </div>
