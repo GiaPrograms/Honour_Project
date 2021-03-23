@@ -28,13 +28,6 @@ let PainArea = db.define('pain_areas', {
   wrists: {
     type: Sequelize.BOOLEAN
   },
-  fingers: {
-    type: Sequelize.BOOLEAN
-  },
-  toes:{
-    type: Sequelize.BOOLEAN
-  },
-
   user_id: {
     type: Sequelize.INTEGER,
     references: {
