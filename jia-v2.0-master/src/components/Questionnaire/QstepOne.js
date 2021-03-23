@@ -134,16 +134,12 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     }
   }, [])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
 
   return (
     <div className="box-container-numbered collapsable">
       <div onClick={handleCollapse}>
-        <h4 className="numbered-subheading">
-          {lang === "English" ? 
-            "1. In the past 7 days, how much pain on average have you had because of your arthritis?" : 
-            "1. Au cours des 7 derniers jours, combien de douleur avez-vous eu en moyenne à cause de votre arthrite?"}
+        <h4 className="numbered-subheading">1. In the past 7 days, how much pain on average have you had because of
+            your arthritis?
           <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
         </h4>
       </div>

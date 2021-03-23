@@ -57,9 +57,6 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
     }
   },[])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   // Filter the list of classifications to ones belonging to the presrcibed section
   // Create a container for the classification
   const classificationsList = classifications.length && classifications.filter(classification => {
@@ -82,9 +79,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
         <div  className="box-container-numbered collapsable">
           <div onClick={handleCollapse}>
             <h4 className="numbered-subheading">
-              {lang === "English" ? 
-              "3. What prescribed medications are you using?" : 
-              "3. Quels médicaments prescrits utilisez-vous?"}
+              3. What prescribed medications are you using?
               <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
             </h4>
           </div>
@@ -92,9 +87,8 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
           <Collapse isOpen={collapse}>
             <div className="padding-class">
               <p className="StepTwo-desc">
-                {lang === "English" ? 
-                "These are medications you use to control your arthritis, but they might also help manage your pain. Select all that apply." : 
-                "Ce sont des médicaments que vous utilisez pour contrôler votre arthrite, mais ils peuvent également vous aider à gérer votre douleur. Sélectionnez tout ce qui s'y rapporte."}
+                These are medications you use to control your arthritis, but they might also
+                help manage your pain. Select all that apply.
               </p>
 
               {classificationsList}
@@ -103,8 +97,8 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
                 <TextField
                     onChange={handleTextChange}
                     className="text-field"
-                    label={lang === "English" ? "Others" : "Autres"}
-                    placeholder={lang === "English" ? "Other prescribed medications you are using..." : "D'autres médicaments prescrits que vous utilisez ..."}
+                    label="Others"
+                    placeholder="Other prescribed medications you are using..."
                     variant="outlined"
                     fullWidth
                     multiline
