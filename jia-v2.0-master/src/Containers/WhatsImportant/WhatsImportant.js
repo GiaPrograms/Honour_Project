@@ -32,7 +32,6 @@ const WhatsImportant = props => {
   const [didSelect, setDidSelect] = useState(false)
   const [saveStatus, setSaveStatus] = useState('default')
   const [open, setOpen] = useState(false)
-  const [other, setOther] = useState()
 
   const [isLoading, setIsLoading] = useState()
 
@@ -161,98 +160,6 @@ const WhatsImportant = props => {
       : props.history.push(navTo)
   }
 
-    //=============checked to change color
-
-
-    const checkedZero = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#008000";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedOne = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#8FE381";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedTwo = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#B0F5AB";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedThree = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#ffff7f";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedFour = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#FC6C85";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-    const checkedFive = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#FF0000";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-
   useEffect(() => {
     window.scrollTo(0, 0)
     if(localStorage.getItem('s2Trial')) setDidSelect(true)
@@ -265,65 +172,26 @@ const WhatsImportant = props => {
     if(!isLoading) getUserPrefs()
   }, [isLoading])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return(
     <div className="wrapper">
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
       </div>
-      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"}/>
+      <Subheader title="What's important to you"/>
         <div className="body-container">
-          <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
           <div className="slider-component-div box-container">
             {sliders.length && sliders.map((slider, index) => (
               <div key={slider.id}>
                 <h4>{index+1}. {slider.description}</h4>
-                {/* <SliderControl 
+                <SliderControl 
                   setValue={setValue} 
                   minLabel={slider.left_label}
                   maxLabel={slider.right_label}
                   sliderId={slider.id} 
                   reversed={slider.reversed}
                   value={slider.value}
-                /> */}
-                
-                <h4 class="text-left-right">
-                <span class="left-text">Not Well at All</span>
-                <span class="byline">Very Well</span>
-
-                <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="Well0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="Well1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="Well2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="Well3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="Well4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="Well5" onClick={checkedFive}></div>
-              </div>
-
-            </div>
-
-            </h4>
+                />
               </div>
             ))
 

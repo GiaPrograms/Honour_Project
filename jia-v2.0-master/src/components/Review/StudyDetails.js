@@ -78,10 +78,14 @@ const StudyDetails = ({study}) => {
               ))}
             </div>
           </div>
+          {results.statistics &&
+          <div className="starMessage-Container">{results.statistics}</div>
+          }
+        </div>
 
-          <div className="icon-containerstudy">
+        <div className="icon-container">
           
-          <LightTooltip title="Click for More Info on the Study" placement="right" arrow>
+          <LightTooltip title="Click for More Info" placement="right" arrow>
             <InfoIcon className="material-icons info-icon" onClick={toggle}>
               info
             </InfoIcon>
@@ -106,13 +110,6 @@ const StudyDetails = ({study}) => {
             </ModalFooter>
           </Modal>
         </div>
-
-          {results.statistics &&
-          <div className="starMessage-Container">{results.statistics}</div>
-          }
-        </div>
-
-        
         
       </React.Fragment>
       }

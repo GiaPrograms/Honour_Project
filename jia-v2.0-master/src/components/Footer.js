@@ -20,23 +20,20 @@ export default class Footer extends Component {
   render() {
     // TODO: Change url
     const shareUrl = "https://socialinnovationlab.github.io/jia/";
-
-    //Get value of language from local storage
-    let lang = localStorage.getItem("language")
     return (
         <div className="footer-container">
           <div className="footer-content">
             <div className="copyright-container">
               <p>© 2019 JIA OptionMap</p>
               <p>
-                {lang === "English" ? "Designed and developed by SLiDE" : "Conçu et développé par SLiDE"}
+                Designed and developed by SLiDE
                 <i> visit: </i>
                 <a href="https://slidelab7.ca" className="slide-link" target="_blank" rel="noopener noreferrer">slidelab.ca</a>
               </p>
             </div>
             <div className="social-media">
               <div className="social-media-text">
-                <p>{lang === "English" ? "Share on:" : "Partager sur:"}</p>
+                <p>Share on:</p>
               </div>
               <div className="social-media-icons-container">
                 <FacebookShareButton className="social-icon" size={46} round={true} url={shareUrl}>
@@ -49,9 +46,9 @@ export default class Footer extends Component {
             </div>
 
             <div className="disclaimer-container">
-              <p onClick={this.toggle}>{lang === "English" ? "Disclaimer" : "Avertissement:"}</p>
+              <p onClick={this.toggle}>Disclaimer</p>
               <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>{lang === "English" ? "Disclaimer" : "Avertissement:"}</ModalHeader>
+                <ModalHeader toggle={this.toggle}>Disclaimer</ModalHeader>
                 <ModalBody>
                 This app was built by a team of researchers, clinicians and patient partners from various universities, health centres, research groups and patient associations, with funding from The Arthritis Society, the Chronic Pain Network, the Ontario Ministry of Research, Innovation and Science, and the Children's Hospital of Eastern Ontario Research Institute. The information contained in this app, whether in text, visuals or links, does not constitute clinical recommendations, and is for informational purposes only. You should contact your health care providers for medical advice and more in depth information on treatment options. This app was last updated on May 18, 2015 and there may be new studies that may affect the information provided. The findings of new studies will be incorporated in future versions of the app. For more information on how this app was developed and how information is sourced, please consult the "Methods" document linked in the app. Use of any treatment options suggested in this app is at the reader’s discretion, and at their own risk. 
                 </ModalBody>

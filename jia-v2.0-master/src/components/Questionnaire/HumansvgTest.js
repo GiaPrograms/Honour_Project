@@ -14,9 +14,6 @@ export default class HumansvgTest extends Component {
       knees: false,
       hips: false,
       lower_back: false,
-      neck: false,
-      fingers: false,
-      toes:false,
     }
   }
 
@@ -49,9 +46,6 @@ export default class HumansvgTest extends Component {
       knees: this.state.knees,
       hips: this.state.hips,
       lower_back: this.state.lower_back,
-      neck: this.state.neck,
-      fingers: this.state.fingers,
-      toes:this.state.toes,
     })
   }
 
@@ -86,10 +80,6 @@ export default class HumansvgTest extends Component {
         knees: this.state.knees,
         hips: this.state.hips,
         lower_back: this.state.lower_back,
-        neck:this.state.neck,
-        fingers:this.state.fingers,
-        toes:this.state.toes,
-
       })
     })
     this.props.setSaved(false)
@@ -108,20 +98,6 @@ export default class HumansvgTest extends Component {
                   }
                 </style>
                 <g id="prefix__linesFront">
-
-                <path
-                      id="prefix__lines8"
-                      className="prefix__st4"
-                      d="M480.2 1180.8l-59.9 10.8H189.3"
-                  />
-
-
-                <path
-                      id="prefix__lines7"
-                      className="prefix__st4"
-                      d="M770 730.6l55.3-46.1h213.4"
-                  />
-
                   <path
                       id="prefix__lines6"
                       className="prefix__st4"
@@ -198,22 +174,6 @@ export default class HumansvgTest extends Component {
                   >
                     {'jaw'}
                   </text>
-
-                  <text
-                      transform="translate(900 670)"
-                      className="prefix__st1 prefix__st2 prefix__st3"
-                  >
-                    {'fingers'}
-                  </text>
-
-                  <text
-                      transform="translate(200 1180)"
-                      className="prefix__st1 prefix__st2 prefix__st3"
-                  >
-                    {'toes'}
-                  </text>
-
-
                 </g>
 
                 <g id="prefix__shoulders">
@@ -270,31 +230,6 @@ export default class HumansvgTest extends Component {
                           r={63.4}
                   />
                 </g>
-
-
-                <g id="prefix__fingers">
-                  <circle onClick={this.partClicked} pointerEvents="visible"
-                          id="fingers"
-                          className="bParts fingers"
-                          cx={750}
-                          cy={750}
-                          r={30}
-                  />
-                </g>
-
-
-                <g id="prefix__toes">
-                  <circle onClick={this.partClicked} pointerEvents="visible"
-                          id="fingers"
-                          className="bParts toes"
-                          cx={500}
-                          cy={1170}
-                          r={30}
-                  />
-                </g>
-
-
-
               </svg>
             </Col>
             <Col className="text-center">
@@ -316,9 +251,6 @@ export default class HumansvgTest extends Component {
                     className="prefix__st0"
                     d="M586.8 178.5s-8.4 12.6-8.2 26.5-8.5 25.3-10.5 27.3c-1.9 2-8.9 6-26.2 5.7"
                 />
-
-                  
-
                 <text
                     transform="translate(877.942 427.289)"
                     className="prefix__st1 prefix__st2 prefix__st3"
@@ -329,29 +261,9 @@ export default class HumansvgTest extends Component {
                     transform="translate(725.442 794.029)"
                     className="prefix__st1 prefix__st2 prefix__st3"
                 >
-                  {'lower Back'}
+                  {'Lower Back'}
                 </text>
-
-
-
-                <text
-                    transform="translate(770 190)"
-                    className="prefix__st1 prefix__st2 prefix__st3"
-                >
-                  {'neck'}
-                </text>
-
-
-
                 <g id="prefix__lines">
-
-
-                  <path
-                      id="prefix__lines03"
-                      className="prefix__st4"
-                      d="M600 250.2l44.3-46.3h213.4"
-                  />
-
                   <path
                       id="prefix__lines02"
                       className="prefix__st4"
@@ -362,9 +274,6 @@ export default class HumansvgTest extends Component {
                       className="prefix__st4"
                       d="M752.5 482.2l44.3-46.3h213.4"
                   />
-
-                  
-
                 </g>
                 <g id="prefix__elbows">
                   <circle onClick={this.partClicked} pointerEvents="visible"
@@ -386,20 +295,6 @@ export default class HumansvgTest extends Component {
                            ry={63.4}
                   />
                 </g>
-
-                <g id="prefix__neck">
-                  <ellipse onClick={this.partClicked} pointerEvents="visible"
-                           id="neck"
-                           className="bParts neck"
-                           cx={540}
-                           cy={260}
-                           rx={63.4}
-                           ry={63.4}
-                  />
-                </g>
-
-
-
               </svg>
             </Col>
           </Row>

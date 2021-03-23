@@ -68,7 +68,7 @@
               "pubMed_link": "https://www.ncbi.nlm.nih.gov/pubmed/15868634"
             }
           ],
-          "how_to_use_treatment": "You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.",
+          "how_to_use_treatment": "You may have to wear orthotics all day, every day in your shoes.It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.",
           "How_soon": "It may help right away or it may take up a few months to feel better. Everybody is different.",
           "Cost": "Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.",
           "where": "Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.",
@@ -123,7 +123,7 @@
           "How_soon": "It may help right away or it may take up to a few months to feel better. Everybody is different.",
           "Cost": "Wrist splints may cost money. Your health insurance may cover some of these costs.",
           "where": "Occupational therapists usually provide this treatment. You can talk about wrist splints with your health care team to help you access them. You can also buy wrist splints that are not customized in stores.",
-          "what_else_to_consider": "Some people may not like to wear splints at night. You can talk about it with your health care team and try it out to see if you like it.",
+          "what_else_to_consider": "Not everybody may like to wear splints at night. You can talk about it with your health care team and try it out to see if you like it.",
           "learn_more": [
             "http://education.arthritis.ca/en_us/learntousetoolsanddevices/topic6_9.aspx",
             "https://www.aboutkidshealth.ca/Article?contentid=1079&language=English",
@@ -194,11 +194,11 @@
               "pubMed_link": "https://www.ncbi.nlm.nih.gov/pubmed/14717039"
             }
           ],
-          "how_to_use_treatment": "Mouth guards are often worn at night. ",
+          "how_to_use_treatment": "You may need to wear a mouth guard during the night on top of your teeth.",
           "How_soon": "It may take up to a month to adjust to sleeping with a mouth guard. It may help right away or it may take up to a few months to feel better. Everybody is different.",
           "Cost": "Mouth guards usually cost money. Your health insurance may cover some of these costs.",
           "where": "Dentists usually provide this treatment. You can talk about it with your health care team to help you access it.",
-          "what_else_to_consider": "Some people may not like to wear mouth guards at night. You can try it out to see if you can tolerate it.",
+          "what_else_to_consider": "Not everybody may like to wear mouth guards at night. You can try it out to see if you can tolerate it.",
           "learn_more": [
             "https://www.aboutkidshealth.ca/Article?contentid=1085&language=English",
             "https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2382&language=English"
@@ -576,9 +576,9 @@
           ],
           "how_to_use_treatment": "Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.",
           "How_soon": "It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.",
-          "Cost": "Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.",
-          "where": "Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.",
-          "what_else_to_consider": "If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.",
+          "Cost": "Massage can cost money if you see a professional. It will depend on your health insurance. In the study that we found, massage was free since parents gave a massage to their child. It is also free if you do massages yourself.",
+          "where": "Massage therapists usually provide this treatment. You can talk about it massage with your health care team to help you access it. Also, training may be available  to do your own massage at home.",
+          "what_else_to_consider": "It is better to consult with a registered massage therapist who has experience with treating JIA. Also, you should stop the massage if it hurts. You may also not be fully comfortable receiving a massage from a stranger or from your parents.",
           "learn_more": [
             "https://www.aboutkidshealth.ca/Article?contentid=1076&language=English",
             "https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2340&language=English ",
@@ -618,7 +618,7 @@
           "how_to_use_treatment": "Weekly treatment sessions may be recommended and sessions may take about 45 minutes, with the first appointment lasting longer. ",
           "How_soon": "It depends on which intervention your occupational therapist recommends. It may help right away or it may take up to a few months to feel better. Everybody is different.",
           "Cost": "Occupational therapy interventions may take time to do and cost money depending on your health insurance. The initial visit may be more expensive than follow-up sessions.",
-          "where": "Occupational therapists provide this treatment. You can talk about it with your health care team to help you access it, in the US a referral is often indicated from a physician.",
+          "where": "Occupational therapists provide this treatment. You can talk about it with your health care team to help you access it.",
           "what_else_to_consider": "It is better to consult with a registered occupational therapist who has experience with treating JIA. ",
           "learn_more": [
             "https://www.jia.org.uk/the-occupational-therapist-",
@@ -838,7 +838,7 @@
           "supervision": "hcp",
           "evidence_level": 7,
           "order_number": 31,
-          "description": "Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.",
+          "description": "A professional moves your muscles, joints and spine parts of your body to enhance their optimal function.",
           "traffic_light_level": 2,
           "traffic_light_description": "Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.",
           "experts_suggest": "Osteopathy is not mentioned in guidelines for JIA.",

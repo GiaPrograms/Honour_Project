@@ -26,15 +26,12 @@ const SaveButton = ({saveHandler, saveStatus}) => {
     setStatus(saveStatus)
   },[saveStatus])
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   return (
     <div className={classes.root}>
       <div className="save-btn-container">
-        {(status === 'default' || status === 'failed') && <Button className="save-btn" onClick={handleClick}>{lang === "English" ? "Save" : "Sauvegarder"}</Button>}
-        {status === 'saving' && <Button disabled className="save-btn disabled">{lang === "English" ? "Saving" : "Économie"}</Button>}
-        {status === 'success' && <Button disabled className="save-btn success">{lang === "English" ? "Saved" : "Enregistrée"}</Button>}
+        {(status === 'default' || status === 'failed') && <Button className="save-btn" onClick={handleClick}>Save</Button>}
+        {status === 'saving' && <Button disabled className="save-btn disabled">Saving</Button>}
+        {status === 'success' && <Button disabled className="save-btn success">Saved</Button>}
       </div>
     </div>
   );

@@ -202,7 +202,7 @@ const StepOne = () => {
         <Spinner />
       ) : (
         <div className="padding-class">
-          <h5> 
+          <h5>
             1. In the past 7 days, how much pain on average have you had because
             of your arthritis?
           </h5>
