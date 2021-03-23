@@ -11,7 +11,7 @@ const Study = ({study, studyNo}) => {
       ? <div id={`study_${studyNo}`} className="box-container-numbered">
           <div id={`study_${studyNo}`} onClick={() => setCollapse(!collapse)}>
             <h4 className="numbered-subheading">Study {studyNo}: {study.name}
-              <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
+              <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
             </h4>
           </div>
           <Collapse isOpen={collapse} style={{marginBottom: '2rem'}}>

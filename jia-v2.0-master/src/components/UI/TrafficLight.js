@@ -11,7 +11,7 @@ const TrafficLight = ({level}) => {
     switch (level) {
       case 1:
         setGreen(true)
-        description.style.backgroundColor =  "#81be33";
+        description.style.backgroundColor =  "#7FB041";
         break;
       case 2:
         setYellow(true)
@@ -19,7 +19,7 @@ const TrafficLight = ({level}) => {
         break;
       case 3:
         setRed(true)
-        description.style.backgroundColor =  "#ff615d";
+        description.style.backgroundColor =  "#E93B25";
         break;
       default:
         break;
