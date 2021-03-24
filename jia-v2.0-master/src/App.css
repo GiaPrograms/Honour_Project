@@ -14,11 +14,11 @@ li{
   --light: #F8F9FA;
   --red-colour: #EA3916;
 
-  --font-size-xxlg: 1.802rem;
-  --font-size-xlg: 1.602rem;
-  --font-size-lg: 1.424rem;
-  --font-size-md: 1.266rem;
-  --font-size-sm: 1.125rem;
+  --font-size-xxlg: 2rem;
+  --font-size-xlg: 1.802rem;
+  --font-size-lg: 1.602rem;
+  --font-size-md: 1.424rem;
+  --font-size-sm: 1.266rem;
 
   --default-border-radius: 0.9375rem;
 }
@@ -38,7 +38,7 @@ h5{
   font-size: var(--font-size-sm) !important;
 }
 p{
-  font-size: 16px;
+  font-size: 18px;
 }
 .wrapper{
   margin-top: 4rem;
@@ -113,7 +113,7 @@ padding: 2rem;
 .box-container-numbered{
   margin: 2rem auto;
   background-color: #FFF;
-  box-shadow: 5px 10px 10px 10px rgba(0, 0, 0, .3);
+  box-shadow: 5px 10px 10px 10px rgb(0,0,0,.3);
   border-radius: 16px;
 }
 .padding-class{
@@ -150,6 +150,16 @@ padding: 2rem;
   max-width: 1140px;
   margin: 0 auto;
 }
+
+.btn-container {
+  text-align: center;
+}
+
+.btn-container-elem{
+  position: relative;
+  display: inline-block;
+}
+
 .tab-nav-header{
   margin: 0;
 }
@@ -172,6 +182,7 @@ padding: 2rem;
 }
 .tab-nav-header-navlink>p{
   display: none;
+  font-size: 15px;
 }
 .tab-nav-header-navlink>div{
   font-size: var(--font-size-lg);
@@ -209,7 +220,7 @@ padding: 2rem;
   left: -1.25rem;
   width: 3rem;
   height: 0.5rem;
-  background: var(--secondary-colour)
+  background: var(--secondary-colour);
 }
 .tab-nav-header-item:first-child::before,
 .tab-nav-header-item:nth-child(2)::before{
@@ -232,6 +243,13 @@ padding: 2rem;
   max-width: 1140px;
   margin: 0 auto;
   color: #FFF;
+}
+
+.tab-nav-header-translation{
+  position: relative;
+  top: 15px;
+  left: 26rem;
+  display: inline;
 }
 
 /********************
@@ -496,7 +514,7 @@ padding: 2rem;
 }
 .collapsed-icon{
    float: right;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
 }
 /***********************
     STEP TWO/THREE
@@ -532,7 +550,7 @@ padding: 2rem;
 .left-text {
   left: 0;
   position: absolute;
-  margin-left:135px;
+  margin-left:100px;
   color:#008000;
 }
 .byline {
@@ -848,6 +866,11 @@ padding: 2rem;
   margin-top: 1.5rem
 }
 /*Study section*/
+.icon-containerstudy{
+  position: relative;
+  left:480px;
+  bottom: 1rem;
+}
 .icon-container{
   position: relative;
   bottom: 1rem;

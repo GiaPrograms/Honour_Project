@@ -25,7 +25,7 @@ exports.getRecord = async (req, res, next) => {
       where: {
        user_id: req.user.id,
       },
-      attributes: ['ankles', 'elbows', 'hips', 'jaw','knees', 'lower_back', 'shoulders', 'wrists']
+      attributes: ['ankles', 'elbows', 'hips', 'jaw','knees', 'lower_back', 'shoulders', 'wrists','neck','fingers','toes']
     })
     if (!userPainAreas) throw new ResourceNotFoundError('Resource not found for current user')
     res.send({data: userPainAreas})

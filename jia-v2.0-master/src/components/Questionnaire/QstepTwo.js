@@ -16,17 +16,25 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
     }
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="pain-div box-container-numbered collapsable">
       <div onClick={handleCollapse}>
-        <h4 className="numbered-subheading">2. Where is your pain?
+        <h4 className="numbered-subheading">
+          {lang === "English" ? 
+          "2. Where is your pain?" : 
+          "2. Où est votre douleur?"}
           <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
         </h4>
       </div>
 
       <Collapse isOpen={collapse}>
         <div className="padding-class">
-          <p>Select all the parts of your body where you have had pain in the past 7 days</p>
+          <p>{lang === "English" ? 
+            "Select all the parts of your body where you have had pain in the past 7 days" : 
+            "Sélectionnez toutes les parties de votre corps où vous avez eu des douleurs au cours des 7 derniers jours?"}</p>
           <HumansvgTest setPainAreas={setPainAreas} setSaved={setSaved} setSaveStatus={setSaveStatus}/>
         </div>
       </Collapse>
