@@ -328,12 +328,12 @@ const WhatsImportant = props => {
             ))
 
             }
-            <h4>7. Considering other factors. </h4>
+            <h4>{lang === "English" ? "7. Considering other factors." : "7. Considérant d'autres facteurs."}</h4>
             <ThemeProvider theme={theme}>
             <TextField
                 onChange={handleTextChange}
                 className="text-field"
-                label="Please Explain"
+                label={lang === "English" ? "Please Explain" : "S'il vous plaît, expliquez"}
                 margin="normal"
                 variant="outlined"
                 fullWidth
@@ -351,12 +351,17 @@ const WhatsImportant = props => {
       </div>
       {/* Component for navigation button and title above the button */}
       <NavigationButton 
-        title={`Now that you have considered what is important to you,\n you can review and select treatment options`}
-        btnText="Continue to Step 3"
+        title={lang === "English" ? 
+              "Now that you have considered what is important to you,\n you can review and select treatment option" : 
+              "Maintenant que vous avez réfléchi à ce qui est important pour vous,\n vous pouvez examiner et sélectionner l'option de traitement"}
+        btnText={lang === "English" ? "Continue to Step 3" : "Passez à l'étape 3"}
         handleNavigation={handleButtonNav}
       />
       <Footer/>
-      {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s2Trial'/>}
+      {!didSelect && <DialogBox description={lang === "English" ? 
+        "The selected information will be saved in the trial database. You can modify the information as needed."  : 
+        "Les informations sélectionnées seront enregistrées dans la base de données d'essai. Vous pouvez modifier les informations selon vos besoins."}
+         step='s2Trial'/>}
       <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
       <FailedSaveDialog open={open} setOpen={setOpen}/>
     </div>

@@ -22,6 +22,9 @@ const AllTreatments = ({favs, setFavs, treatments}) => {
     if(treatments && favs) getClassifications()
   },[treatments, favs])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const classificationsList = classifications.length &&
     classifications.map((classification) => (
       <CategoryTreatments
@@ -36,14 +39,21 @@ const AllTreatments = ({favs, setFavs, treatments}) => {
   return (
     <React.Fragment>
       <div className="notice">
-        <h5>Below is a list of the categories of treatments that can be used for pain. If any of the treatments
-          appeal to you, you can save them to your favourites.</h5>
+        <h5>
+          {lang === "English" ? 
+          "Below is a list of the categories of treatments that can be used for pain. If any of the treatments appeal to you, you can save them to your favourites." : 
+          "Vous trouverez ci-dessous une liste des catégories de traitements pouvant être utilisés pour la douleur. Si l'un des traitements vous intéresse, vous pouvez les enregistrer dans vos favoris."}  
+        </h5>
       </div>
       <div className="review-content all-treatments-review">
         {classificationsList}
       </div>
       <div className="notice">
-        <h5>You can click the “My Favourites” tab to review your favourites</h5>
+        <h5>
+        {lang === "English" ? 
+          "You can click the “My Favourites” tab to review your favourites" : 
+          "Vous pouvez cliquer sur l'onglet “Mes favoris” pour revoir vos favoris"}
+        </h5>
       </div>
     </React.Fragment>
   )

@@ -112,9 +112,14 @@ const checkedFive = ev => {
     getMotivationLevel()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="box-container-numbered">
-    <h4 className="numbered-subheading">2. How motivated are you to follow your new plan?</h4>
+    <h4 className="numbered-subheading">{lang === "English" ? 
+      "2. How motivated are you to follow your new plan?" : 
+      "2. Dans quelle mesure êtes-vous motivé à suivre votre nouveau plan?"}</h4>
     {/* <SliderControl
       setValue={setValue} 
       minLabel="Not Motivated at All" 
@@ -125,8 +130,8 @@ const checkedFive = ev => {
 
 
     <h4 class="text-left-right">
-    <span class="left-text">Not Motivated at All</span>
-    <span class="byline">Very Motivated</span>
+    <span class="left-text">{lang === "English" ? "Not Motivated at All" : "Pas du tout motivé"}</span>
+    <span class="byline">{lang === "English" ? "Very Motivated" : "Très motivé"}</span>
 
     <div className="StepFour-div-group other">
     <div className="StepFour-div-other">

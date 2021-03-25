@@ -158,8 +158,8 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           value={painLevel}
         */}
             <h4 class="text-left-right">
-            <span class="left-text">No Pain</span>
-            <span class="byline">Extreme Pain</span>
+            <span class="left-text">{lang === "English" ? "No Pain" : "Pas de douleur"}</span>
+            <span class="byline">{lang === "English" ? "Extreme Pain" : "Douleur extrême"}</span>
             </h4>
             
             <div className="StepFour-div-group other">

@@ -155,10 +155,12 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               reversed={false}
               value={controlArthritis}
             /> */}
-            <h4>... control your arthritis?</h4>
+            <h4>
+              {lang === "English" ? "... control your arthritis?" : "... contrôler votre arthrite?"}
+            </h4>
             <h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
+            <span class="left-text">{lang === "English" ? "Not Well at All" : "Pas bien du tout"}</span>
+            <span class="byline">{lang === "English" ? "Very Well" : "Très bien"}</span>
             </h4>
             
             <div className="StepFour-div-group other">
@@ -191,12 +193,12 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
 
             </div>
 
-            <h4>... manage your pain?</h4>
+            <h4>{lang === "English" ? "... manage your pain?" : "... gérer votre douleur?"}</h4>
 
 
             <h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
+            <span class="left-text">{lang === "English" ? "Not Well at All" : "Pas bien du tout"}</span>
+            <span class="byline">{lang === "English" ? "Very Well" : "Très bien"}</span>
             </h4>
             
             <div className="StepFour-div-group other">

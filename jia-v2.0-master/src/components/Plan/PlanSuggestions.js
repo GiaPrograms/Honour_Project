@@ -57,6 +57,9 @@ const PlanSuggestions = ({selectedSuggestions, setSelectedSuggestions, setSaved,
     getUserSuggestions()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const suggestionItems = suggestions.length > 0 && suggestions.map(suggestion => (
     <div className="plan_steps" key={suggestion.id}>
       <div>
@@ -75,8 +78,8 @@ const PlanSuggestions = ({selectedSuggestions, setSelectedSuggestions, setSaved,
 
   return(
     <div className="box-container-numbered">
-      <h4 className="numbered-subheading">5. Here are suggestions to help you plan your next steps
-        <span>(Check the ones you wish to use)</span>
+      <h4 className="numbered-subheading"> {lang === "English" ? "5. Here are suggestions to help you plan your next steps" : "5. Voici des suggestions pour vous aider à planifier vos prochaines étapes"}
+        <span>{lang === "English" ? "(Check the ones you wish to use)" : "(Cochez ceux que vous souhaitez utiliser)"}</span>
       </h4>
       <div className="padding-class">
         {suggestionItems}

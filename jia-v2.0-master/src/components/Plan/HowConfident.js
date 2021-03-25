@@ -112,9 +112,14 @@ const checkedFive = ev => {
     getConfidenceLevel()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="box-container-numbered">
-      <h4 className="numbered-subheading">3. How confident are you that you can follow your plan?</h4>
+      <h4 className="numbered-subheading">{lang === "English" ? 
+        "3. How confident are you that you can follow your plan?" : 
+        "3. Dans quelle mesure êtes-vous convaincu de pouvoir suivre votre plan?"}</h4>
       {/* <SliderControl 
         setValue={setValue} 
         minLabel="Not confident at all" 
@@ -124,8 +129,8 @@ const checkedFive = ev => {
       /> */}
 
 <h4 class="text-left-right">
-    <span class="left-text">Not Confident at All</span>
-    <span class="byline">Very Confident</span>
+    <span class="left-text">{lang === "English" ? "Not Confident at All" : "Pas du tout confiant"}</span>
+    <span class="byline">{lang === "English" ? "Very Confident" : "Très confiant"}</span>
 
     <div className="StepFour-div-group other">
     <div className="StepFour-div-other">
