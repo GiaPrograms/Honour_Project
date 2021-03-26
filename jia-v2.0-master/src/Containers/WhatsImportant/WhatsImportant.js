@@ -290,35 +290,35 @@ const WhatsImportant = props => {
                 /> */}
                 
                 <h4 class="text-left-right">
-                <span class="left-text">Not Well at All</span>
-                <span class="byline">Very Well</span>
+                <span class="left-text">Not Important at All</span>
+                <span class="byline">Very Important</span>
 
                 <div className="StepFour-div-group other">
             <div className="StepFour-div-other">
                 <label>0</label>
-                <div value="Well0" onClick={checkedZero}></div>
+                <div value="imp0" onClick={checkedZero}></div>
                 
               </div>
               <div className="StepFour-div-other">
                 <label>1</label>
-                <div value="Well1" onClick={checkedOne}></div>
+                <div value="imp1" onClick={checkedOne}></div>
                 
               </div>
               <div className="StepFour-div-other">
                 <label>2</label>
-                <div value="Well2" onClick={checkedTwo}></div>
+                <div value="imp2" onClick={checkedTwo}></div>
               </div>
               <div className="StepFour-div-other">
                 <label>3</label>
-                <div value="Well3" onClick={checkedThree}></div>
+                <div value="imp3" onClick={checkedThree}></div>
               </div>
               <div className="StepFour-div-other">
                 <label>4</label>
-                <div value="Well4" onClick={checkedFour}></div>
+                <div value="imp4" onClick={checkedFour}></div>
               </div>
               <div className="StepFour-div-other">
                 <label>5</label>
-                <div value="Well5" onClick={checkedFive}></div>
+                <div value="imp5" onClick={checkedFive}></div>
               </div>
 
             </div>

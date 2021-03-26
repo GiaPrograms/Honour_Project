@@ -107,10 +107,10 @@ const SliderControl = props => {
     <div className="slider-div">
       <p style={{color: leftColour}}>{props.minLabel}</p>
         <PrettoSlider 
-          className={sliderColour}
-          valueLabelDisplay="on" 
+          className={sliderColour} /*<---dont need this*/
+          valueLabelDisplay="on" /*prob just a slider thing, dont need */
           onChange={handleChange}
-          min={min} 
+          min={min}  /*min,max,step dont need*/
           max={max}
           step={step} 
           value={value}
