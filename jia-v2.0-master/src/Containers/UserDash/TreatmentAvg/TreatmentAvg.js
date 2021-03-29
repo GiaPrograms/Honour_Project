@@ -20,7 +20,9 @@ const TreatmentAvg = () => {
           <TopBar />
           <div className="captions">
             <h3><b>Treatment Averages</b></h3>
-            <p>View the number of times you have added treatments to your plan</p>
+            <p>Here, you can review the number of times you have added treatments to your plan.</p>
+            <p>Each time you add a treatment to your plan using the JIA Option Map, it will be displayed here.</p>
+            <p>This will let you know which treatments you enjoy using the most!</p>
             <br></br>
           </div>
 

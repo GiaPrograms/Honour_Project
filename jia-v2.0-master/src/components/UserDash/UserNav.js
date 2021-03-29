@@ -12,7 +12,7 @@ const UserNav = props => {
     <div className="side-nav-container">
       <div className="fixed-content">
         <div className="side-header">
-          <h3>User Panel</h3>
+          <h3>User Dashboard</h3>
         </div>
         <ul className="list">
           <li>Choose a Category
