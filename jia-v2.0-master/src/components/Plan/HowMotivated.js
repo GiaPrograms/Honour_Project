@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SliderControl from '../../components/UI/Slider/SliderControl'
 import {getRequest} from "../../API/ApiHandler"
+import CircleControl from '../../components/UI/Slider/CircleControl'
 
 const HowMotivated = ({motivationLevel, setMotivationLevel, setSaved, setSaveStatus}) => {
 
@@ -123,8 +124,16 @@ const checkedFive = ev => {
       value={motivationLevel}
     /> */}
 
-
-    <h4 class="text-left-right">
+    <CircleControl 
+        setValue={setValue} 
+        minLabel="Not Motivated at All" 
+        maxLabel="Very Motivated"          
+        reversed={true}
+        value={motivationLevel}
+        forSlider="motivated-to-follow">
+        
+    </CircleControl>
+    {/* <h4 class="text-left-right">
     <span class="left-text">Not Motivated at All</span>
     <span class="byline">Very Motivated</span>
 
@@ -154,11 +163,11 @@ const checkedFive = ev => {
       <div className="StepFour-div-other">
       <label>5</label>
       <div value="Well5" onClick={checkedFive}></div>
-      </div>
+      </div> 
 
     </div>
 
-    </h4>
+    </h4> */}
               
 
   </div>

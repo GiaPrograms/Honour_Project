@@ -60,7 +60,7 @@ const StepTwo = () => {
         {slider.description}
       </h5>
       <p className="text-center">
-        {slider.value} / 10
+        {slider.value} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${slider.value}.png`)}

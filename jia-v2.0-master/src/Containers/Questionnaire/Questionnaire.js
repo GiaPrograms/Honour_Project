@@ -213,7 +213,6 @@ const Questionnaire = props => {
 
   //Get value of language from local storage
   let lang = localStorage.getItem("language")
-  console.log(localStorage)
 
   return (
     <div className="wrapper">

@@ -88,8 +88,8 @@ const WhatsImportantForm = ({open, setOpenForm, handleSubmitForm, mode, values, 
               <input
                 type="number"
                 name="threshold"
-                step="0.5"
-                ref={register({ required: true, min: 0, max: 10 })}
+                step="1"
+                ref={register({ required: true, min: 0, max: 5 })}
               />
               {errors.threshold?.type === "required" && <p>This field is required</p>}
               {(errors.threshold?.type === "max" ||  errors.score?.type === "min" ) && <p>Value must be between 0 and 5</p>}

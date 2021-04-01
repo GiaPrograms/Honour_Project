@@ -53,7 +53,7 @@ const StepFour = () => {
   const motivationItem = motivation ? (
     <React.Fragment>
       <p className="text-center">
-        {motivation.level} / 10
+        {motivation.level} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${motivation.level}.png`)}
@@ -68,7 +68,7 @@ const StepFour = () => {
   const confidenceItem = confidence ? (
     <React.Fragment>
       <p className="text-center">
-        {confidence.level} / 10
+        {confidence.level} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${confidence.level}.png`)}
