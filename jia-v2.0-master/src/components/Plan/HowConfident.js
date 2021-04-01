@@ -128,7 +128,7 @@ const checkedFive = ev => {
            setValue={setValue} 
            minLabel="Not Confident at all" 
            maxLabel="Very Confident" 
-           reversed={true}
+           reversed={false}
            value={confidenceLevel}
            forSlider="confident-of-following">
 

@@ -39,7 +39,7 @@ const Navigation = props => {
 
           <li>Others
             <ul>
-              <li><NavLink to="/adminPanel/whatsImportant">Preferences Sliders</NavLink></li>
+              <li><NavLink to="/adminPanel/whatsImportant">Preferences Circles</NavLink></li>
               <li><NavLink to="/adminPanel/factors">Factors</NavLink></li>
               <li><NavLink to="/adminPanel/suggestions">Suggestions</NavLink></li>
               <li><NavLink to="/adminPanel/categories">Categories</NavLink></li>

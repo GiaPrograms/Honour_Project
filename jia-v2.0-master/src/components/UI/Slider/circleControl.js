@@ -53,8 +53,8 @@ const RadioButtons = ({setValue, minLabel, maxLabel, reversed, value, sliderId, 
   return (
     <div className="circle-group-container">
       <div className="circle-radio-group">
-        <p style={{color: reversed ? '#4DAA33' : '#B10921'}}>{minLabel}</p>
-        <p style={{color: reversed ? '#B10921' : '#4DAA33'}}>{maxLabel}</p>
+        <h3 style={{color: reversed ? '#4DAA33' : '#B10921'}}>{minLabel}</h3>
+        <h3 style={{color: reversed ? '#B10921' : '#4DAA33'}}>{maxLabel}</h3>
       </div>
       <RadioGroup row aria-label="type" value={number} onChange={handleChange}>
         <FormControlLabel

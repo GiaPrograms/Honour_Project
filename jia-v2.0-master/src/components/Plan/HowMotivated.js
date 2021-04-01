@@ -128,7 +128,7 @@ const checkedFive = ev => {
         setValue={setValue} 
         minLabel="Not Motivated at All" 
         maxLabel="Very Motivated"          
-        reversed={true}
+        reversed={false}
         value={motivationLevel}
         forSlider="motivated-to-follow">
         
