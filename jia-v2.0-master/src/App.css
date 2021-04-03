@@ -1440,8 +1440,11 @@ p.collapsed-icon{
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:stretch;
   margin: 2rem 0;
+  align-content:space-around;
+
+  
 }
 
 .circle-radio-group {
@@ -1450,4 +1453,6 @@ p.collapsed-icon{
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
+  
 }
+

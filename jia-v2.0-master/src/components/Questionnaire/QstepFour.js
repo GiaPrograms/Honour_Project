@@ -118,12 +118,13 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
 
             <Collapse isOpen={collapse}>
               <div className="padding-class">
+              
                 <p className="StepThree-desc">
                   {lang === "English" ? 
                   "These are the medications and other treatments you use when you have pain. Select all the treatments you are using." : 
                   "Ce sont les médicaments et autres traitements que vous utilisez lorsque vous ressentez de la douleur. Sélectionnez tous les traitements que vous utilisez."}
                 </p>
-               
+                <h3 className="StepThree-h3">{lang === "English" ? "A. Medications" : "A. Médicaments"}</h3>
                 {classificationsList}
                
                 <div className="StepThree">
