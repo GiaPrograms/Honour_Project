@@ -22,3 +22,18 @@
   left: 140px;
   bottom: 8px;
 }
+
+.t1{
+  position: relative;
+  left: 450px;
+}
+
+.t2{
+  position: relative;
+  left: 450px;
+}
+
+.custom-tooltip{
+  border: 1px solid #000000;
+  background-color: rgba(255, 255, 255);
+}
