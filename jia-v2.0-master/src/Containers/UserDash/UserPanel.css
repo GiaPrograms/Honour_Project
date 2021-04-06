@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     background-color: rgb(245, 245, 245);
+   overflow-x: hidden;
   }
   
   .user-body{
@@ -33,7 +34,69 @@
   left: 450px;
 }
 
+.t3{
+  position: relative;
+  left: 390px;
+}
+
+.t4{
+  position: relative;
+  left: 390px;
+}
+
 .custom-tooltip{
   border: 1px solid #000000;
   background-color: rgba(255, 255, 255);
+}
+
+.legend{
+  position: absolute;
+  left: 1250px;
+  bottom: 50px;
+  overflow-x: hidden;
+  /* border: 1px solid #000000; */
+}
+
+.emojis{
+  position: relative;
+  left: 30px;
+}
+
+.levels{
+  position: relative;
+  left: 65px;
+  bottom: 120px;
+}
+
+.chooseTimes1{
+  position: absolute;
+  left: 330px;
+  bottom: 515px;
+}
+
+.chooseTimes2{
+  position: absolute;
+  left: 560px;
+  bottom: 515px;
+}
+
+.spacing{
+  word-spacing: 200px;
+}
+
+.button{
+  position: absolute;
+  left: 790px;
+  bottom: 515px;
+}
+
+Button.load-btn{
+  background-color: rgba(241, 90, 43, 0.9);
+  border: none;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.225);
+}
+
+Button.load-btn:hover{
+  text-decoration: none;
+  background-color: rgba(241, 90, 43, 0.9);
 }
