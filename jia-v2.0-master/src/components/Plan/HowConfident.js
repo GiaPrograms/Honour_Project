@@ -132,15 +132,15 @@ const checkedFive = ev => {
 
       <CircleControl 
            setValue={setValue} 
-           minLabel="Not Confident at all" 
-           maxLabel="Very Confident" 
+           minLabel={lang === "English" ? "Not Confident at All" : "Pas du tout confiant"} 
+           maxLabel={lang === "English" ? "Very Confident" : "Très confiant"} 
            reversed={false}
            value={confidenceLevel}
            forSlider="confident-of-following">
 
       </CircleControl>
 
-<h4 class="text-left-right">
+{/* <h4 class="text-left-right">
     <span class="left-text">{lang === "English" ? "Not Confident at All" : "Pas du tout confiant"}</span>
     <span class="byline">{lang === "English" ? "Very Confident" : "Très confiant"}</span>
 
@@ -174,7 +174,7 @@ const checkedFive = ev => {
 
     </div>
 
-    </h4>
+    </h4> */}
 
     </div>
   )

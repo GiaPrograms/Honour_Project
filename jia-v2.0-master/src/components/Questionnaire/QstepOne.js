@@ -164,18 +164,18 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           
            <CircleControl 
             setValue={setValue} 
-            minLabel="No Pain" 
-            maxLabel="Extreme Pain" 
+            minLabel={lang === "English" ? "No Pain" : "Pas de douleur"}
+            maxLabel={lang === "English" ? "Extreme Pain" : "Douleur extrême"} 
             reversed={true}
             value={painLevel}
             forSlider="pain-level">
 
            </CircleControl>
-
+            {/* 
             <h4 class="text-left-right">
             <span class="left-text">{lang === "English" ? "No Pain" : "Pas de douleur"}</span>
             <span class="byline">{lang === "English" ? "Extreme Pain" : "Douleur extrême"}</span>
-            </h4>
+            </h4> */}
             
             {/* <div className="StepFour-div-group other">
             <div className="StepFour-div-other">

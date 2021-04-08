@@ -131,15 +131,14 @@ const checkedFive = ev => {
 
     <CircleControl 
         setValue={setValue} 
-        minLabel="Not Motivated at All" 
-        maxLabel="Very Motivated"          
+        minLabel={lang === "English" ? "Not Motivated at All" : "Pas du tout motivé"}
+        maxLabel={lang === "English" ? "Very Motivated" : "Très motivé"}         
         reversed={false}
         value={motivationLevel}
         forSlider="motivated-to-follow">
-        
     </CircleControl>
 
-    <h4 class="text-left-right">
+    {/* <h4 class="text-left-right">
     <span class="left-text">{lang === "English" ? "Not Motivated at All" : "Pas du tout motivé"}</span>
     <span class="byline">{lang === "English" ? "Very Motivated" : "Très motivé"}</span>
 
@@ -173,7 +172,7 @@ const checkedFive = ev => {
 
     </div>
 
-    </h4>
+    </h4> */}
               
 
   </div>
