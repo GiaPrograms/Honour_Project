@@ -66,13 +66,16 @@ const PlanReview = ({setReview, setSaved, setSaveStatus}) => {
     getUserReview()
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="review_key_facts box-container-numbered">
-      <h4 className="numbered-subheading">6. Let's review the key facts</h4>
+      <h4 className="numbered-subheading">{lang === "English" ? "6. Let's review the key facts" : "6. Passons en revue les faits clés"}</h4>
       <h5>
-        Studies show that some treatments
+        {lang === "English" ? "Studies show that some treatments" : "Des études montrent que certains traitements"}
         <br />
-        can help manage arthritis pain.
+        {lang === "English" ? "can help manage arthritis pain." : "peut aider à gérer la douleur arthritique."}
       </h5>
       <FormControl className="radio-group">
         <RadioGroup onChange={handleChange} className="radio-group" value={value} row>
@@ -81,21 +84,21 @@ const PlanReview = ({setReview, setSaved, setSaveStatus}) => {
             value="true"
             className="radio-button"
             labelPlacement="top"
-            label="True"
+            label={lang === "English" ? "True" : "Vrai"}
           />
           <FormControlLabel
             control={<OrangeRadio />}
             value="false"
             className="radio-button"
             labelPlacement="top"
-            label="False"
+            label={lang === "English" ? "False" : "Faux"}
           />
           <FormControlLabel
             control={<OrangeRadio />}
             value="don't know"
             className="radio-button"
             labelPlacement="top"
-            label="Don't Know"
+            label={lang === "English" ? "Don't Know" : "Je ne sais pas"}
           />
         </RadioGroup>
       </FormControl>

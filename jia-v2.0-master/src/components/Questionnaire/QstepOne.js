@@ -161,11 +161,6 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           value={painLevel}
         >
         </SliderControl> */}
-         
-           {/* <h4 class="text-left-right">
-             <span class="left-text">No Pain</span>
-             <span class="byline">Extreme Pain</span>
-             </h4> */}
           
            <CircleControl 
             setValue={setValue} 
@@ -176,6 +171,42 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
             forSlider="pain-level">
 
            </CircleControl>
+
+            <h4 class="text-left-right">
+            <span class="left-text">{lang === "English" ? "No Pain" : "Pas de douleur"}</span>
+            <span class="byline">{lang === "English" ? "Extreme Pain" : "Douleur extrême"}</span>
+            </h4>
+            
+            {/* <div className="StepFour-div-group other">
+            <div className="StepFour-div-other">
+                <label>0</label>
+                <div value="Pain0" onClick={checkedZero}></div>
+                
+              </div>
+              <div className="StepFour-div-other">
+                <label>1</label>
+                <div value="Pain1" onClick={checkedOne}></div>
+                
+              </div>
+              <div className="StepFour-div-other">
+                <label>2</label>
+                <div value="Pain2" onClick={checkedTwo}></div>
+              </div>
+              <div className="StepFour-div-other">
+                <label>3</label>
+                <div value="Pain3" onClick={checkedThree}></div>
+              </div>
+              <div className="StepFour-div-other">
+                <label>4</label>
+                <div value="Pain4" onClick={checkedFour}></div>
+              </div>
+              <div className="StepFour-div-other">
+                <label>5</label>
+                <div value="Pain5" onClick={checkedFive}></div>
+              </div>
+
+            </div> */}
+
       </Collapse>
     </div>
   )

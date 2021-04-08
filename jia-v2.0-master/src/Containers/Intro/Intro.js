@@ -10,6 +10,9 @@ const Intro = props => {
   const handleStepperNav = to => {
     props.history.push(to)
   }
+
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
   
   return(
       <div className="wrapper intro">
@@ -25,13 +28,21 @@ const Intro = props => {
           <div className="disclaimer">
             <img src={require(`../..//img/warning.png`)} alt="warning icon"/>
             <div>
-              <p>Keep taking your prescribed treatments so that your arthritis does not get worse.</p>
+              <p>
+                {lang === "English" ? 
+                "Keep taking your prescribed treatments so that your arthritis does not get worse." : 
+                "Continuez à prendre vos traitements prescrits afin que votre arthrite ne s'aggrave pas."}
+              </p>
             </div>
           </div>
         </div>
         <div className="next-btn-container">
-            <p>Okay, let's start with the first step!</p>
-            <Button className="next-btn" tag={RRNav} to="/questionnaire">Continue to Step 1</Button>
+            <p>
+              {lang === "English" ? 
+              "Okay, let's start with the first step!" : 
+              "D'accord, commençons par la première étape!"}
+            </p>
+            <Button className="next-btn" tag={RRNav} to="/questionnaire">{lang === "English" ? "Continue to Step 1" : "Passez à l'étape 1"}</Button>
         </div>
         <Footer/>
       </div>

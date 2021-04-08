@@ -157,8 +157,6 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               reversed={false}
               value={controlArthritis}
             /> */}
-            <h4>... control your arthritis?</h4>
-
 
             <CircleControl 
            setValue={setValue} 
@@ -169,12 +167,15 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
            forSlider="control-arthritis">
 
            </CircleControl>
-            {/*<h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
+            <h4>
+              {lang === "English" ? "... control your arthritis?" : "... contrôler votre arthrite?"}
+            </h4>
+            <h4 class="text-left-right">
+            <span class="left-text">{lang === "English" ? "Not Well at All" : "Pas bien du tout"}</span>
+            <span class="byline">{lang === "English" ? "Very Well" : "Très bien"}</span>
             </h4>
             
-             <div className="StepFour-div-group other">
+            {/*  <div className="StepFour-div-group other">
             <div className="StepFour-div-other">
                 <label>0</label>
                 <div value="Well0" onClick={checkedZero}></div>
@@ -200,19 +201,20 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               <div className="StepFour-div-other">
                 <label>5</label>
                 <div value="Well5" onClick={checkedFive}></div>
-              </div>
+              </div> */}
 
-            </div> */}
+            </div>
 
-            <h4>... manage your pain?</h4>
+            <h4>{lang === "English" ? "... manage your pain?" : "... gérer votre douleur?"}</h4>
 
 
-            {/* <h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
+
+            <h4 class="text-left-right">
+            <span class="left-text">{lang === "English" ? "Not Well at All" : "Pas bien du tout"}</span>
+            <span class="byline">{lang === "English" ? "Very Well" : "Très bien"}</span>
             </h4>
             
-            <div className="StepFour-div-group other">
+            {/* <div className="StepFour-div-group other">
             <div className="StepFour-div-other">
                 <label>0</label>
                 <div value="Well0" onClick={checkedZero}></div>
@@ -240,7 +242,7 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
                 <div value="Well5" onClick={checkedFive}></div>
               </div> 
 
-            </div>*/}
+            </div> */}
             {/* <SliderControl 
               setValue={setValue} 
               minLabel="Not Well at All" 
@@ -260,7 +262,7 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
            </CircleControl>
 
             
-          </div>
+          {/* </div> */}
         </Collapse>
       </div>
     </React.Fragment>

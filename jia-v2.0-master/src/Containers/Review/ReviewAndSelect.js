@@ -79,8 +79,10 @@ const ReviewAndSelect = props => {
         <BottomTabNavReview current={props}/>
       </div>
       <NavigationButton 
-        title={<>If you wish to see more options, you can also click on the <strong>“All Treatments”</strong><br/>tab or go back to change your preferences in Step 2.</>}
-        btnText="Continue to Step 4"
+        title={lang === "English" ? 
+              <>If you wish to see more options, you can also click on the <strong>“All Treatments”</strong><br/>tab or go back to change your preferences in Step 2.</> : 
+              <>Si vous souhaitez voir plus d'options, vous pouvez également cliquer sur le <strong>“Tous les traitements”</strong><br/>ou revenez en arrière pour modifier vos préférences à l'étape 2.</>}
+        btnText={lang === "English" ? "Continue to Step 4" : "Passez à l'étape 4"}
         path="/make-your-plan"
       />
       <Footer/>

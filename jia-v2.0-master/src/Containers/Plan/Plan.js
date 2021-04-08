@@ -223,12 +223,17 @@ const Plan = props => {
       </div>
       {/* Component for navigation button and title above the button */}
       <NavigationButton 
-        title={`Now that you have made your \n plan, here is your summary`}
-        btnText="Continue to Your Summary"
+        title={lang === "English" ? 
+          "Now that you have made your \n plan, here is your summary" : 
+          "Maintenant que vous avez fait votre \n plan, voici votre résumé"}
+        btnText={lang === "English" ? "Continue to Your Summary" : "Continuez vers votre résumé"}
         handleNavigation={handleNavigation}
       />
       <Footer/>
-      {!didSelect && <DialogBox description="Your plan will be saved in the trial database. You can modify your plan as needed." step='s4Trial'/>}
+      {!didSelect && <DialogBox description={lang === "English" ? 
+        "The selected information will be saved in the trial database. You can modify the information as needed."  : 
+        "Les informations sélectionnées seront enregistrées dans la base de données d'essai. Vous pouvez modifier les informations selon vos besoins."}
+        step='s4Trial'/>}
       <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
       <FailedSaveDialog open={open} setOpen={setOpen}/>
     </div>

@@ -57,6 +57,9 @@ const PlanFactors = ({selectedFactors, setSelectedFactors, setSaved, setSaveStat
     getUserFactors()
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const factorItems = factors.length > 0 && factors.map(factor => (
     <div className="plan_factors" key={factor.id}>
       <div>
@@ -76,8 +79,10 @@ const PlanFactors = ({selectedFactors, setSelectedFactors, setSaved, setSaveStat
   return (
     <div className="box-container-numbered">
       <h4 className="numbered-subheading">
-        4. Will any of these factors prevent you from following your new plan?
-        <span>(Check all that apply)</span>
+        {lang === "English" ? 
+          "4. Will any of these factors prevent you from following your new plan?" : 
+          "4. L'un de ces facteurs vous empêchera-t-il de suivre votre nouveau plan?"}
+        <span>{lang === "English" ? "(Check all that apply)" : "(Cochez toutes les cases)"}</span>
       </h4>
       <div className="padding-class">
         {factorItems}
