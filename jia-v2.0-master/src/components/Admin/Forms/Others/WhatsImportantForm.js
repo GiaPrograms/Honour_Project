@@ -84,7 +84,7 @@ const WhatsImportantForm = ({open, setOpenForm, handleSubmitForm, mode, values, 
 
           <div className="form-row">
             <div className="form-field-container">
-              <label>Slider threshold (0 - 10)</label>
+              <label>Slider threshold (0 - 5)</label>
               <input
                 type="number"
                 name="threshold"
@@ -92,7 +92,7 @@ const WhatsImportantForm = ({open, setOpenForm, handleSubmitForm, mode, values, 
                 ref={register({ required: true, min: 0, max: 10 })}
               />
               {errors.threshold?.type === "required" && <p>This field is required</p>}
-              {(errors.threshold?.type === "max" ||  errors.score?.type === "min" ) && <p>Value must be between 0 and 10</p>}
+              {(errors.threshold?.type === "max" ||  errors.score?.type === "min" ) && <p>Value must be between 0 and 5</p>}
             </div>
           </div>
 

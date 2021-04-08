@@ -85,7 +85,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
               {lang === "English" ? 
               "3. What prescribed medications are you using?" : 
               "3. Quels médicaments prescrits utilisez-vous?"}
-              <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
+              <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
             </h4>
           </div>
 

@@ -26,7 +26,7 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
           {lang === "English" ? 
           "2. Where is your pain?" : 
           "2. Où est votre douleur?"}
-          <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
+          <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
         </h4>
       </div>
 

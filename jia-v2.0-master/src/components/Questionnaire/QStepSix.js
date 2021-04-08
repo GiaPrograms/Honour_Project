@@ -141,7 +141,7 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
             {lang === "English" ? 
             "6. How well does your treatment ..." : 
             "6. Dans quelle mesure votre traitement ..."}
-            <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
+            <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
           </h4>
         </div>
         <Collapse isOpen={collapse}>

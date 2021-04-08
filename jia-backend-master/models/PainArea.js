@@ -25,6 +25,9 @@ let PainArea = db.define('pain_areas', {
   shoulders: {
     type: Sequelize.BOOLEAN
   },
+  neck:{
+    type: Sequelize.BOOLEAN
+  },
   wrists: {
     type: Sequelize.BOOLEAN
   },

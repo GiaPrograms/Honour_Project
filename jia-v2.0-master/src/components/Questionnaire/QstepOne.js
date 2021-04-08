@@ -144,7 +144,7 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
           {lang === "English" ? 
             "1. In the past 7 days, how much pain on average have you had because of your arthritis?" : 
             "1. Au cours des 7 derniers jours, combien de douleur avez-vous eu en moyenne à cause de votre arthrite?"}
-          <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
+          <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
         </h4>
       </div>
 

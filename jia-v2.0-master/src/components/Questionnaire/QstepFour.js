@@ -112,7 +112,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
              {lang === "English" ? 
               "4. What other treatments are you using for your arthritis pain?" : 
               "4. Quels autres traitements utilisez-vous pour vos douleurs arthritiques?"}
-             <span className="collapsed-icon">{collapse ? "-" : "+"}</span>
+             <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
              </h4>
            </div>
 
