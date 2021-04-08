@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import SliderControl from '../../components/UI/Slider/SliderControl'
 import {getRequest} from "../../API/ApiHandler"
+import CircleControl from '../../components/UI/Slider/CircleControl'
+
 
 const HowConfident = ({confidenceLevel, setConfidenceLevel, setSaved, setSaveStatus}) => {
   
@@ -122,8 +124,16 @@ const checkedFive = ev => {
         forSlider="confident-of-following"
         value={confidenceLevel}
       /> */}
+      <CircleControl 
+           setValue={setValue} 
+           minLabel="Not Confident at all" 
+           maxLabel="Very Confident" 
+           reversed={false}
+           value={confidenceLevel}
+           forSlider="confident-of-following">
 
-<h4 class="text-left-right">
+      </CircleControl>
+{/* <h4 class="text-left-right">
     <span class="left-text">Not Confident at All</span>
     <span class="byline">Very Confident</span>
 
@@ -157,7 +167,7 @@ const checkedFive = ev => {
 
     </div>
 
-    </h4>
+    </h4> */}
 
     </div>
   )

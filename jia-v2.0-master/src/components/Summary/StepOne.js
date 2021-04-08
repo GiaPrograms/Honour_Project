@@ -109,7 +109,7 @@ const StepOne = () => {
   const painLevelItem =
     painLevel != null ? (
       <p className="text-center">
-        {painLevel} / 10
+        {painLevel} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${painLevel}.png`)}
@@ -167,7 +167,7 @@ const StepOne = () => {
   const controlItem =
     controlArthritis != null ? (
       <p className="text-center">
-        {controlArthritis} / 10
+        {controlArthritis} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${controlArthritis}.png`)}
@@ -182,7 +182,7 @@ const StepOne = () => {
   const manageItem =
     managePain != null ? (
       <p className="text-center">
-        {managePain} / 10
+        {managePain} / 5
         <img
           style={{ width: "60%" }}
           src={require(`../../img/${managePain}.png`)}

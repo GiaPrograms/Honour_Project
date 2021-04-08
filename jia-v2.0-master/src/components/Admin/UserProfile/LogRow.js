@@ -47,7 +47,7 @@ const LogRow = ({log}) => {
             <>
               <h3>Preferences</h3>
               {log.preferences.prefs.map(el => 
-                <h5 key={el.description}>{el.description}: {el.value} / 10</h5>
+                <h5 key={el.description}>{el.description}: {el.value} / 5</h5>
               )}
               <h5>Other factors: {log.preferences.preference_text}</h5>
               <Divider/>
@@ -83,21 +83,21 @@ const LogRow = ({log}) => {
               {log.step_one.pain_level && 
                 <>
                   <h3>Pain Level</h3>
-                  <h5>{log.step_one.pain_level} / 10</h5>
+                  <h5>{log.step_one.pain_level} / 5</h5>
                 </>
               }
 
               {log.step_one.manage_pain && 
                 <>
                   <h3>How well does your treatment manage your pain?</h3>
-                  <h5>{log.step_one.manage_pain} / 10</h5>
+                  <h5>{log.step_one.manage_pain} / 5</h5>
                 </>
               }
 
               {log.step_one.control_arthritis && 
                 <>
                   <h3>How well does your treatment control your arthritis?</h3>
-                  <h5>{log.step_one.control_arthritis} / 10 </h5>
+                  <h5>{log.step_one.control_arthritis} / 5 </h5>
                 </>
               }
             </>
@@ -107,14 +107,14 @@ const LogRow = ({log}) => {
               {log.step_three.confidence_level &&
                 <>
                   <h3>Confidence Level</h3>
-                  <h5>{log.step_three.confidence_level} / 10</h5>
+                  <h5>{log.step_three.confidence_level} / 5</h5>
                 </>
               }
 
               {log.step_three.motivation_level &&
                 <>
                   <h3>Motivation Level</h3>
-                  <h5>{log.step_three.motivation_level} / 10</h5>
+                  <h5>{log.step_three.motivation_level} / 5</h5>
                   <Divider/>
                 </>
               }

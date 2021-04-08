@@ -5,10 +5,11 @@
  * @author <akel.ms93@gmail.com>
  */
 import React, {useState, useEffect} from 'react'
-import SliderControl from '../UI/Slider/SliderControl';
 import {Collapse} from 'reactstrap';
 import {getRequest} from "../../API/ApiHandler"
 import NavigationButton from '../UI/Buttons/NavigationButton';
+import CircleControl from '../UI/Slider/CircleControl';
+import SliderControl from '../UI/Slider/SliderControl';
 
 
 const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
@@ -35,97 +36,99 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
     setCollapse(!collapse)
     sessionStorage.setItem('painlevel-collapse', !collapse)
   }
+
+
   //=============checked to change color
 
 
-  const checkedZero = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#008000";
-    //10434F
+  // const checkedZero = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#008000";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
 
-  const checkedOne = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#8FE381";
-    //10434F
+  // const checkedOne = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#8FE381";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
 
-  const checkedTwo = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#B0F5AB";
-    //10434F
+  // const checkedTwo = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#B0F5AB";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
 
-  const checkedThree = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#ffff7f";
-    //10434F
+  // const checkedThree = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#ffff7f";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
 
-  const checkedFour = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#FC6C85";
-    //10434F
+  // const checkedFour = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#FC6C85";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
-  const checkedFive = ev => {
-    let buttonList = document.querySelectorAll(".StepFour-div-other div");
-    buttonList.forEach((button) => {
-      if (button.style.backgroundColor) button.style.backgroundColor = ""
-    });
-    ev.target.style.backgroundColor = "#FF0000";
-    //10434F
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
+  // const checkedFive = ev => {
+  //   let buttonList = document.querySelectorAll(".StepFour-div-other div");
+  //   buttonList.forEach((button) => {
+  //     if (button.style.backgroundColor) button.style.backgroundColor = ""
+  //   });
+  //   ev.target.style.backgroundColor = "#FF0000";
+  //   //10434F
 
-    let medVal = ev.target.getAttribute("value")
-    setOther(medVal)
+  //   let medVal = ev.target.getAttribute("value")
+  //   setOther(medVal)
   
-    setSaved(false)
-    setSaveStatus('default')
-  }
+  //   setSaved(false)
+  //   setSaveStatus('default')
+  // }
 
   useEffect(() => {
     getPainLevel()
@@ -149,49 +152,30 @@ const QstepOne = ({painLevel, setPainLevel, setSaved, setSaveStatus}) => {
       </div>
 
       <Collapse isOpen={collapse}>
-        {/* <SliderControl 
+         {/* <SliderControl
           setValue={setValue} 
           minLabel="No Pain" 
           maxLabel="Extreme Pain" 
           forSlider="pain-level"
           reversed={true}
           value={painLevel}
-        */}
-            <h4 class="text-left-right">
-            <span class="left-text">No Pain</span>
-            <span class="byline">Extreme Pain</span>
-            </h4>
-            
-            <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="Pain0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="Pain1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="Pain2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="Pain3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="Pain4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="Pain5" onClick={checkedFive}></div>
-              </div>
+        >
+        </SliderControl> */}
+         
+           {/* <h4 class="text-left-right">
+             <span class="left-text">No Pain</span>
+             <span class="byline">Extreme Pain</span>
+             </h4> */}
+          
+           <CircleControl 
+            setValue={setValue} 
+            minLabel="No Pain" 
+            maxLabel="Extreme Pain" 
+            reversed={true}
+            value={painLevel}
+            forSlider="pain-level">
 
-            </div>
-
+           </CircleControl>
       </Collapse>
     </div>
   )

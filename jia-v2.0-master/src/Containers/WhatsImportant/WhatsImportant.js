@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import {useBeforeunload} from 'react-beforeunload';
-import {createMuiTheme} from '@material-ui/core/styles';
-import {ThemeProvider} from '@material-ui/styles';
+import { useBeforeunload } from 'react-beforeunload';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 import TextField from '@material-ui/core/TextField';
 import Footer from "../../components/Footer";
 
@@ -9,16 +9,19 @@ import SliderControl from '../../components/UI/Slider/SliderControl';
 import Header from '../../components/Home/Header';
 import DialogBox from "../../components/UI/DialogBox";
 import SaveButton from "../../components/UI/SaveButton";
-import {handleRecommendations} from "../../components/GenerateRecommendations"
+import { handleRecommendations } from "../../components/GenerateRecommendations"
 import Subheader from '../../components/UI/Subheader/Subheader';
 import NavigationButton from '../../components/UI/Buttons/NavigationButton';
 import NavigationDialog from "../../components/UI/NavigationDialog"
 import FailedSaveDialog from '../../components/UI/FailedSaveDialog';
-import {updateLogPrefs} from "../../components/HandleUserLog"
-import {getRequest, postRequest} from "../../API/ApiHandler"
+import { updateLogPrefs } from "../../components/HandleUserLog"
+import { getRequest, postRequest } from "../../API/ApiHandler"
+import CircleControl from '../../components/UI/Slider/CircleControl';
+
 
 const theme = createMuiTheme({
-  palette: {primary: {main: '#10434F'},
+  palette: {
+    primary: { main: '#10434F' },
   },
 });
 
@@ -38,9 +41,9 @@ const WhatsImportant = props => {
 
   // Check if there are unsaved changed when user attempts to close or refresh page and display a message.
   useBeforeunload(event => {
-    if(!saved) event.preventDefault()
+    if (!saved) event.preventDefault()
   })
-  
+
   // Get the what's important sliders from the DB
   const getPrefs = async () => {
     let data = await getRequest("/preferences")
@@ -49,37 +52,37 @@ const WhatsImportant = props => {
     setIsLoading(false)
   }
 
-  const getUserPrefs = async() => {
+  const getUserPrefs = async () => {
     let preferences = await getRequest(`/userPreferences/user`)
-    if(preferences) {
+    if (preferences) {
       const prefs = preferences.map(pref => {
         return {
           id: pref.user_preference.preferenceId,
           value: pref.user_preference.value,
         }
+      })
+      let setUserValues = sliders.map(slider => {
+        prefs.forEach(el => {
+          if (el.id === slider.id) slider.value = el.value
         })
-        let setUserValues = sliders.map(slider => {
-          prefs.forEach(el => {
-            if(el.id === slider.id) slider.value = el.value
-          })
-          return slider
-        })
+        return slider
+      })
       setSliders(setUserValues)
     }
   }
 
-  const getPreferenceText = async() => {
+  const getPreferenceText = async () => {
     let text = await getRequest(`/preferenceText/user`)
-    if(text) setPreferenceText(text.text)  
+    if (text) setPreferenceText(text.text)
   }
 
-  const saveHandler = async() => {
+  const saveHandler = async () => {
     await Promise.all([
       savePrefs(),
       savePrefText()
     ]).then(data => {
       let failed = data.indexOf() !== -1
-      if(!failed) {
+      if (!failed) {
         handleRecommendations()
         updateLog()
         setSaveStatus('success')
@@ -108,19 +111,19 @@ const WhatsImportant = props => {
   }
 
   const savePrefs = () => {
-    const input = {sliders: sliders}
+    const input = { sliders: sliders }
     return postRequest("/userPreferences", input, setSaveStatus)
   }
 
   const savePrefText = () => {
-    const input = {text: preferenceText}
+    const input = { text: preferenceText }
     return postRequest("/preferenceText", input)
   }
 
   const setValue = (value, ...others) => {
     const id = others[0]
     sliders.forEach(slider => {
-      if(id === slider.id) {
+      if (id === slider.id) {
         slider.value = value
       }
     })
@@ -130,13 +133,13 @@ const WhatsImportant = props => {
 
   const handleTextChange = ev => {
     const text = ev.target.value
-    setPreferenceText(text)      
+    setPreferenceText(text)
     setSaved(false)
     setSaveStatus('default')
   }
 
   const handleButtonNav = () => {
-    if(saved) {
+    if (saved) {
       props.history.push(`/review-and-select`)
     } else {
       setNavBy('button')
@@ -145,7 +148,7 @@ const WhatsImportant = props => {
   }
 
   const handleStepperNav = to => {
-    if(saved) {
+    if (saved) {
       props.history.push(to)
     } else {
       setNavBy('stepper')
@@ -154,133 +157,133 @@ const WhatsImportant = props => {
   }
 
   const closeNavDialog = selection => {
-    selection === 0 
-    ? setDisplayNavDialog(false) 
-    : navBy === "button" 
-      ? props.history.push(`/whats-important-to-you`) 
-      : props.history.push(navTo)
+    selection === 0
+      ? setDisplayNavDialog(false)
+      : navBy === "button"
+        ? props.history.push(`/whats-important-to-you`)
+        : props.history.push(navTo)
   }
 
-    //=============checked to change color
+  //=============checked to change color
 
 
-    const checkedZero = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#008000";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedOne = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#8FE381";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedTwo = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#B0F5AB";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedThree = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#ffff7f";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-  
-    const checkedFour = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#FC6C85";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
-    const checkedFive = ev => {
-      let buttonList = document.querySelectorAll(".StepFour-div-other div");
-      buttonList.forEach((button) => {
-        if (button.style.backgroundColor) button.style.backgroundColor = ""
-      });
-      ev.target.style.backgroundColor = "#FF0000";
-      //10434F
-  
-      let medVal = ev.target.getAttribute("value")
-      setOther(medVal)
-    
-      setSaved(false)
-      setSaveStatus('default')
-    }
+  const checkedZero = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#008000";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
+
+  const checkedOne = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#8FE381";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
+
+  const checkedTwo = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#B0F5AB";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
+
+  const checkedThree = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#ffff7f";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
+
+  const checkedFour = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#FC6C85";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
+  const checkedFive = ev => {
+    let buttonList = document.querySelectorAll(".StepFour-div-other div");
+    buttonList.forEach((button) => {
+      if (button.style.backgroundColor) button.style.backgroundColor = ""
+    });
+    ev.target.style.backgroundColor = "#FF0000";
+    //10434F
+
+    let medVal = ev.target.getAttribute("value")
+    setOther(medVal)
+
+    setSaved(false)
+    setSaveStatus('default')
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    if(localStorage.getItem('s2Trial')) setDidSelect(true)
+    if (localStorage.getItem('s2Trial')) setDidSelect(true)
     setIsLoading(true)
     getPrefs()
     getPreferenceText()
   }, [])
 
   useEffect(() => {
-    if(!isLoading) getUserPrefs()
+    if (!isLoading) getUserPrefs()
   }, [isLoading])
 
   //Get value of language from local storage
   let lang = localStorage.getItem("language")
 
-  return(
+  return (
     <div className="wrapper">
       <div className='page-header'>
-        <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
+        <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo} />
       </div>
-      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"}/>
-        <div className="body-container">
-          <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
-          <div className="slider-component-div box-container">
-            {sliders.length && sliders.map((slider, index) => (
-              <div key={slider.id}>
-                <h4>{index+1}. {slider.description}</h4>
-                {/* <SliderControl 
+      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"} />
+      <div className="body-container">
+        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus} />
+        <div className="slider-component-div box-container">
+          {sliders.length && sliders.map((slider, index) => (
+            <div key={slider.id}>
+              <h4>{index + 1}. {slider.description}</h4>
+              {/* <SliderControl 
                   setValue={setValue} 
                   minLabel={slider.left_label}
                   maxLabel={slider.right_label}
@@ -288,8 +291,16 @@ const WhatsImportant = props => {
                   reversed={slider.reversed}
                   value={slider.value}
                 /> */}
-                
-                <h4 class="text-left-right">
+              <CircleControl
+                setValue={setValue}
+                minLabel={slider.left_label}
+                maxLabel={slider.right_label}
+                sliderId={slider.id}
+                reversed={slider.reversed}
+                value={slider.value}
+                ></CircleControl>
+
+              {/* <h4 class="text-left-right">
                 <span class="left-text">Not Important at All</span>
                 <span class="byline">Very Important</span>
 
@@ -323,42 +334,42 @@ const WhatsImportant = props => {
 
             </div>
 
-            </h4>
-              </div>
-            ))
+            </h4> */}
+            </div>
+          ))
 
-            }
-            <h4>7. Considering other factors. </h4>
-            <ThemeProvider theme={theme}>
+          }
+          <h4>7. Considering other factors. </h4>
+          <ThemeProvider theme={theme}>
             <TextField
-                onChange={handleTextChange}
-                className="text-field"
-                label="Please Explain"
-                margin="normal"
-                variant="outlined"
-                fullWidth
-                multiline
-                value={preferenceText ? preferenceText : ''}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                rows="6"
-                id="consider-other-factors"
+              onChange={handleTextChange}
+              className="text-field"
+              label="Please Explain"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+              multiline
+              value={preferenceText ? preferenceText : ''}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              rows="6"
+              id="consider-other-factors"
             />
-            </ThemeProvider>
+          </ThemeProvider>
         </div>
-        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus}/>
+        <SaveButton saveHandler={saveHandler} saveStatus={saveStatus} />
       </div>
       {/* Component for navigation button and title above the button */}
-      <NavigationButton 
+      <NavigationButton
         title={`Now that you have considered what is important to you,\n you can review and select treatment options`}
         btnText="Continue to Step 3"
         handleNavigation={handleButtonNav}
       />
-      <Footer/>
-      {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s2Trial'/>}
-      <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
-      <FailedSaveDialog open={open} setOpen={setOpen}/>
+      <Footer />
+      {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s2Trial' />}
+      <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog} />
+      <FailedSaveDialog open={open} setOpen={setOpen} />
     </div>
   )
 }

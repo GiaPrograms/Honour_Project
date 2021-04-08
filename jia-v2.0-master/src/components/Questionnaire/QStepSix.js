@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import SliderControl from '../UI/Slider/SliderControl';
 import {Collapse} from 'reactstrap';
 import {getRequest} from "../../API/ApiHandler"
+import CircleControl from '../UI/Slider/CircleControl';
+
 
 const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManagePain, setSaved, setSaveStatus})  => {
   const [collapse, setCollapse] = useState(true)
@@ -156,12 +158,23 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               value={controlArthritis}
             /> */}
             <h4>... control your arthritis?</h4>
-            <h4 class="text-left-right">
+
+
+            <CircleControl 
+           setValue={setValue} 
+           minLabel="Not Well at All" 
+           maxLabel="Very Well" 
+           reversed={false}
+           value={controlArthritis}
+           forSlider="control-arthritis">
+
+           </CircleControl>
+            {/*<h4 class="text-left-right">
             <span class="left-text">Not Well at All</span>
             <span class="byline">Very Well</span>
             </h4>
             
-            <div className="StepFour-div-group other">
+             <div className="StepFour-div-group other">
             <div className="StepFour-div-other">
                 <label>0</label>
                 <div value="Well0" onClick={checkedZero}></div>
@@ -189,12 +202,12 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
                 <div value="Well5" onClick={checkedFive}></div>
               </div>
 
-            </div>
+            </div> */}
 
             <h4>... manage your pain?</h4>
 
 
-            <h4 class="text-left-right">
+            {/* <h4 class="text-left-right">
             <span class="left-text">Not Well at All</span>
             <span class="byline">Very Well</span>
             </h4>
@@ -225,9 +238,9 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               <div className="StepFour-div-other">
                 <label>5</label>
                 <div value="Well5" onClick={checkedFive}></div>
-              </div>
+              </div> 
 
-            </div>
+            </div>*/}
             {/* <SliderControl 
               setValue={setValue} 
               minLabel="Not Well at All" 
@@ -236,6 +249,15 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
               reversed={false}
               value={managePain}
             /> */}
+            <CircleControl 
+           setValue={setValue} 
+           minLabel="Not Well at All" 
+           maxLabel="Very Well" 
+           reversed={false}
+           value={managePain}
+           forSlider="manage-pain">
+
+           </CircleControl>
 
             
           </div>
