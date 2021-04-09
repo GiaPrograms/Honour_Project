@@ -274,7 +274,7 @@ const Questionnaire = props => {
       <NavigationButton 
         title={lang === "English" ? 
         "Now that you have considered your pain and treatments,\n let\`s go to the next step to clarify what\`simportant to you" : 
-        "Maintenant que vous avez considéré votre douleur et vos traitements, \n passons à l'étape suivante pour clarifier ce qui est important pour vous"}
+        "Maintenant que nous avons parlé de votre douleur et de vos traitements, \n passons à l’étape suivante pour explorer ce qui est important pour vous!"}
         btnText={lang === "English" ? "Continue to Step 2" : "Passez à l'étape 2"}
         handleNavigation={handleButtonNav}
       />

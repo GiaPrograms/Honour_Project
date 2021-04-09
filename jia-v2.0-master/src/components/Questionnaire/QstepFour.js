@@ -111,7 +111,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
              <h4 className="numbered-subheading">
              {lang === "English" ? 
               "4. What other treatments are you using for your arthritis pain?" : 
-              "4. Quels autres traitements utilisez-vous pour vos douleurs arthritiques?"}
+              "4. Quels autres traitements suivez-vous pour vos douleurs arthritiques?"}
              <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
              </h4>
            </div>
@@ -122,7 +122,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
                 <p className="StepThree-desc">
                   {lang === "English" ? 
                   "These are the medications and other treatments you use when you have pain. Select all the treatments you are using." : 
-                  "Ce sont les médicaments et autres traitements que vous utilisez lorsque vous ressentez de la douleur. Sélectionnez tous les traitements que vous utilisez."}
+                  "Il s’agit des médicaments et autres options thérapeutiques que vous utilisez lorsque vous avez de la douleur. Sélectionnez tous les traitements que vous utilisez"}
                 </p>
                 <h3 className="StepThree-h3">{lang === "English" ? "A. Medications" : "A. Médicaments"}</h3>
                 {classificationsList}

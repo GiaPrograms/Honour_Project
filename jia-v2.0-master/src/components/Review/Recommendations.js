@@ -4,6 +4,7 @@ import {Row} from "reactstrap";
 import TreatmentCard from '../TreatmentCard'
 import {handleRecommendations} from "../../components/GenerateRecommendations"
 import {getRequest} from "../../API/ApiHandler"
+import warning from '../../img/warning.png';
 
 const Recommendations = ({favs, setFavs}) => {
   const [topThreeSC, setTopThreeSC] = useState()
@@ -108,7 +109,7 @@ const Recommendations = ({favs, setFavs}) => {
       </div>
       <div className="notice review-description-div">
         <div className="disclaimer">
-          <img src={require(`../../img/warning.png`)} alt="warning"/>
+          <img src={warning} alt="warning"/>
           <div>
             <p>
               {lang === "English" ? 

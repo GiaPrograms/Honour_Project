@@ -3,6 +3,10 @@ import {NavLink as RRNav} from 'react-router-dom';
 import {Button} from 'reactstrap';
 import Footer from "../../components/Footer";
 import Header from "../../components/Home/Header";
+import warning from '../../img/warning.png';
+import stepMobile from '../../img/stepsMobile.png';
+import steps from '../../img/steps.png';
+
 
 const Intro = props => {
   const [navTo, setNavTo] = useState('')
@@ -21,12 +25,12 @@ const Intro = props => {
         </div>
         <div className="body-container">
           <picture className="steps-container">
-            <source media="(max-width: 660px)" className="steps-img" srcSet={require(`../../img/stepsMobile.png`)} alt="five-steps"/>
-            <img media="(min-width: 661px)" className="steps-img text-center" srcSet={require(`../../img/steps.png`)} alt="five-steps"/>
+            <source media="(max-width: 660px)" className="steps-img" srcSet={stepMobile} alt="five-steps"/>
+            <img media="(min-width: 661px)" className="steps-img text-center" srcSet={steps} alt="five-steps"/>
           </picture>
 
           <div className="disclaimer">
-            <img src={require(`../..//img/warning.png`)} alt="warning icon"/>
+            <img src={warning} alt="warning icon"/>
             <div>
               <p>
                 {lang === "English" ? 

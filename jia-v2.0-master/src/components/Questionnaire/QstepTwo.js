@@ -25,7 +25,7 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
         <h4 className="numbered-subheading">
           {lang === "English" ? 
           "2. Where is your pain?" : 
-          "2. Où est votre douleur?"}
+          "2. Où avez-vous mal?"}
           <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
         </h4>
       </div>
@@ -34,7 +34,7 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
         <div className="padding-class">
           <p>{lang === "English" ? 
             "Select all the parts of your body where you have had pain in the past 7 days" : 
-            "Sélectionnez toutes les parties de votre corps où vous avez eu des douleurs au cours des 7 derniers jours?"}</p>
+            "Sélectionnez toutes les parties de votre corps où vous avez eu de la douleur au cours des sept derniers jours"}</p>
           <HumansvgTest setPainAreas={setPainAreas} setSaved={setSaved} setSaveStatus={setSaveStatus}/>
         </div>
       </Collapse>
