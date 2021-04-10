@@ -69,17 +69,17 @@ const Recommendations = ({favs, setFavs}) => {
     <React.Fragment>
       <div className="notice">
         <h5>
-          {lang === "English" ? "Below is a list of your best matches." : "Voici une liste de vos meilleurs matchs."}
+          {lang === "English" ? "Below is a list of your best matches." : "Voici une liste des options thérapeutiques qui correspondent le mieux avec vous."}
         </h5>
         <h5>
           {lang === "English" ? 
-          "These depend on where you have pain, the types of treatments you prefer and what the scientific studies have shown." : 
+          "Celles-ci dépendent de l’endroit où vous ressentez de la douleur, des types de traitements que vous préférez et de ce que les études scientifiques ont démontré." : 
           "Ceux-ci dépendent de l'endroit où vous ressentez la douleur, des types de traitements que vous préférez et de ce que les études scientifiques ont montré."}
         </h5>
         <h5>
           {lang === "English" ? 
           "Review the treatments and save those you prefer to your favorites." : 
-          "Passez en revue les traitements et enregistrez ceux que vous préférez dans vos favoris."}
+          "Passez-les en revue et enregistrez ceux que vous préférez dans vos favoris."}
         </h5>
       </div>
       <div className="review-content">
@@ -87,7 +87,7 @@ const Recommendations = ({favs, setFavs}) => {
          SC TREATMENTS
           ******************/}
         <div className="title-padding">
-          <h4>{lang === "English" ? "Treatments you could try now" : "Traitements que vous pouvez essayer maintenant"}</h4>
+          <h4>{lang === "English" ? "Treatments you could try now" : "Traitements que vous pouvez essayer dès maintenant"}</h4>
         </div>
         <Row className="card-row">
           {topThreeSCList}
@@ -100,7 +100,7 @@ const Recommendations = ({favs, setFavs}) => {
         <div className="title-padding">
           <h4>{lang === "English" ? 
               "Treatments you could discuss with your health care team before trying" : 
-              "Traitements dont vous pourriez discuter avec votre équipe soignante avant d'essayer"}
+              "Traitements dont vous pourriez discuter avec votre équipe soignante avant de les essayer"}
           </h4>
         </div>
         <Row className="card-row">
@@ -114,12 +114,12 @@ const Recommendations = ({favs, setFavs}) => {
             <p>
               {lang === "English" ? 
               "Please consider the benefits, risks and how easy it is to use the treatments before making a selection. You can also discuss it with your health care team." : 
-              "Veuillez considérer les avantages, les risques et la facilité d'utilisation des traitements avant de faire une sélection. Vous pouvez également en discuter avec votre équipe soignante."}
+              "N’oubliez pas de considérer les avantages, les risques et la facilité d’utilisation de ces options thérapeutiques avant de faire un choix. Vous pouvez également en discuter avec votre équipe soignante."}
             </p>
             <p>
               {lang === "English" ? 
               "Keep taking your prescribed treatments so that your arthritis does not get worse." : 
-              "Continuez à prendre vos traitements prescrits afin que votre arthrite ne s'aggrave pas."}
+              "Pour éviter que votre arthrite s’aggrave, continuez à suivre les traitements qui vous ont été prescrits."}
             </p>
           </div>
         </div>
@@ -128,7 +128,7 @@ const Recommendations = ({favs, setFavs}) => {
         <h5>
           {lang === "English" ? 
           "You can click on the “All Treatments” tab to see all treatments, or click on the “My Favourites” tab to review your favourites." : 
-          "Vous pouvez cliquer sur l'onglet “Tous les traitements” pour voir tous les traitements, ou cliquer sur l'onglet “Mes favoris” pour consulter vos favoris."}
+          "Pour voir l’ensemble des options thérapeutiques, cliquez sur l’onglet “Tous les traitements”. Pour consulter vos favoris, cliquez sur l’onglet “Mes favoris”."}
         </h5>
       </div>
     </React.Fragment>

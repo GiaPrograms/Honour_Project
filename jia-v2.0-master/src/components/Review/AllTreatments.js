@@ -42,7 +42,7 @@ const AllTreatments = ({favs, setFavs, treatments}) => {
         <h5>
           {lang === "English" ? 
           "Below is a list of the categories of treatments that can be used for pain. If any of the treatments appeal to you, you can save them to your favourites." : 
-          "Vous trouverez ci-dessous une liste des catégories de traitements pouvant être utilisés pour la douleur. Si l'un des traitements vous intéresse, vous pouvez les enregistrer dans vos favoris."}  
+          "Voici des catégories regroupant différents traitements contre la douleur. Si l’un de ces traitements vous intéresse, enregistrez-le dans vos favoris."}  
         </h5>
       </div>
       <div className="review-content all-treatments-review">
@@ -52,7 +52,7 @@ const AllTreatments = ({favs, setFavs, treatments}) => {
         <h5>
         {lang === "English" ? 
           "You can click the “My Favourites” tab to review your favourites" : 
-          "Vous pouvez cliquer sur l'onglet “Mes favoris” pour revoir vos favoris"}
+          "Vous pouvez cliquer sur l’onglet “Mes favoris” pour consulter vos favoris."}
         </h5>
       </div>
     </React.Fragment>

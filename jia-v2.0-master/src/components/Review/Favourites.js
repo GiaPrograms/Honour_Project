@@ -45,13 +45,13 @@ const Favourites = ({favs, setFavs, treatments}) => {
       <div className="notice plan-top-notice">
         <h5>{lang === "English" ? 
             "Please review your saved treatments below. Add or remove any favourites." : 
-            "Veuillez consulter vos traitements enregistrés ci-dessous. Ajoutez ou supprimez des favoris."}</h5>
+            "Veuillez réviser les traitements enregistrés ci-dessous. N’hésitez pas à ajouter et à supprimer des favoris."}</h5>
       </div>
       <div className="review-content">
         <Row className="padding-class">
           {favsList.length 
             ? treatmentCards
-            : <h1>{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide"}</h1>
+            : <h1>{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide."}</h1>
           }
         </Row>
       </div>

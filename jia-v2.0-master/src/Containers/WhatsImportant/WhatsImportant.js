@@ -283,14 +283,6 @@ const WhatsImportant = props => {
           {sliders.length && sliders.map((slider, index) => (
             <div key={slider.id}>
               <h4>{index + 1}. {slider.description}</h4>
-              {/* <SliderControl 
-                  setValue={setValue} 
-                  minLabel={slider.left_label}
-                  maxLabel={slider.right_label}
-                  sliderId={slider.id} 
-                  reversed={slider.reversed}
-                  value={slider.value}
-                /> */}
               <CircleControl
                 setValue={setValue}
                 minLabel={slider.left_label}
@@ -299,52 +291,16 @@ const WhatsImportant = props => {
                 reversed={slider.reversed}
                 value={slider.value}
                 ></CircleControl>
-
-              {/* <h4 class="text-left-right">
-                <span class="left-text">Not Important at All</span>
-                <span class="byline">Very Important</span>
-
-                <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="imp0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="imp1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="imp2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="imp3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="imp4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="imp5" onClick={checkedFive}></div>
-              </div>
-
-            </div>
-
-            </h4> */}
             </div>
           ))
 
             }
-            <h4>{lang === "English" ? "7. Considering other factors." : "7. Considérant d'autres facteurs."}</h4>
+            <h4>{lang === "English" ? "7. Considering other factors." : "7. Considérer d’autres facteurs"}</h4>
             <ThemeProvider theme={theme}>
             <TextField
                 onChange={handleTextChange}
                 className="text-field"
-                label={lang === "English" ? "Please Explain" : "S'il vous plaît, expliquez"}
+                label={lang === "English" ? "Please Explain" : "Veuillez expliquer"}
                 margin="normal"
                 variant="outlined"
                 fullWidth
