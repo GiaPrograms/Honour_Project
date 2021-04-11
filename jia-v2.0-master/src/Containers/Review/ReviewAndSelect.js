@@ -122,9 +122,9 @@ const ReviewAndSelect = props => {
         handleNavigation={handleButtonNav}
       />
       <Footer/>
-      {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s3Trial' />}
+      {/* {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s3Trial' />}
       <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog} />
-      <FailedSaveDialog open={open} setOpen={setOpen} />
+      <FailedSaveDialog open={open} setOpen={setOpen} /> */}
     </div>
   )
 }
