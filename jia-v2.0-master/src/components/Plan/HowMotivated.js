@@ -120,61 +120,17 @@ const checkedFive = ev => {
     <div className="box-container-numbered">
     <h4 className="numbered-subheading">{lang === "English" ? 
       "2. How motivated are you to follow your new plan?" : 
-      "2. Dans quelle mesure êtes-vous motivé à suivre votre nouveau plan?"}</h4>
-    {/* <SliderControl
-      setValue={setValue} 
-      minLabel="Not Motivated at All" 
-      maxLabel="Very Motivated"
-      forSlider="motivated-to-follow"
-      value={motivationLevel}
-    /> */}
+      "2. Dans quelle mesure êtes-vous motivé(e) à suivre votre nouveau programme?"}</h4>
 
     <CircleControl 
         setValue={setValue} 
-        minLabel={lang === "English" ? "Not Motivated at All" : "Pas du tout motivé"}
-        maxLabel={lang === "English" ? "Very Motivated" : "Très motivé"}         
+        minLabel={lang === "English" ? "Not Motivated at All" : "Pas motivé(e) du tout"}
+        maxLabel={lang === "English" ? "Very Motivated" : "Très motivé(e)"}         
         reversed={false}
         value={motivationLevel}
         forSlider="motivated-to-follow">
     </CircleControl>
-
-    {/* <h4 class="text-left-right">
-    <span class="left-text">{lang === "English" ? "Not Motivated at All" : "Pas du tout motivé"}</span>
-    <span class="byline">{lang === "English" ? "Very Motivated" : "Très motivé"}</span>
-
-    <div className="StepFour-div-group other">
-    <div className="StepFour-div-other">
-      <label>0</label>
-      <div value="Well0" onClick={checkedZero}></div>
-                
-    </div>
-      <div className="StepFour-div-other">
-      <label>1</label>
-      <div value="Well1" onClick={checkedOne}></div>
-                
-      </div>
-      <div className="StepFour-div-other">
-      <label>2</label>
-      <div value="Well2" onClick={checkedTwo}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>3</label>
-      <div value="Well3" onClick={checkedThree}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>4</label>
-      <div value="Well4" onClick={checkedFour}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>5</label>
-      <div value="Well5" onClick={checkedFive}></div>
-      </div> 
-
-    </div>
-
-    </h4> */}
               
-
   </div>
   )
 }

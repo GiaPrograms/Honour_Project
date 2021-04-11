@@ -225,7 +225,7 @@ const Plan = props => {
       <NavigationButton 
         title={lang === "English" ? 
           "Now that you have made your \n plan, here is your summary" : 
-          "Maintenant que vous avez fait votre \n plan, voici votre résumé"}
+          "Maintenant que vous avez fait votre \n programme, en voici le résumé"}
         btnText={lang === "English" ? "Continue to Your Summary" : "Continuez vers votre résumé"}
         handleNavigation={handleNavigation}
       />

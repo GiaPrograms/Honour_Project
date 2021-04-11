@@ -81,8 +81,8 @@ const PlanFactors = ({selectedFactors, setSelectedFactors, setSaved, setSaveStat
       <h4 className="numbered-subheading">
         {lang === "English" ? 
           "4. Will any of these factors prevent you from following your new plan?" : 
-          "4. L'un de ces facteurs vous empêchera-t-il de suivre votre nouveau plan?"}
-        <span>{lang === "English" ? "(Check all that apply)" : "(Cochez toutes les cases)"}</span>
+          "4. Croyez-vous que l’un de ces facteurs vous empêchera de suivre votre nouveau programme?"}
+        <span>{lang === "English" ? "(Check all that apply)" : "(Cochez toutes les réponses qui s’appliquent.)"}</span>
       </h4>
       <div className="padding-class">
         {factorItems}

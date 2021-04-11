@@ -36,9 +36,13 @@ const PlanReview = ({setReview, setSaved, setSaveStatus}) => {
       setReview(selection)
       setValue(selection)
 
-      selection === 'true'
-       ? setText("Good answer! There are a few treatments that can help manage arthritis pain.")
-       : setText("There are a few treatments that can help manage arthritis pain.")
+      {lang === "English" ? 
+        selection === 'true'? 
+          setText("Good answer! There are a few treatments that can help manage arthritis pain.") : 
+          setText("There are a few treatments that can help manage arthritis pain.") : 
+        selection === 'true'? 
+          setText("Bonne réponse! Il existe quelques traitements qui peuvent aider à soulager la douleur arthritique.") : 
+          setText("Il existe quelques traitements qui peuvent aider à soulager la douleur arthritique.")}
     }
   }
 
@@ -46,13 +50,19 @@ const PlanReview = ({setReview, setSaved, setSaveStatus}) => {
     let targetValue = ev.target.value;
     switch (targetValue) {
       case "true":
-        setText("Good answer! There are a few treatments that can help manage arthritis pain.")
+        {lang === "English" ? 
+          setText("Good answer! There are a few treatments that can help manage arthritis pain.") : 
+          setText("Bonne réponse! Il existe quelques traitements qui peuvent aider à soulager la douleur arthritique.")}
         break;
       case "false":
-        setText("There are a few treatments that can help manage arthritis pain.")
+        {lang === "English" ? 
+          setText("There are a few treatments that can help manage arthritis pain.") : 
+          setText("Il existe quelques traitements qui peuvent aider à soulager la douleur arthritique.")}
         break;
       case "don't know":
-        setText("There are a few treatments that can help manage arthritis pain.")
+        {lang === "English" ? 
+          setText("There are a few treatments that can help manage arthritis pain.") : 
+          setText("Il existe quelques traitements qui peuvent aider à soulager la douleur arthritique.")}
         break;
       default:
     }
@@ -71,11 +81,11 @@ const PlanReview = ({setReview, setSaved, setSaveStatus}) => {
 
   return (
     <div className="review_key_facts box-container-numbered">
-      <h4 className="numbered-subheading">{lang === "English" ? "6. Let's review the key facts" : "6. Passons en revue les faits clés"}</h4>
+      <h4 className="numbered-subheading">{lang === "English" ? "6. Let's review the key facts" : "6. Passons en revue quelques informations essentielles"}</h4>
       <h5>
         {lang === "English" ? "Studies show that some treatments" : "Des études montrent que certains traitements"}
         <br />
-        {lang === "English" ? "can help manage arthritis pain." : "peut aider à gérer la douleur arthritique."}
+        {lang === "English" ? "can help manage arthritis pain." : "peuvent aider à soulager la douleur arthritique."}
       </h5>
       <FormControl className="radio-group">
         <RadioGroup onChange={handleChange} className="radio-group" value={value} row>

@@ -62,12 +62,12 @@ const PlanList = ({favs, treatments, plan, setPlan, setSaved, setSaveStatus}) =>
     <div className="box-container-numbered plan-container">
       <h4 className="numbered-subheading">{lang === "English" ? 
         "1. Choose the treatments in your plan" : 
-        "1. Choisissez les traitements de votre plan"}
+        "1. Choisissez les traitements à inclure dans votre programme"}
       </h4>
       <div className="notice plan-top-notice">
         <h5>{lang === "English" ? 
           "Please review your favourites and choose the treatments you wish to try now." : 
-          "Veuillez revoir vos favoris et choisir les traitements que vous souhaitez essayer maintenant."}
+          "Veuillez consulter vos favoris et choisir les traitements que vous souhaitez essayer maintenant."}
         </h5>
       </div>
       <div className="review-content">
@@ -81,7 +81,7 @@ const PlanList = ({favs, treatments, plan, setPlan, setSaved, setSaveStatus}) =>
       <div className="notice plan-bottom-notice">
         <h5>{lang === "English" ? 
           "You can go back to the “Review and Select” tab to add treatments." : 
-          "Vous pouvez revenir à l'onglet “Revoir et sélectionner” pour ajouter des traitements."}
+          "Vous pouvez revenir à l’étape “Révision et sélection” pour ajouter des traitements."}
         </h5>
       </div>
     </div>

@@ -78,8 +78,8 @@ const PlanSuggestions = ({selectedSuggestions, setSelectedSuggestions, setSaved,
 
   return(
     <div className="box-container-numbered">
-      <h4 className="numbered-subheading"> {lang === "English" ? "5. Here are suggestions to help you plan your next steps" : "5. Voici des suggestions pour vous aider à planifier vos prochaines étapes"}
-        <span>{lang === "English" ? "(Check the ones you wish to use)" : "(Cochez ceux que vous souhaitez utiliser)"}</span>
+      <h4 className="numbered-subheading"> {lang === "English" ? "5. Here are suggestions to help you plan your next steps" : "5. Voici quelques suggestions qui pourraient vous aider à planifier les prochaines étapes"}
+        <span>{lang === "English" ? "(Check the ones you wish to use)" : "(Cochez celles que vous souhaitez retenir)"}</span>
       </h4>
       <div className="padding-class">
         {suggestionItems}
