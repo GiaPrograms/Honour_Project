@@ -405,6 +405,47 @@ padding: 2rem;
 .new-assessment-button{
   color: white;
 }
+
+.newnext-btn-container{
+  color: var(--primary-colour) !important;
+  text-align: center;
+  margin: 0rem 0 0;
+  padding: 1rem 1.5rem;
+  
+}
+.newnext-btn-content{
+  max-width: 1140px;
+  margin: 0 auto;
+  color: var(--primary-colour) !important;
+}
+
+.newnext-btn{
+  color: #FFF !important;
+  font-weight: 700 !important;
+  padding: 0.7rem 3rem !important;
+  background-color: var(--primary-colour) !important;
+  border: none !important;
+  border-radius: 1rem !important;
+  cursor: pointer;
+  transition: all .3s ease-out;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.225);
+}
+
+.orangenext-btn-container{
+  color: var(--secondary-colour) !important;
+  text-align: right;
+  margin: 0rem 0 0;
+  padding: 1rem 1.5rem;
+  
+}
+.orangenext-btn-content{
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--primary-colour) !important;
+}
+
+
+
 /********************
      SLIDER DIV
 ********************/

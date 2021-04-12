@@ -3,6 +3,8 @@ import {NavLink} from 'react-router-dom';
 import "./Header.css"
 import TranslateButton from "../../components/UI/TranslateButton";
 import logo from '../../img/logo.png';
+import { Button } from "reactstrap";
+import { NavLink as RRNav } from "react-router-dom";
 
 //Get value of language from local storage
 let lang = localStorage.getItem("language")
@@ -25,6 +27,9 @@ export default class Header extends Component{
             <div className='sub-header'>
               <div className="home-subheader-content">
                 <h3>{lang === "English" ? "Managing Pain in Juvenile Idiopathic Arthritis" : "Prendre en charge la douleur associée à l’arthrite juvénile idiopathique"}</h3>
+                {/* <Button className="newnext-btn" tag={RRNav} to="/intro">
+                  Next
+                </Button> */}
               </div>
             </div>
           </div>

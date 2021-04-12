@@ -12,6 +12,24 @@ let lang = localStorage.getItem("language")
 const Main = () => {
   return (
     <>
+       
+       <div className="newnext-btn-container">
+        <div className="newnext-btn-content">
+          <Button className="next-btn" tag={RRNav} to="/intro">
+          Click to see what JIA offers
+          </Button>
+        </div>
+      </div>
+
+      {/* <div className="orangenext-btn-container">
+        <div className="orangenext-btn-content">
+          <Button className="next-btn" tag={RRNav} to="/intro">
+            Next
+          </Button>
+        </div>
+      </div> */}
+
+
       <div className="body-container">
         <div className="main-options">
           <h2>{lang === "English" ? "Why use JIA OptionMap?" : "Pourquoi utiliser JIA OptionMap?"}</h2>

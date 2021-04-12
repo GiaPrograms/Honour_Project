@@ -19,7 +19,11 @@ const Intro = props => {
   let lang = localStorage.getItem("language")
   
   return(
+      
       <div className="wrapper intro">
+        <div className="newnext-btn-container">
+            <Button className="next-btn" tag={RRNav} to="/questionnaire">Click and continue to Step 1</Button>
+        </div>
         <div className='page-header'>
           <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>
         </div>

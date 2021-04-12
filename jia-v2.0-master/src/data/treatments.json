@@ -1410,8 +1410,8 @@
           "videos": []
         },
         {
-          "treatment_name": "Marijuana-Cannabinoids",
-          "key_name": "Marijuana_Cannabinoids",
+          "treatment_name": "Cannabis_Marijuana",
+          "key_name": "Cannabis_Marijuana",
           "img": "30.jpg",
           "category": ["Pain Medications"],
           "supervision": "hcp",
@@ -1420,11 +1420,11 @@
           "description": "A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.",
           "traffic_light_level": 3,
           "traffic_light_description": "Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.",
-          "experts_suggest": "Marijuana or cannabinoids are not recommended in JIA guidelines.",
+          "experts_suggest": "Cannabis or Marijuana are not recommended in JIA guidelines.",
           "studies": [
             {
               "study_name": null,
-              "does_it_work": "Researchers need to explore whether marijuana and cannabinoids reduce pain for youth who have JIA. There isn’t enough research yet.",
+              "does_it_work": "Researchers need to explore whether Cannabis and marijuana reduce pain for youth who have JIA. There isn’t enough research yet.",
               "study_results": null,
               "is_safe": "Serious side effects include brain changes, mood changes, anxiety, depression, a fast heartbeat, and it can make day-to-day tasks harder to do. It can also be addictive, meaning that having a bit could make you want more and more, even if you don’t need it. When marijuana is smoked, tars end up in your lungs, which could lead to cancer.",
               "should_believe_research": null,
