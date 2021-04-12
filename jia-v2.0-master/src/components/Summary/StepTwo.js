@@ -26,31 +26,12 @@ const StepTwo = () => {
     getUserPrefs();
   }, []);
 
-  // Message to display if no input was provided
-  const notProvided = "No Input was provided";
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
 
-  // const sliders =
-  //   whatsImportant &&
-  //   whatsImportant.map((slider, i) => (
-  //     <div key={slider.id}>
-  //       <h5>
-  //         <strong>{i + 1}. </strong>
-  //         {slider.description}
-  //       </h5>
-  //       {slider.value !== null ? (
-  //         <p className="text-center">
-  //           {slider.value} / 10
-  //           <img
-  //             style={{ width: "60%" }}
-  //             src={require(`../../img/${slider.value}.png`)}
-  //             alt="manage your pain"
-  //           />
-  //         </p>
-  //       ) : (
-  //         <p className="notFilled">{notProvided}</p>
-  //       )}
-  //     </div>
-  //   ));
+  // Message to display if no input was provided
+  const notProvidedEN = "No Input was provided";
+  const notProvidedFR = "Aucune information n’a été fournie.";
 
   const sliders = whatsImportant.length ? (
    whatsImportant.map((slider, i) => (
@@ -70,13 +51,13 @@ const StepTwo = () => {
     </div>
    ))
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   )
 
   return (
     <div className="box-container-numbered">
       <h4 className="title_summary numbered-subheading">
-        Step 2: What’s important to you
+        {lang === "English" ? "Step 2: What’s important to you" : "Étape 2: ce qui est important pour vous"}
       </h4>
       {isLoading ? (
         <Spinner />

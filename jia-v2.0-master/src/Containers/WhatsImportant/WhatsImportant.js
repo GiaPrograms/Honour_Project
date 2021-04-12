@@ -276,7 +276,7 @@ const WhatsImportant = props => {
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo} />
       </div>
-      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"} />
+      <Subheader title={lang === "English" ? "What's important to you" : "Qu’est-ce qui est important pour vous"} />
       <div className="body-container">
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus} />
         <div className="slider-component-div box-container">

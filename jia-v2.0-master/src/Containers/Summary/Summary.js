@@ -62,11 +62,11 @@ const Summary = props => {
           <div className="body-container">
             <div className="notice summary-notice">
               <div>
-                <h4>{lang === "English" ? "You're Done!" : "Vous avez terminé!"}</h4>
+                <h4>{lang === "English" ? "You're Done!" : "C’est terminé!"}</h4>
                 <p>
                   {lang === "English" ? 
                   "Below is a summary of your information. You can save a copy to your device and share it with your health care team." : 
-                  "Vous trouverez ci-dessous un résumé de vos informations. Vous pouvez enregistrer une copie sur votre appareil et la partager avec votre équipe soignante."}
+                  "Vous trouverez ci-dessous un résumé de vos informations. Vous pouvez en enregistrer une copie sur votre appareil et la partager avec votre équipe soignante."}
                 </p>
               </div>
               <div>

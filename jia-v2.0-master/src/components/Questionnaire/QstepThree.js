@@ -82,9 +82,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
         <div  className="box-container-numbered collapsable">
           <div onClick={handleCollapse}>
             <h4 className="numbered-subheading">
-              {lang === "English" ? 
-              "3. What prescribed medications are you using?" : 
-              "3. Quels médicaments prescrits prenez-vous?"}
+              {lang === "English" ? "3. What prescribed medications are you using?" : "3. Quels médicaments prescrits prenez-vous?"}
               <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
             </h4>
           </div>

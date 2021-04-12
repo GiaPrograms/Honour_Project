@@ -23,9 +23,7 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
     <div className="pain-div box-container-numbered collapsable">
       <div onClick={handleCollapse}>
         <h4 className="numbered-subheading">
-          {lang === "English" ? 
-          "2. Where is your pain?" : 
-          "2. Où avez-vous mal?"}
+          {lang === "English" ? "2. Where is your pain?" : "2. Où avez-vous mal?"}
           <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
         </h4>
       </div>

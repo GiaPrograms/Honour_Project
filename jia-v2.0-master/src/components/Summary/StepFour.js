@@ -47,8 +47,12 @@ const StepFour = () => {
     getUserSuggestions();
   }, []);
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   // Message to display if no input was provided
-  const notProvided = "No Input was provided";
+  const notProvidedEN = "No Input was provided";
+  const notProvidedFR = "Aucune information n’a été fournie.";
 
   const motivationItem = motivation ? (
     <React.Fragment>
@@ -62,7 +66,7 @@ const StepFour = () => {
       </p>
     </React.Fragment>
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   );
 
   const confidenceItem = confidence ? (
@@ -77,7 +81,7 @@ const StepFour = () => {
       </p>
     </React.Fragment>
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   );
 
   const factorsItem = factors.length ? (
@@ -88,7 +92,7 @@ const StepFour = () => {
       </div>
     ))
   ) : (
-    <span className="notFilled">{notProvided}</span>
+    <span className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</span>
   );
 
   const suggestionsItem = suggestions.length ? (
@@ -99,31 +103,44 @@ const StepFour = () => {
       </div>
     ))
   ) : (
-    <span className="notFilled">{notProvided}</span>
+    <span className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</span>
   );
 
   return (
     <div className="box-container-numbered">
       <h4 className="title_summary numbered-subheading">
-        Step 4: Make your plan
+        {lang === "English" ? "Step 4: Make your plan" : "Étape 04: Faites votre programme"}
       </h4>
       {isLoading ? (
         <Spinner />
       ) : (
         <div className="padding-class">
-          <h5>1. How motivated are you to follow your new plan?</h5>
+          <h5>
+            {lang === "English" ? 
+              "1. How motivated are you to follow your new plan?" : 
+              "1. Dans quelle mesure êtes-vous motivé(e) à suivre votre nouveau programme?"}
+          </h5>
           <div className="summary-slider-container">{motivationItem}</div>
 
-          <h5>2. How confident are you that you can follow your plan?</h5>
+          <h5>
+            {lang === "English" ? 
+              "2. How confident are you that you can follow your plan?" : 
+              "2. Dans quelle mesure êtes-vous convaincu(e) de pouvoir suivre votre programme?"}
+          </h5>
           <div className="summary-slider-container">{confidenceItem}</div>
 
           <h5>
-            3. Will any of these factors prevent you from following your new
-            plan?
+            {lang === "English" ? 
+              "3. Will any of these factors prevent you from following your new plan?" : 
+              "3. Croyez-vous que l’un de ces facteurs vous empêchera de suivre votre nouveau programme?"}
           </h5>
           {factorsItem}
 
-          <h5>4. Suggestions to help you plan your next steps</h5>
+          <h5>
+          {lang === "English" ? 
+              "4. Suggestions to help you plan your next steps" : 
+              "4. Suggestions qui pourraient vous aider à planifier les prochaines étapes"}
+          </h5>
           {suggestionsItem}
         </div>
       )}
