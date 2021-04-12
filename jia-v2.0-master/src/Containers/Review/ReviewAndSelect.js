@@ -15,6 +15,9 @@ const ReviewAndSelect = props => {
   const [treatments, setTreatments] = useState([])
   const [favourites, setFavourites] = useState()
   const [navTo, setNavTo] = useState('')
+  const [saved, setSaved] = useState(true)
+  const [navBy, setNavBy] = useState('')
+  const [displayNavDialog, setDisplayNavDialog] = useState(false)
 
   const getUserFavourite = async() => {
     let data = await getRequest(`/userFavourites/user`)
@@ -31,6 +34,15 @@ const ReviewAndSelect = props => {
 
   const handleStepperNav = to => {
     props.history.push(to)
+  }
+
+  const handleButtonNav = () => {
+    if (saved) {
+      props.history.push(`/make-your-plan`)
+    } else {
+      setNavBy('button')
+      setDisplayNavDialog(true)
+    }
   }
 
   useEffect(() => {
@@ -81,7 +93,7 @@ const ReviewAndSelect = props => {
       <NavigationButton 
         title={<>If you wish to see more options, you can also click on the <strong>“All Treatments”</strong><br/>tab or go back to change your preferences in Step 2.</>}
         btnText="Continue to Step 4"
-        path="/make-your-plan"
+        handleNavigation={handleButtonNav}
       />
       <Footer/>
     </div>
