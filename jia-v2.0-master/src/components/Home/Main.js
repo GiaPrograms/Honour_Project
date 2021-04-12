@@ -9,8 +9,27 @@ import {Row} from "reactstrap";
 const Main = () => {
   return (
     <>
+       
+       <div className="newnext-btn-container">
+        <div className="newnext-btn-content">
+          <Button className="next-btn" tag={RRNav} to="/intro">
+          Click to see what JIA offers
+          </Button>
+        </div>
+      </div>
+
+      {/* <div className="orangenext-btn-container">
+        <div className="orangenext-btn-content">
+          <Button className="next-btn" tag={RRNav} to="/intro">
+            Next
+          </Button>
+        </div>
+      </div> */}
+
+
       <div className="body-container">
         <div className="main-options">
+          
           <h2>Why use JIA OptionMap?</h2>
           <Row>
             {mainOptions.options &&
