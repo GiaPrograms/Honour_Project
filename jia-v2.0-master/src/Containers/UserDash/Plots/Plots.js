@@ -94,9 +94,9 @@ const Plots = () => {
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="manage" stroke="#1f417e" />
               <ReferenceLine y={2.5} strokeDasharray="5 5" stroke="#000000"/> 
-              <ReferenceArea y1={0} y2={1.5} fill="#03c04a" opacity={0.2}/>
+              <ReferenceArea y1={0} y2={1.5} fill="#e3242b" opacity={0.2}/>
               <ReferenceArea y1={1.5} y2={3.5} fill="#effd5f" opacity={0.2}/>
-              <ReferenceArea y1={3.5} y2={5} fill="#e3242b" opacity={0.2}/> 
+              <ReferenceArea y1={3.5} y2={5} fill="#03c04a" opacity={0.2}/> 
             </LineChart>
 
             <div className="legend">
@@ -125,9 +125,9 @@ const Plots = () => {
               <Tooltip content={<CustomTooltip />} />
               <Line type="monotone" dataKey="control" stroke="#d21404" />
               <ReferenceLine y={2.5} strokeDasharray="5 5" stroke="#000000"/>
-              <ReferenceArea y1={0} y2={1.5} fill="#03c04a" opacity={0.2}/>
+              <ReferenceArea y1={0} y2={1.5} fill="#e3242b" opacity={0.2}/>
               <ReferenceArea y1={1.5} y2={3.5} fill="#effd5f" opacity={0.2}/>
-              <ReferenceArea y1={3.5} y2={5} fill="#e3242b" opacity={0.2}/>
+              <ReferenceArea y1={3.5} y2={5} fill="#03c04a" opacity={0.2}/>
             </LineChart>
 
         </div>

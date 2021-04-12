@@ -24,8 +24,6 @@ const ReviewAndSelect = props => {
   const [didSelect, setDidSelect] = useState(false)
   const [open, setOpen] = useState(false)
   
-  
-
   const getUserFavourite = async() => {
     let data = await getRequest(`/userFavourites/user`)
     if(data) {
@@ -68,7 +66,6 @@ const ReviewAndSelect = props => {
         ? props.history.push(`/review-and-select`)
         : props.history.push(navTo)
   }
-
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -118,7 +115,6 @@ const ReviewAndSelect = props => {
       <NavigationButton 
         title={<>If you wish to see more options, you can also click on the <strong>“All Treatments”</strong><br/>tab or go back to change your preferences in Step 2.</>}
         btnText="Continue to Step 4"
-        path="/make-your-plan"
         handleNavigation={handleButtonNav}
       />
       <Footer/>
