@@ -102,8 +102,12 @@ const StepOne = () => {
     getHowWell();
   }, []);
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   // Message to display if no input was provided
-  const notProvided = "No Input was provided";
+  const notProvidedEN = "No Input was provided";
+  const notProvidedFR = "Aucune information n’a été fournie.";
 
   // Pain level
   const painLevelItem =
@@ -117,7 +121,7 @@ const StepOne = () => {
         />
       </p>
     ) : (
-      <p className="notFilled">{notProvided}</p>
+      <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
     );
 
   // Pain Areas
@@ -126,7 +130,7 @@ const StepOne = () => {
       <span key={i}>{(i ? ", " : "") + area.name}</span>
     ))
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   );
 
   // Prescribed meds
@@ -135,7 +139,7 @@ const StepOne = () => {
       <span key={med.id}>{(i ? ", " : "") + med.name}</span>
     ))
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   );
 
   // Other treatments
@@ -144,7 +148,7 @@ const StepOne = () => {
       <span key={treat.id}>{(i ? ", " : "") + treat.name}</span>
     ))
   ) : (
-    <p className="notFilled">{notProvided}</p>
+    <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
   );
 
   // How often do you use prescribed arthritis medications
@@ -152,7 +156,7 @@ const StepOne = () => {
     howOftenMeds != null ? (
       <p>{howOftenMeds}</p>
     ) : (
-      <p className="notFilled">{notProvided}</p>
+      <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
     );
 
   // How often do you use other pain treatments
@@ -160,7 +164,7 @@ const StepOne = () => {
     howOftenTreats != null ? (
       <p>{howOftenTreats}</p>
     ) : (
-      <p className="notFilled">{notProvided}</p>
+      <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
     );
 
   // How well do does your treatments control your arthritis
@@ -175,7 +179,7 @@ const StepOne = () => {
         />
       </p>
     ) : (
-      <p className="notFilled">{notProvided}</p>
+      <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
     );
 
   // How well do does your treatments manage your pain
@@ -190,42 +194,54 @@ const StepOne = () => {
         />
       </p>
     ) : (
-      <p className="notFilled">{notProvided}</p>
+      <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
     );
 
   return (
     <div className="box-container-numbered summary-container">
       <h4 className="title_summary numbered-subheading">
-        Step 1: Your pain and your treatments
+        {lang === "English" ? "Step 1: Your pain and your treatments" : "Étape 1: Votre douleur et vos traitements"}
       </h4>
       {isLoading ? (
         <Spinner />
       ) : (
         <div className="padding-class">
           <h5> 
-            1. In the past 7 days, how much pain on average have you had because
-            of your arthritis?
+            {lang === "English" ? 
+              "1. In the past 7 days, how much pain on average have you had because of your arthritis?" : 
+              "1. Au cours des sept derniers jours, quel niveau de douleur avez-vous ressenti en moyenne à cause de votre arthrite?"}
           </h5>
           <div className="summary-slider-container">{painLevelItem}</div>
 
-          <h5>2. Where is your pain? </h5>
+          <h5> {lang === "English" ? "2. Where is your pain?" : "2. Où avez-vous mal?"} </h5>
           {painAreasItem}
-          <h5>3. What prescribed medications are you using?</h5>
+          <h5> {lang === "English" ? "3. What prescribed medications are you using?" : "3. Quels médicaments prescrits prenez-vous?"} </h5>
           {presMedsItem}
 
           <h5>
-            4. What other treatments are you using for your arthritis pain?
+            {lang === "English" ? 
+              "4. What other treatments are you using for your arthritis pain?" : 
+              "4. Quels autres traitements suivez-vous pour vos douleurs arthritiques?"}
           </h5>
           {otherTreatmentsItem}
 
-          <h5>5. How often do you use your treatments?</h5>
-          <h6>Prescribed arthritis medications?</h6>
+          <h5>
+            {lang === "English" ? 
+              "5. How often do you use your treatments?" : 
+              "5. À quelle fréquence utilisez-vous ces traitements?"}
+          </h5>
+          <h6>
+            {lang === "English" ? 
+              "Prescribed arthritis medications?" : 
+              "Médicaments sous ordonnance contre l’arthrite?"}
+          </h6>
           {howOftenMedsItem}
-          <h6>Other pain treatments?</h6>
+          <h6>{lang === "English" ? "Other pain treatments" : "Autres traitements pour la douleur"}</h6>
           {howOftenTreatsItem}
           <h5>
-            6. How well do does your treatments…control your arthritis?...manage
-            your pain?
+            {lang === "English" ? 
+            "6. How well do does your treatments...control your arthritis?...manage your pain?" : 
+            "6. Dans quelle mesure votre traitement...contrôle efficacement votre arthrite?...soulage votre douleur?"}
           </h5>
           <div className="summary-slider-container">
             {controlItem}

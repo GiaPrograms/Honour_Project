@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import {Collapse} from 'reactstrap';
 import {getRequest} from "../../API/ApiHandler"
+import warning from '../../img/warning.png';
+
 
 const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
   const [notAlways, setNotAlways] = useState()
@@ -97,7 +99,7 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
           <h4 className="numbered-subheading">
             {lang === "English" ? 
             "5. How often do you use your treatments?" : 
-            "5. À quelle fréquence utilisez-vous vos traitements?"}
+            "5. À quelle fréquence utilisez-vous ces traitements?"}
             <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
           </h4>
         </div>
@@ -107,7 +109,7 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
             <h4 className="Step-subHeading">
               {lang === "English" ? 
               "Prescribed arthritis medication" : 
-              "Médicaments contre l'arthrite prescrits"}
+              "Médicaments sous ordonnance contre l’arthrite"}
             </h4>
             <div className="StepFour-div-group">
               <div className="StepFour-div">
@@ -115,7 +117,7 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
                 <div value="Never" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Sometimes" : "quelquefois"}</label>
+                <label>{lang === "English" ? "Sometimes" : "Parfois"}</label>
                 <div value="Sometimes" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
@@ -131,22 +133,26 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
                 <div value="Always" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
-                <label>{lang === "English" ? "Not applicable" : "N'est pas applicable"}</label>
+                <label>{lang === "English" ? "Not applicable" : "Sans objet"}</label>
                 <div value="Not applicable" onClick={checked}></div>
               </div>
             </div>
             {notAlways &&
             <React.Fragment>
               <div className="Notice text-center">
-                <img src={require(`../../img/warning.png`)} alt="warning icon"/>
+                <img src={warning} alt="warning icon"/>
                 <h5>
                   {lang === "English" ? 
                   "If you aren't using your treatments as prescribed by your doctor, you may have more pain." : 
-                  "5. À quelle fréquence utilisez-vous vos traitements?"}
+                  "Si vous n'utilisez pas vos traitements tels que prescrits par votre médecin, vous pourriez avoir plus de douleur."}
                 </h5>
-                <p>Make sure to discuss any changes or concerns with your doctor to decide what is best.</p>
+                <p>
+                  {lang === "English" ? 
+                  "Make sure to discuss any changes or concerns with your doctor to decide what is best." : 
+                  "Assurez-vous de discuter de tout changement ou de toute préoccupation avec votre médecin pour décider de ce qui est le mieux."}
+                </p>
                 <div value="GotIt" id="GotIt-div">
-                  <p value="GotIt" onClick={() => {setNotAlways(false)}} id="GotIt">Got it</p>
+                  <p value="GotIt" onClick={() => {setNotAlways(false)}} id="GotIt">{lang === "English" ? "Got it" : "J'ai compris"}</p>
                 </div>
               </div>
             </React.Fragment> 
@@ -155,26 +161,26 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
 
           <div className="StepFour-treatment-h4-div">
             <div className="Step-group-container">
-              <h4 className="Step-subHeading">Other pain treatments</h4>
+              <h4 className="Step-subHeading">{lang === "English" ? "Other pain treatments" : "Autres traitements pour la douleur"}</h4>
               <div className="StepFour-div-group other">
                 <div className="StepFour-div-other">
-                  <label>Never</label>
+                  <label>{lang === "English" ? "Never" : "Jamais"}</label>
                   <div value="Never" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
-                  <label>Sometimes</label>
+                  <label>{lang === "English" ? "Sometimes" : "Parfois"}</label>
                   <div value="Sometimes" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
-                  <label>Half the time</label>
+                  <label>{lang === "English" ? "Half the time" : "La moitié du temps"}</label>
                   <div value="Half the time" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
-                  <label>Most times</label>
+                  <label>{lang === "English" ? "Most times" : "La plupart du temps"}</label>
                   <div value="Most times" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
-                  <label>Always</label>
+                  <label>{lang === "English" ? "Always" : "Toujours"}</label>
                   <div value="Always" onClick={checkedTwo}></div>
                 </div>
               </div>

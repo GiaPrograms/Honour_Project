@@ -42,6 +42,9 @@ const StepThree = ({ hidden }) => {
     getUserPlans();
   }, []);
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const topThreeSC = sc && sc.map((sc) => <li key={sc.id}>{sc.name}</li>);
 
   const topThreeHCP = hcp && hcp.map((hcp) => <li key={hcp.id}>{hcp.name}</li>);
@@ -49,19 +52,19 @@ const StepThree = ({ hidden }) => {
   const favoritesList = favs.length ? (
       favs.map((fav) => <li key={fav.id}>{fav.name}</li>)
     ) : (
-      <p className="text-left">Your favorites list is empty</p>
+      <p className="text-left">{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide"}</p>
     );
 
   const planList = plans.length ? (
       plans.map((plan) => <li key={plan.id}>{plan.name}</li>)
     ) : (
-      <p className="text-left">Your plan list is empty</p>
+      <p className="text-left">{lang === "English" ? "Your plan list is empty" : "Votre liste de plans est vide"}</p>
     );
 
   return (
     <div className="box-container-numbered">
       <h4 className="title_summary numbered-subheading">
-        Step 3: Review and select treatment options
+        {lang === "English" ? "Step 3: Review and select treatment options" : "Étape 03: Révisez et sélectionnez les options de traitement"}
       </h4>
       {isLoading ? (
         <Spinner />
@@ -69,29 +72,32 @@ const StepThree = ({ hidden }) => {
         <div className="padding-class">
           <h5>
             <strong>1. </strong>
-            Treatments you could try now:
+            {lang === "English" ? "Treatments you could try now:" : "Traitements que vous pouvez essayer maintenant:"}
             {!hidden && <PrintTreatments type={"sc"} passSC={sc} />}
           </h5>
           {topThreeSC}
 
           <h5>
             <strong>2. </strong>
-            Treatments you could discuss with your health care team before
-            trying:
+            {lang === "English" ? 
+              "Treatments you could discuss with your health care team before trying:" : 
+              "Traitements dont vous pourriez discuter avec votre équipe soignante avant d'essayer:"}
             {!hidden && <PrintTreatments type={"hcp"} passHCP={hcp} />}
           </h5>
           {topThreeHCP}
 
           <h5>
             <strong>3. </strong>
-            Treatments in your Favourites list:
+            {lang === "English" ? 
+              "Treatments in your Favourites list:" : 
+              "Traitements dans votre liste de favoris:"}
             {!hidden && <PrintTreatments type={"favs"} passFavs={favs} />}
           </h5>
           {favoritesList}
 
           <h5>
             <strong>4. </strong>
-            Your treatment plan:
+            {lang === "English" ? "Your treatment plan:" : "Votre plan de traitement:"}
             {!hidden && <PrintTreatments type={"plan"} passPlan={plans} />}
           </h5>
           {planList}

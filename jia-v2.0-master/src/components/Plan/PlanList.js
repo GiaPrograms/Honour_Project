@@ -55,22 +55,34 @@ const PlanList = ({favs, treatments, plan, setPlan, setSaved, setSaveStatus}) =>
     />
   )
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <div className="box-container-numbered plan-container">
-      <h4 className="numbered-subheading">1. Choose the treatments in your plan</h4>
+      <h4 className="numbered-subheading">{lang === "English" ? 
+        "1. Choose the treatments in your plan" : 
+        "1. Choisissez les traitements à inclure dans votre programme"}
+      </h4>
       <div className="notice plan-top-notice">
-        <h5>Please review your favourites and choose the treatments you wish to try now.</h5>
+        <h5>{lang === "English" ? 
+          "Please review your favourites and choose the treatments you wish to try now." : 
+          "Veuillez consulter vos favoris et choisir les traitements que vous souhaitez essayer maintenant."}
+        </h5>
       </div>
       <div className="review-content">
         <Row className="padding-class">
           {favsList.length 
             ? treatmentCards
-            : <h1>Your favourites list is empty</h1>
+            : <h1>{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide"}</h1>
           }
         </Row>
       </div>
       <div className="notice plan-bottom-notice">
-        <h5>You can go back to the “Review and Select” tab to add treatments.</h5>
+        <h5>{lang === "English" ? 
+          "You can go back to the “Review and Select” tab to add treatments." : 
+          "Vous pouvez revenir à l’étape “Révision et sélection” pour ajouter des traitements."}
+        </h5>
       </div>
     </div>
   )

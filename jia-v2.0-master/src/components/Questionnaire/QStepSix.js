@@ -142,125 +142,37 @@ const QStepSix = ({controlArthritis, setControlArthritis, managePain, setManageP
           <h4 className="numbered-subheading">
             {lang === "English" ? 
             "6. How well does your treatment ..." : 
-            "6. Dans quelle mesure votre traitement ..."}
+            "6. Dans quelle mesure votre traitement..."}
             <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
           </h4>
         </div>
         <Collapse isOpen={collapse}>
           <div className="padding-class">
-            {/* <h4>... control your arthritis?</h4>
-            <SliderControl 
+            <h4>
+              {lang === "English" ? "... control your arthritis?" : "... contrôle efficacement votre arthrite?"}
+            </h4>
+            <CircleControl 
               setValue={setValue} 
-              minLabel="Not Well at All"
-              maxLabel="Very Well"
-              forSlider="control-arthritis"
+              minLabel={lang === "English" ? "Not Well at All" : "Pas bien du tout"} 
+              maxLabel={lang === "English" ? "Very Well" : "Très bien"} 
               reversed={false}
               value={controlArthritis}
-            /> */}
-            <h4>... control your arthritis?</h4>
+              forSlider="control-arthritis">
+            </CircleControl>
 
-
+            <h4>{lang === "English" ? "... manage your pain?" : "... soulage votre douleur?"}</h4>
+            
             <CircleControl 
-           setValue={setValue} 
-           minLabel="Not Well at All" 
-           maxLabel="Very Well" 
-           reversed={false}
-           value={controlArthritis}
-           forSlider="control-arthritis">
-
-           </CircleControl>
-            {/*<h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
-            </h4>
-            
-             <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="Well0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="Well1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="Well2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="Well3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="Well4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="Well5" onClick={checkedFive}></div>
-              </div>
-
-            </div> */}
-
-            <h4>... manage your pain?</h4>
-
-
-            {/* <h4 class="text-left-right">
-            <span class="left-text">Not Well at All</span>
-            <span class="byline">Very Well</span>
-            </h4>
-            
-            <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="Well0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="Well1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="Well2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="Well3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="Well4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="Well5" onClick={checkedFive}></div>
-              </div> 
-
-            </div>*/}
-            {/* <SliderControl 
               setValue={setValue} 
-              minLabel="Not Well at All" 
-              maxLabel="Very Well"
-              forSlider="manage-pain"
+              minLabel={lang === "English" ? "Not Well at All" : "Pas bien du tout"} 
+              maxLabel={lang === "English" ? "Very Well" : "Très bien"}
               reversed={false}
               value={managePain}
-            /> */}
-            <CircleControl 
-           setValue={setValue} 
-           minLabel="Not Well at All" 
-           maxLabel="Very Well" 
-           reversed={false}
-           value={managePain}
-           forSlider="manage-pain">
+              forSlider="manage-pain">
+            </CircleControl>
 
-           </CircleControl>
-
-            
           </div>
+
         </Collapse>
       </div>
     </React.Fragment>

@@ -62,12 +62,15 @@ const Summary = props => {
           <div className="body-container">
             <div className="notice summary-notice">
               <div>
-                <h4>You're Done!</h4>
-                <p>Below is a summary of your information. You can save a copy to your device and share it with your
-                  health care team.</p>
+                <h4>{lang === "English" ? "You're Done!" : "C’est terminé!"}</h4>
+                <p>
+                  {lang === "English" ? 
+                  "Below is a summary of your information. You can save a copy to your device and share it with your health care team." : 
+                  "Vous trouverez ci-dessous un résumé de vos informations. Vous pouvez en enregistrer une copie sur votre appareil et la partager avec votre équipe soignante."}
+                </p>
               </div>
               <div>
-                <Button id="savetoDev" className="next-btn" onClick={printSummary}>Download</Button>
+                <Button id="savetoDev" className="next-btn" onClick={printSummary}>{lang === "English" ? "Download" : "Télécharger"}</Button>
               </div>
             </div>
             <StepOne/>
@@ -77,7 +80,7 @@ const Summary = props => {
           </div>
           <div className="save-container">
             <div className="save-content">
-              <Button id="savetoDev" className="next-btn" onClick={printSummary}>Download</Button>
+              <Button id="savetoDev" className="next-btn" onClick={printSummary}>{lang === "English" ? "Download" : "Télécharger"}</Button>
             </div>
           </div>
         </div>

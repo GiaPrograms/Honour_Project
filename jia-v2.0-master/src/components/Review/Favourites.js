@@ -25,28 +25,33 @@ const Favourites = ({favs, setFavs, treatments}) => {
     }
   },[treatments, favs])
 
-   // Treatment card list
-   const treatmentCards = favsList.length && 
-   favsList.map(treatment => 
-      <TreatmentCard
-        key={treatment.id} 
-        treatment={treatment}
-        selected={favs}
-        setSelected={setFavs}
-        icon="fav"
-      />
-    )
+  // Treatment card list
+  const treatmentCards = favsList.length && 
+  favsList.map(treatment => 
+    <TreatmentCard
+      key={treatment.id} 
+      treatment={treatment}
+      selected={favs}
+      setSelected={setFavs}
+      icon="fav"
+    />
+  )
+
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
 
   return(
     <React.Fragment>
       <div className="notice plan-top-notice">
-        <h5>Please review your saved treatments below. Add or remove any favourites.</h5>
+        <h5>{lang === "English" ? 
+            "Please review your saved treatments below. Add or remove any favourites." : 
+            "Veuillez réviser les traitements enregistrés ci-dessous. N’hésitez pas à ajouter et à supprimer des favoris."}</h5>
       </div>
       <div className="review-content">
         <Row className="padding-class">
           {favsList.length 
             ? treatmentCards
-            : <h1>Your favourites list is empty</h1>
+            : <h1>{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide."}</h1>
           }
         </Row>
       </div>
