@@ -82,9 +82,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
         <div  className="box-container-numbered collapsable">
           <div onClick={handleCollapse}>
             <h4 className="numbered-subheading">
-              {lang === "English" ? 
-              "3. What prescribed medications are you using?" : 
-              "3. Quels médicaments prescrits utilisez-vous?"}
+              {lang === "English" ? "3. What prescribed medications are you using?" : "3. Quels médicaments prescrits prenez-vous?"}
               <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
             </h4>
           </div>
@@ -94,7 +92,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
               <p className="StepTwo-desc">
                 {lang === "English" ? 
                 "These are medications you use to control your arthritis, but they might also help manage your pain. Select all that apply." : 
-                "Ce sont des médicaments que vous utilisez pour contrôler votre arthrite, mais ils peuvent également vous aider à gérer votre douleur. Sélectionnez tout ce qui s'y rapporte."}
+                "Il s’agit des médicaments que vous prenez pour votre arthrite, mais qui peuvent également vous aider à gérer votre douleur. Cochez toutes les réponses qui s’appliquent."}
               </p>
 
               {classificationsList}
@@ -104,7 +102,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
                     onChange={handleTextChange}
                     className="text-field"
                     label={lang === "English" ? "Others" : "Autres"}
-                    placeholder={lang === "English" ? "Other prescribed medications you are using..." : "D'autres médicaments prescrits que vous utilisez ..."}
+                    placeholder={lang === "English" ? "Other prescribed medications you are using..." : "Autres médicaments et traitements utilisés..."}
                     variant="outlined"
                     fullWidth
                     multiline

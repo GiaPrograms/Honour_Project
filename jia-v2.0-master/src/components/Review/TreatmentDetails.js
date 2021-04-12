@@ -67,6 +67,9 @@ const TreatmentDetails = (props) => {
     }
   },[treatment])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const makePage = () => {
     return (
       <React.Fragment>
@@ -76,12 +79,12 @@ const TreatmentDetails = (props) => {
           </div>
           <div className='sub-header'>
             <div className="subheader-content">
-              <h3>Treatment details</h3>
+              <h3>{lang === "English" ? "Treatment details" : "Détails du traitement"}</h3>
             </div>
           </div>
           <div className="body-container treatment_details">
             <div className="back-button-container">
-              <Button className="next-btn" onClick={() => {props.data.history.goBack()}}>Go Back</Button>
+              <Button className="next-btn" onClick={() => {props.data.history.goBack()}}>{lang === "English" ? "Go Back" : "Retourner"}</Button>
             </div>
             <div className="box-container">
               {/* Image and description */}
@@ -173,7 +176,7 @@ const TreatmentDetails = (props) => {
               </div>
             </div>
             <div className="back-button-container">
-              <Button className="next-btn" onClick={() => props.data.history.goBack()}>Go Back</Button>
+              <Button className="next-btn" onClick={() => props.data.history.goBack()}>{lang === "English" ? "Go Back" : "Retourner"}</Button>
             </div>
           </div>
         </div>

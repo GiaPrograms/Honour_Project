@@ -114,60 +114,24 @@ const checkedFive = ev => {
     getConfidenceLevel()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="box-container-numbered">
-      <h4 className="numbered-subheading">3. How confident are you that you can follow your plan?</h4>
-      {/* <SliderControl 
-        setValue={setValue} 
-        minLabel="Not confident at all" 
-        maxLabel="Very confident"
-        forSlider="confident-of-following"
-        value={confidenceLevel}
-      /> */}
+      <h4 className="numbered-subheading">{lang === "English" ? 
+        "3. How confident are you that you can follow your plan?" : 
+        "3. Dans quelle mesure êtes-vous convaincu(e) de pouvoir suivre votre programme?"}</h4>
+
       <CircleControl 
            setValue={setValue} 
-           minLabel="Not Confident at all" 
-           maxLabel="Very Confident" 
+           minLabel={lang === "English" ? "Not Confident at All" : "Pas du tout confiant"} 
+           maxLabel={lang === "English" ? "Very Confident" : "Très confiant"} 
            reversed={false}
            value={confidenceLevel}
            forSlider="confident-of-following">
 
       </CircleControl>
-{/* <h4 class="text-left-right">
-    <span class="left-text">Not Confident at All</span>
-    <span class="byline">Very Confident</span>
-
-    <div className="StepFour-div-group other">
-    <div className="StepFour-div-other">
-      <label>0</label>
-      <div value="Well0" onClick={checkedZero}></div>
-                
-    </div>
-      <div className="StepFour-div-other">
-      <label>1</label>
-      <div value="Well1" onClick={checkedOne}></div>
-                
-      </div>
-      <div className="StepFour-div-other">
-      <label>2</label>
-      <div value="Well2" onClick={checkedTwo}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>3</label>
-      <div value="Well3" onClick={checkedThree}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>4</label>
-      <div value="Well4" onClick={checkedFour}></div>
-      </div>
-      <div className="StepFour-div-other">
-      <label>5</label>
-      <div value="Well5" onClick={checkedFive}></div>
-      </div>
-
-    </div>
-
-    </h4> */}
 
     </div>
   )

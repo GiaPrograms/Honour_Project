@@ -276,21 +276,13 @@ const WhatsImportant = props => {
       <div className='page-header'>
         <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo} />
       </div>
-      <Subheader title={lang === "English" ? "What's important to you" : "Ce qui est important pour vous"} />
+      <Subheader title={lang === "English" ? "What's important to you" : "Qu’est-ce qui est important pour vous"} />
       <div className="body-container">
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus} />
         <div className="slider-component-div box-container">
           {sliders.length && sliders.map((slider, index) => (
             <div key={slider.id}>
               <h4>{index + 1}. {slider.description}</h4>
-              {/* <SliderControl 
-                  setValue={setValue} 
-                  minLabel={slider.left_label}
-                  maxLabel={slider.right_label}
-                  sliderId={slider.id} 
-                  reversed={slider.reversed}
-                  value={slider.value}
-                /> */}
               <CircleControl
                 setValue={setValue}
                 minLabel={slider.left_label}
@@ -299,77 +291,47 @@ const WhatsImportant = props => {
                 reversed={slider.reversed}
                 value={slider.value}
                 ></CircleControl>
-
-              {/* <h4 class="text-left-right">
-                <span class="left-text">Not Important at All</span>
-                <span class="byline">Very Important</span>
-
-                <div className="StepFour-div-group other">
-            <div className="StepFour-div-other">
-                <label>0</label>
-                <div value="imp0" onClick={checkedZero}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>1</label>
-                <div value="imp1" onClick={checkedOne}></div>
-                
-              </div>
-              <div className="StepFour-div-other">
-                <label>2</label>
-                <div value="imp2" onClick={checkedTwo}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>3</label>
-                <div value="imp3" onClick={checkedThree}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>4</label>
-                <div value="imp4" onClick={checkedFour}></div>
-              </div>
-              <div className="StepFour-div-other">
-                <label>5</label>
-                <div value="imp5" onClick={checkedFive}></div>
-              </div>
-
-            </div>
-
-            </h4> */}
             </div>
           ))
 
-          }
-          <h4>7. Considering other factors. </h4>
-          <ThemeProvider theme={theme}>
+            }
+            <h4>{lang === "English" ? "7. Considering other factors." : "7. Considérer d’autres facteurs"}</h4>
+            <ThemeProvider theme={theme}>
             <TextField
-              onChange={handleTextChange}
-              className="text-field"
-              label="Please Explain"
-              margin="normal"
-              variant="outlined"
-              fullWidth
-              multiline
-              value={preferenceText ? preferenceText : ''}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              rows="6"
-              id="consider-other-factors"
+                onChange={handleTextChange}
+                className="text-field"
+                label={lang === "English" ? "Please Explain" : "Veuillez expliquer"}
+                margin="normal"
+                variant="outlined"
+                fullWidth
+                multiline
+                value={preferenceText ? preferenceText : ''}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                rows="6"
+                id="consider-other-factors"
             />
           </ThemeProvider>
         </div>
         <SaveButton saveHandler={saveHandler} saveStatus={saveStatus} />
       </div>
       {/* Component for navigation button and title above the button */}
-      <NavigationButton
-        title={`Now that you have considered what is important to you,\n you can review and select treatment options`}
-        btnText="Continue to Step 3"
+
+      <NavigationButton 
+        title={lang === "English" ? 
+              "Now that you have considered what is important to you,\n you can review and select treatment option" : 
+              "Maintenant que vous avez réfléchi à ce qui est important pour vous,\n vous pouvez examiner et sélectionner l'option de traitement"}
+        btnText={lang === "English" ? "Continue to Step 3" : "Passez à l'étape 3"}
         handleNavigation={handleButtonNav}
       />
-      <Footer />
-      {!didSelect && <DialogBox description="The selected information will be saved in the trial database. You can modify the information as needed." step='s2Trial' />}
-      <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog} />
-      <FailedSaveDialog open={open} setOpen={setOpen} />
+      <Footer/>
+      {!didSelect && <DialogBox description={lang === "English" ? 
+        "The selected information will be saved in the trial database. You can modify the information as needed."  : 
+        "Les informations sélectionnées seront enregistrées dans la base de données d'essai. Vous pouvez modifier les informations selon vos besoins."}
+         step='s2Trial'/>}
+      <NavigationDialog open={displayNavDialog} handleClose={closeNavDialog}/>
+      <FailedSaveDialog open={open} setOpen={setOpen}/>
     </div>
   )
 }
