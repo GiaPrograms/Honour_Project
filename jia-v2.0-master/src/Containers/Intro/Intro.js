@@ -22,7 +22,10 @@ const Intro = props => {
       
       <div className="wrapper intro">
         <div className="newnext-btn-container">
-            <Button className="next-btn" tag={RRNav} to="/questionnaire">Click and continue to Step 1</Button>
+            <Button className="next-btn" tag={RRNav} to="/questionnaire">{lang === "English" ? 
+                "Click and continue to Step 1" : 
+                "Cliquez et passez à l'étape 1"}
+            </Button>
         </div>
         <div className='page-header'>
           <Header current={props} handleNav={handleStepperNav} setNavTo={setNavTo}/>

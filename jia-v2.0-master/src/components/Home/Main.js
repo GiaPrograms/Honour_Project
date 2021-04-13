@@ -16,7 +16,7 @@ const Main = () => {
        <div className="newnext-btn-container">
         <div className="newnext-btn-content">
           <Button className="next-btn" tag={RRNav} to="/intro">
-          Click to see what JIA offers
+            {lang === "English" ? "Click to see what JIA offers" : "Cliquez pour voir ce que propose JIA"}
           </Button>
         </div>
       </div>

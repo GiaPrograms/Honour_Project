@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 25, 2020 at 01:08 AM
--- Server version: 5.7.26
--- PHP Version: 7.4.1
+-- Host: 127.0.0.1
+-- Generation Time: Apr 12, 2021 at 04:00 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,8 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `JIA`
+-- Database: `jia`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
@@ -33,11 +47,52 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (6, 'educational', '2020-07-04 19:08:37', '2020-07-04 19:08:37'),
 (7, 'nutritional', '2020-07-04 19:08:46', '2020-07-04 19:08:46');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classifications`
+--
+
+CREATE TABLE `classifications` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `section` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `classifications`
 --
 
 INSERT INTO `classifications` (`id`, `name`, `section`, `created_at`, `updated_at`) VALUES
+(1, 'Non-steroidal anti-inflammatory Drugs (NSAIDs)', 'prescribed', '2020-06-08 21:56:57', '2021-04-01 19:38:27'),
+(3, 'Corticosteroids', 'prescribed', '2020-06-08 21:57:17', '2020-06-08 21:57:17'),
+(6, 'Disease-modifying anti-rheumatic drugs (DMARDs)', 'prescribed', '2020-07-22 13:37:05', '2020-07-22 13:37:05'),
+(7, 'Biologic agents and Biosimilars', 'prescribed', '2020-07-22 13:37:14', '2020-07-22 13:37:14'),
+(8, 'Acetaminophen', 'other', '2020-07-22 13:37:30', '2020-07-22 13:37:30'),
+(9, 'Non-steroidal anti-inflammatory drugs (NSAIDs)', 'other', '2020-07-22 13:37:41', '2021-04-01 19:38:40'),
+(11, 'Other pain medications', 'other', '2020-07-22 13:38:09', '2020-07-22 13:38:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classifications_copy`
+--
+
+CREATE TABLE `classifications_copy` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `section` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `classifications_copy`
+--
+
+INSERT INTO `classifications_copy` (`id`, `name`, `section`, `created_at`, `updated_at`) VALUES
 (1, 'Non-steroidal anti-inflammatory Drugs (NSAIDs) in pills or liquids.', 'prescribed', '2020-06-08 21:56:57', '2020-06-08 21:56:57'),
 (2, 'Non-steroidal anti-inflammatory Drugs (NSAIDs) in creams', 'prescribed', '2020-06-08 21:57:08', '2020-06-08 21:57:08'),
 (3, 'Corticosteroids', 'prescribed', '2020-06-08 21:57:17', '2020-06-08 21:57:17'),
@@ -48,6 +103,20 @@ INSERT INTO `classifications` (`id`, `name`, `section`, `created_at`, `updated_a
 (10, 'Non-steroidal anti-inflammatory drugs (NSAIDs) in creams', 'other', '2020-07-22 13:38:00', '2020-07-22 13:38:00'),
 (11, 'Other pain medications', 'other', '2020-07-22 13:38:09', '2020-07-22 13:38:09');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `confidences`
+--
+
+CREATE TABLE `confidences` (
+  `id` int(11) NOT NULL,
+  `level` float DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `confidences`
 --
@@ -56,7 +125,23 @@ INSERT INTO `confidences` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (2, 8.5, NULL, '2020-06-06 22:55:01', '2020-06-06 22:55:01'),
 (9, 9.5, 7, '2020-06-08 18:12:21', '2020-08-06 03:32:32'),
 (10, 7.5, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
-(11, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52');
+(11, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(12, 1, 111, '2021-03-24 04:26:17', '2021-04-11 20:38:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `effectivenesses`
+--
+
+CREATE TABLE `effectivenesses` (
+  `id` int(11) NOT NULL,
+  `control_arthritis` float DEFAULT NULL,
+  `manage_pain` float DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `effectivenesses`
@@ -68,7 +153,22 @@ INSERT INTO `effectivenesses` (`id`, `control_arthritis`, `manage_pain`, `user_i
 (4, 2, 4, 7, '2020-06-08 17:33:10', '2020-08-10 05:59:00'),
 (5, 0.5, 3.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 8, 4, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
-(7, 7, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(7, 7, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(8, 3, 3, 111, '2021-03-16 03:21:15', '2021-04-11 20:39:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `factors`
+--
+
+CREATE TABLE `factors` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `factors`
@@ -82,6 +182,21 @@ INSERT INTO `factors` (`id`, `title`, `description`, `created_at`, `updated_at`)
 (11, 'Not sure I want to follow this plan', 'It’s okay to be unsure. If you want to look at your options again, you can use this app any time.', '2020-08-06 19:39:25', '2020-08-06 19:39:25'),
 (12, 'Other', '', '2020-08-06 19:39:33', '2020-08-06 19:39:33');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `frequentlies`
+--
+
+CREATE TABLE `frequentlies` (
+  `id` int(11) NOT NULL,
+  `prescribed_meds` varchar(255) DEFAULT NULL,
+  `other_treatments` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `frequentlies`
 --
@@ -91,7 +206,23 @@ INSERT INTO `frequentlies` (`id`, `prescribed_meds`, `other_treatments`, `user_i
 (5, 'Not applicable', 'Sometimes', 7, '2020-05-29 19:10:25', '2020-08-03 22:39:52'),
 (6, NULL, NULL, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (7, 'Not applicable', 'Most times', 69, '2020-08-10 21:22:12', '2020-08-10 21:23:01'),
-(8, NULL, NULL, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(8, NULL, NULL, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(9, 'Never', 'Never', 111, '2021-03-16 03:21:15', '2021-03-17 17:22:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `learns`
+--
+
+CREATE TABLE `learns` (
+  `id` int(11) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `treatment_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `learns`
@@ -125,10 +256,10 @@ INSERT INTO `learns` (`id`, `link`, `name`, `treatment_id`, `created_at`, `updat
 (221, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2370&language=English', '', 52, '2020-08-08 01:56:12', '2020-08-08 01:56:12'),
 (222, 'http://www.kidsgetarthritistoo.org/living-with-ja/daily-life/staying-active/ja-exercise.php', '', 52, '2020-08-08 01:56:12', '2020-08-08 01:56:12'),
 (223, 'https://www.cps.ca/en/documents/position/physical-activity-chronic-condition', '', 52, '2020-08-08 01:56:12', '2020-08-08 01:56:12'),
-(224, 'https://www.jia.org.uk/the-occupational-therapist', '', 36, '2020-08-08 01:59:19', '2020-08-08 01:59:19'),
-(225, 'https://www.aboutkidshealth.ca/Article?contentid=1079&language=English', '', 36, '2020-08-08 01:59:19', '2020-08-08 01:59:19'),
-(226, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2376&language=English', '', 36, '2020-08-08 01:59:19', '2020-08-08 01:59:19'),
-(227, 'https://www.ccaa.org.uk/about-jia/treatment-of-jia/occupational-therapy/', '', 36, '2020-08-08 01:59:19', '2020-08-08 01:59:19'),
+(224, 'https://www.jia.org.uk/the-occupational-therapist', '', 36, '2021-03-08 02:06:09', '2021-03-08 02:06:09'),
+(225, 'https://www.aboutkidshealth.ca/Article?contentid=1079&language=English', '', 36, '2021-03-08 02:06:09', '2021-03-08 02:06:09'),
+(226, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2376&language=English', '', 36, '2021-03-08 02:06:09', '2021-03-08 02:06:09'),
+(227, 'https://www.ccaa.org.uk/about-jia/treatment-of-jia/occupational-therapy/', '', 36, '2021-03-08 02:06:09', '2021-03-08 02:06:09'),
 (228, 'http://www.kznhealth.gov.za/occtherapy/jointprotectionprinciples.pdf', '', 53, '2020-08-08 03:12:27', '2020-08-08 03:12:27'),
 (229, 'https://www.arthritis.org/living-with-arthritis/pain-management/joint-protection/joint-health.php', '', 53, '2020-08-08 03:12:27', '2020-08-08 03:12:27'),
 (230, 'https://www.aboutkidshealth.ca/Article?contentid=62&language=English\"', '', 54, '2020-08-08 03:18:27', '2020-08-08 03:18:27'),
@@ -177,8 +308,8 @@ INSERT INTO `learns` (`id`, `link`, `name`, `treatment_id`, `created_at`, `updat
 (275, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2378&language=English', '', 64, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
 (276, 'https://www.zoffness.com/what-is-cbt/', '', 64, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
 (277, 'https://notes.childrenshospital.org/psychological-interventions-for-chronic-pediatric-pain/', '', 64, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
-(282, 'https://teens.aboutkidshealth.ca/Article?contentid=2629&language=English&hub=jiateenhub', '', 67, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
-(283, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2937&language=English', '', 67, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
+(282, 'https://teens.aboutkidshealth.ca/Article?contentid=2629&language=English&hub=jiateenhub', '', 67, '2021-04-10 00:21:46', '2021-04-10 00:21:46'),
+(283, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2937&language=English', '', 67, '2021-04-10 00:21:46', '2021-04-10 00:21:46'),
 (284, 'https://teens.aboutkidshealth.ca/Article?contentid=2609&language=English&hub=jiateenhub', '', 69, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
 (285, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2375&language=English', '', 69, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
 (286, 'https://www.aboutkidshealth.ca/Article?contentid=1081&language=English', '', 69, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
@@ -206,17 +337,35 @@ INSERT INTO `learns` (`id`, `link`, `name`, `treatment_id`, `created_at`, `updat
 (308, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2373&language=English', '', 5, '2020-08-14 19:32:51', '2020-08-14 19:32:51'),
 (309, 'https://www.arthritis.org/living_with_arthritis/exercise/workouts/yoga/yoga_benefits.php', '', 5, '2020-08-14 19:32:51', '2020-08-14 19:32:51');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logs`
+--
+
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL,
+  `purpose` varchar(255) DEFAULT NULL,
+  `plan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`plan`)),
+  `step_one` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`step_one`)),
+  `preferences` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`preferences`)),
+  `step_three` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`step_three`)),
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `logs`
 --
 
-INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `step_three`, `preferences`, `user_id`, `created_at`, `updated_at`) VALUES
-(38, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', NULL, '{\"factors\": [\"Lack of information\"], \"suggestions\": [\"Talk with your parents\", \"Talk with your health care team\", \"Find out where I can get treatments nearby\", \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\", \"Dummy suggestion\"], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}], \"preference_text\": \"factor tests\"}', 7, '2020-07-24 04:08:31', '2020-07-24 04:13:15'),
-(40, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"ankles\"}, {\"area\": \"knees\"}], \"pain_level\": 5.5, \"manage_pain\": 9, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Pill or Liquid (Prednisone™)\"}], \"treatment_text\": \"Test text\", \"prescribed_text\": \"Test text\", \"other_treatments\": [{\"name\": \"Tylenol®\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 4}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}, {\"title\": \"Dummy suggestion\"}], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}, {\"value\": 7, \"description\": \"New slider\"}], \"preference_text\": \"factor tests\"}', 7, '2020-07-24 17:39:22', '2020-07-24 22:33:52'),
+INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `preferences`, `step_three`, `user_id`, `created_at`, `updated_at`) VALUES
+(38, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', NULL, '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}], \"preference_text\": \"factor tests\"}', '{\"factors\": [\"Lack of information\"], \"suggestions\": [\"Talk with your parents\", \"Talk with your health care team\", \"Find out where I can get treatments nearby\", \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\", \"Dummy suggestion\"], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', 7, '2020-07-24 04:08:31', '2020-07-24 04:13:15'),
+(40, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"ankles\"}, {\"area\": \"knees\"}], \"pain_level\": 5.5, \"manage_pain\": 9, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Pill or Liquid (Prednisone™)\"}], \"treatment_text\": \"Test text\", \"prescribed_text\": \"Test text\", \"other_treatments\": [{\"name\": \"Tylenol®\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 4}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}, {\"value\": 7, \"description\": \"New slider\"}], \"preference_text\": \"factor tests\"}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}, {\"title\": \"Dummy suggestion\"}], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', 7, '2020-07-24 17:39:22', '2020-07-24 22:33:52'),
 (50, 'Change my plan', NULL, '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"elbows\"}, {\"area\": \"ankles\"}, {\"area\": \"knees\"}], \"pain_level\": 5.5, \"manage_pain\": 9, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}], \"treatment_text\": \"Test text\", \"prescribed_text\": \"Test text\", \"other_treatments\": [{\"name\": \"Tylenol®\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 4}', NULL, NULL, 7, '2020-07-29 15:38:33', '2020-07-29 15:40:54'),
-(52, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"ankles\"}, {\"area\": \"hips\"}], \"pain_level\": 8, \"manage_pain\": 3.5, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"Test text updated\", \"prescribed_text\": \"Test text updateds\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 0.5}', '{\"factors\": [{\"title\": \"Lack of time\"}, {\"title\": \"dummy factor\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}], \"confidence_level\": 1, \"motivation_level\": 4.5}', '{\"prefs\": [{\"value\": 2, \"description\": \"Relieving pain immediately\"}, {\"value\": 6, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 9.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 9, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor tests updates\"}', 7, '2020-07-30 22:51:02', '2020-08-03 08:10:54'),
-(55, 'Change my answers', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}, {\"area\": \"knees\"}], \"pain_level\": 1.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"req user id test\", \"prescribed_text\": \"req user id\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Massage\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 2}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Dummy suggestion with description\"}], \"confidence_level\": 9.5, \"motivation_level\": 9}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 1.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 1.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 1, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor test\"}', 7, '2020-08-03 16:56:33', '2020-08-04 05:26:52'),
-(90, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"hips\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, '{\"prefs\": [{\"value\": 8, \"description\": \"Relieving pain immediately\"}, {\"value\": 3.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 8, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', 69, '2020-08-12 00:26:24', '2020-08-12 00:26:35'),
+(52, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"ankles\"}, {\"area\": \"hips\"}], \"pain_level\": 8, \"manage_pain\": 3.5, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"Test text updated\", \"prescribed_text\": \"Test text updateds\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 0.5}', '{\"prefs\": [{\"value\": 2, \"description\": \"Relieving pain immediately\"}, {\"value\": 6, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 9.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 9, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor tests updates\"}', '{\"factors\": [{\"title\": \"Lack of time\"}, {\"title\": \"dummy factor\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}], \"confidence_level\": 1, \"motivation_level\": 4.5}', 7, '2020-07-30 22:51:02', '2020-08-03 08:10:54'),
+(55, 'Change my answers', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}, {\"area\": \"knees\"}], \"pain_level\": 1.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"req user id test\", \"prescribed_text\": \"req user id\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Massage\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 2}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 1.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 1.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 1, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor test\"}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Dummy suggestion with description\"}], \"confidence_level\": 9.5, \"motivation_level\": 9}', 7, '2020-08-03 16:56:33', '2020-08-04 05:26:52'),
+(90, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"hips\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 8, \"description\": \"Relieving pain immediately\"}, {\"value\": 3.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 8, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-12 00:26:24', '2020-08-12 00:26:35'),
 (91, 'Change my plan', NULL, NULL, NULL, NULL, 72, '2020-08-13 18:05:40', '2020-08-13 18:05:40'),
 (92, 'Change my answers', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:05:51', '2020-08-13 18:05:51'),
 (93, 'Change my plan', NULL, NULL, NULL, NULL, 72, '2020-08-13 18:06:44', '2020-08-13 18:06:44'),
@@ -227,16 +376,46 @@ INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `step_three`, `preferen
 (98, 'Change my plan', NULL, NULL, NULL, NULL, 73, '2020-08-13 18:18:21', '2020-08-13 18:18:21'),
 (99, 'Change my plan', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:20:37', '2020-08-13 18:20:37'),
 (100, 'Change my answers', NULL, NULL, NULL, NULL, 75, '2020-08-13 18:21:16', '2020-08-13 18:21:16'),
-(101, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', 69, '2020-08-13 18:59:48', '2020-08-16 16:58:12'),
+(101, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-13 18:59:48', '2020-08-16 16:58:12'),
 (102, 'First time user', NULL, NULL, NULL, NULL, 76, '2020-08-16 17:18:41', '2020-08-16 17:18:41'),
 (103, 'Change my plan', NULL, NULL, NULL, NULL, 69, '2020-08-16 17:27:22', '2020-08-16 17:27:22'),
 (104, 'First time user', NULL, NULL, NULL, NULL, 77, '2020-08-17 20:54:08', '2020-08-17 20:54:08'),
 (105, 'Review information', NULL, NULL, NULL, NULL, 69, '2020-08-17 20:54:22', '2020-08-17 20:54:22'),
 (106, NULL, NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, NULL, 69, '2020-08-19 03:28:55', '2020-08-19 03:28:55'),
-(107, NULL, NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}, {\"area\": \"hips\"}, {\"area\": \"lower_back\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}, {\"name\": \"Naproxen (Aleve®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', 69, '2020-08-21 03:07:49', '2020-08-21 03:08:14'),
-(108, 'First time user', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [], \"pain_level\": 7, \"manage_pain\": 7, \"selected_meds\": [], \"treatment_text\": \"\", \"prescribed_text\": \"\", \"other_treatments\": [], \"control_arthritis\": 7}', '{\"factors\": [], \"suggestions\": [], \"confidence_level\": 7, \"motivation_level\": 7}', '{\"prefs\": [{\"value\": 7, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 7, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}]}', 81, '2020-08-21 13:40:11', '2020-08-21 14:54:52'),
-(109, NULL, '[{\"name\": \"Educational Website\"}, {\"name\": \"Individualized Exercise Program\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"Update\", \"prescribed_text\": \"Update\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"factors\": [{\"title\": \"Lack of information\"}, {\"title\": \"Cost too much\"}, {\"title\": \"Not sure I want to follow this plan\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}], \"confidence_level\": 7.5, \"motivation_level\": 7}', NULL, 69, '2020-08-22 23:53:13', '2020-08-23 03:17:49'),
-(110, 'First time user', NULL, NULL, NULL, NULL, 88, '2020-08-24 14:37:51', '2020-08-24 14:37:52');
+(107, NULL, NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}, {\"area\": \"hips\"}, {\"area\": \"lower_back\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}, {\"name\": \"Naproxen (Aleve®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-21 03:07:49', '2020-08-21 03:08:14'),
+(108, 'First time user', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [], \"pain_level\": 7, \"manage_pain\": 7, \"selected_meds\": [], \"treatment_text\": \"\", \"prescribed_text\": \"\", \"other_treatments\": [], \"control_arthritis\": 7}', '{\"prefs\": [{\"value\": 7, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 7, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}]}', '{\"factors\": [], \"suggestions\": [], \"confidence_level\": 7, \"motivation_level\": 7}', 81, '2020-08-21 13:40:11', '2020-08-21 14:54:52'),
+(109, NULL, '[{\"name\": \"Educational Website\"}, {\"name\": \"Individualized Exercise Program\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"Update\", \"prescribed_text\": \"Update\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, '{\"factors\": [{\"title\": \"Lack of information\"}, {\"title\": \"Cost too much\"}, {\"title\": \"Not sure I want to follow this plan\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}], \"confidence_level\": 7.5, \"motivation_level\": 7}', 69, '2020-08-22 23:53:13', '2020-08-23 03:17:49'),
+(110, 'First time user', NULL, NULL, NULL, NULL, 88, '2020-08-24 14:37:51', '2020-08-24 14:37:52'),
+(111, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":7},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":7},{\"description\":\"Using treatments that help me relax\",\"value\":7},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":7},{\"description\":\"Using treatments that help me stay active\",\"value\":7},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":7}]}', NULL, 111, '2021-03-16 03:21:15', '2021-03-16 05:09:19'),
+(112, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-16 23:56:12', '2021-03-16 23:56:12'),
+(113, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":null}', NULL, 111, '2021-03-17 17:21:55', '2021-03-17 17:30:18'),
+(114, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Yoga\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Stretching\"}],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 111, '2021-03-18 01:18:41', '2021-03-18 01:18:42'),
+(115, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Yoga\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Stretching\"}],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 111, '2021-03-18 18:24:04', '2021-03-18 18:24:24'),
+(116, 'First time user', NULL, NULL, NULL, NULL, 112, '2021-03-22 17:18:39', '2021-03-22 17:18:39'),
+(117, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 17:38:40', '2021-03-23 17:40:30'),
+(118, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 18:00:48', '2021-03-23 18:00:48'),
+(119, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 22:30:30', '2021-03-23 22:30:30'),
+(120, NULL, '[]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":\"\"}', '{\"motivation_level\":7,\"confidence_level\":7,\"factors\":[],\"suggestions\":[]}', 111, '2021-03-24 04:25:59', '2021-03-24 04:26:21'),
+(121, NULL, '[]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":\"\"}', '{\"motivation_level\":7,\"confidence_level\":7,\"factors\":[],\"suggestions\":[]}', 111, '2021-03-24 16:48:12', '2021-03-24 16:48:13'),
+(122, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-03-25 19:57:13', '2021-03-25 19:57:13'),
+(123, NULL, NULL, '{\"pain_level\":\"3\",\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-08 05:40:25', '2021-04-08 05:40:31'),
+(124, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-11 16:18:02', '2021-04-11 16:51:28'),
+(125, NULL, '[]', '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":\"3\",\"manage_pain\":\"3\"}', NULL, '{\"motivation_level\":\"1\",\"confidence_level\":\"1\",\"factors\":[],\"suggestions\":[]}', 111, '2021-04-11 20:38:52', '2021-04-11 20:39:23'),
+(126, NULL, NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"3\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"\"}', NULL, 111, '2021-04-12 01:25:39', '2021-04-12 01:25:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medications`
+--
+
+CREATE TABLE `medications` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `classification_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `medications`
@@ -244,25 +423,53 @@ INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `step_three`, `preferen
 
 INSERT INTO `medications` (`id`, `name`, `classification_id`, `created_at`, `updated_at`) VALUES
 (1, 'Ibuprofen (Advil®)', 1, '2020-06-08 23:09:11', '2020-06-08 23:09:11'),
-(5, 'Pill or Liquid (Prednisone™)', 3, '2020-06-11 16:15:32', '2020-07-22 13:36:49'),
-(11, 'Naproxen (Aleve®)', 1, '2020-07-22 13:35:27', '2020-07-22 13:35:27'),
-(12, 'Diclofenac (Voltaren®)', 2, '2020-07-22 13:36:29', '2020-07-22 13:36:29'),
+(5, 'Pill or Liquid (Prednisone™ or Prednisolone™)', 3, '2020-06-11 16:15:32', '2021-03-16 20:45:13'),
+(11, 'Naproxen (Naprosyn®)', 1, '2020-07-22 13:35:27', '2021-04-10 15:12:36'),
 (13, 'Acetylsalicylic acid (Aspirin®)', 11, '2020-07-22 13:38:25', '2020-07-22 13:38:25'),
 (14, 'Opioids', 11, '2020-07-22 13:38:41', '2020-07-22 13:38:41'),
-(15, 'Etanercept (Enbrel®)', 7, '2020-07-22 13:39:03', '2020-07-22 13:39:03'),
+(15, 'Etanercept (Enbrel® or Erelzi®)', 7, '2020-07-22 13:39:03', '2021-03-16 21:21:56'),
 (16, 'Infliximab (Remicade®)', 7, '2020-07-22 13:39:15', '2020-07-22 13:39:15'),
 (17, 'Adalimumab (Humira®)', 7, '2020-07-22 13:39:27', '2020-07-22 13:39:27'),
 (18, 'Tylenol®', 8, '2020-07-22 13:40:49', '2020-07-22 13:40:49'),
-(19, 'Naproxen (Aleve®)', 9, '2020-07-22 13:41:14', '2020-07-22 13:41:14'),
+(19, 'Naproxen (Naprosyn®)', 9, '2020-07-22 13:41:14', '2021-04-10 15:12:42'),
 (22, 'Corticosteroid injections', 3, '2020-08-06 19:26:18', '2020-08-06 19:26:18'),
 (23, 'Methotrexate(Metoject®, Rheumatrex®)', 6, '2020-08-06 19:27:02', '2020-08-06 19:27:02'),
 (24, 'Sulfasalazine(Metoject®, Rheumatrex®)', 6, '2020-08-06 19:27:13', '2020-08-06 19:27:13'),
 (25, 'Leflunomide (Arava®)', 6, '2020-08-06 19:27:29', '2020-08-06 19:27:29'),
 (26, 'Anakinra (Kineret®)', 7, '2020-08-06 19:28:16', '2020-08-06 19:28:16'),
-(27, 'Etanercept (Erelzi®)', 7, '2020-08-06 19:28:27', '2020-08-06 19:28:27'),
 (28, 'Infliximab (Inflectra® and Renflexis®) biosimilar', 7, '2020-08-06 19:28:46', '2020-08-06 19:28:46'),
 (29, 'Ibuprofen (Advil®)', 9, '2020-08-06 19:30:29', '2020-08-06 19:30:29'),
-(30, 'Diclofenac (Voltaren®)', 10, '2020-08-06 19:30:52', '2020-08-06 19:30:52');
+(31, 'Meloxicam (Mobics®)', 1, '2021-03-16 20:29:55', '2021-03-16 20:29:55'),
+(32, 'Indomethacin (Indocid®)', 1, '2021-03-16 20:41:30', '2021-03-16 20:41:30'),
+(33, 'Celecoxib (Celebrex®)', 1, '2021-03-16 20:42:22', '2021-03-16 20:42:22'),
+(34, 'Hydroxychloroquine (Plaquenil®)', 6, '2021-03-16 20:55:15', '2021-03-16 20:55:15'),
+(35, 'Golimumab(Symponi®)', 7, '2021-03-16 21:23:31', '2021-03-16 21:23:31'),
+(36, 'Certolizumab (Cimzia®)', 7, '2021-03-16 21:23:56', '2021-03-16 21:23:56'),
+(37, 'Cancukinumab (Ilaris®)', 7, '2021-03-16 21:24:36', '2021-03-16 21:24:36'),
+(38, 'Tocilizumab (Actemra®)', 7, '2021-03-16 21:25:15', '2021-03-16 21:25:15'),
+(39, 'Abatacept (Orencia®)', 7, '2021-03-16 21:25:40', '2021-03-16 21:25:40'),
+(40, 'Tofacitinib (Xeljanz®)', 7, '2021-03-16 21:26:06', '2021-03-16 21:26:06'),
+(41, 'Ustekinumab (Stelara®)', 7, '2021-03-16 21:26:29', '2021-03-16 21:26:29'),
+(42, 'Secukinumab (Cosentyx®)', 7, '2021-03-16 21:26:57', '2021-03-16 21:26:57'),
+(43, 'Ixekizumab (Taltz®)', 7, '2021-03-16 21:27:14', '2021-03-16 21:27:14'),
+(44, 'Apremilast (Otezla®)', 7, '2021-03-16 21:27:37', '2021-03-16 21:27:37'),
+(45, 'Rituximab (Rituxan®)', 7, '2021-03-16 21:28:00', '2021-03-16 21:28:00'),
+(46, 'Diclofenac (Voltaren®)', 1, '2021-04-10 00:10:42', '2021-04-10 00:10:42'),
+(47, 'Diclofenac (Voltaren®)', 9, '2021-04-10 00:11:10', '2021-04-10 00:11:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `motivations`
+--
+
+CREATE TABLE `motivations` (
+  `id` int(11) NOT NULL,
+  `level` float DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `motivations`
@@ -272,20 +479,95 @@ INSERT INTO `motivations` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (2, 7.5, NULL, '2020-06-06 23:02:10', '2020-06-06 23:02:10'),
 (3, 9, 7, '2020-06-08 18:13:13', '2020-08-06 03:32:32'),
 (4, 7, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
-(5, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52');
+(5, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(6, 1, 111, '2021-03-24 04:26:17', '2021-04-11 20:38:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pain_areas`
+--
+
+CREATE TABLE `pain_areas` (
+  `id` int(11) NOT NULL,
+  `ankles` tinyint(1) DEFAULT NULL,
+  `elbows` tinyint(1) DEFAULT NULL,
+  `hips` tinyint(1) DEFAULT NULL,
+  `jaw` tinyint(1) DEFAULT NULL,
+  `knees` tinyint(1) DEFAULT NULL,
+  `lower_back` tinyint(1) DEFAULT NULL,
+  `shoulders` tinyint(1) DEFAULT NULL,
+  `wrists` tinyint(1) DEFAULT NULL,
+  `neck` tinyint(1) NOT NULL,
+  `fingers` tinyint(1) DEFAULT NULL,
+  `toes` tinyint(1) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pain_areas`
 --
 
-INSERT INTO `pain_areas` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `lower_back`, `shoulders`, `wrists`, `user_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `pain_areas` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `lower_back`, `shoulders`, `wrists`, `neck`, `fingers`, `toes`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7, '2020-06-03 23:49:34', '2020-08-10 05:59:00'),
+(2, 1, 1, 0, 0, 0, 1, 0, 1, 0, NULL, NULL, 15, '2020-06-23 03:49:59', '2020-06-23 03:49:59'),
+(3, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, NULL, '2020-06-23 03:50:16', '2020-06-23 03:50:16'),
+(4, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL, '2020-06-23 03:50:27', '2020-06-23 03:50:27'),
+(5, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(6, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(8, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 111, '2021-03-17 17:24:48', '2021-04-11 20:39:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pain_areas_copy`
+--
+
+CREATE TABLE `pain_areas_copy` (
+  `id` int(11) NOT NULL,
+  `ankles` tinyint(1) DEFAULT NULL,
+  `elbows` tinyint(1) DEFAULT NULL,
+  `hips` tinyint(1) DEFAULT NULL,
+  `jaw` tinyint(1) DEFAULT NULL,
+  `knees` tinyint(1) DEFAULT NULL,
+  `lower_back` tinyint(1) DEFAULT NULL,
+  `shoulders` tinyint(1) DEFAULT NULL,
+  `wrists` tinyint(1) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pain_areas_copy`
+--
+
+INSERT INTO `pain_areas_copy` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `lower_back`, `shoulders`, `wrists`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 0, 0, 0, 0, 0, 0, 0, 0, 7, '2020-06-03 23:49:34', '2020-08-10 05:59:00'),
 (2, 1, 1, 0, 0, 0, 1, 0, 1, 15, '2020-06-23 03:49:59', '2020-06-23 03:49:59'),
 (3, 0, 0, 1, 0, 1, 1, 0, 0, NULL, '2020-06-23 03:50:16', '2020-06-23 03:50:16'),
 (4, 1, 1, 0, 0, 1, 1, 0, 0, NULL, '2020-06-23 03:50:27', '2020-06-23 03:50:27'),
 (5, 1, 1, 1, 1, 0, 0, 0, 0, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 0, 0, 0, 1, 0, 0, 1, 0, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
-(7, 0, 0, 0, 0, 0, 0, 0, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(7, 0, 0, 0, 0, 0, 0, 0, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(8, 0, 0, 1, 1, 1, 0, 0, 0, 111, '2021-03-16 03:21:15', '2021-03-23 22:30:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pain_levels`
+--
+
+CREATE TABLE `pain_levels` (
+  `id` int(11) NOT NULL,
+  `level` float DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pain_levels`
@@ -295,7 +577,26 @@ INSERT INTO `pain_levels` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (7, 3.5, 7, '2020-06-08 16:15:05', '2020-08-10 05:59:00'),
 (8, 4.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (9, 7.5, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
-(10, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(10, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(11, 3, 111, '2021-03-16 03:21:15', '2021-04-11 20:39:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preferences`
+--
+
+CREATE TABLE `preferences` (
+  `id` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `recommends` tinyint(1) NOT NULL,
+  `left_label` varchar(255) NOT NULL,
+  `right_label` varchar(255) NOT NULL,
+  `reversed` tinyint(1) NOT NULL,
+  `threshold` float NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `preferences`
@@ -309,6 +610,19 @@ INSERT INTO `preferences` (`id`, `description`, `recommends`, `left_label`, `rig
 (5, 'Using treatments that help me stay active', 1, 'Not Important at All', 'Very Important', 0, 7, '2020-05-29 02:36:30', '2020-05-29 02:36:30'),
 (6, 'Using treatments that help me learn to deal with JIA and its symptoms', 1, 'Not Important at All', 'Very Important', 0, 7, '2020-05-29 02:36:40', '2020-06-22 21:38:24');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preference_category`
+--
+
+CREATE TABLE `preference_category` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `preference_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `preference_category`
 --
@@ -321,6 +635,20 @@ INSERT INTO `preference_category` (`created_at`, `updated_at`, `category_id`, `p
 ('2020-07-04 19:35:30', '2020-07-04 19:35:30', 6, 6),
 ('2020-07-04 19:35:15', '2020-07-04 19:35:15', 7, 4);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preference_texts`
+--
+
+CREATE TABLE `preference_texts` (
+  `id` int(11) NOT NULL,
+  `text` text DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `preference_texts`
 --
@@ -328,7 +656,22 @@ INSERT INTO `preference_category` (`created_at`, `updated_at`, `category_id`, `p
 INSERT INTO `preference_texts` (`id`, `text`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'factor test', 7, '2020-07-03 06:45:58', '2020-08-10 06:02:26'),
 (2, 'none', 69, '2020-08-10 21:23:20', '2020-08-21 03:08:14'),
-(3, NULL, 81, '2020-08-21 14:54:37', '2020-08-21 14:54:37');
+(3, NULL, 81, '2020-08-21 14:54:37', '2020-08-21 14:54:37'),
+(4, '', 111, '2021-03-16 03:21:23', '2021-04-12 01:25:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prescribed_texts`
+--
+
+CREATE TABLE `prescribed_texts` (
+  `id` int(11) NOT NULL,
+  `text` text DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prescribed_texts`
@@ -338,7 +681,24 @@ INSERT INTO `prescribed_texts` (`id`, `text`, `user_id`, `created_at`, `updated_
 (1, 'req user id', 7, '2020-07-03 04:27:01', '2020-08-10 05:59:00'),
 (2, 'Test text updateds', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
-(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-04-11 20:39:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `results`
+--
+
+CREATE TABLE `results` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `score` tinyint(4) NOT NULL,
+  `statistics` varchar(255) NOT NULL,
+  `study_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `results`
@@ -378,6 +738,20 @@ INSERT INTO `results` (`id`, `name`, `score`, `statistics`, `study_id`, `created
 (45, 'Glucosamine Hydrochloride', 49, '49 out of 100 adults with RA have less pain', 40, '2020-08-10 05:57:02', '2020-08-10 05:57:02'),
 (46, 'Placebo', 15, '15 out of 100 adults with RA have less pain', 40, '2020-08-10 05:57:16', '2020-08-10 05:57:16');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `selection` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `reviews`
 --
@@ -386,7 +760,31 @@ INSERT INTO `reviews` (`id`, `selection`, `user_id`, `created_at`, `updated_at`)
 (1, 'true', NULL, '2020-05-24 23:18:36', '2020-05-24 23:18:36'),
 (4, 'true', 7, '2020-06-10 05:19:16', '2020-08-06 03:32:32'),
 (5, 'false', 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
-(6, NULL, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52');
+(6, NULL, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(7, NULL, 111, '2021-03-24 04:26:17', '2021-04-11 20:38:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studies`
+--
+
+CREATE TABLE `studies` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `does_work` varchar(512) NOT NULL,
+  `is_safe` varchar(512) NOT NULL,
+  `believe_research` varchar(255) DEFAULT NULL,
+  `rating` tinyint(4) DEFAULT NULL,
+  `methods` varchar(1024) DEFAULT NULL,
+  `treatments` varchar(1024) DEFAULT NULL,
+  `treatment_results` varchar(1024) DEFAULT NULL,
+  `reference` varchar(1024) DEFAULT NULL,
+  `pub_med` varchar(255) DEFAULT NULL,
+  `treatment_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `studies`
@@ -424,7 +822,7 @@ INSERT INTO `studies` (`id`, `name`, `does_work`, `is_safe`, `believe_research`,
 (33, NULL, 'Researchers need to explore whether Acetaminophen reduces pain for youth who have JIA. There isn’t enough research yet. There are a few old studies of low quality that tested Acetaminophen for adults with rheumatoid arthritis (RA) pain. It shows that acetaminophen may help reduce pain.', 'There are few side effects, but at higher doses, it can be toxic to the liver.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 54, '2020-08-10 03:00:14', '2020-08-10 03:00:14'),
 (34, NULL, 'Researchers need to explore whether NSAIDs in creams reduce pain for youth who have JIA. There isn’t enough research yet in JIA. A review of the literature showed that they may reduce pain in adults with osteoarthritis (which is another type of arthritis).', 'There are few side effects such as skin irritation. NSAIDs in creams should not be used in combination with other oral NSAIDs as it may increase the dose.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 65, '2020-08-10 03:00:42', '2020-08-10 03:00:42'),
 (35, NULL, 'Researchers need to explore whether opioids reduce pain for youth who have JIA. There isn’t enough research yet in JIA.', 'You can become addicted to them  and they can cause slow breathing which could make you faint. Other possible side effects include constipation, drowsiness, itchiness, nausea, vomiting, mood changes and hallucinations.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 66, '2020-08-10 03:01:04', '2020-08-10 03:01:04'),
-(36, NULL, 'Researchers need to explore whether Cannabis and marijuana reduce pain for youth who have JIA. There isn’t enough research yet.', 'Serious side effects include brain changes, mood changes, anxiety, depression, a fast heartbeat, and it can make day-to-day tasks harder to do. It can also be addictive, meaning that having a bit could make you want more and more, even if you don’t need it. When marijuana is smoked, tars end up in your lungs, which could lead to cancer.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 67, '2020-08-10 03:03:31', '2020-08-10 03:03:31'),
+(36, NULL, 'Researchers need to explore whether Cannabis and marijuana  reduce pain for youth who have JIA. There isn’t enough research yet.', 'Serious side effects include brain changes, mood changes, anxiety, depression, a fast heartbeat, and it can make day-to-day tasks harder to do. It can also be addictive, meaning that having a bit could make you want more and more, even if you don’t need it. When marijuana is smoked, tars end up in your lungs, which could lead to cancer.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 67, '2020-08-10 03:03:31', '2020-08-10 03:03:31'),
 (37, NULL, 'There isn’t enough research.', 'Aspirin® can cause Reye syndrome (a disease that can lead to permanent brain injury or death that can appear after a virus like a cold, flu, or chicken pox) in youth which affects the brain and liver and is very dangerous.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 68, '2020-08-10 03:04:03', '2020-08-10 03:04:03'),
 (38, NULL, 'The Mediterranean diet may reduce inflammation. Researchers need to explore whether a healthy diet reduces pain for youth who have JIA. There isn’t enough research yet in JIA. However, the Mediterranean diet seems to help reduce pain among adults with rheumatoid arthritis.', 'There are no known side effects except potential intolerances and allergies to some foods.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 70, '2020-08-10 03:07:28', '2020-08-10 03:07:28'),
 (39, 'Comparing fish oil to a placebo', 'A study of 97 of adults with RA showed that fish oil (Omega-3) may reduce pain better than placebo, which is a fake pill after 9 months. Note that there were no studies in JIA.', 'In the study there were no more side effects in the treatment than the placebo.', 'Probably;  it is a moderate-quality study. It means that these results are probably true.', 3, 'Fifty-eight adults with rheumatoid arthritis were randomly divided into two groups. One group received cod liver oil and the other group received placebo capsules.', 'The cod liver oil contained n-3 essential fatty acids (EFAs) and the placebo was an identical capsule. Both were taken daily for 9 months.', 'The cod liver oil reduced pain better than the placebo capsules: according to our calculations, 18% more people improved in the cod liver group compared to the placebo group.', 'Galarraga, B., Ho, M., Youssef, H. M., Hill, A., McMahon, H., Hall, C., ... & Belch, J. J. F. (2008). Cod liver oil (n-3 fatty acids) as a non-steroidal anti-inflammatory drugs paring agent in rheumatoid arthritis.Rheumatology,47(5), 665-669.', 'https://www.ncbi.nlm.nih.gov/pubmed/18362100', 71, '2020-08-10 03:10:32', '2020-08-10 03:10:32'),
@@ -433,6 +831,20 @@ INSERT INTO `studies` (`id`, `name`, `does_work`, `is_safe`, `believe_research`,
 (42, NULL, 'Researchers need to explore whether calcium  reduces pain for youth who have JIA. There isn’t enough research yet.', 'It is important not to exceed 3000 mg per day.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 74, '2020-08-10 05:33:54', '2020-08-10 05:33:54'),
 (43, NULL, 'Researchers need to explore whether a vegetarian or vegan diet reduces pain for youth who have JIA. There isn’t enough research yet.', 'Some of these diets can be unhealthy, because of the lack of nutrients. They can lack in calories, which are important for growth, as well as protein, fatty acids, amino acids, iron, zinc, calcium and vitamins. Since vegan diets are deficient in omega-3 fatty acids, flaxseed, canola oils, walnuts and soy are recommended. Since they are often deficient in amino acids, quinoa, soy, and chia seeds can be added.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 75, '2020-08-10 05:34:21', '2020-08-10 05:34:21'),
 (44, NULL, 'Researchers need to explore whether a gluten-free diet reduces pain for youth who have JIA. There isn’t enough research yet.', 'Some of the ingredients in processed gluten-free food can be unhealthy and people following this diet may lack in certain nutrients if they are not carefully planning such diets with a registered dietician.', NULL, 0, NULL, NULL, NULL, NULL, NULL, 76, '2020-08-10 05:34:44', '2020-08-10 05:34:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suggestions`
+--
+
+CREATE TABLE `suggestions` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `suggestions`
@@ -444,21 +856,49 @@ INSERT INTO `suggestions` (`id`, `title`, `description`, `created_at`, `updated_
 (3, 'Find out where I can get treatments nearby', 'Your health care team may be able to connect you with other health care providers. You can also find lists of treatment providers online. Make sure you find a health care provider that is well-trained and experienced with juvenile arthritis.', '2020-05-24 23:15:57', '2020-05-24 23:15:57'),
 (4, 'Find out how to pay for the treatments. (For example, does my health insurance pay for it?)', NULL, '2020-05-24 23:16:11', '2020-05-24 23:16:11');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatments`
+--
+
+CREATE TABLE `treatments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `supervision` varchar(255) NOT NULL,
+  `evidence_level` tinyint(4) NOT NULL,
+  `order_number` tinyint(4) NOT NULL,
+  `specification` varchar(255) DEFAULT NULL,
+  `description` varchar(512) NOT NULL,
+  `traffic_level` tinyint(4) NOT NULL,
+  `traffic_description` varchar(512) NOT NULL,
+  `experts_suggest` varchar(512) NOT NULL,
+  `how_use` varchar(1024) DEFAULT NULL,
+  `how_soon` varchar(512) DEFAULT NULL,
+  `cost` varchar(512) DEFAULT NULL,
+  `where` varchar(512) DEFAULT NULL,
+  `consider` varchar(1024) DEFAULT NULL,
+  `image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`image`)),
+  `treatment_classification_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `treatments`
 --
 
 INSERT INTO `treatments` (`id`, `name`, `supervision`, `evidence_level`, `order_number`, `specification`, `description`, `traffic_level`, `traffic_description`, `experts_suggest`, `how_use`, `how_soon`, `cost`, `where`, `consider`, `image`, `treatment_classification_id`, `created_at`, `updated_at`) VALUES
 (1, 'Custom-Made Foot Orthotics', 'HCP', 1, 1, 'legs', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2020-08-24 05:07:37'),
-(2, 'Massage', 'SC', 1, 3, 'general', 'Rubbing or kneading your muscle or joints to help you relax.', 1, 'Massage seems be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA can use massage.', 'Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.', 'It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.', '	Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.', 'Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.', 'If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.', '\"uploads/1595422649352massage.jpg\"', 3, '2020-06-10 00:33:38', '2020-08-08 04:17:47'),
+(2, 'Massage', 'SC', 1, 3, 'general', 'Rubbing or kneading your muscle or joints to help you relax.', 1, 'Massage seems be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA can use massage.', 'Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.', 'It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.', 'Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.', 'Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.', 'If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.', '\"uploads/1595422649352massage.jpg\"', 3, '2020-06-10 00:33:38', '2020-08-08 04:17:47'),
 (5, 'Yoga', 'SC', 3, 8, 'general', 'Exercises including stretching and focused breathing that help relax you.', 1, 'Yoga seems to be effective and safe for adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Yoga can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are yoga classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm up and end with cool down exercises to help prevent injuries.', '\"uploads/1595423805028yoga.jpg\"', 2, '2020-06-12 20:21:18', '2020-08-14 19:32:51'),
-(6, 'Osteopathy', 'HCP', 7, 31, 'general', 'Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.', 2, 'Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Osteopathy is not mentioned in guidelines for JIA.', 'The first few sessions may be about an hour each and follow-up visits may take up to 30 minutes. Weekly sessions may be recommended, but everybody is different.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Osteopathy may take time to do and cost money depending on your health insurance.', 'Osteopaths provide this treatment. You can talk about it with your health care team to help you access it.', 'If you use this treatment, tt is important to see a well-trained osteopath who has experience with treating JIA. You may not feel comfortable with receiving osteopathic treatments from a stranger.', '\"uploads/1596758628004osteoathy.jpg\"', 3, '2020-06-12 20:25:27', '2020-08-07 00:04:22'),
+(6, 'Osteopathic Manipulation', 'HCP', 7, 31, 'general', 'Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.', 2, 'Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Osteopathy is not mentioned in guidelines for JIA.', 'The first few sessions may be about an hour each and follow-up visits may take up to 30 minutes. Weekly sessions may be recommended, but everybody is different.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Osteopathy may take time to do and cost money depending on your health insurance.', 'Osteopaths provide this treatment. You can talk about it with your health care team to help you access it.', 'If you use this treatment, tt is important to see a well-trained osteopath who has experience with treating JIA. You may not feel comfortable with receiving osteopathic treatments from a stranger.', '\"uploads/1596758628004osteoathy.jpg\"', 3, '2020-06-12 20:25:27', '2020-08-07 00:04:22'),
 (7, 'Educational Website', 'SC', 1, 4, 'general', 'A website with information about JIA, and strategies on how to manage JIA.', 1, 'Educational websites are recommended by experts for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest in guidelines that youth with JIA may use self-management tools.', 'An educational website can take as little as 10 minutes and as long as an hour or two to browse. It will depend how long you wish to use it for. It can give you many tricks to help manage your arthritis and your pain.', 'It may take about 3 months to feel better, but everybody is different.', 'This intervention is free since it is accessible online.', 'The “Teens Taking Charge” program is online (see link below). There are also other educational websites for JIA online.', 'You can look at the various educational programs and find the one you like the most to help you manage your arthritis and your pain.', '\"uploads/1596687745933educational_website.jpg\"', 4, '2020-06-13 19:52:43', '2020-08-16 03:10:46'),
 (10, 'NSAIDs in Pills', 'HCP', 3, 10, 'general', 'A pill that could block the production of certain chemicals in your body that cause inflammation. It may reduce pain, fever, and inflammation. (e.g., Aleve®, Naprosyn®, Indocid®, Advil®).', 1, 'Nonsteroidal anti-inflammatory drugs (NSAIDs) in pills are recommended by experts for pain in JIA. NSAIDs may be used by youth with JIA to manage pain after a discussion with their health care team. NSAIDs may also be prescribed to reduce inflammation.', 'Experts suggest that NSAIDs in pills can be used for pain management in JIA.', 'It is important to talk with your health care team first before using this treatment. If your health care team has prescribed NSAIDs for you, it is important to keep taking them. You may be able to use NSAIDs when you have pain according to your physician’s advice. Dosing is dependent on age and weight and it should be the lowest dose possible. Only one NSAID (in pills or creams) or COX-2 inhibitor should be used at the same time. It may be given to children who are on methotrexate.', 'NSAIDs in pills may start working within a few hours, but everybody is different.', 'NSAIDs may cost money depending on your health insurance.', 'Your healthcare team can help you access this treatment. NSAIDs are also available over the counter.', 'You may need to try different kinds of NSAIDs to find one that works well for you. You have to take NSAIDs with food. Liquid forms are available for children who can’t swallow tablets.', '\"uploads/1596924066904NSAIDs_pills.jpg\"', 5, '2020-07-05 04:06:48', '2020-08-08 22:01:42'),
 (31, 'Wrist Splints Worn at Night', 'HCP', 2, 5, 'wrists', 'A piece of material that you wear on your wrist to support and protect it.', 1, 'Wrist splints worn at night seem to be effective and safe for adults with rheumatoid arthritis (RA). They may be used by youth with JIA to manage pain after discussion with health professionals.', 'Experts suggest that splints can be considered when needed with the guidance of your health care team', 'You may have to wear wrist splints all night.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Wrist splints may cost money. Your health insurance may cover some of these costs.', 'Occupational therapists usually provide this treatment. You can talk about wrist splints with your health care team to help you access them. You can also buy wrist splints that are not customized in stores.', 'Some people may not like to wear splints at night. You can talk about it with your health care team and try it out to see if you like it.', '\"uploads/1596745046393wrist_splints.jpg\"', 1, '2020-07-22 13:03:56', '2020-08-06 20:17:26'),
 (34, 'Pilates', 'SC', 1, 2, 'general', 'Exercises that help you improve your strength, flexibility and posture.', 1, 'Pilates seems to be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Pilates  can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are pilates classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm-up and end with cool-down exercises to help prevent injuries.', '\"uploads/1596749513210pilates.jpg\"', 2, '2020-07-22 13:13:15', '2020-08-06 21:31:53'),
 (35, 'Cardio', 'SC', 2, 7, 'general', 'Cardio exercise seems to be effective and safe in adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 1, 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Cardio exercises can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are cardio exercise classes at community centres and gyms. Also, there are video tutorials online (see links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It may be important to gradually increase how often and how long you do physical activity over time. Even though stretching is not as helpful as cardio exercises, it may help you feel better.', '\"uploads/1596759159723cardio.jpg\"', 2, '2020-07-22 13:18:35', '2020-08-07 00:12:39'),
-(36, 'Occupational Therapy Interventions', 'HCP', 4, 17, 'general', 'A professional gives you exercises and activities that help you do daily tasks and activities that are important to you.', 1, 'Occupational therapy is recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts suggest that occupational therapy may help youth with JIA.', 'Weekly treatment sessions may be recommended and sessions may take about 45 minutes, with the first appointment lasting longer.', 'It depends on which intervention your occupational therapist recommends. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Occupational therapy interventions may take time to do and cost money depending on your health insurance. The initial visit may be more expensive than follow-up sessions.', 'Occupational therapists provide this treatment. You can talk about it with your health care team to help you access it, in the US a referral is often indicated from a physician.', 'It is better to consult with a registered occupational therapist who has experience with treating JIA.', '\"uploads/1595424024791OTI.jpg\"', 3, '2020-07-22 13:20:24', '2020-08-08 01:59:19'),
+(36, 'Occupational Therapy Interventions', 'HCP', 4, 17, 'general', 'A professional gives you exercises and activities that help you do daily tasks and activities that are important to you.', 1, 'Occupational therapy is recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts suggest that occupational therapy may help youth with JIA.', 'Weekly treatment sessions may be recommended and sessions may take about 45 minutes, with the first appointment lasting longer.', 'It depends on which intervention your occupational therapist recommends. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Occupational therapy interventions may take time to do and cost money depending on your health insurance. The initial visit may be more expensive than follow-up sessions.', 'Occupational therapists provide this treatment. You can talk about it with your health care team to help you access it, in the US a referral is often indicated from a physician..', 'It is better to consult with a registered occupational therapist who has experience with treating JIA.', '\"uploads/1595424024791OTI.jpg\"', 3, '2020-07-22 13:20:24', '2020-08-08 01:59:19'),
 (37, 'Chiropractic', 'HCP', 8, 34, 'general', 'A professional uses his or her hands to align your spine.', 3, 'Chiropractic treatments are not mentioned in guidelines for youth with JIA. They may not be recommended for some youth with JIA.', 'Chiropractic is not mentioned in guidelines for JIA.', 'The first few sessions may be about 30 minutes each and follow-up visits may be as short as 5 to 10 minutes.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Chiropractic may cost money depending on your health insurance.', 'Chiropractors provide this treatment. It is important to discuss this treatment with your health care team to see if it is safe for you.', 'If you use this treatment, it is important to see a well-trained chiropractor who has experience with treating JIA. You may not feel comfortable with receiving chiropractic treatments from a stranger.', '\"uploads/1595424174990chriopractic.jpg\"', NULL, '2020-07-22 13:22:54', '2020-07-22 13:22:54'),
 (38, 'Distraction', 'SC', 4, 16, 'general', 'Techniques and strategies you can use to stop focusing on the pain.', 1, 'Distraction is recommended by experts for pain management in JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that distraction can be used for pain management in JIA. It can be used during painful procedures.', 'You can use distraction each time you have pain. You can think of things you really enjoy, play games like counting and do activities such as listening to music and talking to friends.', 'You may feel better when you use distraction, but everybody is different.', 'Distraction takes time to do and may cost money if provided by a health professional. The costs can be avoided by doing distraction on your own.', 'You can talk about it with your health care team or find information online (see links below)', 'You can use different distraction methods and find the one that works best for you.', '\"uploads/1595424320823distraction.jpg\"', 6, '2020-07-22 13:25:20', '2020-08-08 20:57:21'),
 (49, 'Night Mouth Guards', 'HCP', 5, 25, 'jaw', 'A plastic piece that you wear on top of your teeth to protect when you clench your jaw or grind your teeth at night.', 2, 'Night mouth guards seem to be effective and safe for youth with jaw pain. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Night mouth guards are not mentioned in guidelines for JIA.', 'Mouth guards are often worn at night.', 'It may take up to a month to adjust to sleeping with a mouth guard. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Mouth guards usually cost money. Your health insurance may cover some of these costs.', 'Dentists usually provide this treatment. You can talk about it with your health care team to help you access it.', 'Some people may not like to wear mouth guards at night. You can try it out to see if you can tolerate it.', '\"uploads/1596749180919mouth_guard.jpg\"', 1, '2020-08-06 20:53:32', '2020-08-06 21:26:20'),
@@ -478,7 +918,7 @@ INSERT INTO `treatments` (`id`, `name`, `supervision`, `evidence_level`, `order_
 (64, 'Cognitive-Behavioural Therapy', 'HCP', 6, 28, 'general', 'A treatment usually directed by a professional and which focuses on the way you think and act to encourage healthy living.', 2, 'Cognitive-behavioural therapy is not mentioned in guidelines made by experts as a treatment for pain in JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Guidelines in JIA do not mention cognitive-behavioural therapy.', 'Weekly treatment sessions of about 30 to 60 minutes may be recommended, with the first appointment lasting longer. Within these sessions, professionals can help you find ways to manage your pain, such as guided imagery or meditative breathing.', 'You may feel better after 12 to 20 sessions, but everybody is different. It can vary depending on your health professional’s recommendations.', 'The intervention takes time to do and may cost money if provided by a health professional such as a psychologist. Your health insurance may cover some of these costs.', 'Your healthcare team can help you access this treatment. Psychologists usually provide this treatment.', 'It is important to see a well-trained professional.', '\"uploads/1596920632501cognitive_therapy.jpg\"', 6, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
 (65, 'NSAIDs in Creams', 'HCP', 7, 33, 'general', 'A cream (i.e., Voltaren®) that is rubbed on the joints and may help with pain, fever and inflammation.', 2, 'NSAIDs in cream (Voltaren®) are not recommended in guidelines made by experts. They may sometimes be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts in guidelines suggest that NSAIDs in creams (Voltaren®) are not recommended and should be avoided in JIA due to lack of scientific proofs. However, clinicians sometimes recommend them in practice.', 'It is important to talk with your health care team first before using this treatment.', 'NSAIDs in creams may take a few hours before you feel better, but everybody is different.', 'NSAIDs in cream may cost money depending on your health insurance.', 'NSAIDs in cream can be available over the counter or as prescription drugs depending on where you live.', '', '\"uploads/1596924261773NSAIDs_cream.jpg\"', 5, '2020-08-08 22:04:21', '2020-08-08 22:05:25'),
 (66, 'Opioids', 'HCP', 9, 37, 'general', 'Opioids are a class of drugs naturally found in the opium poppy plant, that are often used in medicines to relax the body by blocking certain pain receptors to reduce pain. (E.g., morphine, codeine, oxycodone (OxyContin®)).', 3, 'Opioids are usually not recommended by experts to manage pain in JIA because they have serious side effects. Youth should try other treatments before thinking about trying this treatment.', 'Opioids are not recommended in JIA guidelines for most patients. They are a last resort for JIA pain, because of the potential dangerous side effects.', 'If you have severe pain that is not going away with other treatments, opioids may be an option to discuss with your health care team. The use of opioids is often monitored by a chronic pain team.', 'It may take about 20 to 30 minutes for opioids to start working and may last up to 4 hours to feel better, but everybody is different.', 'Opioids may cost money depending on your health insurance.', 'Your healthcare team can give you information about opioids if it is indicated for you. It is very important not to take any opioids that are not prescribed to you because you do not know what the medication contains and it may be very dangerous. Also, it is very dangerous to give opioids to other people that were not prescribed this drug.', '', '\"uploads/1596925032322opioids.jpg\"', 5, '2020-08-08 22:17:12', '2020-08-08 22:17:31'),
-(67, 'Cannabis_Marijuana', 'HCP', 9, 38, 'general', 'A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.', 3, 'Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.', 'Marijuana or cannabinoids are not recommended in JIA guidelines.', 'You can discuss this treatment with your health care team if have questions about Marijuana/cannabinoids.', 'It is difficult to say because of the lack of research. Improvements may vary depending on the type of product used and each person’s characteristics.', 'Marijuana/cannabinoids may cost money. Health insurance may cover some of these costs.', 'Your healthcare team can give you information about Marijuana/cannabinoids/cannabinoid oils if it is indicated for you. It is very important to talk about it with your health care team if you have been using it on your own since these products can interact with your JIA treatments.', 'It may be illegal depending on where you live.', '\"uploads/1596925167324marijuana.jpg\"', 5, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
+(67, 'Cannabis/Marijuana', 'HCP', 9, 38, 'general', 'A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.', 3, 'Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.', 'Cannabis/Marijuana are not recommended in JIA guidelines.', 'You can discuss this treatment with your health care team if have questions about Cannabis/Marijuana.', 'It is difficult to say because of the lack of research. Improvements may vary depending on the type of product used and each person’s characteristics.', 'Cannabis/Marijuana may cost money. Health insurance may cover some of these costs.', 'Your healthcare team can give you information about Cannabis/Marijuana oils if it is indicated for you. It is very important to talk about it with your health care team if you have been using it on your own since these products can interact with your JIA treatments.', 'It may be illegal depending on where you live.', '\"uploads/1596925167324marijuana.jpg\"', 5, '2020-08-08 22:19:27', '2021-04-10 00:21:46'),
 (68, 'Acetylsalicylic Acid (Aspirin®)', 'HCP', 9, 39, 'general', 'A pill that is commonly used as a possible pain reliever for minor aches and to reduce fever. It is also called ASA (acetylsalicylic acid) (another brand name is Motrin®).', 3, 'Aspirin® is not recommended for youth with JIA.', 'Aspirin® is not recommended in JIA guidelines, because this treatment can cause the Reye syndrome among youth.', 'You can discuss this treatment with your health care team if you have questions about Aspirin®.', '', 'Aspirin® can cost money. Health insurance may cover some of these costs.', 'Aspirin® should be discussed with your health care team. It can be purchased over the counter in pharmacies.', '', '\"uploads/1596925338220acetylsalicylic .jpg\"', 5, '2020-08-08 22:22:18', '2020-08-08 22:23:38'),
 (69, 'Healthy Diet', 'SC', 4, 21, 'general', 'A balanced diet of vegetables, fruits, protein, and whole grains that helps you stay healthy.', 1, 'A healthy diet is recommended by experts for all. It should be used to stay healthy and may be used by youth with JIA to manage pain.', 'A healthy diet is recommended for all.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet. One of the best ways to eat well is to prepare you own food instead of eating processed food.', 'It may take up to a few months to feel better, but everybody is different.', 'The intervention takes time to do. Food costs can vary.', 'You can read online for information and look at Canada’s Food Guide and the Dietary Guidelines for Americans online.', 'Healthy eating may be slightly more expensive and not as convenient because of meals cooked at home.', '\"uploads/1596925822268healthy_diet.jpg\"', 8, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
 (70, 'Mediterranean Diet', 'SC', 4, 24, 'general', 'A diet that mainly includes on fruits and vegetables, whole grains, beans, fish and olive oil, that helps you stay healthy.', 1, 'Mediterranean diets are often recommended by dieticians. It should be used to stay healthy and may be used by youth with JIA to help manage pain.', 'The Mediterranean diet is often recommended by dieticians.', 'Youth and caregivers can look online or talk to their health care team for specific guidelines for this diet.', 'It may take up to a few months to feel better, but everybody is different.', 'Food costs can vary.', 'You can find Mediterranean diet guidelines online.', 'Following a Mediterranean diet may be slightly more expensive and not as convenient because of meals that have to be cooked at home.', '\"uploads/1596925909914mediterranean_diet.jpg\"', 8, '2020-08-08 22:31:49', '2020-08-08 22:31:49'),
@@ -488,6 +928,92 @@ INSERT INTO `treatments` (`id`, `name`, `supervision`, `evidence_level`, `order_
 (74, 'Calcium', 'SC', 4, 23, 'general', 'A nutrient that you get from certain foods and that is good for your bones.', 1, 'Calcium is needed to maintain a healthy diet.', 'Youth and teens should take a minimum of 1,300 mg of calcium per day to ensure good bone health. A typical diet will contain 200 mg calcium from all non-dairy foods combined. Youth and teens should get an additional 800-1,000 mg from dairy products, calcium-enriched dairy alternatives or, if needed, from a supplement.', 'You may wish to take Calcium according to instructions provided by your health care team or you pharmacist.', 'It may take up to a few months to feel better, but everybody is different.', 'Calcium supplements cost money.', 'It can be purchased over the counter in stores.', '', '\"uploads/1596926895107calcium.jpg\"', 8, '2020-08-08 22:48:15', '2020-08-08 22:48:15'),
 (75, 'Vegetarian & Vegan Diets', 'HCP', 8, 35, 'general', 'A diet without animal meat or animal products like eggs and dairy products.', 3, 'Vegetarian and vegan diets are not mentioned in guidelines for youth with JIA. We are not sure if they work and they may be unhealthy because of a lack of nutrients. It is important to have a discussion about it with your health care team if you wish to use it.', 'Guidelines do not mention vegetarian and vegan diets for arthritis pain.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet and for specific information on this diet.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Planning and preparing vegetarian diets may take time. Food costs can vary.', 'You can find vegetarian and vegan diets online. Food can be purchased at local grocery stores.', '', '\"uploads/1596926968631veg_vegan_diet.jpg\"', 8, '2020-08-08 22:49:28', '2020-08-08 22:49:28'),
 (76, 'Gluten-Free Diets', 'HCP', 8, 36, 'general', 'A diet without gluten. Gluten is a substance found in cereal grains. It is found in wheat products like bread, pasta and cereal.', 3, 'Gluten-free diets are not mentioned in guidelines for youth with JIA. We are not sure if they work and they may be unhealthy because of added ingredients in foods. It is important to have a discussion about it with your health care team if you wish to use it.', 'Guidelines do not mention gluten-free diets for arthritis pain. This diet is recommended for people with celiac disease.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet and for specific information on this diet.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Planning and preparing gluten-free meals may take time. Gluten-free foods are usually more expensive.', 'You can find gluten-free diets online. Food can be purchased at local grocery stores.', '', '\"uploads/1596927039732gluten_free_diet.jpg\"', 8, '2020-08-08 22:50:39', '2020-08-08 22:50:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatments_copy`
+--
+
+CREATE TABLE `treatments_copy` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `supervision` varchar(255) NOT NULL,
+  `evidence_level` tinyint(4) NOT NULL,
+  `order_number` tinyint(4) NOT NULL,
+  `specification` varchar(255) DEFAULT NULL,
+  `description` varchar(512) NOT NULL,
+  `traffic_level` tinyint(4) NOT NULL,
+  `traffic_description` varchar(512) NOT NULL,
+  `experts_suggest` varchar(512) NOT NULL,
+  `how_use` varchar(1024) DEFAULT NULL,
+  `how_soon` varchar(512) DEFAULT NULL,
+  `cost` varchar(512) DEFAULT NULL,
+  `where` varchar(512) DEFAULT NULL,
+  `consider` varchar(1024) DEFAULT NULL,
+  `image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`image`)),
+  `treatment_classification_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatments_copy`
+--
+
+INSERT INTO `treatments_copy` (`id`, `name`, `supervision`, `evidence_level`, `order_number`, `specification`, `description`, `traffic_level`, `traffic_description`, `experts_suggest`, `how_use`, `how_soon`, `cost`, `where`, `consider`, `image`, `treatment_classification_id`, `created_at`, `updated_at`) VALUES
+(1, 'Custom-Made Foot Orthotics', 'HCP', 1, 1, 'legs', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2020-08-24 05:07:37'),
+(2, 'Massage', 'SC', 1, 3, 'general', 'Rubbing or kneading your muscle or joints to help you relax.', 1, 'Massage seems be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA can use massage.', 'Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.', 'It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.', 'Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.', 'Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.', 'If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.', '\"uploads/1595422649352massage.jpg\"', 3, '2020-06-10 00:33:38', '2020-08-08 04:17:47'),
+(5, 'Yoga', 'SC', 3, 8, 'general', 'Exercises including stretching and focused breathing that help relax you.', 1, 'Yoga seems to be effective and safe for adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Yoga can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are yoga classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm up and end with cool down exercises to help prevent injuries.', '\"uploads/1595423805028yoga.jpg\"', 2, '2020-06-12 20:21:18', '2020-08-14 19:32:51'),
+(6, 'Osteopathic Manipulation', 'HCP', 7, 31, 'general', 'Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.', 2, 'Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Osteopathy is not mentioned in guidelines for JIA.', 'The first few sessions may be about an hour each and follow-up visits may take up to 30 minutes. Weekly sessions may be recommended, but everybody is different.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Osteopathy may take time to do and cost money depending on your health insurance.', 'Osteopaths provide this treatment. You can talk about it with your health care team to help you access it.', 'If you use this treatment, tt is important to see a well-trained osteopath who has experience with treating JIA. You may not feel comfortable with receiving osteopathic treatments from a stranger.', '\"uploads/1596758628004osteoathy.jpg\"', 3, '2020-06-12 20:25:27', '2020-08-07 00:04:22'),
+(7, 'Educational Website', 'SC', 1, 4, 'general', 'A website with information about JIA, and strategies on how to manage JIA.', 1, 'Educational websites are recommended by experts for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest in guidelines that youth with JIA may use self-management tools.', 'An educational website can take as little as 10 minutes and as long as an hour or two to browse. It will depend how long you wish to use it for. It can give you many tricks to help manage your arthritis and your pain.', 'It may take about 3 months to feel better, but everybody is different.', 'This intervention is free since it is accessible online.', 'The “Teens Taking Charge” program is online (see link below). There are also other educational websites for JIA online.', 'You can look at the various educational programs and find the one you like the most to help you manage your arthritis and your pain.', '\"uploads/1596687745933educational_website.jpg\"', 4, '2020-06-13 19:52:43', '2020-08-16 03:10:46'),
+(10, 'NSAIDs in Pills', 'HCP', 3, 10, 'general', 'A pill that could block the production of certain chemicals in your body that cause inflammation. It may reduce pain, fever, and inflammation. (e.g., Aleve®, Naprosyn®, Indocid®, Advil®).', 1, 'Nonsteroidal anti-inflammatory drugs (NSAIDs) in pills are recommended by experts for pain in JIA. NSAIDs may be used by youth with JIA to manage pain after a discussion with their health care team. NSAIDs may also be prescribed to reduce inflammation.', 'Experts suggest that NSAIDs in pills can be used for pain management in JIA.', 'It is important to talk with your health care team first before using this treatment. If your health care team has prescribed NSAIDs for you, it is important to keep taking them. You may be able to use NSAIDs when you have pain according to your physician’s advice. Dosing is dependent on age and weight and it should be the lowest dose possible. Only one NSAID (in pills or creams) or COX-2 inhibitor should be used at the same time. It may be given to children who are on methotrexate.', 'NSAIDs in pills may start working within a few hours, but everybody is different.', 'NSAIDs may cost money depending on your health insurance.', 'Your healthcare team can help you access this treatment. NSAIDs are also available over the counter.', 'You may need to try different kinds of NSAIDs to find one that works well for you. You have to take NSAIDs with food. Liquid forms are available for children who can’t swallow tablets.', '\"uploads/1596924066904NSAIDs_pills.jpg\"', 5, '2020-07-05 04:06:48', '2020-08-08 22:01:42'),
+(31, 'Wrist Splints Worn at Night', 'HCP', 2, 5, 'wrists', 'A piece of material that you wear on your wrist to support and protect it.', 1, 'Wrist splints worn at night seem to be effective and safe for adults with rheumatoid arthritis (RA). They may be used by youth with JIA to manage pain after discussion with health professionals.', 'Experts suggest that splints can be considered when needed with the guidance of your health care team', 'You may have to wear wrist splints all night.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Wrist splints may cost money. Your health insurance may cover some of these costs.', 'Occupational therapists usually provide this treatment. You can talk about wrist splints with your health care team to help you access them. You can also buy wrist splints that are not customized in stores.', 'Some people may not like to wear splints at night. You can talk about it with your health care team and try it out to see if you like it.', '\"uploads/1596745046393wrist_splints.jpg\"', 1, '2020-07-22 13:03:56', '2020-08-06 20:17:26'),
+(34, 'Pilates', 'SC', 1, 2, 'general', 'Exercises that help you improve your strength, flexibility and posture.', 1, 'Pilates seems to be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Pilates  can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are pilates classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm-up and end with cool-down exercises to help prevent injuries.', '\"uploads/1596749513210pilates.jpg\"', 2, '2020-07-22 13:13:15', '2020-08-06 21:31:53'),
+(35, 'Cardio', 'SC', 2, 7, 'general', 'Cardio exercise seems to be effective and safe in adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 1, 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Cardio exercises can cost money if you attend classes. You can avoid the cost by following an online program.', 'There are cardio exercise classes at community centres and gyms. Also, there are video tutorials online (see links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It may be important to gradually increase how often and how long you do physical activity over time. Even though stretching is not as helpful as cardio exercises, it may help you feel better.', '\"uploads/1596759159723cardio.jpg\"', 2, '2020-07-22 13:18:35', '2020-08-07 00:12:39'),
+(36, 'Occupational Therapy Interventions', 'HCP', 4, 17, 'general', 'A professional gives you exercises and activities that help you do daily tasks and activities that are important to you.', 1, 'Occupational therapy is recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts suggest that occupational therapy may help youth with JIA.', 'Weekly treatment sessions may be recommended and sessions may take about 45 minutes, with the first appointment lasting longer.', 'It depends on which intervention your occupational therapist recommends. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Occupational therapy interventions may take time to do and cost money depending on your health insurance. The initial visit may be more expensive than follow-up sessions.', 'Occupational therapists provide this treatment. You can talk about it with your health care team to help you access it, in the US a referral is often indicated from a physician..', 'It is better to consult with a registered occupational therapist who has experience with treating JIA.', '\"uploads/1595424024791OTI.jpg\"', 3, '2020-07-22 13:20:24', '2020-08-08 01:59:19'),
+(37, 'Chiropractic', 'HCP', 8, 34, 'general', 'A professional uses his or her hands to align your spine.', 3, 'Chiropractic treatments are not mentioned in guidelines for youth with JIA. They may not be recommended for some youth with JIA.', 'Chiropractic is not mentioned in guidelines for JIA.', 'The first few sessions may be about 30 minutes each and follow-up visits may be as short as 5 to 10 minutes.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Chiropractic may cost money depending on your health insurance.', 'Chiropractors provide this treatment. It is important to discuss this treatment with your health care team to see if it is safe for you.', 'If you use this treatment, it is important to see a well-trained chiropractor who has experience with treating JIA. You may not feel comfortable with receiving chiropractic treatments from a stranger.', '\"uploads/1595424174990chriopractic.jpg\"', NULL, '2020-07-22 13:22:54', '2020-07-22 13:22:54'),
+(38, 'Distraction', 'SC', 4, 16, 'general', 'Techniques and strategies you can use to stop focusing on the pain.', 1, 'Distraction is recommended by experts for pain management in JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that distraction can be used for pain management in JIA. It can be used during painful procedures.', 'You can use distraction each time you have pain. You can think of things you really enjoy, play games like counting and do activities such as listening to music and talking to friends.', 'You may feel better when you use distraction, but everybody is different.', 'Distraction takes time to do and may cost money if provided by a health professional. The costs can be avoided by doing distraction on your own.', 'You can talk about it with your health care team or find information online (see links below)', 'You can use different distraction methods and find the one that works best for you.', '\"uploads/1595424320823distraction.jpg\"', 6, '2020-07-22 13:25:20', '2020-08-08 20:57:21'),
+(49, 'Night Mouth Guards', 'HCP', 5, 25, 'jaw', 'A plastic piece that you wear on top of your teeth to protect when you clench your jaw or grind your teeth at night.', 2, 'Night mouth guards seem to be effective and safe for youth with jaw pain. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Night mouth guards are not mentioned in guidelines for JIA.', 'Mouth guards are often worn at night.', 'It may take up to a month to adjust to sleeping with a mouth guard. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Mouth guards usually cost money. Your health insurance may cover some of these costs.', 'Dentists usually provide this treatment. You can talk about it with your health care team to help you access it.', 'Some people may not like to wear mouth guards at night. You can try it out to see if you can tolerate it.', '\"uploads/1596749180919mouth_guard.jpg\"', 1, '2020-08-06 20:53:32', '2020-08-06 21:26:20'),
+(50, 'Water Exercises', 'SC', 2, 6, 'general', 'Exercises that you do in water and that help you stay active, like water aerobics.', 1, 'Water exercise seems to be effective and safe in adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Water exercise can cost money if you attend classes and if you have to pay to go to a pool.', 'here are water exercise classes at community centres and pools.', 'It is important to do movements at your own pace to avoid hurting yourself. It may be important to gradually increase how often and how long you do physical activity over time.', '\"uploads/1596759403477water_excercise.jpg\"', 2, '2020-08-07 00:16:43', '2020-08-07 00:16:43'),
+(51, 'Individualized Exercise Program', 'HCP', 2, 19, 'general', 'An exercise routine that is created just for you based on what you need, want and can do to stay healthy. These include cardio (that makes your heart go faster), stretching and balance exercises.', 1, 'Individualized exercise programs are recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.\"', 'Experts suggest that youth with JIA should participate in regular physical activity. Custom designed programs may have even more benefits.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day, but you can talk to your health care team to figure out what is best for you.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'This treatment can cost money if provided by a health professional such as  a physiotherapist or occupational therapist. Your insurance may also pay some of it. It may be important to gradually increase how often and how long you do physical activity over time.', 'Physical exercise programs can be provided by physiotherapists and occupational therapists. You can talk about it with your health care team to help you access it.', 'It is important to do movements at your own pace to avoid hurting yourself and to follow the advice of a health professional. It may be helpful to start with a warm-up and end with cool-down exercises to help prevent injuries.', '\"uploads/1596845774762individualized_exer.jpg\"', 2, '2020-08-07 00:17:30', '2020-08-08 02:01:59'),
+(52, 'Stretching', 'SC', 4, 12, 'general', 'Exercise that allows you to stretch different parts of your body.', 1, 'Stretching is recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It is better to warm up before doing stretches to avoid getting hurt. It is also important to stretch slowly and to hold the pause for about 20 seconds.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Stretching can cost money if you attend exercise classes. You can avoid the cost by following an online program.', 'There are exercise classes at community centres and gyms. Also, there are video tutorials online (see links below).', 'It is important to do movements at your own pace to avoid hurting yourself. It may be important to gradually increase the time and intensity of stretches over time.', '\"uploads/1596851771932stretching.jpg\"', 2, '2020-08-08 01:56:11', '2020-08-08 01:56:11'),
+(53, 'Joint Protection Program', 'SC', 2, 9, 'general', 'Information on what you can do to avoid hurting your joints.', 1, 'Joint protection programs seem to be effective and safe for adults with rheumatoid arthritis (RA). They may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA can use joint protection programs.', 'When provided by health professionals, sessions can last about forty-five minutes to an hour. However, you can read online about it and spend less time on it. You can use joint protection techniques  every day to help protect your joints.  These include  resting before you are tired, stop an activity before feeling pain and  using  stronger joints to do activities.', 'You may feel better each time you use joint protection techniques but it may take a few months to feel better. Everybody is different.', 'oint protection programs may take time and may cost money if provided by a health professional. Your health insurance may cover some of these costs.', 'Occupational therapists and other health professionals usually provide this treatment. You can talk about it with your health care team to get information on joint protection. You can also find information online (see links below).', 'You can try different ways to protect your joints and see what helps you the most.', '\"uploads/1596856347415joint_protection_program.jpg\"', 4, '2020-08-08 02:05:05', '2020-08-08 03:12:27'),
+(54, 'Acetaminophen (Tylenol®)', 'HCP', 3, 11, 'general', 'Medicine that helps with pain and fever (also called Paracetamol, for example; Tylenol®).', 1, 'Acetaminophen (Tylenol®) is recommended by experts for pain in JIA. Acetaminophen may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts suggest that acetaminophen can be used for moderate pain in JIA.', 'It is important to talk with your health care team first before using this treatment since it may interact with other medication. You may be able to use Acetaminophen when you have pain according to your physician’s advice. Dosing is dependent on age and weight and it should be the lowest dose possible.', 'It may take up to 45 minutes for an oral, liquid, or tablet acetaminophen to start working. You may feel better for up to 4 hours, but everybody is different.', 'Acetaminophen costs money.', 'Acetaminophen is available over the counter.', 'Liquid forms are available for children who can’t swallow tablets.', '\"uploads/1596856707170acetaminophen_tylenol .jpg\"', 5, '2020-08-08 03:14:47', '2020-08-08 03:18:27'),
+(55, 'Relaxation', 'SC', 4, 13, 'general', 'Techniques and strategies you can use to be calm.', 1, 'Relaxation is recommended by experts for pain management in JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that relaxation can be used for pain management in JIA. It can be used during painful procedures.', 'You may use different types of relaxation techniques and breathing exercises daily.', 'You may feel better after practicing relaxation, but everybody is different.', 'Relaxation takes time to do and may cost money if provided by a health professional. The costs can be avoided by doing relaxation on your own.', 'You can talk about it with your health care team or find information online (see links below).', 'You can try different types of relaxation and find the one that works best for you.', '\"uploads/1596856916988relaxation.jpg\"', 6, '2020-08-08 03:21:56', '2020-08-08 03:21:56'),
+(56, 'Physiotherapy Interventions', 'HCP', 4, 18, 'general', 'A professional gives you physical treatments, stretches and activities that help with your strength, balance, range of motion and functioning.', 1, 'Physiotherapy is recommended by experts for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts suggest that youth with JIA can use physiotherapy.', 'Weekly treatment sessions may be recommended and sessions may take from 20 to 45 minutes, with the first appointment lasting longer. Sessions may vary in length because everybody is different.', 'It depends on which intervention your physiotherapist recommends. It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Physiotherapy interventions may take time to do and cost money depending on your health insurance.', 'Physiotherapists provide this treatment. You can talk about it with your health care team to help you access it.', 'It is important to do movements at your own pace to avoid hurting yourself and to follow the advice of a health professional. It is better to consult with a registered physiotherapist who has experience with treating JIA.', '\"uploads/1596857137898phys_inter.jpg\"', 3, '2020-08-08 03:25:37', '2020-08-08 03:25:37'),
+(57, 'Heat', 'SC', 4, 14, 'general', 'A hot towel or heating pad that you apply to your joints to help with stiffness and pain.', 1, 'Heat is recommended by experts for youth with JIA. It may be used by youth with JIA to manage pain and stiffness.', 'Experts suggest that youth with JIA can use heat packs, pads, and warm baths or showers to reduce pain.', 'It is suggested to use a heat pack for 20 minutes every 2 to 4 hours. Sometimes, heat and cold can also be used one after the other.', 'It may help right away or it may take up to a few days to feel better. Everybody is different. You may be less stiff in the morning if your affected joints are kept warm during the night.', 'Heat packs usually cost money. You may use what you have at home. Hot water bottle, warm towel, warm bath and warm shower can all provide heat.', 'Heat is easy to use at home.', 'Some people prefer heat to cold. You can try and see what you prefer. Sometimes, heat and cold can also be used one after the other.', '\"uploads/1596857295062heat.jpg\"', 3, '2020-08-08 03:28:15', '2020-08-08 03:28:15'),
+(58, 'Cold', 'SC', 4, 15, 'general', 'A cold towel , cold packs, or an ice bag that you apply to your joints to help with inflammation.', 1, 'Cold is recommended by experts for youth with JIA. It may be used by youth with JIA to manage pain.', 'Experts suggest that youth with JIA can use cold packs and ice massage to decrease pain, especially in inflamed joints.', 'It is suggested to use a cold pack for 10 minutes every 1 to 2 hours, with a thin layer of cloth between the pack and the skin to avoid direct contact. A cold, damp cloth may be more effective. Instead, you may use a cold water bottle, plastic bag with ice chips, or bag of frozen vegetables. Ice massage could be done using gentle circular motions for no more than 5 minutes at a time. Sometimes, heat and cold can also be used one after the other.', 'It may help right away or it may take up to a few days to feel better. Everybody is different. Cold therapy may be helpful to reduce swelling and inflammation, especially after physical activity.', 'Cold packs usually cost money. To avoid spending money, you may use a cold, damp cloth, a cold water bottle, a plastic bag with ice chips, or a bag of frozen vegetables.', 'Cold packs can be purchased in health care store, pharmacies, or sometimes home department stores.', 'Some people prefer heat to cold. You can try and see what you prefer. Sometimes, heat and cold can also be used one after the other.', '\"uploads/1596857457693cold.jpg\"', 3, '2020-08-08 03:30:57', '2020-08-08 03:30:57'),
+(59, 'Acupuncture', 'HCP', 6, 29, 'general', 'A professional uses thin needles to prick the surface of your skin.', 2, 'Acupuncture is not mentioned in guidelines for JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Acupuncture is not mentioned in guidelines for JIA.', 'Weekly treatment sessions may be recommended and sessions may take from 30 minutes to 2 hours, with the first appointment lasting longer. Sessions may vary in length because everybody is different.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Acupuncture may cost money depending on your health insurance.', 'Acupuncturists provide this treatment. You can talk about it with your health care team to help you access it.', 'It is important to see a well-trained acupuncturist who has experience with treating JIA. You may not feel comfortable with acupuncture because of the needles.', '\"uploads/1596906722903acupunture.jpg\"', 3, '2020-08-08 17:12:02', '2020-08-08 17:12:02'),
+(61, 'Sleep Routine', 'SC', 4, 20, 'general', 'A sleep routine is a variety of different habits that may help to have a good night-time sleep.', 1, 'Sleep routines are recommended by experts for youth. It may be used by youth with JIA to manage pain.', 'Experts recommend for teens to sleep continuously for 8 to 10 hours each night, with consistent bed and wake-up times.', 'You can use a sleep routine each night to help you fall asleep and have a good sleep at night. You can go to bed and wake up at the same time every day, do relaxing activities before going to sleep and avoid using electronic devices before going to bed.', 'You may feel better in the morning if you slept well at night. It may take a few months to have less pain, but everybody is different.', 'Information on sleep routines may cost money if provided by a health professional. Your health insurance may cover some of these costs. You can avoid the cost by reading about it online.', 'You can talk about it with your health care team or find information online (see links below).', 'You can use different ways to help you sleep well and find the best sleep routine for you.', '\"uploads/1596920106834sleep_routine.jpg\"', 4, '2020-08-08 20:55:06', '2020-08-08 20:55:06'),
+(62, 'Hypnosis', 'HCP', 7, 32, 'general', 'A professional puts you in a sleepy state to relax your mind.', 2, 'Hypnosis is not mentioned in guidelines made by experts as a treatment for pain in JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Guidelines in JIA do not mention hypnosis.', 'A general hypnotherapy session may take about an hour. Weekly visits may be recommended, but everybody is different.', 'It will depend on each person and on your health professional’s recommendations. It may take up to a few months to feel better.', 'The intervention takes time to do and may cost money if provided by a health professional. Your health insurance may cover some of these costs.', 'Your health care team can help you access this treatment. Psychologists and hypnotherapists usually provide this treatment.', 'It is important to see a well-trained professional. You may not feel comfortable with receiving hypnosis.', '\"uploads/1596920374275hypnosis.jpg\"', 6, '2020-08-08 20:59:34', '2020-08-08 20:59:34'),
+(63, 'Mindfulness', 'SC', 6, 30, 'general', 'When you focus and pay attention to how you feel in the moment.', 2, 'Mindfulness is not mentioned in guidelines made by experts as a treatment for pain in JIA. It may be used by youth with JIA to manage pain.', 'Guidelines in JIA do not mention mindfulness.', 'You may use mindfulness daily.', 'You may feel better after practicing mindfulness, but everybody is different. ', 'The intervention takes time to do and may cost money if provided by a health professional. The costs can be avoided by doing mindfulness on your own.', 'You can talk about it with your health care team or find information online (see links below).', 'You can try different types of mindfulness techniques and find the one that works best for you.', '\"uploads/1596920489949mindfulness.jpg\"', 6, '2020-08-08 21:01:29', '2020-08-08 21:01:29'),
+(64, 'Cognitive-Behavioural Therapy', 'HCP', 6, 28, 'general', 'A treatment usually directed by a professional and which focuses on the way you think and act to encourage healthy living.', 2, 'Cognitive-behavioural therapy is not mentioned in guidelines made by experts as a treatment for pain in JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Guidelines in JIA do not mention cognitive-behavioural therapy.', 'Weekly treatment sessions of about 30 to 60 minutes may be recommended, with the first appointment lasting longer. Within these sessions, professionals can help you find ways to manage your pain, such as guided imagery or meditative breathing.', 'You may feel better after 12 to 20 sessions, but everybody is different. It can vary depending on your health professional’s recommendations.', 'The intervention takes time to do and may cost money if provided by a health professional such as a psychologist. Your health insurance may cover some of these costs.', 'Your healthcare team can help you access this treatment. Psychologists usually provide this treatment.', 'It is important to see a well-trained professional.', '\"uploads/1596920632501cognitive_therapy.jpg\"', 6, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
+(65, 'NSAIDs in Creams', 'HCP', 7, 33, 'general', 'A cream (i.e., Voltaren®) that is rubbed on the joints and may help with pain, fever and inflammation.', 2, 'NSAIDs in cream (Voltaren®) are not recommended in guidelines made by experts. They may sometimes be used by youth with JIA to manage pain after a discussion with their health care team.', 'Experts in guidelines suggest that NSAIDs in creams (Voltaren®) are not recommended and should be avoided in JIA due to lack of scientific proofs. However, clinicians sometimes recommend them in practice.', 'It is important to talk with your health care team first before using this treatment.', 'NSAIDs in creams may take a few hours before you feel better, but everybody is different.', 'NSAIDs in cream may cost money depending on your health insurance.', 'NSAIDs in cream can be available over the counter or as prescription drugs depending on where you live.', '', '\"uploads/1596924261773NSAIDs_cream.jpg\"', 5, '2020-08-08 22:04:21', '2020-08-08 22:05:25'),
+(66, 'Opioids', 'HCP', 9, 37, 'general', 'Opioids are a class of drugs naturally found in the opium poppy plant, that are often used in medicines to relax the body by blocking certain pain receptors to reduce pain. (E.g., morphine, codeine, oxycodone (OxyContin®)).', 3, 'Opioids are usually not recommended by experts to manage pain in JIA because they have serious side effects. Youth should try other treatments before thinking about trying this treatment.', 'Opioids are not recommended in JIA guidelines for most patients. They are a last resort for JIA pain, because of the potential dangerous side effects.', 'If you have severe pain that is not going away with other treatments, opioids may be an option to discuss with your health care team. The use of opioids is often monitored by a chronic pain team.', 'It may take about 20 to 30 minutes for opioids to start working and may last up to 4 hours to feel better, but everybody is different.', 'Opioids may cost money depending on your health insurance.', 'Your healthcare team can give you information about opioids if it is indicated for you. It is very important not to take any opioids that are not prescribed to you because you do not know what the medication contains and it may be very dangerous. Also, it is very dangerous to give opioids to other people that were not prescribed this drug.', '', '\"uploads/1596925032322opioids.jpg\"', 5, '2020-08-08 22:17:12', '2020-08-08 22:17:31'),
+(67, 'Marijuana/Cannabinoids', 'HCP', 9, 38, 'general', 'A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.', 3, 'Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.', 'Marijuana or cannabinoids are not recommended in JIA guidelines.', 'You can discuss this treatment with your health care team if have questions about Marijuana/cannabinoids.', 'It is difficult to say because of the lack of research. Improvements may vary depending on the type of product used and each person’s characteristics.', 'Marijuana/cannabinoids may cost money. Health insurance may cover some of these costs.', 'Your healthcare team can give you information about Marijuana/cannabinoids/cannabinoid oils if it is indicated for you. It is very important to talk about it with your health care team if you have been using it on your own since these products can interact with your JIA treatments.', 'It may be illegal depending on where you live.', '\"uploads/1596925167324marijuana.jpg\"', 5, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
+(68, 'Acetylsalicylic Acid (Aspirin®)', 'HCP', 9, 39, 'general', 'A pill that is commonly used as a possible pain reliever for minor aches and to reduce fever. It is also called ASA (acetylsalicylic acid) (another brand name is Motrin®).', 3, 'Aspirin® is not recommended for youth with JIA.', 'Aspirin® is not recommended in JIA guidelines, because this treatment can cause the Reye syndrome among youth.', 'You can discuss this treatment with your health care team if you have questions about Aspirin®.', '', 'Aspirin® can cost money. Health insurance may cover some of these costs.', 'Aspirin® should be discussed with your health care team. It can be purchased over the counter in pharmacies.', '', '\"uploads/1596925338220acetylsalicylic .jpg\"', 5, '2020-08-08 22:22:18', '2020-08-08 22:23:38'),
+(69, 'Healthy Diet', 'SC', 4, 21, 'general', 'A balanced diet of vegetables, fruits, protein, and whole grains that helps you stay healthy.', 1, 'A healthy diet is recommended by experts for all. It should be used to stay healthy and may be used by youth with JIA to manage pain.', 'A healthy diet is recommended for all.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet. One of the best ways to eat well is to prepare you own food instead of eating processed food.', 'It may take up to a few months to feel better, but everybody is different.', 'The intervention takes time to do. Food costs can vary.', 'You can read online for information and look at Canada’s Food Guide and the Dietary Guidelines for Americans online.', 'Healthy eating may be slightly more expensive and not as convenient because of meals cooked at home.', '\"uploads/1596925822268healthy_diet.jpg\"', 8, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
+(70, 'Mediterranean Diet', 'SC', 4, 24, 'general', 'A diet that mainly includes on fruits and vegetables, whole grains, beans, fish and olive oil, that helps you stay healthy.', 1, 'Mediterranean diets are often recommended by dieticians. It should be used to stay healthy and may be used by youth with JIA to help manage pain.', 'The Mediterranean diet is often recommended by dieticians.', 'Youth and caregivers can look online or talk to their health care team for specific guidelines for this diet.', 'It may take up to a few months to feel better, but everybody is different.', 'Food costs can vary.', 'You can find Mediterranean diet guidelines online.', 'Following a Mediterranean diet may be slightly more expensive and not as convenient because of meals that have to be cooked at home.', '\"uploads/1596925909914mediterranean_diet.jpg\"', 8, '2020-08-08 22:31:49', '2020-08-08 22:31:49'),
+(71, 'Fish Oil (Omega-3)', 'HCP', 5, 26, 'general', 'A pill with an oil that comes from fish that may keep you healthy.', 2, 'Fish oil is not mentioned in clinical practice guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Fish oil (Omega-3) is not mentioned in JIA guidelines.', 'It is suggested to first discuss with your health care team about taking fish oils. Doses of Cod liver oil supplements contain vitamin A. If you are taking other multivitamins, it is important to ensure the total dose is below 9,000 international units per day. Cod liver oil supplements also contain vitamin D (usually 400 international units) and may contain vitamin E in low doses.', 'It may take up to a few months to feel better, but everybody is different.', 'Fish oil can cost money.', 'Fish oil can be purchased over the counter in stores.', 'It is better to have a healthy diet than to use supplements and have an unhealthy diet. Including fish oil in your diet may be slightly more expensive.', '\"uploads/1596926013915fish_oil.jpg\"', 8, '2020-08-08 22:33:33', '2020-08-08 22:33:33'),
+(72, 'Glucosamine Hydrochloride (Continued)', 'HCP', 5, 27, 'general', 'A pill that is used as a supplement with an amino sugar (glucosamine) that our body naturally produces to help make a “cushion” that surrounds our joints (also can be found in shellfish or created in a laboratory).', 2, 'Glucosamine hydrochloride is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Glucosamine hydrochloride is not mentioned in JIA guidelines.', 'It is suggested to first discuss with your health care team about taking this glucosamine hydrochloride.', 'Improvements vary, but everybody is different.', 'Glucosamine hydrochloride costs money.', 'Glucosamine hydrochloride can be purchased over the counter in stores.', 'In osteoarthritis, glucosamine sulfate seems to work better. However, it is another type of arthritis. It is be better to have a healthy diet than to use supplements and have an unhealthy diet.', '\"uploads/1596926101092glucosamine.jpg\"', 8, '2020-08-08 22:35:01', '2020-08-08 22:35:01'),
+(73, 'Vitamin D', 'SC', 4, 22, 'general', 'A vitamin that you get from the sun and some foods and that is good for your bones.', 1, 'Vitamin D is needed to maintain a healthy diet.', 'Youth and teens should take a minimum of 600 international units of Vitamin D per day to ensure good bone health. Typical diets are deficient in vitamin D. A supplement of 400-1,000 international units per day is recommended.', 'You may wish to take vitamin D according to instructions provided by your health care team or you pharmacist.', 'It may take up to a few months to feel better, but everybody is different.', 'Vitamin D supplements costs money.', 'Vitamin D supplements can be purchased over the counter in stores.', '', '\"uploads/1596926775463vitamin_d.jpg\"', 8, '2020-08-08 22:46:15', '2020-08-08 22:52:56'),
+(74, 'Calcium', 'SC', 4, 23, 'general', 'A nutrient that you get from certain foods and that is good for your bones.', 1, 'Calcium is needed to maintain a healthy diet.', 'Youth and teens should take a minimum of 1,300 mg of calcium per day to ensure good bone health. A typical diet will contain 200 mg calcium from all non-dairy foods combined. Youth and teens should get an additional 800-1,000 mg from dairy products, calcium-enriched dairy alternatives or, if needed, from a supplement.', 'You may wish to take Calcium according to instructions provided by your health care team or you pharmacist.', 'It may take up to a few months to feel better, but everybody is different.', 'Calcium supplements cost money.', 'It can be purchased over the counter in stores.', '', '\"uploads/1596926895107calcium.jpg\"', 8, '2020-08-08 22:48:15', '2020-08-08 22:48:15'),
+(75, 'Vegetarian & Vegan Diets', 'HCP', 8, 35, 'general', 'A diet without animal meat or animal products like eggs and dairy products.', 3, 'Vegetarian and vegan diets are not mentioned in guidelines for youth with JIA. We are not sure if they work and they may be unhealthy because of a lack of nutrients. It is important to have a discussion about it with your health care team if you wish to use it.', 'Guidelines do not mention vegetarian and vegan diets for arthritis pain.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet and for specific information on this diet.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Planning and preparing vegetarian diets may take time. Food costs can vary.', 'You can find vegetarian and vegan diets online. Food can be purchased at local grocery stores.', '', '\"uploads/1596926968631veg_vegan_diet.jpg\"', 8, '2020-08-08 22:49:28', '2020-08-08 22:49:28'),
+(76, 'Gluten-Free Diets', 'HCP', 8, 36, 'general', 'A diet without gluten. Gluten is a substance found in cereal grains. It is found in wheat products like bread, pasta and cereal.', 3, 'Gluten-free diets are not mentioned in guidelines for youth with JIA. We are not sure if they work and they may be unhealthy because of added ingredients in foods. It is important to have a discussion about it with your health care team if you wish to use it.', 'Guidelines do not mention gluten-free diets for arthritis pain. This diet is recommended for people with celiac disease.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet and for specific information on this diet.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'Planning and preparing gluten-free meals may take time. Gluten-free foods are usually more expensive.', 'You can find gluten-free diets online. Food can be purchased at local grocery stores.', '', '\"uploads/1596927039732gluten_free_diet.jpg\"', 8, '2020-08-08 22:50:39', '2020-08-08 22:50:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment_category`
+--
+
+CREATE TABLE `treatment_category` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `treatment_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `treatment_category`
@@ -545,11 +1071,51 @@ INSERT INTO `treatment_category` (`created_at`, `updated_at`, `category_id`, `tr
 ('2020-08-08 22:49:28', '2020-08-08 22:49:28', 7, 75),
 ('2020-08-08 22:50:40', '2020-08-08 22:50:40', 7, 76);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment_classifications`
+--
+
+CREATE TABLE `treatment_classifications` (
+  `id` int(11) NOT NULL DEFAULT 0,
+  `name` varchar(255) NOT NULL,
+  `fr_name` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `treatment_classifications`
 --
 
-INSERT INTO `treatment_classifications` (`id`, `name`, `created_at`, `updated_at`) VALUES
+INSERT INTO `treatment_classifications` (`id`, `name`, `fr_name`, `created_at`, `updated_at`) VALUES
+(1, 'Splints, Orthotics and Other Devices', 'attelles', '2020-06-09 23:09:47', '2020-06-09 23:09:47'),
+(2, 'Physical Activities', 'activité physique', '2020-06-09 23:10:13', '2020-06-09 23:10:13'),
+(3, 'Physical Treatments', 'Traitements physiques', '2020-06-09 23:10:30', '2020-06-09 23:10:30'),
+(4, 'Educational Approaches', 'Approches pédagogiques', '2020-06-13 19:50:33', '2020-06-13 19:50:33'),
+(5, 'Pain Medications', 'Médicaments contre la douleur', '2020-07-05 04:03:04', '2020-07-05 04:03:04'),
+(6, 'Psychological & Spiritual Approaches', 'Approches psychologiques et spirituelles', '2020-07-06 03:49:44', '2020-07-22 13:25:36'),
+(8, 'Nutrition', 'nutritionnel', '2020-08-08 22:27:41', '2020-08-08 22:27:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment_classifications_copy`
+--
+
+CREATE TABLE `treatment_classifications_copy` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatment_classifications_copy`
+--
+
+INSERT INTO `treatment_classifications_copy` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Splints, Orthotics and Other Devices', '2020-06-09 23:09:47', '2020-06-09 23:09:47'),
 (2, 'Physical Activities', '2020-06-09 23:10:13', '2020-06-09 23:10:13'),
 (3, 'Physical Treatments', '2020-06-09 23:10:30', '2020-06-09 23:10:30'),
@@ -557,6 +1123,20 @@ INSERT INTO `treatment_classifications` (`id`, `name`, `created_at`, `updated_at
 (5, 'Pain Medications', '2020-07-05 04:03:04', '2020-07-05 04:03:04'),
 (6, 'Psychological & Spiritual Approaches', '2020-07-06 03:49:44', '2020-07-22 13:25:36'),
 (8, 'Nutrition', '2020-08-08 22:27:41', '2020-08-08 22:27:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment_texts`
+--
+
+CREATE TABLE `treatment_texts` (
+  `id` int(11) NOT NULL,
+  `text` text DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `treatment_texts`
@@ -566,7 +1146,23 @@ INSERT INTO `treatment_texts` (`id`, `text`, `user_id`, `created_at`, `updated_a
 (1, 'req user id test', 7, '2020-07-03 06:23:45', '2020-08-10 05:59:00'),
 (2, 'Test text updated', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
-(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28');
+(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-04-11 20:39:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -594,7 +1190,21 @@ INSERT INTO `users` (`id`, `username`, `password`, `type`, `created_at`, `update
 (87, 'YZQGGWZM', '$2b$14$zfsO/dWD0hX5CG.WWV83aeKUn9FpKG5x9oMjF.HGfv1Fs/r1WxH1C', 'user', '2020-08-24 04:08:48', '2020-08-24 04:08:58'),
 (88, 'TTNIMUI1', '$2b$14$3/mPnuG..z8xcthls6IQtuQDp6nSMsPMEqMN.7ddvY3ISARRL5Uz2', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
 (89, 'TTNIMUI12', '$2b$14$sP26f4N/n3FXaODtAJoDOODaLiF1HWRKLUBi8JP0ILTrdIHCGZALe', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
-(111, 'admin', '$2b$14$P6FNMJbuGmL9DNgMCPgj9.bUl7S23TaJcIm.5T0fETuTmY2aZOgjC', 'admin', '2021-02-03 12:07:34', '2021-02-03 22:34:06');
+(111, 'admin', '$2b$14$P6FNMJbuGmL9DNgMCPgj9.bUl7S23TaJcIm.5T0fETuTmY2aZOgjC', 'admin', '2021-02-03 12:07:34', '2021-02-03 22:34:06'),
+(112, 'user', '$2b$14$65rYBSSjUPb1g2mChqT3Oujg5aNMbYTEe4yFcPdAZGqtGfwkZ15iu', 'user', '2021-03-22 17:18:07', '2021-03-22 17:18:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_factor`
+--
+
+CREATE TABLE `user_factor` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `factor_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_factor`
@@ -606,6 +1216,19 @@ INSERT INTO `user_factor` (`created_at`, `updated_at`, `factor_id`, `user_id`) V
 ('2020-08-23 03:17:49', '2020-08-23 03:17:49', 9, 69),
 ('2020-08-23 03:17:49', '2020-08-23 03:17:49', 11, 69);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_favourite`
+--
+
+CREATE TABLE `user_favourite` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `treatment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `user_favourite`
 --
@@ -614,6 +1237,7 @@ INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_
 ('2020-08-06 03:27:15', '2020-08-06 03:27:15', 1, 7),
 ('2020-08-06 03:33:08', '2020-08-06 03:33:08', 2, 7),
 ('2020-08-21 13:57:02', '2020-08-21 13:57:02', 2, 81),
+('2021-03-04 20:13:00', '2021-03-04 20:13:00', 5, 111),
 ('2020-08-06 03:27:09', '2020-08-06 03:27:09', 7, 7),
 ('2020-08-10 21:25:49', '2020-08-10 21:25:49', 7, 69),
 ('2020-08-19 05:31:37', '2020-08-19 05:31:37', 31, 69),
@@ -621,8 +1245,22 @@ INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_
 ('2020-08-21 15:07:27', '2020-08-21 15:07:27', 34, 81),
 ('2020-08-06 03:27:16', '2020-08-06 03:27:16', 36, 7),
 ('2020-08-21 15:07:26', '2020-08-21 15:07:26', 36, 81),
+('2021-03-04 20:13:01', '2021-03-04 20:13:01', 50, 111),
 ('2020-08-10 21:25:57', '2020-08-10 21:25:57', 51, 69),
 ('2020-08-10 21:25:48', '2020-08-10 21:25:48', 54, 69);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_hcp`
+--
+
+CREATE TABLE `user_hcp` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `treatment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_hcp`
@@ -632,9 +1270,13 @@ INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) V
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 1, 7),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 1, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 1, 77),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 1, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 1, 112),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 10, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 10, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 10, 81),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 10, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 10, 112),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 31, 7),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 36, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 36, 69),
@@ -643,30 +1285,35 @@ INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) V
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 51, 69),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 51, 81),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 54, 76),
-('2020-08-17 20:54:12', '2020-08-17 20:54:12', 54, 77);
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 54, 77),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 54, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 54, 112);
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `user_medication`
+-- Table structure for table `user_medication`
 --
 
-INSERT INTO `user_medication` (`created_at`, `updated_at`, `medication_id`, `user_id`) VALUES
-('2020-08-03 22:14:39', '2020-08-03 22:14:39', 1, 7),
-('2020-08-03 16:27:11', '2020-08-03 16:27:11', 11, 67),
-('2020-08-21 03:07:49', '2020-08-21 03:07:49', 11, 69),
-('2020-08-03 22:14:39', '2020-08-03 22:14:39', 12, 7),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 12, 69),
-('2020-07-31 15:42:51', '2020-07-31 15:42:51', 13, 7),
-('2020-08-03 16:27:11', '2020-08-03 16:27:11', 13, 67),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 14, 69),
-('2020-07-31 00:10:57', '2020-07-31 00:10:57', 15, 7),
-('2020-08-03 16:27:11', '2020-08-03 16:27:11', 15, 67),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 15, 69),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 16, 69),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 18, 69),
-('2020-08-03 16:27:11', '2020-08-03 16:27:11', 19, 67),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 23, 69),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 24, 69),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 30, 69);
+CREATE TABLE `user_medication` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `medication_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_plan`
+--
+
+CREATE TABLE `user_plan` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `treatment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_plan`
@@ -679,6 +1326,20 @@ INSERT INTO `user_plan` (`created_at`, `updated_at`, `treatment_id`, `user_id`) 
 ('2020-08-06 03:32:32', '2020-08-06 03:32:32', 34, 7),
 ('2020-08-10 21:26:25', '2020-08-10 21:26:25', 51, 69);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_preferences`
+--
+
+CREATE TABLE `user_preferences` (
+  `value` float DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `preference_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `user_preferences`
 --
@@ -687,21 +1348,40 @@ INSERT INTO `user_preferences` (`value`, `created_at`, `updated_at`, `preference
 (8.5, '2020-06-24 02:40:11', '2020-08-03 22:49:20', 1, 7),
 (3.5, '2020-08-10 21:23:20', '2020-08-16 16:22:47', 1, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 1, 81),
+(0, '2021-03-16 03:21:23', '2021-03-17 17:22:43', 1, 111),
 (8.5, '2020-07-22 13:30:34', '2020-08-10 06:02:11', 2, 7),
 (9.5, '2020-08-10 21:23:20', '2020-08-16 16:22:52', 2, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 2, 81),
+(1, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 2, 111),
 (1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 3, 7),
 (2, '2020-08-10 21:23:20', '2020-08-16 02:03:46', 3, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 3, 81),
+(2, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 3, 111),
 (1.5, '2020-07-22 13:30:34', '2020-08-10 05:58:50', 4, 7),
 (4, '2020-08-10 21:23:20', '2020-08-16 02:13:22', 4, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 4, 81),
+(3, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 4, 111),
 (1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 5, 7),
 (3.5, '2020-08-10 21:23:20', '2020-08-16 16:22:47', 5, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 5, 81),
+(4, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 5, 111),
 (1, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 6, 7),
 (0, '2020-08-10 21:23:20', '2020-08-16 03:16:49', 6, 69),
-(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 6, 81);
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 6, 81),
+(5, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 6, 111);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_sc`
+--
+
+CREATE TABLE `user_sc` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `treatment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_sc`
@@ -713,16 +1393,35 @@ INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VA
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 2, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 2, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 2, 81),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 2, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 2, 112),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 7, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 7, 69),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 7, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 7, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 7, 81),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 7, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 7, 112),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 34, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 34, 69),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 34, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 34, 77),
-('2020-08-21 14:54:38', '2020-08-21 14:54:38', 34, 81);
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 34, 81),
+('2021-04-12 01:25:39', '2021-04-12 01:25:39', 34, 111),
+('2021-03-22 17:18:56', '2021-03-22 17:18:56', 34, 112);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_suggestion`
+--
+
+CREATE TABLE `user_suggestion` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `suggestion_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_suggestion`
@@ -733,6 +1432,19 @@ INSERT INTO `user_suggestion` (`created_at`, `updated_at`, `suggestion_id`, `use
 ('2020-08-04 05:26:52', '2020-08-04 05:26:52', 2, 7),
 ('2020-08-23 03:06:50', '2020-08-23 03:06:50', 2, 69),
 ('2020-08-23 03:17:29', '2020-08-23 03:17:29', 4, 69);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_treatment`
+--
+
+CREATE TABLE `user_treatment` (
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `treatment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_treatment`
@@ -753,8 +1465,24 @@ INSERT INTO `user_treatment` (`created_at`, `updated_at`, `treatment_id`, `user_
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 55, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 62, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 65, 69),
+('2021-04-11 16:51:28', '2021-04-11 16:51:28', 67, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 75, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 76, 69);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `videos`
+--
+
+CREATE TABLE `videos` (
+  `id` int(11) NOT NULL,
+  `link` varchar(1024) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `treatment_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videos`
@@ -775,6 +1503,619 @@ INSERT INTO `videos` (`id`, `link`, `name`, `treatment_id`, `created_at`, `updat
 (45, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2374&language=English', '', 5, '2020-08-14 19:32:51', '2020-08-14 19:32:51'),
 (46, 'https://www.hopkinsarthritis.org/patient-corner/disease-management/yoga-for-arthritis/', '', 5, '2020-08-14 19:32:51', '2020-08-14 19:32:51'),
 (47, 'https://www.youtube.com/watch?v=1j4984Mqx7Q', '', 5, '2020-08-14 19:32:51', '2020-08-14 19:32:51');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `classifications`
+--
+ALTER TABLE `classifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `classifications_copy`
+--
+ALTER TABLE `classifications_copy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `confidences`
+--
+ALTER TABLE `confidences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `effectivenesses`
+--
+ALTER TABLE `effectivenesses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `factors`
+--
+ALTER TABLE `factors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `frequentlies`
+--
+ALTER TABLE `frequentlies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `learns`
+--
+ALTER TABLE `learns`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `treatment_id` (`treatment_id`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `medications`
+--
+ALTER TABLE `medications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `classification_id` (`classification_id`);
+
+--
+-- Indexes for table `motivations`
+--
+ALTER TABLE `motivations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `pain_areas`
+--
+ALTER TABLE `pain_areas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `pain_areas_copy`
+--
+ALTER TABLE `pain_areas_copy`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `pain_levels`
+--
+ALTER TABLE `pain_levels`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `preferences`
+--
+ALTER TABLE `preferences`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `preference_category`
+--
+ALTER TABLE `preference_category`
+  ADD PRIMARY KEY (`category_id`,`preference_id`),
+  ADD KEY `preference_id` (`preference_id`);
+
+--
+-- Indexes for table `preference_texts`
+--
+ALTER TABLE `preference_texts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `prescribed_texts`
+--
+ALTER TABLE `prescribed_texts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `study_id` (`study_id`);
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `studies`
+--
+ALTER TABLE `studies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `treatment_id` (`treatment_id`);
+
+--
+-- Indexes for table `suggestions`
+--
+ALTER TABLE `suggestions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `treatments`
+--
+ALTER TABLE `treatments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `treatment_classification_id` (`treatment_classification_id`);
+
+--
+-- Indexes for table `treatments_copy`
+--
+ALTER TABLE `treatments_copy`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `treatment_classification_id` (`treatment_classification_id`);
+
+--
+-- Indexes for table `treatment_category`
+--
+ALTER TABLE `treatment_category`
+  ADD PRIMARY KEY (`category_id`,`treatment_id`),
+  ADD KEY `treatment_id` (`treatment_id`);
+
+--
+-- Indexes for table `treatment_classifications`
+--
+ALTER TABLE `treatment_classifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `treatment_classifications_copy`
+--
+ALTER TABLE `treatment_classifications_copy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `treatment_texts`
+--
+ALTER TABLE `treatment_texts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `user_factor`
+--
+ALTER TABLE `user_factor`
+  ADD PRIMARY KEY (`factor_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_favourite`
+--
+ALTER TABLE `user_favourite`
+  ADD PRIMARY KEY (`treatment_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_hcp`
+--
+ALTER TABLE `user_hcp`
+  ADD PRIMARY KEY (`treatment_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_medication`
+--
+ALTER TABLE `user_medication`
+  ADD PRIMARY KEY (`medication_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_plan`
+--
+ALTER TABLE `user_plan`
+  ADD PRIMARY KEY (`treatment_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_preferences`
+--
+ALTER TABLE `user_preferences`
+  ADD PRIMARY KEY (`preference_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_sc`
+--
+ALTER TABLE `user_sc`
+  ADD PRIMARY KEY (`treatment_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_suggestion`
+--
+ALTER TABLE `user_suggestion`
+  ADD PRIMARY KEY (`suggestion_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `user_treatment`
+--
+ALTER TABLE `user_treatment`
+  ADD PRIMARY KEY (`treatment_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `treatment_id` (`treatment_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `classifications`
+--
+ALTER TABLE `classifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `classifications_copy`
+--
+ALTER TABLE `classifications_copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `confidences`
+--
+ALTER TABLE `confidences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `effectivenesses`
+--
+ALTER TABLE `effectivenesses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `factors`
+--
+ALTER TABLE `factors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `frequentlies`
+--
+ALTER TABLE `frequentlies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `learns`
+--
+ALTER TABLE `learns`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+
+--
+-- AUTO_INCREMENT for table `medications`
+--
+ALTER TABLE `medications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `motivations`
+--
+ALTER TABLE `motivations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pain_areas`
+--
+ALTER TABLE `pain_areas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `pain_areas_copy`
+--
+ALTER TABLE `pain_areas_copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `pain_levels`
+--
+ALTER TABLE `pain_levels`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `preferences`
+--
+ALTER TABLE `preferences`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `preference_texts`
+--
+ALTER TABLE `preference_texts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `prescribed_texts`
+--
+ALTER TABLE `prescribed_texts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `studies`
+--
+ALTER TABLE `studies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `suggestions`
+--
+ALTER TABLE `suggestions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `treatments`
+--
+ALTER TABLE `treatments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `treatments_copy`
+--
+ALTER TABLE `treatments_copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `treatment_classifications_copy`
+--
+ALTER TABLE `treatment_classifications_copy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `treatment_texts`
+--
+ALTER TABLE `treatment_texts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `confidences`
+--
+ALTER TABLE `confidences`
+  ADD CONSTRAINT `confidences_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `effectivenesses`
+--
+ALTER TABLE `effectivenesses`
+  ADD CONSTRAINT `effectivenesses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `frequentlies`
+--
+ALTER TABLE `frequentlies`
+  ADD CONSTRAINT `frequentlies_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `learns`
+--
+ALTER TABLE `learns`
+  ADD CONSTRAINT `learns_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `logs`
+--
+ALTER TABLE `logs`
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `motivations`
+--
+ALTER TABLE `motivations`
+  ADD CONSTRAINT `motivations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pain_areas_copy`
+--
+ALTER TABLE `pain_areas_copy`
+  ADD CONSTRAINT `pain_areas_copy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pain_levels`
+--
+ALTER TABLE `pain_levels`
+  ADD CONSTRAINT `pain_levels_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `preference_category`
+--
+ALTER TABLE `preference_category`
+  ADD CONSTRAINT `preference_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `preference_category_ibfk_2` FOREIGN KEY (`preference_id`) REFERENCES `preferences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `preference_texts`
+--
+ALTER TABLE `preference_texts`
+  ADD CONSTRAINT `preference_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `prescribed_texts`
+--
+ALTER TABLE `prescribed_texts`
+  ADD CONSTRAINT `prescribed_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `results`
+--
+ALTER TABLE `results`
+  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `studies`
+--
+ALTER TABLE `studies`
+  ADD CONSTRAINT `studies_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `treatments_copy`
+--
+ALTER TABLE `treatments_copy`
+  ADD CONSTRAINT `treatments_copy_ibfk_1` FOREIGN KEY (`treatment_classification_id`) REFERENCES `treatment_classifications` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `treatment_category`
+--
+ALTER TABLE `treatment_category`
+  ADD CONSTRAINT `treatment_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `treatment_category_ibfk_2` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `treatment_texts`
+--
+ALTER TABLE `treatment_texts`
+  ADD CONSTRAINT `treatment_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_factor`
+--
+ALTER TABLE `user_factor`
+  ADD CONSTRAINT `user_factor_ibfk_1` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_factor_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_favourite`
+--
+ALTER TABLE `user_favourite`
+  ADD CONSTRAINT `user_favourite_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_favourite_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_hcp`
+--
+ALTER TABLE `user_hcp`
+  ADD CONSTRAINT `user_hcp_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_hcp_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_medication`
+--
+ALTER TABLE `user_medication`
+  ADD CONSTRAINT `user_medication_ibfk_1` FOREIGN KEY (`medication_id`) REFERENCES `medications_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_medication_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_plan`
+--
+ALTER TABLE `user_plan`
+  ADD CONSTRAINT `user_plan_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_plan_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_preferences`
+--
+ALTER TABLE `user_preferences`
+  ADD CONSTRAINT `user_preferences_ibfk_1` FOREIGN KEY (`preference_id`) REFERENCES `preferences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_preferences_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_sc`
+--
+ALTER TABLE `user_sc`
+  ADD CONSTRAINT `user_sc_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_sc_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_suggestion`
+--
+ALTER TABLE `user_suggestion`
+  ADD CONSTRAINT `user_suggestion_ibfk_1` FOREIGN KEY (`suggestion_id`) REFERENCES `suggestions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_suggestion_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_treatment`
+--
+ALTER TABLE `user_treatment`
+  ADD CONSTRAINT `user_treatment_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_treatment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `videos`
+--
+ALTER TABLE `videos`
+  ADD CONSTRAINT `videos_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

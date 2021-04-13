@@ -7,7 +7,15 @@ let Classification = db.define('classifications', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   section: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  fr_section: {
     type: Sequelize.STRING,
     allowNull: false
   }

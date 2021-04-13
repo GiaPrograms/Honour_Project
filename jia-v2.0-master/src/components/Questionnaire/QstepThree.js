@@ -69,7 +69,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
       <Classification 
         key = {classification.id} 
         id = {classification.id} 
-        classification ={classification.name}
+        classification ={lang === "English" ? classification.name : classification.fr_name}
         setSelectedMeds = {setSelectedMeds}
         selectedMeds = {selectedMeds}
         setSaved={setSaved}

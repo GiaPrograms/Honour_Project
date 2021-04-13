@@ -483,6 +483,14 @@ padding: 2rem;
   padding: 1rem 0;
   background-color: var(--primary-colour);
 }
+
+.home-logo-header-translation{
+  position: relative;
+  bottom: 85px;
+  left: 140rem;
+  display: inline;
+} 
+
 .logo-home{
   height: 4rem;
 }
