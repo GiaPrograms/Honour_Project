@@ -54,7 +54,7 @@ const PainAvg = () => {
           <div className="chooseTimes1">
             <select id="datesList">
               <option> </option>
-              <option>Fill</option>
+              <option>2021-03-12</option>
               <option>In</option>
               <option>Dates</option>
               <option>Later</option>
@@ -64,7 +64,7 @@ const PainAvg = () => {
           <div className="chooseTimes2">
             <select id="datesList">
               <option> </option>
-              <option>Fill</option>
+              <option>2021-03-16</option>
               <option>In</option>
               <option>Dates</option>
               <option>Later</option>
@@ -75,7 +75,7 @@ const PainAvg = () => {
             <Button className='load-btn'>Go!</Button>
           </div>
 
-          <LineChart width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+          <LineChart className="chart" width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" label={{value:'Date', position:"bottom", offset:0}}/>
             <YAxis tickCount={6} domain={[0,5]} label={{value:"Pain Average", position:"insideLeft", angle:-90}}/>
