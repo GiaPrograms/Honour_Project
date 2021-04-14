@@ -62,7 +62,7 @@ const Plots = () => {
             <div className="chooseTimes1">
               <select id="datesList">
                 <option> </option>
-                <option>Fill</option>
+                <option>2021-03-15</option>
                 <option>In</option>
                 <option>Dates</option>
                 <option>Later</option>
@@ -72,7 +72,7 @@ const Plots = () => {
             <div className="chooseTimes2">
               <select id="datesList">
                 <option> </option>
-                <option>Fill</option>
+                <option>2021-03-19</option>
                 <option>In</option>
                 <option>Dates</option>
                 <option>Later</option>
@@ -87,7 +87,7 @@ const Plots = () => {
               <p>Pain Management</p>
             </div>
 
-            <LineChart width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+            <LineChart className="chart" width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" label={{value:'Date', position:"bottom", offset:0}}/>
               <YAxis tickCount={6} domain={[0,5]} label={{value:"Pain Management", position:"insideLeft", angle:-90}}/>
@@ -101,7 +101,8 @@ const Plots = () => {
 
             <div className="legend">
               <h5><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legend</b></h5>
-              <h5>Your treatments have been treating your disease: </h5>
+              <h5>Your treatments have been </h5>
+              <h5>treating your disease: </h5>
               <div className="emojis">
                 <Emoji symbol="😞"/><br></br><br></br>
                 <Emoji symbol="😐"/><br></br><br></br>
@@ -114,11 +115,11 @@ const Plots = () => {
               </div>
             </div>
     
-            <hr></hr><div className="t2">
+            <br/><br/><div className="t2">
               <p>Disease Control</p>
             </div>
 
-            <LineChart width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+            <LineChart className="chart" width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" label={{value:'Date', position:"bottom", offset:0}}/>
               <YAxis tickCount={6} domain={[0,5]} label={{value:"Disease Control", position:"insideLeft", angle:-90}}/>

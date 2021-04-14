@@ -17,6 +17,7 @@ const TreatmentAvg = () => {
     {name: "Yoga", value: 3, fill: "#c63212"},
     {name: "Pilates", value: 5, fill: "#127fc6"},
     {name: "Custom-made Foot Orthotics", value: 2, fill: "#c112c6"},
+    {name: "Heat", value: 1, fill: "#3743AA"}
   ]
 
   return(
