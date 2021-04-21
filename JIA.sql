@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2021 at 04:00 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Apr 21, 2021 at 06:29 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -401,7 +401,10 @@ INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `preferences`, `step_th
 (123, NULL, NULL, '{\"pain_level\":\"3\",\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-08 05:40:25', '2021-04-08 05:40:31'),
 (124, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-11 16:18:02', '2021-04-11 16:51:28'),
 (125, NULL, '[]', '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":\"3\",\"manage_pain\":\"3\"}', NULL, '{\"motivation_level\":\"1\",\"confidence_level\":\"1\",\"factors\":[],\"suggestions\":[]}', 111, '2021-04-11 20:38:52', '2021-04-11 20:39:23'),
-(126, NULL, NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"3\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"\"}', NULL, 111, '2021-04-12 01:25:39', '2021-04-12 01:25:39');
+(126, NULL, NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"3\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"\"}', NULL, 111, '2021-04-12 01:25:39', '2021-04-12 01:25:39'),
+(127, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-04-14 19:48:10', '2021-04-14 19:48:10'),
+(128, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-04-20 23:53:08', '2021-04-20 23:53:08'),
+(129, 'Change my plan', NULL, NULL, NULL, NULL, 112, '2021-04-20 23:53:34', '2021-04-20 23:53:34');
 
 -- --------------------------------------------------------
 
@@ -1240,9 +1243,11 @@ INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_
 ('2021-03-04 20:13:00', '2021-03-04 20:13:00', 5, 111),
 ('2020-08-06 03:27:09', '2020-08-06 03:27:09', 7, 7),
 ('2020-08-10 21:25:49', '2020-08-10 21:25:49', 7, 69),
+('2021-04-21 00:28:22', '2021-04-21 00:28:22', 7, 112),
 ('2020-08-19 05:31:37', '2020-08-19 05:31:37', 31, 69),
 ('2020-08-06 03:15:59', '2020-08-06 03:15:59', 34, 7),
 ('2020-08-21 15:07:27', '2020-08-21 15:07:27', 34, 81),
+('2021-04-21 00:28:23', '2021-04-21 00:28:23', 34, 112),
 ('2020-08-06 03:27:16', '2020-08-06 03:27:16', 36, 7),
 ('2020-08-21 15:07:26', '2020-08-21 15:07:26', 36, 81),
 ('2021-03-04 20:13:01', '2021-03-04 20:13:01', 50, 111),
@@ -1829,7 +1834,7 @@ ALTER TABLE `learns`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `medications`
@@ -1968,153 +1973,10 @@ ALTER TABLE `learns`
   ADD CONSTRAINT `learns_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `logs`
---
-ALTER TABLE `logs`
-  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
 -- Constraints for table `motivations`
 --
 ALTER TABLE `motivations`
   ADD CONSTRAINT `motivations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `pain_areas_copy`
---
-ALTER TABLE `pain_areas_copy`
-  ADD CONSTRAINT `pain_areas_copy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `pain_levels`
---
-ALTER TABLE `pain_levels`
-  ADD CONSTRAINT `pain_levels_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `preference_category`
---
-ALTER TABLE `preference_category`
-  ADD CONSTRAINT `preference_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `preference_category_ibfk_2` FOREIGN KEY (`preference_id`) REFERENCES `preferences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `preference_texts`
---
-ALTER TABLE `preference_texts`
-  ADD CONSTRAINT `preference_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `prescribed_texts`
---
-ALTER TABLE `prescribed_texts`
-  ADD CONSTRAINT `prescribed_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `results`
---
-ALTER TABLE `results`
-  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`study_id`) REFERENCES `studies` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `studies`
---
-ALTER TABLE `studies`
-  ADD CONSTRAINT `studies_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `treatments_copy`
---
-ALTER TABLE `treatments_copy`
-  ADD CONSTRAINT `treatments_copy_ibfk_1` FOREIGN KEY (`treatment_classification_id`) REFERENCES `treatment_classifications` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `treatment_category`
---
-ALTER TABLE `treatment_category`
-  ADD CONSTRAINT `treatment_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `treatment_category_ibfk_2` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `treatment_texts`
---
-ALTER TABLE `treatment_texts`
-  ADD CONSTRAINT `treatment_texts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Constraints for table `user_factor`
---
-ALTER TABLE `user_factor`
-  ADD CONSTRAINT `user_factor_ibfk_1` FOREIGN KEY (`factor_id`) REFERENCES `factors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_factor_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_favourite`
---
-ALTER TABLE `user_favourite`
-  ADD CONSTRAINT `user_favourite_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_favourite_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_hcp`
---
-ALTER TABLE `user_hcp`
-  ADD CONSTRAINT `user_hcp_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_hcp_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_medication`
---
-ALTER TABLE `user_medication`
-  ADD CONSTRAINT `user_medication_ibfk_1` FOREIGN KEY (`medication_id`) REFERENCES `medications_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_medication_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_plan`
---
-ALTER TABLE `user_plan`
-  ADD CONSTRAINT `user_plan_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_plan_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_preferences`
---
-ALTER TABLE `user_preferences`
-  ADD CONSTRAINT `user_preferences_ibfk_1` FOREIGN KEY (`preference_id`) REFERENCES `preferences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_preferences_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_sc`
---
-ALTER TABLE `user_sc`
-  ADD CONSTRAINT `user_sc_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_sc_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_suggestion`
---
-ALTER TABLE `user_suggestion`
-  ADD CONSTRAINT `user_suggestion_ibfk_1` FOREIGN KEY (`suggestion_id`) REFERENCES `suggestions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_suggestion_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_treatment`
---
-ALTER TABLE `user_treatment`
-  ADD CONSTRAINT `user_treatment_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_treatment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `videos`
---
-ALTER TABLE `videos`
-  ADD CONSTRAINT `videos_ibfk_1` FOREIGN KEY (`treatment_id`) REFERENCES `treatments_copy` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
