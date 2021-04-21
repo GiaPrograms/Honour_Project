@@ -17,7 +17,7 @@ const Sequelize = require('sequelize');
 const db = new Sequelize('heroku_32d76f0ab399d58', 'b7fdc8cf25aab7', '9ddf878d', {
   host: 'us-cdbr-east-03.cleardb.com',
   dialect: 'mysql',
-  logging: false,
+  logging: true,
 
   pool: {
     max: 5,
