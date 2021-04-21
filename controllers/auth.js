@@ -1,5 +1,5 @@
 'use strict'
-const User = require('../models/User')
+const User = require('../models/user')
 
 const PainLevel = require('../models/PainLevel')
 const PainArea = require('../models/PainArea')
