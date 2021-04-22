@@ -84,7 +84,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
     <Classification 
       key = {classification.id} 
       id = {classification.id} 
-      classification ={classification.name}
+      classification ={lang === "English" ? classification.name : classification.fr_name}
       selectedMeds = {selectedMeds}
       setSelectedMeds = {setSelectedMeds}
       setSaved={setSaved}

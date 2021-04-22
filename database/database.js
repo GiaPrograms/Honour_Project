@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 // const db = new Sequelize('JIA', 'root', '', {
 //   host: 'localhost',
 //   dialect: 'mysql',
-//   logging: false,
+//   logging: true,
 
 //   pool: {
 //     max: 5,

@@ -9,6 +9,10 @@ let Treatment = db.define('treatments', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   supervision: {
     type: Sequelize.STRING,
     allowNull: false
@@ -25,7 +29,15 @@ let Treatment = db.define('treatments', {
     type: Sequelize.STRING,
     allowNull: true
   },
+  fr_specification: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
   description: {
+    type: Sequelize.STRING(512),
+    allowNull: false
+  },
+  fr_description: {
     type: Sequelize.STRING(512),
     allowNull: false
   },
@@ -37,23 +49,46 @@ let Treatment = db.define('treatments', {
     type: Sequelize.STRING(512),
     allowNull: false
   },
+  fr_traffic_description: {
+    type: Sequelize.STRING(512),
+    allowNull: false
+  },
   experts_suggest: {
+    type: Sequelize.STRING(512),
+    allowNull: false
+  },
+  fr_experts_suggest: {
     type: Sequelize.STRING(512),
     allowNull: false
   },
   how_use: {
     type: Sequelize.STRING(1024)
   },
+  fr_how_use: {
+    type: Sequelize.STRING(1024)
+  },
   how_soon: {
+    type: Sequelize.STRING(512),
+  },
+  fr_how_soon: {
     type: Sequelize.STRING(512),
   },
   cost: {
     type: Sequelize.STRING(512)
   },
+  fr_cost: {
+    type: Sequelize.STRING(512)
+  },
   where: {
     type: Sequelize.STRING(512)
   },
+  fr_where: {
+    type: Sequelize.STRING(512)
+  },
   consider: {
+    type: Sequelize.STRING(1024)
+  },
+  fr_consider: {
     type: Sequelize.STRING(1024)
   },
   image: {

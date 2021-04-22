@@ -19,6 +19,9 @@ const CategoryTreatments = ({classification, favs, setFavs, treatments}) => {
     sessionStorage.setItem(`${classification.name}-collapse`, !isCollapsed)
   }
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   // Treatment card list
   const treatmentCards = classTreatments && 
   classTreatments.map(treatment => 
@@ -34,7 +37,7 @@ const CategoryTreatments = ({classification, favs, setFavs, treatments}) => {
   return (
     <div className="box-container-numbered">
       <div className="AllTreatments_treatment_div" onClick={handleCollapse}>
-        <p>{classification.name}</p>
+        <p>{lang === "English" ? classification.name : classification.fr_name}</p>
         <span className="collapsed-icon">{isCollapsed ? "+" : "-"}</span>
       </div>
       <Collapse isOpen={!isCollapsed} style={{marginBottom: '2rem'}}>
