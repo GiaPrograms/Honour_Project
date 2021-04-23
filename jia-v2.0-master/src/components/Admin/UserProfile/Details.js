@@ -36,52 +36,32 @@ const Details = ({user}) => {
   // Populate the content for the user log download
   const handleDownloadablLog = (updatedLog) => {
     const exportList = updatedLog.map(el => {
-      let painAreas = ''
-      let meds = ''
-      let other = ''
-      if(el.step_one) {
-        painAreas = el.step_one.pain_areas.map(el => el.area)
-        meds = el.step_one.selected_meds.map(el => el.name)
-        other = el.step_one.other_treatments.map(el => el.name)
-      }
-      let preferences = ''
-      if(el.preferences) preferences = el.preferences.prefs.map(el => `${el.description}: ${el.value}`)
-
-      let plan = ''
-      if(el.plan) plan = el.plan.map(el => el.name)
-
-      let factors = ''
-      let suggestions = ''
-      if(el.step_three) {
-        factors = el.step_three.factors.map(el => el.title)
-        suggestions = el.step_three.suggestions.map(el => el.title)
-      }
-
       let log = {
         date: el.date,
         time: el.time,
         purpose: el.purpose,
-        "Pain areas": painAreas,
+        "Pain areas": el.step_one ? el.step_one.pain_areas : '',
         "Pain level": el.step_one ? el.step_one.pain_level : '',
-        "Prescribed medications": meds,
+        "Prescribed medications": el.step_one ? el.step_one.selected_meds : '',
         "Prescribed medications (others)": el.step_one ? el.step_one.prescribed_text : '',
-        "Other treatments": other,
+        "Other treatments": el.step_one ? el.step_one.other_treatments : '',
         "Other treatments (others)": el.step_one ? el.step_one.treatment_text : '',
         "How often do you use prescribed medication": el.step_one ? el.step_one.howOften_pres : '',
         "How often do you use other treatments": el.step_one ? el.step_one.howOften_other : '',
         "How well does your treatment manage pain": el.step_one ? el.step_one.manage_pain : '',
         "How well does your treatment control arthritis": el.step_one ? el.step_one.control_arthritis : '',
-        preferences,
-        plan,
+        preferences: el.preferences ? el.preferences.prefs : '',
+        plan: el.plan ? el.plan : '',
         "Motivation level": el.step_three ? el.step_three.motivation_level : '',
         "Confidence level": el.step_three ? el.step_three.confidence_level : '',
-        "Factors preventing you from following your plan" :factors,
-        "Suggestions to help you plan your next steps" :suggestions
+        "Factors preventing you from following your plan" :el.step_three ? el.step_three.factors : '',
+        "Suggestions to help you plan your next steps" :el.step_three ? el.step_three.suggestions : ''
       }
       return log
     })
     setLogsExport(exportList)
   }
+  //console.log(logsExport)
 
   useEffect(() => {
     setIsLoading(true)

@@ -3,17 +3,72 @@ import TopBar from '../../../components/Admin/TopBar'
 import UserNav from '../../../components/UserDash/UserNav'
 import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceLine, ReferenceArea} from 'recharts'
 import {Button} from 'reactstrap'
+import {getRequest} from "../../../API/ApiHandler"
 
 import '../UserPanel.css'
 
 const PainAvg = () => {
+  const [user, setUser] = useState()
+  const [logs, setLogs] = useState([])
+  const [logsExport, setLogsExport] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const data = [
-    {date: '2021-03-12', level: 3, treatment: "Yoga, Heat"},
-    {date: '2021-03-13', level: 5, treatment: "Massage"},
-    {date: '2021-03-14', level: 2, treatment: "Pilates, Cardio, Stretching"},
-    {date: '2021-03-15', level: 4, treatment: "Custom-Made Foot Orthotics"},
-    {date: '2021-03-16', level: 0, treatment: "Heat, Cold"}]
+  const getUser = async() => {
+    let response = await getRequest('/auth/users/current/me')
+    let user = ''
+    if(response){
+      user = response.data.id
+    setUser(user)
+    getLogs(user)
+    }
+  }
+
+  const getLogs = async(user) => {
+    const data = await getRequest(`/logs/${user}`)
+    if(data) {
+      data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      let updatedLog = data.map(log => {
+        const options = { timeStyle: 'short', timeZone: 'UTC' }
+        const time = new Date(log.createdAt).toLocaleTimeString('en-CA', options)
+        const date = new Date(log.createdAt).toLocaleDateString('en-CA')
+        log.date = date
+        log.time = time
+        return log
+      })
+      setLogs(updatedLog)
+      getData(updatedLog)
+    }
+    setIsLoading(false)
+  }
+  
+  const getData = (updatedLog) => {
+    const exportList = updatedLog.map(el => {
+     if(el.step_one !== null){ 
+      let log = {
+          date: el.date,
+          "level": el.step_one ? JSON.parse(el.step_one).pain_level : '',
+          "treatment": el.step_one ? JSON.parse(el.step_one).other_treatments : ''
+        }
+        return log
+      }
+    })
+    setLogsExport(exportList)
+    removeNull(exportList)
+  }
+
+  const removeNull = (exportList) => {
+    exportList = exportList.filter(function(element){
+      return element !== undefined
+    })
+    setLogsExport(exportList)
+    return exportList
+  }
+
+  useEffect(() => {
+    setIsLoading(true)
+    getUser()
+    if(user) getLogs()
+  },[user])
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -25,11 +80,17 @@ const PainAvg = () => {
       }else{
         level = "Extreme Pain"
       }
+
+      let treatments = []
+      for(var i = 0; i < payload[0].payload.treatment.length; i ++){
+        treatments.push(" " + payload[0].payload.treatment[i].name)
+      }
+
       return (
         <div className="custom-tooltip">
           <p>{`${"Date"} : ${payload[0].payload.date}`}</p>
           <p>{`${"Pain Avg"} : ${payload[0].value} => ${level}`}</p>
-          <p>{`${"Treatments Used"} : ${payload[0].payload.treatment}`}</p>
+          <p>{`${"Treatments Used"} : ${treatments.length !== 0 ? treatments : 'None'}`}</p>
         </div>
       )
     }
@@ -52,12 +113,7 @@ const PainAvg = () => {
           </div>
 
           <div className="chooseTimes1">
-            <select id="datesList">
-              <option> </option>
-              <option>2021-03-12</option>
-              <option>In</option>
-              <option>Dates</option>
-              <option>Later</option>
+            <select id="logsExport">
             </select>
           </div>
 
@@ -75,10 +131,10 @@ const PainAvg = () => {
             <Button className='load-btn'>Go!</Button>
           </div>
 
-          <LineChart className="chart" width={1000} height={400} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+          <LineChart className="chart" width={1000} height={400} data={logsExport} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" label={{value:'Date', position:"bottom", offset:0}}/>
-            <YAxis tickCount={6} domain={[0,5]} label={{value:"Pain Average", position:"insideLeft", angle:-90}}/>
+            <YAxis dataKey="level" tickCount={6} domain={[0,5]} label={{value:"Pain Average", position:"insideLeft", angle:-90}}/>
             <Tooltip content={<CustomTooltip />} />
             <Line type="monotone" dataKey="level" stroke="#296d98" />
             <ReferenceLine y={2.5} strokeDasharray="5 5" stroke="#000000"/>
