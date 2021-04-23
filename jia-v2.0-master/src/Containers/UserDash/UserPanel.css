@@ -33,17 +33,17 @@
 .t2{
   position: relative;
   left: 450px;
-  bottom: 100px;
+  bottom: 400px;
 }
 
 .t3{
   position: relative;
-  left: 390px;
+  left: 450px;
 }
 
 .t4{
   position: relative;
-  left: 390px;
+  left: 460px;
 }
 
 .custom-tooltip{
@@ -100,6 +100,14 @@
 
 .chart{
   bottom: 100px;
+}
+
+.chart2{
+  bottom: 400px;
+}
+
+.bar{
+  left: 5px;
 }
 
 Button.load-btn{
