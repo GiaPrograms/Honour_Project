@@ -73,8 +73,8 @@ const Recommendations = ({favs, setFavs}) => {
         </h5>
         <h5>
           {lang === "English" ? 
-          "Celles-ci dépendent de l’endroit où vous ressentez de la douleur, des types de traitements que vous préférez et de ce que les études scientifiques ont démontré." : 
-          "Ceux-ci dépendent de l'endroit où vous ressentez la douleur, des types de traitements que vous préférez et de ce que les études scientifiques ont montré."}
+          "These depend on where you have pain, the types of treatments you prefer and what the scientific studies have shown." : 
+          "Celles-ci dépendent de l’endroit où vous ressentez de la douleur, des types de traitements que vous préférez et de ce que les études scientifiques ont démontré."}
         </h5>
         <h5>
           {lang === "English" ? 

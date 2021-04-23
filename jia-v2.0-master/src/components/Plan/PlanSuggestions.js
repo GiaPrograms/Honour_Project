@@ -70,9 +70,9 @@ const PlanSuggestions = ({selectedSuggestions, setSelectedSuggestions, setSaved,
           value={suggestion.title}
           onChange={checkedSuggestion}
         />
-        <h5>{suggestion.title}</h5>
+        <h5>{lang === "English" ? suggestion.title : suggestion.fr_title}</h5>
       </div>
-      <p id={`${suggestion.title}-desc`} style={{display:"none"}}>{suggestion.description}</p>
+      <p id={`${suggestion.title}-desc`} style={{display:"none"}}>{lang === "English" ? suggestion.description : suggestion.fr_description}</p>
     </div>
   ))
 

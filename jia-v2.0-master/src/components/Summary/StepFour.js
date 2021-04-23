@@ -87,8 +87,8 @@ const StepFour = () => {
   const factorsItem = factors.length ? (
     factors.map((factor) => (
       <div key={factor.id}>
-        <strong> {factor.title}</strong>
-        <p>{factor.description}</p>
+        <strong>{lang === "English" ? factor.title : factor.fr_title}</strong>
+        <p>{lang === "English" ? factor.description : factor.fr_description}</p>
       </div>
     ))
   ) : (

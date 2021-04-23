@@ -70,9 +70,9 @@ const PlanFactors = ({selectedFactors, setSelectedFactors, setSaved, setSaveStat
           value={factor.title}
           onChange={checkedFactor}
         />
-        <h5>{factor.title}</h5>
+        <h5>{lang === "English" ? factor.title : factor.fr_title}</h5>
       </div>
-      <p id={`${factor.title}-desc`} style={{display:"none"}}>{factor.description}</p>
+      <p id={`${factor.title}-desc`} style={{display:"none"}}>{lang === "English" ? factor.description : factor.fr_description}</p>
     </div>
   ))
 
