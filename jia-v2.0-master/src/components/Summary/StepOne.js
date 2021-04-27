@@ -72,9 +72,9 @@ const StepOne = () => {
   const getHowOften = async () => {
     let data = await getRequest(`/frequently/user`);
     if (data) {
-      if(data.frequently) {
-        setHowOftenMeds(lang === "English" ? data.frequently.prescribed_meds : data.frequently.fr_prescribed_meds);
-        setHowOftenTreats(lang === "English" ? data.frequently.other_treatments : data.frequently.fr_other_treatments);
+      if(data.data.frequently) {
+        setHowOftenMeds(lang === "English" ? data.data.frequently.prescribed_meds : data.data.frequently.fr_prescribed_meds);
+        setHowOftenTreats(lang === "English" ? data.data.frequently.other_treatments : data.data.frequently.fr_other_treatments);
       }
     }
     setIsLoading(false);

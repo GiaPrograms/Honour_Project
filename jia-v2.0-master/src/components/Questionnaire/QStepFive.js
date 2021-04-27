@@ -4,11 +4,14 @@ import {getRequest} from "../../API/ApiHandler"
 import warning from '../../img/warning.png';
 
 
-const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
+const QStepFive = ({getHowOften, getFrHowOften, setSaved, setSaveStatus}) => {
   const [notAlways, setNotAlways] = useState()
   const [collapse, setCollapse] = useState(true)
   const [prescribed, setPrescribed] = useState()
   const [other, setOther] = useState()
+
+  const [frPrescribed, setFrPrescribed] = useState()
+  const [frOther, setFrOther] = useState()
 
   const checked = ev => {
     let buttonList = document.querySelectorAll(".StepFour-div div");
@@ -31,8 +34,29 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
       default:
         break;
     }
+
     setPrescribed(medVal)
     getHowOften(medVal, other)
+
+    let frMedVal = ev.target.getAttribute("value2");
+    switch (frMedVal) {
+      case "Jamais":
+      case "Parfois":
+      case "La moitié du temps":
+      case "La plupart du temps":
+        setNotAlways(true)
+        break;
+      case "Sans objet":
+      case "Toujours":
+        setNotAlways(false)
+        break;
+      default:
+        break;
+    }
+
+    setFrPrescribed(frMedVal)
+    getFrHowOften(frMedVal, frOther)
+
     setSaved(false)
     setSaveStatus('default')
   }
@@ -47,6 +71,11 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
     let medVal = ev.target.getAttribute("value")
     setOther(medVal)
     getHowOften(prescribed, medVal)
+
+    let frMedVal = ev.target.getAttribute("value2")
+    setFrOther(frMedVal)
+    getFrHowOften(frPrescribed, frMedVal)
+
     setSaved(false)
     setSaveStatus('default')
   }
@@ -55,7 +84,9 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
     let {data:{frequently}} = await getRequest(`/frequently/user`)
     if(frequently){
       setPrescribed(frequently.prescribed_meds)
+      setFrPrescribed(frequently.fr_prescribed_meds)
       setOther(frequently.other_treatments)
+      setFrOther(frequently.fr_other_treatments)
       highlightSelected(frequently.prescribed_meds, frequently.other_treatments)
     }
   }
@@ -114,27 +145,27 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
             <div className="StepFour-div-group">
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Never" : "Jamais"}</label>
-                <div value="Never" onClick={checked}></div>
+                  <div value="Never" value2="Jamais" onClick={checked}></div> 
               </div>
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Sometimes" : "Parfois"}</label>
-                <div value="Sometimes" onClick={checked}></div>
+                  <div value="Sometimes" value2="Parfois" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Half the time" : "La moitié du temps"}</label>
-                <div value="Half the time" onClick={checked}></div>
+                  <div value="Half the time" value2="La moitié du temps" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Most times" : "La plupart du temps"}</label>
-                <div value="Most times" onClick={checked}></div>
+                  <div value="Most times" value2="La plupart du temps" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Always" : "Toujours"}</label>
-                <div value="Always" onClick={checked}></div>
+                  <div value="Always" value2="Toujours" onClick={checked}></div>
               </div>
               <div className="StepFour-div">
                 <label>{lang === "English" ? "Not applicable" : "Sans objet"}</label>
-                <div value="Not applicable" onClick={checked}></div>
+                  <div value="Not applicable" value2="Sans objet" onClick={checked}></div>
               </div>
             </div>
             {notAlways &&
@@ -165,23 +196,23 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
               <div className="StepFour-div-group other">
                 <div className="StepFour-div-other">
                   <label>{lang === "English" ? "Never" : "Jamais"}</label>
-                  <div value="Never" onClick={checkedTwo}></div>
+                  <div value="Never" value2="Jamais" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
                   <label>{lang === "English" ? "Sometimes" : "Parfois"}</label>
-                  <div value="Sometimes" onClick={checkedTwo}></div>
+                  <div value="Sometimes" value2="Parfois" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
                   <label>{lang === "English" ? "Half the time" : "La moitié du temps"}</label>
-                  <div value="Half the time" onClick={checkedTwo}></div>
+                  <div value="Half the time" value2="La moitié du temps" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
                   <label>{lang === "English" ? "Most times" : "La plupart du temps"}</label>
-                  <div value="Most times" onClick={checkedTwo}></div>
+                  <div value="Most times" value2="La plupart du temps" onClick={checkedTwo}></div>
                 </div>
                 <div className="StepFour-div-other">
                   <label>{lang === "English" ? "Always" : "Toujours"}</label>
-                  <div value="Always" onClick={checkedTwo}></div>
+                  <div value="Always" value2="Toujours" onClick={checkedTwo}></div>
                 </div>
               </div>
             </div>

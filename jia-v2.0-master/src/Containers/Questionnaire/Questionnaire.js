@@ -43,6 +43,7 @@ const Questionnaire = props => {
   const [treatmentText, setTreatmentText] = useState("")
   // Q5 how often do you use your treatments values
   const [howOften, setHowOften] = useState({})
+  const [frHowOften, setFrHowOften] = useState({})
   // Q6 how well does your treatment
   const [controlArthritis, setControlArthritis] = useState(7)
   const [managePain, setManagePain] = useState(7)
@@ -71,6 +72,7 @@ const Questionnaire = props => {
       saveSelectedTreatments(),
       saveTreatmentText(),
       saveHowOften(),
+      saveFrHowOften(),
       saveHowWell()
     ]).then(data => {
       let failed = data.indexOf() !== -1
@@ -165,10 +167,25 @@ const Questionnaire = props => {
     })
   }
 
+  const getFrHowOften = (frPres, frOther) => {
+    setFrHowOften({
+      frPres,
+      frOther,
+    })
+  }
+
   const saveHowOften = () => {
     const input = {
       prescribed_meds: howOften.pres,
       other_treatments: howOften.other
+    }
+    return postRequest('/frequently', input, setSaveStatus)
+  }
+
+  const saveFrHowOften = () => {
+    const input = {
+      fr_prescribed_meds: frHowOften.frPres,
+      fr_other_treatments: frHowOften.frOther
     }
     return postRequest('/frequently', input, setSaveStatus)
   }
@@ -255,6 +272,7 @@ const Questionnaire = props => {
         />
         <QStepFive 
           getHowOften = {getHowOften}
+          getFrHowOften = {getFrHowOften}
           setSaved = {setSaved}
           setSaveStatus={setSaveStatus}
         />
