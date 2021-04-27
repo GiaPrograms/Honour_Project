@@ -13,10 +13,10 @@ const Main = () => {
   return (
     <>
        
-       <div className="newnext-btn-container">
-        <div className="newnext-btn-content">
+       <div className="orangenext-btn-container">
+        <div className="orangenext-btn-content">
           <Button className="next-btn" tag={RRNav} to="/intro">
-            {lang === "English" ? "Click to see what JIA offers" : "Cliquez pour voir ce que propose JIA"}
+            {lang === "English" ? "Next" : "Suivant(e)"}
           </Button>
         </div>
       </div>
