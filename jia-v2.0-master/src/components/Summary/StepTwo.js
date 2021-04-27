@@ -38,7 +38,7 @@ const StepTwo = () => {
     <div key={slider.id}>
       <h5>
         <strong>{i + 1}. </strong>
-        {slider.description}
+        {lang === "English" ? slider.description : slider.fr_description}
       </h5>
       <p className="text-center">
         {slider.value} / 5

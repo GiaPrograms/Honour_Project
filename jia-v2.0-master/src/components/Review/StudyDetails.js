@@ -35,17 +35,20 @@ const StudyDetails = ({study}) => {
 
   const toggle = () => setOpen(!open);
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div className="study-container">
       {study &&
       <React.Fragment>
 
-        <h3 id="experts_suggest">Does it work?</h3>
-        <p>{study.does_work}</p>
+        <h3 id="experts_suggest">{lang === "English" ? "Does it work?" : "Est-ce que ça marche?"}</h3>
+        <p>{lang === "English" ? study.does_work : study.fr_does_work}</p>
         <div className="study_happyFace_container">
           {results && results.map((result, i) => (
               <div key={i} className="study_happyFace_div">
-                <h3>{result.name}</h3>
+                <h3>{lang === "English" ? result.name : result.fr_name}</h3>
                 <div className="study_happyFace_image_container">
                   {mapHappyFace.map((happyFace, i) => (
                       <Happyface key={i} happyFaceColor={i <= (result.score - 1) ? 'yellow' : 'none'}
@@ -54,19 +57,20 @@ const StudyDetails = ({study}) => {
                   }
                 </div>
                 <div className="happyFace-score-container">
-                  <p><strong>{result.statistics}</strong>
+                  <p>
+                    <strong>{lang === "English" ? result.statistics : result.fr_statistics}</strong>
                   </p>
                 </div>
               </div>
           ))
           }
         </div>
-        <h3 id="experts_suggest">Is it safe?</h3>
-        <p>{study.is_safe}</p>
+        <h3 id="experts_suggest">{lang === "English" ? "Is it safe?" : "Est-ce sûr?"}</h3>
+        <p>{lang === "English" ? study.is_safe : study.fr_is_safe}</p>
         <div className="startContainer-full">
           <div className="startContainer-half">
-            <h3 id="experts_suggest">Should I believe this research?</h3>
-            <p>{study.believe_research}</p>
+            <h3 id="experts_suggest">{lang === "English" ? "Should I believe this research?" : "Dois-je croire cette recherche?"}</h3>
+            <p>{lang === "English" ? study.believe_research : study.fr_believe_research}</p>
             <div className="starContainer">
               {stars.map((number, i) => (
                 <Star 
@@ -81,28 +85,28 @@ const StudyDetails = ({study}) => {
 
           <div className="icon-containerstudy">
           
-          <LightTooltip title="Click for More Info on the Study" placement="right" arrow>
+          <LightTooltip title={lang === "English" ? "Click for More Info on the Study" : "Cliquez pour plus d'informations sur l'étude"} placement="right" arrow>
             <InfoIcon className="material-icons info-icon" onClick={toggle}>
               info
             </InfoIcon>
           </LightTooltip>
           
           <Modal isOpen={open} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Study Details</ModalHeader>
+            <ModalHeader toggle={toggle}>{lang === "English" ? "Study Details" : "Détails de l'étude"}</ModalHeader>
             <ModalBody>
-              <h3>Methods</h3>
-              <p>{study.methods}</p>
-              <h3>Treatments</h3>
-              <p>{study.treatments}</p>
-              <h3>Results</h3>
-              <p>{study.treatment_results}</p>
-              <h3>Reference</h3>
+              <h3>{lang === "English" ? "Methods" : "Méthodes"}</h3>
+              <p>{lang === "English" ? study.methods : study.fr_methods}</p>
+              <h3>{lang === "English" ? "Treatments" : "Traitements"}</h3>
+              <p>{lang === "English" ? study.treatments : study.fr_treatments}</p>
+              <h3>{lang === "English" ? "Results" : "Résultats"}</h3>
+              <p>{lang === "English" ? study.treatment_results : study.fr_treatment_results}</p>
+              <h3>{lang === "English" ? "Reference" : "Référence"}</h3>
               <p>{study.reference}</p>
-              <h3>PubMed Link</h3>
+              <h3>{lang === "English" ? "PubMed Link" : "Lien PubMed"}</h3>
               <a href={study.pubMed} target="_blank" rel="noopener noreferrer">{study.pubMed}</a>
             </ModalBody>
             <ModalFooter>
-              <Button className="next-btn" onClick={toggle}>Close</Button>
+              <Button className="next-btn" onClick={toggle}>{lang === "English" ? "Close" : "Fermer"}</Button>
             </ModalFooter>
           </Modal>
         </div>

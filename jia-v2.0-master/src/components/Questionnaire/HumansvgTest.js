@@ -166,51 +166,51 @@ export default class HumansvgTest extends Component {
                       transform="translate(146.853 293.008)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'shoulders'}
+                    {localStorage.getItem("language") === "English" ? 'shoulders' : 'épaules'}
                   </text>
                   <text
                       transform="translate(75.126 573.358)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'wrists'}
+                    {localStorage.getItem("language") === "English" ? 'wrists' : 'poignets'}
                   </text>
                   <text
                       transform="translate(189.271 1065.678)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'knees'}
+                    {localStorage.getItem("language") === "English" ? 'knees' : 'genoux'}
                   </text>
                   <text
                       transform="translate(835.379 779.549)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'hips'}
+                    {localStorage.getItem("language") === "English" ? 'hips' : 'hanches'}
                   </text>
                   <text
                       transform="translate(799.776 1003.044)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'ankles'}
+                    {localStorage.getItem("language") === "English" ? 'ankles' : 'chevilles'}
                   </text>
                   <text
                       transform="translate(807.467 199.707)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'jaw'}
+                    {localStorage.getItem("language") === "English" ? 'jaw' : 'mâchoire'}
                   </text>
 
                   <text
                       transform="translate(900 670)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'fingers'}
+                    {localStorage.getItem("language") === "English" ? 'fingers' : 'doigts'}
                   </text>
 
                   <text
                       transform="translate(200 1180)"
                       className="prefix__st1 prefix__st2 prefix__st3"
                   >
-                    {'toes'}
+                    {localStorage.getItem("language") === "English" ? 'toes' : 'orteils'}
                   </text>
 
 
@@ -323,13 +323,13 @@ export default class HumansvgTest extends Component {
                     transform="translate(877.942 427.289)"
                     className="prefix__st1 prefix__st2 prefix__st3"
                 >
-                  {'elbows'}
+                  {localStorage.getItem("language") === "English" ? 'elbows' : 'coudes'}
                 </text>
                 <text
                     transform="translate(725.442 794.029)"
                     className="prefix__st1 prefix__st2 prefix__st3"
                 >
-                  {'lower Back'}
+                  {localStorage.getItem("language") === "English" ? 'lower Back' : 'bas du dos'}
                 </text>
 
 
@@ -338,7 +338,7 @@ export default class HumansvgTest extends Component {
                     transform="translate(770 190)"
                     className="prefix__st1 prefix__st2 prefix__st3"
                 >
-                  {'neck'}
+                  {localStorage.getItem("language") === "English" ? 'neck' : 'cou'}
                 </text>
 
 

@@ -6,6 +6,7 @@ import Header from "../../components/Home/Header";
 import warning from '../../img/warning.png';
 import stepMobile from '../../img/stepsMobile.png';
 import steps from '../../img/steps.png';
+import fr_steps from '../../img/5Étapes.png';
 
 
 const Intro = props => {
@@ -33,7 +34,7 @@ const Intro = props => {
         <div className="body-container">
           <picture className="steps-container">
             <source media="(max-width: 660px)" className="steps-img" srcSet={stepMobile} alt="five-steps"/>
-            <img media="(min-width: 661px)" className="steps-img text-center" srcSet={steps} alt="five-steps"/>
+            <img media="(min-width: 661px)" className="steps-img text-center" srcSet={lang === "English" ? steps : fr_steps} alt="five-steps"/>
           </picture>
 
           <div className="disclaimer">

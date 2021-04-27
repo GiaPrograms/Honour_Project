@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Card, CardImg, CardText, CardTitle, CardBody, Col} from 'reactstrap';
 
+//Get value of language from local storage
+let lang = localStorage.getItem("language") 
+
 export default class MainOption extends Component {
   state = {collapse: false};
 
@@ -17,9 +20,9 @@ export default class MainOption extends Component {
                      alt={this.props.desc.alt}/>
           </div>
           <CardBody>
-            <CardTitle tag="h5" className="card-title-intro">{this.props.desc.title}</CardTitle>
+            <CardTitle tag="h5" className="card-title-intro">{lang === "English" ? this.props.desc.title : this.props.desc.fr_title}</CardTitle>
             <div className="underline"></div>
-            <CardText>{this.props.desc.description}</CardText>
+            <CardText>{lang === "English" ? this.props.desc.description : this.props.desc.fr_description}</CardText>
           </CardBody>
         </Card>
       </Col>

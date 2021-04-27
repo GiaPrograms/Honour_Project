@@ -31,9 +31,12 @@ const TreatmentButton = ({treatment, selectedTreatments, setSelectedTreatments, 
     highlightSelectedTreatments()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <button id={treatment.name} onClick={clickHandler}>
-      {treatment.name}
+      {lang === "English" ? treatment.name : treatment.fr_name}
     </button>
   )
 }

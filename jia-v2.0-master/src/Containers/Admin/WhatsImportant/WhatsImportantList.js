@@ -29,9 +29,6 @@ const WhatsImportantList = () => {
   const [snackType, setSnackType] = useState()
   const [snackMessage, setSnackMessage] = useState()
 
-  //Get value of language from local storage
-  let lang = localStorage.getItem("language")
-
   const getWhatsImportant = async () => {
     let data = await getRequest("/preferences")
     if(data){
@@ -41,7 +38,7 @@ const WhatsImportantList = () => {
           description: preference.description,
           recommends: preference.recommends,
           reversed: preference.reversed,
-          left_label: preference.fr_left_label,
+          left_label: preference.left_label,
           right_label: preference.right_label,
           threshold: preference.threshold,
           categories: preference.categories

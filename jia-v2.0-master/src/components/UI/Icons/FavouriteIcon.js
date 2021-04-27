@@ -5,8 +5,11 @@ const FavouriteIcon = ({toggleFav, isFav}) => {
   const favon = {fill: '#e50019', stroke: 'rgba(0, 0, 0, 1)', strokeMiterlimit: 10, strokeWidth: '8px'}
   const favoff = {fill: '#FFFFFF', stroke: 'rgba(0, 0, 0, 1)', strokeMiterlimit: 10, strokeWidth: '8px'}
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
-    <Tooltip title={isFav ? "Remove from favourites" : "Add to favourites"}>
+    <Tooltip title={isFav ? lang === "English" ? "Remove from favourites" : "Supprimer des favoris" : lang === "English" ? "Add to favourites" : "Ajouter aux Favoris"}>
       <span className="icon-container">
         <svg viewBox="0 0 120 130" style={{width: '2.5rem', height: '2.5rem'}}>
           <path 

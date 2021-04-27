@@ -12,6 +12,10 @@ let Video = db.define('videos', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   treatment_id: {
     type: Sequelize.INTEGER,
     references: {

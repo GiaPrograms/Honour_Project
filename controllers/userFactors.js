@@ -5,7 +5,7 @@ const ResourceNotFoundError = require('../exceptions/ResourceNotFound')
 exports.get = async(req, res, next) => {
   try {
     let user = await User.findByPk(req.user.id) 
-    const userFactors = await user.getFactors({attributes: ['id', 'title', 'description']})
+    const userFactors = await user.getFactors({attributes: ['id', 'title', 'description', 'fr_title', 'fr_description']})
     if (!userFactors) throw new ResourceNotFoundError(`We could not find factors for the current user`)
     res.status(201).send(userFactors)
   } catch (error) {

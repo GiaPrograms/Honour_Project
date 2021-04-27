@@ -100,7 +100,7 @@ const QStepFive = ({getHowOften, setSaved, setSaveStatus}) => {
             {lang === "English" ? 
             "5. How often do you use your treatments?" : 
             "5. À quelle fréquence utilisez-vous ces traitements?"}
-            <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
+            <span className="collapsed-icon">{collapse ? "▲" : lang === "English" ? "(Expand) ▼" : "(Développer) ▼"}</span>
           </h4>
         </div>
         <Collapse isOpen={collapse}>

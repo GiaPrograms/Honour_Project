@@ -45,18 +45,18 @@ const StepThree = ({ hidden }) => {
   //Get value of language from local storage
   let lang = localStorage.getItem("language")
 
-  const topThreeSC = sc && sc.map((sc) => <li key={sc.id}>{sc.name}</li>);
+  const topThreeSC = sc && sc.map((sc) => <li key={sc.id}>{lang === "English" ? sc.name : sc.fr_name}</li>);
 
-  const topThreeHCP = hcp && hcp.map((hcp) => <li key={hcp.id}>{hcp.name}</li>);
+  const topThreeHCP = hcp && hcp.map((hcp) => <li key={hcp.id}>{lang === "English" ? hcp.name : hcp.fr_name}</li>);
 
   const favoritesList = favs.length ? (
-      favs.map((fav) => <li key={fav.id}>{fav.name}</li>)
+      favs.map((fav) => <li key={fav.id}>{lang === "English" ? fav.name : fav.fr_name}</li>)
     ) : (
       <p className="text-left">{lang === "English" ? "Your favourites list is empty" : "Votre liste de favoris est vide"}</p>
     );
 
   const planList = plans.length ? (
-      plans.map((plan) => <li key={plan.id}>{plan.name}</li>)
+      plans.map((plan) => <li key={plan.id}>{lang === "English" ? plan.name : plan.fr_name}</li>)
     ) : (
       <p className="text-left">{lang === "English" ? "Your plan list is empty" : "Votre liste de plans est vide"}</p>
     );

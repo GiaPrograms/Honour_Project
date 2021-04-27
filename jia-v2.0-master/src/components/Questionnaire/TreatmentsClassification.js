@@ -14,6 +14,9 @@ const TreatmentsClassification = ({id, classification, selectedTreatments, setSe
     getTreatments()
   },[])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const classificationContent = (treatments.length > 0) &&
   treatments.filter(treatment => {
      if(treatment.treatment_classification_id === id) return true
@@ -35,7 +38,9 @@ const TreatmentsClassification = ({id, classification, selectedTreatments, setSe
       <div>
         {classificationContent.length 
           ? classificationContent 
-          : <h4 style={{padding: '1.5rem'}}>There are currently no items listed under this classification</h4>}
+          : <h4 style={{padding: '1.5rem'}}>{lang === "English" ? 
+              "There are currently no items listed under this classification" : 
+              "Il n'y a actuellement aucun article répertorié sous cette classification"}</h4>}
       </div>
     </div>
   )

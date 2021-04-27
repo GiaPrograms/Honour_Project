@@ -24,7 +24,7 @@ const QstepTwo = ({setPainAreas, setSaved, setSaveStatus}) => {
       <div onClick={handleCollapse}>
         <h4 className="numbered-subheading">
           {lang === "English" ? "2. Where is your pain?" : "2. Où avez-vous mal?"}
-          <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
+          <span className="collapsed-icon">{collapse ? "▲" : lang === "English" ? "(Expand) ▼" : "(Développer) ▼"}</span>
         </h4>
       </div>
 

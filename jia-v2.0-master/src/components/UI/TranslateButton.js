@@ -10,6 +10,7 @@ if (lang == null) {
     localStorage.setItem("language", "English")
 }
 
+console.log(localStorage)
 console.log(lang)
 
 const TranslateButton = () => {

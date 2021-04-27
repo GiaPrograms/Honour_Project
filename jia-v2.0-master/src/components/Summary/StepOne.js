@@ -73,8 +73,8 @@ const StepOne = () => {
     let data = await getRequest(`/frequently/user`);
     if (data) {
       if(data.frequently) {
-        setHowOftenMeds(data.frequently.prescribed_meds);
-        setHowOftenTreats(data.frequently.other_treatments);
+        setHowOftenMeds(lang === "English" ? data.frequently.prescribed_meds : data.frequently.fr_prescribed_meds);
+        setHowOftenTreats(lang === "English" ? data.frequently.other_treatments : data.frequently.fr_other_treatments);
       }
     }
     setIsLoading(false);
@@ -136,7 +136,7 @@ const StepOne = () => {
   // Prescribed meds
   const presMedsItem = prescribedMeds.length ? (
     prescribedMeds.map((med, i) => (
-      <span key={med.id}>{(i ? ", " : "") + med.name}</span>
+      <span key={med.id}>{(i ? ", " : "") + (lang === "English" ? med.name : med.fr_name)}</span>
     ))
   ) : (
     <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
@@ -145,7 +145,7 @@ const StepOne = () => {
   // Other treatments
   const otherTreatmentsItem = [...otherMeds, ...treatments].length ? (
     [...otherMeds, ...treatments].map((treat, i) => (
-      <span key={treat.id}>{(i ? ", " : "") + treat.name}</span>
+      <span key={treat.id}>{(i ? ", " : "") + (lang === "English" ? treat.name : treat.fr_name)}</span>
     ))
   ) : (
     <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
