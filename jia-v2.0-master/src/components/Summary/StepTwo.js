@@ -13,6 +13,7 @@ const StepTwo = () => {
         return {
           id: item.user_preference.preferenceId,
           description: item.description,
+          fr_description: item.fr_description,
           value: item.user_preference.value,
         };
       });
@@ -38,6 +39,7 @@ const StepTwo = () => {
     <div key={slider.id}>
       <h5>
         <strong>{i + 1}. </strong>
+        {console.log(slider)}
         {lang === "English" ? slider.description : slider.fr_description}
       </h5>
       <p className="text-center">

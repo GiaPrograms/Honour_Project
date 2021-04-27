@@ -127,7 +127,20 @@ const StepOne = () => {
   // Pain Areas
   const painAreasItem = painAreas.length ? (
     painAreas.map((area, i) => (
-      <span key={i}>{(i ? ", " : "") + area.name}</span>
+      <span key={i}>
+        {(i ? ", " : "") + (lang === "English" ? area.name === 'lower_back' ? 'lower back' : area.name : 
+                           area.name === 'shoulders' ? 'épaules' : 
+                           area.name === 'wrists' ? 'poignets' :
+                           area.name === 'knees' ? 'genoux' :
+                           area.name === 'hips' ? 'hanches' :
+                           area.name === 'ankles' ? 'chevilles' :
+                           area.name === 'jaw' ? 'mâchoire' :
+                           area.name === 'fingers' ? 'doigts' :
+                           area.name === 'toes' ? 'orteils' :
+                           area.name === 'elbows' ? 'coudes' :
+                           area.name === 'lower_back' ? 'bas du dos' :
+                           area.name === 'neck' ? 'cou' : 'unknown')}
+      </span>
     ))
   ) : (
     <p className="notFilled">{lang === "English" ? notProvidedEN : notProvidedFR}</p>
