@@ -29,6 +29,9 @@ const MedicationsList = () => {
   const [snackType, setSnackType] = useState()
   const [snackMessage, setSnackMessage] = useState()
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   const getMedicationsList = async () => {
     let response = await getRequest("/medications")
     if(response) {
@@ -36,8 +39,8 @@ const MedicationsList = () => {
       let updatedList = data.map(medication => {
         return {
           id: medication.id,
-          name: medication.name,
-          classification: medication.classification.name,
+          name: lang === "English" ? medication.name : medication.fr_name,
+          classification: lang === "English" ? medication.classification.name : medication.classification.fr_name,
         }
       })
       setMedications(updatedList)
@@ -49,7 +52,7 @@ const MedicationsList = () => {
     let classList = data.map(classification => {
       return {
         id: classification.id,
-        name: classification.name,
+        name: lang === "English" ? classification.name : classification.fr_name,
         section: classification.section
       }
     })

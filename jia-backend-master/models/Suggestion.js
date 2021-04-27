@@ -8,7 +8,14 @@ let Suggestion = db.define('suggestions', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  fr_title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   description: {
+    type: Sequelize.STRING
+  },
+  fr_description: {
     type: Sequelize.STRING
   }
 }, {

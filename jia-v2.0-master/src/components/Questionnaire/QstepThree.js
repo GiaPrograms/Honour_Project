@@ -69,7 +69,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
       <Classification 
         key = {classification.id} 
         id = {classification.id} 
-        classification ={classification.name}
+        classification ={lang === "English" ? classification.name : classification.fr_name}
         setSelectedMeds = {setSelectedMeds}
         selectedMeds = {selectedMeds}
         setSaved={setSaved}
@@ -83,7 +83,7 @@ const QstepThree = ({selectedMeds, setSelectedMeds, prescribedText, setPrescribe
           <div onClick={handleCollapse}>
             <h4 className="numbered-subheading">
               {lang === "English" ? "3. What prescribed medications are you using?" : "3. Quels médicaments prescrits prenez-vous?"}
-              <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
+              <span className="collapsed-icon">{collapse ? "▲" : lang === "English" ? "(Expand) ▼" : "(Développer) ▼"}</span>
             </h4>
           </div>
 

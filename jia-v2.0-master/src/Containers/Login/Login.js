@@ -30,36 +30,39 @@ const Login = ({history}) => {
     }
   }
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <div className="login-page">
       <div className="title-section">
         <h1>JIA Option Map</h1>
       </div>
       <div className="form-section">
-        <h2>Login</h2>
+        <h2>{lang === "English" ? "Login" : "Connexion"}</h2>
         {invalidUser &&
-        <p className="error-message">Invalid user ID or password</p>}
+        <p className="error-message">{lang === "English" ? "Invalid user ID or password" : "ID utilisateur ou mot de passe invalide"}</p>}
         <form onSubmit={handleSubmit(onSubmit)} className="form-content">
           <div className="input-container">
-          <label><PersonIcon style={{fill: "#10434F"}}/>User ID</label>
+          <label><PersonIcon style={{fill: "#10434F"}}/>{lang === "English" ? "User ID" : "Nom d’utilisateur"}</label>
             <input 
               type="text" 
               name="userID" 
               ref={register({ required: true})}
             />
-            {errors.userID && <p className="error-message">User ID is required</p>}
+            {errors.userID && <p className="error-message">{lang === "English" ? "User ID is required" : "L'ID utilisateur est requis"}</p>}
           </div>
           <div className="input-container">
-            <label><LockIcon style={{fill: "#10434F"}}/>Password</label>
+            <label><LockIcon style={{fill: "#10434F"}}/>{lang === "English" ? "Password" : "Mot de passe"}</label>
               <input 
                 type="password" 
                 name="password" 
                 ref={register({ required: true })}
               />
-              {errors.password && <p className="error-message">Password is required</p>}
+              {errors.password && <p className="error-message">{lang === "English" ? "Password is required" : "Mot de passe requis"}</p>}
           </div>
         
-          <input type="submit" value="Log In" className="submit-btn" />
+          <input type="submit" value={lang === "English" ? "Log in" : "Connexion"} className="submit-btn" />
         </form>
       </div>
       <Footer />

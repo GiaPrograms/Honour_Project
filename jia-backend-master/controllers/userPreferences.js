@@ -9,7 +9,7 @@ exports.getPrefs = async(req, res, next) => {
     let user = await User.findByPk(req.user.id)
     let userPrefs = await user.getPref({ include: [{
       model: Category,
-      attributes: ['id', 'name']
+      attributes: ['id', 'name', 'fr_name']
     }]})
     if (!userPrefs) throw new ResourceNotFoundError(`We could not find preferences for the current user`)
     res.status(201).send(userPrefs)

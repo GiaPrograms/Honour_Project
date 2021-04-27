@@ -16,7 +16,7 @@ const Main = () => {
        <div className="orangenext-btn-container">
         <div className="orangenext-btn-content">
           <Button className="next-btn" tag={RRNav} to="/intro">
-          Next
+            {lang === "English" ? "Next" : "Suivant(e)"}
           </Button>
         </div>
       </div>

@@ -31,9 +31,12 @@ const ClassificationButton = ({med, selectedMeds, setSelectedMeds, setSaved, set
     highlightSelectedMeds()
   }, [])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
     <button id={med.name} onClick={clickHandler}>
-      {med.name}
+      {lang === "English" ? med.name : med.fr_name}
     </button>
   )
 }

@@ -5,7 +5,7 @@ const ResourceNotFoundError = require('../exceptions/ResourceNotFound')
 exports.get = async(req, res, next) => {
   try {
     let user = await User.findByPk(req.user.id)
-    const userSuggestions = await user.getSuggestions({attributes: ['id', 'title', 'description']})
+    const userSuggestions = await user.getSuggestions({attributes: ['id', 'title', 'description', 'fr_title', 'fr_description']})
     if (!userSuggestions) throw new ResourceNotFoundError(`We could not find suggestions for the current user`)
     res.status(201).send(userSuggestions)
   } catch (error) {

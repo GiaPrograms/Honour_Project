@@ -9,6 +9,10 @@ let Medication = db.define('medications', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   classification_id: {
     type: Sequelize.STRING,
     references: {

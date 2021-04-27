@@ -7,6 +7,10 @@ let Preference = db.define('preferences', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  fr_description: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   recommends: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
@@ -15,7 +19,15 @@ let Preference = db.define('preferences', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_left_label: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   right_label: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  fr_right_label: {
     type: Sequelize.STRING,
     allowNull: false
   },

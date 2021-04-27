@@ -42,6 +42,9 @@ const TreatmentCard = ({treatment, selected, setSelected, icon, setPlan, setSave
     if(selected) setIsSelected(selected.some(selection => treatment.id === selection.id))
   },[selected])
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <Col xs="12" md="6" lg="4" key={treatment.id} className="all-treatments-col">
       <Card className="card-style text-left">
@@ -63,7 +66,7 @@ const TreatmentCard = ({treatment, selected, setSelected, icon, setPlan, setSave
           </div>
         </Link>
         <CardBody>
-          <CardTitle tag="h4">{treatment.name}</CardTitle>
+          <CardTitle tag="h4">{lang === "English" ? treatment.name : treatment.fr_name}</CardTitle>
           <div className="card-bottom">
           <CardText>
             {icon === "fav"
@@ -88,7 +91,7 @@ const TreatmentCard = ({treatment, selected, setSelected, icon, setPlan, setSave
                 state: [treatment, isSelected]
               }
             }>
-            Read More
+            {lang === "English" ? "Read More" : "Lire la suite"}
           </Link>
         </CardFooter>
       </Card>

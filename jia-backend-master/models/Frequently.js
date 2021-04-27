@@ -7,7 +7,13 @@ let Frequently = db.define('frequently', {
   prescribed_meds: {
     type: Sequelize.STRING
   },
+  fr_prescribed_meds: {
+    type: Sequelize.STRING
+  },
   other_treatments: {
+    type: Sequelize.STRING
+  },
+  fr_other_treatments: {
     type: Sequelize.STRING
   },
   user_id: {

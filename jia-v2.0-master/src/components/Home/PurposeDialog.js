@@ -57,6 +57,9 @@ const PurposeDialog = () => {
     updateLogPurpose(purpose)
   }
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return (
     <div>
       <React.Fragment>
@@ -70,14 +73,14 @@ const PurposeDialog = () => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Login Purpose"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{lang === "English" ? "Login Purpose" : "Objectif de connexion"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Please select your login purpose
+            {lang === "English" ? "Please select your login purpose" : "Veuillez sélectionner votre objectif de connexion"}
           </DialogContentText>
           <form className={classes.form} noValidate>
             <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="purpose">Purpose</InputLabel>
+              <InputLabel htmlFor="purpose">{lang === "English" ? "Purpose" : "Objectif"}</InputLabel>
               <Select
                 autoFocus
                 value={purpose}
@@ -87,10 +90,10 @@ const PurposeDialog = () => {
                   id: 'purpose',
                 }}
               >
-                <MenuItem value="First time user">First time user</MenuItem>
-                <MenuItem value="Review information">Review information</MenuItem>
-                <MenuItem value="Change my answers">Change my answers</MenuItem>
-                <MenuItem value="Change my plan">Change my plan</MenuItem>
+                <MenuItem value="First time user">{lang === "English" ? "First time user" : "Première visite"}</MenuItem>
+                <MenuItem value="Review information">{lang === "English" ? "Review information" : "Revoir les informations"}</MenuItem>
+                <MenuItem value="Change my answers">{lang === "English" ? "Change my answers" : "Changer mes réponses"}</MenuItem>
+                <MenuItem value="Change my plan">{lang === "English" ? "Change my plan" : "Changer mon programme"}</MenuItem>
               </Select>
             </FormControl>
           </form>
@@ -98,10 +101,10 @@ const PurposeDialog = () => {
         <DialogActions>
           {purpose 
             ? <Button onClick={handleClose} color="primary">
-                CONFIRM
+                {lang === "English" ? "CONFIRM" : "CONFIRMER"}
               </Button>
             : <Button disabled>
-                CONFIRM
+                {lang === "English" ? "CONFIRM" : "CONFIRMER"}
               </Button>
           } 
         </DialogActions>

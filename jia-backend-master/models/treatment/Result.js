@@ -8,11 +8,19 @@ let Result = db.define('results', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  fr_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   score: {
     type: Sequelize.TINYINT,
     allowNull: false
   },
   statistics: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  fr_statistics: {
     type: Sequelize.STRING,
     allowNull: false
   },

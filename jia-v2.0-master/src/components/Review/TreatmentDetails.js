@@ -92,7 +92,7 @@ const TreatmentDetails = (props) => {
                 <img alt={treatment.name} src={treatment.image ? `${baseUrl}/${treatment.image}` : placeholder}/>
                 <div className="description">
                   <div className="description-title">
-                    <h2>{treatment.name}</h2>
+                    <h2>{lang === "English" ? treatment.name : treatment.fr_name}</h2>
                     <span>
                         <FavouriteIcon 
                           toggleFav={toggleFavourite}
@@ -100,7 +100,7 @@ const TreatmentDetails = (props) => {
                         />
                     </span>
                   </div>
-                  <p>{treatment.description}</p>
+                  <p>{lang === "English" ? treatment.description : treatment.fr_description}</p>
                 </div>
               </div>
               {/* traffic level and description */}
@@ -109,17 +109,17 @@ const TreatmentDetails = (props) => {
                   <TrafficLight level={treatment.traffic_level}/>
                 </div>
                 <div className="traffic-description">
-                  <p>{treatment.traffic_description}</p>
+                  <p>{lang === "English" ? treatment.traffic_description : treatment.fr_traffic_description}</p>
                 </div>
               </div>
 
               <div className="treatment_details_overview">
-                <h3 id="experts_suggest">What do experts suggest?</h3>
-                <p>{treatment.experts_suggest}</p>
+                <h3 id="experts_suggest">{lang === "English" ? "What do experts suggest?" : "Que suggèrent les experts?"}</h3>
+                <p>{lang === "English" ? treatment.experts_suggest : treatment.fr_experts_suggest}</p>
               </div>
               {/* Studies section */}
               <div> 
-                <h3>What does the research say?</h3>
+                <h3>{lang === "English" ? "What does the research say?" : "Que dit la recherche?"}</h3>
               </div>
               {studies &&
                 <div className="treatment_details_study_container">
@@ -135,37 +135,37 @@ const TreatmentDetails = (props) => {
               }
               {/* treatment details section */}
               <div className="treatment-details-texts">
-                <h3>How can I use this treatment?</h3>
-                <p>{treatment.how_use}</p>
-                <h3>How soon will I feel better?</h3>
-                <p>{treatment.how_soon}</p>
-                <h3>How much does this treatment cost?</h3>
-                <p>{treatment.cost}</p>
-                <h3>Where can I get this treatment?</h3>
-                <p>{treatment.where}</p>
-                <h3>What else should I consider?</h3>
-                <p>{treatment.consider}</p>
+                <h3>{lang === "English" ? "How can I use this treatment?" : "Comment puis-je utiliser ce traitement?"}</h3>
+                <p>{lang === "English" ? treatment.how_use : treatment.fr_how_use}</p>
+                <h3>{lang === "English" ? "How soon will I feel better?" : "Quand vais-je me sentir mieux?"}</h3>
+                <p>{lang === "English" ? treatment.how_soon : treatment.fr_how_soon}</p>
+                <h3>{lang === "English" ? "How much does this treatment cost?" : "Combien coûte ce traitement?"}</h3>
+                <p>{lang === "English" ? treatment.cost : treatment.fr_cost}</p>
+                <h3>{lang === "English" ? "Where can I get this treatment?" : "Où puis-je obtenir ce traitement?"}</h3>
+                <p>{lang === "English" ? treatment.where : treatment.fr_where}</p>
+                <h3>{lang === "English" ? "What else should I consider?" : "Que dois-je envisager d'autre?"}</h3>
+                <p>{lang === "English" ? treatment.consider : treatment.fr_consider}</p>
 
                 {webLinks.length > 0 &&
-                <h3>Learn more:</h3>}
+                <h3>{lang === "English" ? "Learn more:" : "Apprendre encore plus:"}</h3>}
                 <div className="treatment_details_links">
                   {webLinks.map((web, i) =>
-                    <p key={i}><a href={`${web.link}`} target="_blank" rel="noopener noreferrer">{web.name ? `${web.name}` : `${web.link}`}</a></p>
+                    <p key={i}><a href={`${web.link}`} target="_blank" rel="noopener noreferrer">{web.name ? lang === "English" ? `${web.name}` : `${web.fr_name}` : `${web.link}`}</a></p>
                   )}
                 </div>
 
                 {videoLinks.length > 0 &&
-                <h3>Videos:</h3>}
+                <h3>{lang === "English" ? "Videos:" : "Vidéos:"}</h3>}
                 <div className="treatment_details_links">
                   {videoLinks.map((video, i) =>
-                    <p key={i}><a href={`${video.link}`} target="_blank" rel="noopener noreferrer">{video.name ? `${video.name}`: `${video.link}`}</a></p>
+                    <p key={i}><a href={`${video.link}`} target="_blank" rel="noopener noreferrer">{video.name ? lang === "English" ? `${video.name}` : `${video.fr_name}`: `${video.link}`}</a></p>
                   )}
                 </div>
               </div>
 
               <div className="save-as-favourite">
                 <h5>
-                  Save to favourites
+                  {lang === "English" ? "Save to favourites" : "Enregistrer dans les favoris"}
                 </h5>
                 <span>
                   <FavouriteIcon 

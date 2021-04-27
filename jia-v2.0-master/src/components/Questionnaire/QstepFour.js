@@ -84,7 +84,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
     <Classification 
       key = {classification.id} 
       id = {classification.id} 
-      classification ={classification.name}
+      classification ={lang === "English" ? classification.name : classification.fr_name}
       selectedMeds = {selectedMeds}
       setSelectedMeds = {setSelectedMeds}
       setSaved={setSaved}
@@ -112,7 +112,7 @@ const QstepFour = ({selectedMeds, setSelectedMeds, selectedTreatments, setSelect
              {lang === "English" ? 
               "4. What other treatments are you using for your arthritis pain?" : 
               "4. Quels autres traitements suivez-vous pour vos douleurs arthritiques?"}
-             <span className="collapsed-icon">{collapse ? "▲" : "(Expand) ▼"}</span>
+             <span className="collapsed-icon">{collapse ? "▲" : lang === "English" ? "(Expand) ▼" : "(Développer) ▼"}</span>
              </h4>
            </div>
 

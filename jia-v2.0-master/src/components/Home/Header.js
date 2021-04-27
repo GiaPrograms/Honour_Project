@@ -23,6 +23,9 @@ export default class Header extends Component{
           <div className='home-header'>
             <div className="home-logo-header">
               <NavLink to="/home"><img className="logo-home" alt="logo" src={logo}/></NavLink>
+              <div>
+                <div className="home-logo-header-translation"> <TranslateButton/> </div>
+              </div>
             </div>
             <div className='sub-header'>
               <div className="home-subheader-content">

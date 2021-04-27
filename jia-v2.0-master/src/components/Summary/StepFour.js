@@ -87,8 +87,8 @@ const StepFour = () => {
   const factorsItem = factors.length ? (
     factors.map((factor) => (
       <div key={factor.id}>
-        <strong> {factor.title}</strong>
-        <p>{factor.description}</p>
+        <strong>{lang === "English" ? factor.title : factor.fr_title}</strong>
+        <p>{lang === "English" ? factor.description : factor.fr_description}</p>
       </div>
     ))
   ) : (
@@ -98,8 +98,8 @@ const StepFour = () => {
   const suggestionsItem = suggestions.length ? (
     suggestions.map((sug) => (
       <div key={sug.id}>
-        <strong>{sug.title}</strong>
-        <p>{sug.description}</p>
+        <strong>{lang === "English" ? sug.title : sug.fr_title}</strong>
+        <p>{lang === "English" ? sug.description : sug.fr_description}</p>
       </div>
     ))
   ) : (

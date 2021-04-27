@@ -7,8 +7,11 @@ const PlanCheckbox = ({toggleCheckbox, isChecked}) => {
     toggleCheckbox(ev.target.checked)
   }
 
+  //Get value of language from local storage
+  let lang = localStorage.getItem("language")
+
   return(
-    <Tooltip title={isChecked ? "Remove from plan" : "Add to plan"}>
+    <Tooltip title={isChecked ? lang === "English" ? "Remove from plan" : "Supprimer du plan" : lang === "English" ? "Add to plan" : "Ajouter au plan"}>
       <span className="checkbox-container">
         <Checkbox
           checked={isChecked}

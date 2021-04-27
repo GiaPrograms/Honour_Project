@@ -8,7 +8,7 @@ exports.getAll = async (req, res, next) => {
   try {
     let pref = await Preference.findByPk(req.params.id)
     let prefCat = await pref.getCategories({
-      attributes:['id','name']
+      attributes:['id','name','fr_name']
     })
     if (!prefCat) throw new ResourceNotFoundError(`We could not find a preference with id: ${req.params.id}`)
     res.status(201).send(prefCat)

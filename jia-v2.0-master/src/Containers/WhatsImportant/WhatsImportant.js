@@ -282,11 +282,11 @@ const WhatsImportant = props => {
         <div className="slider-component-div box-container">
           {sliders.length && sliders.map((slider, index) => (
             <div key={slider.id}>
-              <h4>{index + 1}. {slider.description}</h4>
+              <h4>{index + 1}. {lang === "English" ? slider.description : slider.fr_description}</h4>
               <CircleControl
                 setValue={setValue}
-                minLabel={slider.left_label}
-                maxLabel={slider.right_label}
+                minLabel={lang === "English" ? slider.left_label : slider.fr_left_label}
+                maxLabel={lang === "English" ? slider.right_label : slider.fr_right_label}
                 sliderId={slider.id}
                 reversed={slider.reversed}
                 value={slider.value}
