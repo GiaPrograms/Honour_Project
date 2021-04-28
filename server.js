@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
-app.use('/uploads2', express.static('uploads2'))
+// app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
 app.use('/painAreas', require('./routes/painAreas'))

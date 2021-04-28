@@ -1,1 +1,1 @@
-chmod -R 777 uploads2
+chmod -R 777 uploads
