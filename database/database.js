@@ -17,7 +17,7 @@ const Sequelize = require('sequelize');
 const db = new Sequelize('jia-optionmap-database', 'admin', 'admin', {
   host: 'us-mm-dca-ec51fe76a795.g5.cleardb.net',
   dialect: 'mysql',
-  logging: true,
+  logging: false,
 
   pool: {
     max: 5,
