@@ -39,11 +39,11 @@ const ScrollToTop = () => {
 
 const App = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/home">
       <div className="App">
         <Route component={ScrollToTop}/>
         <Switch>
-          <Route exact path="/home" component={Login}></Route>
+          <Route exact path="/" component={Login}></Route>
           <PrivateRoute exact path="/home" component={Home}/>
           <PrivateRoute exact path="/intro" component={Intro}/>
           <PrivateRoute exact path="/questionnaire" component={Questionnaire}/>
