@@ -59,6 +59,10 @@ app.use('/logs', require('./routes/logs'))
 app.use(require('./middleware/logErrors'))
 app.use(require('./middleware/errorHandler'))
 
+app.get('/', function (req, res) {
+    res.render('index', {});
+  });
+
 db.sync()
 
 const port = process.env.PORT || 3030;
