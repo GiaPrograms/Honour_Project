@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/Honour_Project/static/css/main.77c1a4e4.chunk.css",
+    "main.js": "/Honour_Project/static/js/main.98466dc2.chunk.js",
+    "main.js.map": "/Honour_Project/static/js/main.98466dc2.chunk.js.map",
+    "runtime-main.js": "/Honour_Project/static/js/runtime-main.4da6d9a1.js",
+    "runtime-main.js.map": "/Honour_Project/static/js/runtime-main.4da6d9a1.js.map",
+    "static/css/2.bad92473.chunk.css": "/Honour_Project/static/css/2.bad92473.chunk.css",
+    "static/js/2.94988257.chunk.js": "/Honour_Project/static/js/2.94988257.chunk.js",
+    "static/js/2.94988257.chunk.js.map": "/Honour_Project/static/js/2.94988257.chunk.js.map",
+    "static/js/3.a494d35c.chunk.js": "/Honour_Project/static/js/3.a494d35c.chunk.js",
+    "static/js/3.a494d35c.chunk.js.map": "/Honour_Project/static/js/3.a494d35c.chunk.js.map",
+    "static/js/4.2203c069.chunk.js": "/Honour_Project/static/js/4.2203c069.chunk.js",
+    "static/js/4.2203c069.chunk.js.map": "/Honour_Project/static/js/4.2203c069.chunk.js.map",
+    "static/js/5.d27dc142.chunk.js": "/Honour_Project/static/js/5.d27dc142.chunk.js",
+    "static/js/5.d27dc142.chunk.js.map": "/Honour_Project/static/js/5.d27dc142.chunk.js.map",
+    "index.html": "/Honour_Project/index.html",
+    "static/css/2.bad92473.chunk.css.map": "/Honour_Project/static/css/2.bad92473.chunk.css.map",
+    "static/css/main.77c1a4e4.chunk.css.map": "/Honour_Project/static/css/main.77c1a4e4.chunk.css.map",
+    "static/js/2.94988257.chunk.js.LICENSE.txt": "/Honour_Project/static/js/2.94988257.chunk.js.LICENSE.txt",
+    "static/js/3.a494d35c.chunk.js.LICENSE.txt": "/Honour_Project/static/js/3.a494d35c.chunk.js.LICENSE.txt",
+    "static/js/4.2203c069.chunk.js.LICENSE.txt": "/Honour_Project/static/js/4.2203c069.chunk.js.LICENSE.txt",
+    "static/js/5.d27dc142.chunk.js.LICENSE.txt": "/Honour_Project/static/js/5.d27dc142.chunk.js.LICENSE.txt",
+    "static/media/5Étapes.png": "/Honour_Project/static/media/5Étapes.dba7e392.png",
+    "static/media/c3.jpg": "/Honour_Project/static/media/c3.030a1be5.jpg",
+    "static/media/c4.jpg": "/Honour_Project/static/media/c4.359bfc31.jpg",
+    "static/media/c5.jpg": "/Honour_Project/static/media/c5.e4ae60c5.jpg",
+    "static/media/logo.png": "/Honour_Project/static/media/logo.f85b64db.png",
+    "static/media/Login.css": "/Honour_Project/static/media/steps.90dd70ae.png",
+    "static/media/stepsMobile.png": "/Honour_Project/static/media/stepsMobile.e215f7ae.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4da6d9a1.js",
+    "static/css/2.bad92473.chunk.css",
+    "static/js/2.94988257.chunk.js",
+    "static/css/main.77c1a4e4.chunk.css",
+    "static/js/main.98466dc2.chunk.js"
+  ]
+}
