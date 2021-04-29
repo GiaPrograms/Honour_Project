@@ -59,8 +59,6 @@ app.use('/logs', require('./routes/logs'))
 app.use(require('./middleware/logErrors'))
 app.use(require('./middleware/errorHandler'))
 
-app.get('/auth', require('./routes/auth'))
-
 db.sync()
 
 const port = process.env.PORT || 3030;
