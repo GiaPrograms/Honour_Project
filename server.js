@@ -9,7 +9,7 @@ let db = require('./database/database')
 app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+// app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
@@ -58,10 +58,6 @@ app.use('/logs', require('./routes/logs'))
 
 app.use(require('./middleware/logErrors'))
 app.use(require('./middleware/errorHandler'))
-
-app.get('/', function (req, res) {
-    res.send('hello world')
-  })
 
 db.sync()
 
