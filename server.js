@@ -60,7 +60,7 @@ app.use(require('./middleware/logErrors'))
 app.use(require('./middleware/errorHandler'))
 
 app.get('/', function (req, res) {
-    res.render('index', {});
+    res.json('index', {});
   });
 
 db.sync()
