@@ -14,7 +14,7 @@ const fileFilter = (req, file, cb) => {
 }
 
 const storage = multer.diskStorage({
-  destination: '../../uploads',
+  destination: '../../uploads2',
   filename: function(req, file, cb) {
     cb(null, Date.now() + file.originalname)
   }
@@ -33,9 +33,9 @@ const treatmentsController = require('../../controllers/treatments/treatments')
 router
 .get('/', treatmentsController.getAll)
 .get('/:id', treatmentsController.getOne)
-// .post('/', isAuth, upload.single('image'), treatmentsController.add)
+.post('/', isAuth, upload.single('image'), treatmentsController.add)
 .post('/some', isAuth, treatmentsController.getSome)
-// .patch('/:id', isAuth, upload.single('image'),treatmentsController.update)
+.patch('/:id', isAuth, upload.single('image'),treatmentsController.update)
 .patch('/reorder/list', isAuth, treatmentsController.updateOrder)
 .delete('/:id', isAuth, treatmentsController.delete)
 
