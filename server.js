@@ -61,5 +61,9 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
+app.get('/', function (req, res) {
+    res.send('hello world')
+  })
+
 const port = process.env.PORT || 3030;
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
