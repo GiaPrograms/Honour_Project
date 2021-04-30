@@ -2,7 +2,7 @@
   "name": "jia",
   "version": "2.0.0",
   "homepage": "https://jia-project.herokuapp.com/",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@hookform/error-message": "0.0.2",
     "@material-ui/core": "^4.10.0",
