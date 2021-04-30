@@ -70,9 +70,14 @@ db.sync()
 // });
 
 const port = process.env.PORT || 3030;
-app.listen(port, () => console.log(`Server listening on port ${port} ...`))
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('routes'));
+	app.use(express.static('jia-v2.0-master/build'));
 }
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'jia-v2.0-master/build', 'index.html'));
+});
+
+app.listen(port, () => console.log(`Server listening on port ${port} ...`))
