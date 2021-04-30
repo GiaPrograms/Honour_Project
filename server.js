@@ -68,9 +68,17 @@ db.sync()
 //   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 // });
 
-app.get('/*', (req, res) => {
-    res.send('Hello World')
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
 });
+
+// app.get('/*', (req, res) => {
+//     res.send('Hello World')
+// });
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
