@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
-const importAuth = require('./routes/auth/index')
+const importAuth = require('./build/manifest.json')
 let db = require('./database/database')
 
 app.use(express.json())
