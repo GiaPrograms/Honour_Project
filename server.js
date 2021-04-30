@@ -62,22 +62,19 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
-// app.get('/*', (req, res) => {
-//   console.log('hi from app.get')
-//   console.log(req)
-//   console.log(res)
-//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-// });
-
 const port = process.env.PORT || 3030;
 
 // Express only serves static assets in production
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('jia-v2.0-master/public'));
-}
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('jia-v2.0-master/public'));
+// }
 
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
+// app.get('*', (request, response) => {
+// 	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
+// });
+
+app.get("/", (req, res) => {
+  res.send("This is from express.js");
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
