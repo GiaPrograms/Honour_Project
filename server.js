@@ -62,9 +62,12 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
-app.get('/login', function (req, res) {
-    res.send(importAuth)
-  })
+app.get('/*', (req, res) => {
+  console.log('hi from app.get')
+  console.log(req)
+  console.log(res)
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
 
 const port = process.env.PORT || 3030;
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
