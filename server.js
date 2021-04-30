@@ -73,11 +73,11 @@ const port = process.env.PORT || 3030;
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('build'));
+	app.use(express.static('jia-v2.0-master/public'));
 }
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'build', 'index.html'));
+	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
