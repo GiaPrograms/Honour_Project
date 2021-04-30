@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2021 at 03:55 PM
+-- Generation Time: Apr 27, 2021 at 11:16 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -128,9 +128,9 @@ INSERT INTO `effectivenesses` (`id`, `control_arthritis`, `manage_pain`, `user_i
 (5, 0.5, 3.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 8, 4, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (7, 7, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(8, 2, 5, 111, '2021-03-16 03:21:15', '2021-04-28 03:37:08'),
+(8, 2, 4, 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
 (9, 4, 4, NULL, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(10, 4, 4, 112, '2021-04-22 02:16:29', '2021-04-27 23:36:30');
+(10, 4, 4, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -395,11 +395,7 @@ INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `preferences`, `step_th
 (135, NULL, '[{\"name\":\"Water Exercises\"}]', NULL, NULL, '{\"motivation_level\":\"3\",\"confidence_level\":\"5\",\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 06:21:27', '2021-04-27 06:21:27'),
 (136, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 06:58:25', '2021-04-27 06:58:25'),
 (137, NULL, '[{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":1},{\"description\":\"Using treatments that help me relax\",\"value\":2},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":4},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"2\"}],\"preference_text\":\"\"}', '{\"motivation_level\":3,\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 21:02:24', '2021-04-27 21:03:19'),
-(138, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 21:05:30', '2021-04-27 21:05:30'),
-(139, NULL, NULL, '{\"pain_level\":1,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"lower_back\"}],\"selected_meds\":[{\"name\":\"Leflunomide (Arava®)\"},{\"name\":\"Anakinra (Kineret®)\"},{\"name\":\"Diclofenac (Voltaren®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Tylenol®\"},{\"name\":\"Night Mouth Guards\"},{\"name\":\"Water Exercises\"},{\"name\":\"Cold\"},{\"name\":\"Mindfulness\"},{\"name\":\"Marijuana/Cannabinoids\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Vitamin D\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Always\",\"howOften_other\":\"Half the time\",\"control_arthritis\":4,\"manage_pain\":3}', NULL, NULL, 111, '2021-04-27 22:01:17', '2021-04-27 23:35:27'),
-(140, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-04-27 23:36:22', '2021-04-27 23:36:22'),
-(141, NULL, NULL, '{\"pain_level\":1,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"lower_back\"}],\"selected_meds\":[{\"name\":\"Leflunomide (Arava®)\"},{\"name\":\"Anakinra (Kineret®)\"},{\"name\":\"Diclofenac (Voltaren®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Tylenol®\"},{\"name\":\"Night Mouth Guards\"},{\"name\":\"Water Exercises\"},{\"name\":\"Cold\"},{\"name\":\"Mindfulness\"},{\"name\":\"Marijuana/Cannabinoids\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Vitamin D\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Never\",\"howOften_other\":\"Never\",\"control_arthritis\":4,\"manage_pain\":3}', NULL, NULL, 111, '2021-04-27 23:38:19', '2021-04-27 23:38:37'),
-(142, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"}],\"selected_meds\":[{\"name\":\"Corticosteroid injections\"},{\"name\":\"Sulfasalazine(Metoject®, Rheumatrex®)\"},{\"name\":\"Leflunomide (Arava®)\"},{\"name\":\"Anakinra (Kineret®)\"},{\"name\":\"Indomethacin (Indocid®)\"},{\"name\":\"Diclofenac (Voltaren®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Tylenol®\"},{\"name\":\"Night Mouth Guards\"},{\"name\":\"Water Exercises\"},{\"name\":\"Cold\"},{\"name\":\"Mindfulness\"},{\"name\":\"Marijuana/Cannabinoids\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Vitamin D\"}],\"treatment_text\":\"\",\"control_arthritis\":2,\"manage_pain\":5}', NULL, NULL, 111, '2021-04-28 03:34:30', '2021-04-28 03:37:08');
+(138, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 21:05:30', '2021-04-27 21:05:30');
 
 -- --------------------------------------------------------
 
@@ -517,9 +513,9 @@ INSERT INTO `pain_areas` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `low
 (5, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(8, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 111, '2021-03-17 17:24:48', '2021-04-28 03:37:08'),
+(8, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 111, '2021-03-17 17:24:48', '2021-04-27 06:20:28'),
 (9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, '2021-04-22 02:16:29', '2021-04-27 23:36:30');
+(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -544,9 +540,9 @@ INSERT INTO `pain_levels` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (8, 4.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (9, 7.5, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (10, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(11, 3, 111, '2021-03-16 03:21:15', '2021-04-28 03:37:08'),
+(11, 3, 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
 (12, 3, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(13, 3, 112, '2021-04-22 02:16:29', '2021-04-27 23:36:30');
+(13, 3, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -655,9 +651,9 @@ INSERT INTO `prescribed_texts` (`id`, `text`, `user_id`, `created_at`, `updated_
 (2, 'Test text updateds', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(5, '', 111, '2021-03-16 03:21:15', '2021-04-28 03:37:08'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
 (6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(7, '', 112, '2021-04-22 02:16:29', '2021-04-27 23:36:30');
+(7, '', 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -916,7 +912,7 @@ INSERT INTO `treatments` (`id`, `name`, `fr_name`, `supervision`, `evidence_leve
 (64, 'Cognitive-Behavioural Therapy', 'Thérapie cognitivocomportementale', 'HCP', 6, 28, 'general', 'général', 'A treatment usually directed by a professional and which focuses on the way you think and act to encourage healthy living.', 'Traitement généralement guidé par un professionnel qui met l’accent sur votre façon de penser et d’agir pour favoriser une vie saine.', 2, 'Cognitive-behavioural therapy is not mentioned in guidelines made by experts as a treatment for pain in JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'Les lignes directrices élaborées par les experts ne mentionnent pas la thérapie cognitivocomportementale comme option pour traiter la douleur causée par l’AJI. Les jeunes atteints d’AJI peuvent recourir à la thérapie cognitivocomportementale pour soulager leur douleur après en avoir parlé à leur équipe soignante.', 'Guidelines in JIA do not mention cognitive-behavioural therapy.', 'Les lignes directrices pour l’AJI ne mentionnent pas la thérapie cognitivocomportementale.', 'Weekly treatment sessions of about 30 to 60 minutes may be recommended, with the first appointment lasting longer. Within these sessions, professionals can help you find ways to manage your pain, such as guided imagery or meditative breathing.', 'Des séances hebdomadaires peuvent être recommandées. Elles durent de 30 minutes à 2 heures, mais le premier rendez-vous est habituellement plus long. Au cours de ces séances, le professionnel peut vous aider à trouver des moyens de gérer votre douleur, comme l’imagerie guidée ou la respiration méditative.', 'You may feel better after 12 to 20 sessions, but everybody is different. It can vary depending on your health professional’s recommendations.', 'Vous pouvez vous sentir mieux après 12 à 20 séances, mais tout le monde est différent. Le nombre de séances peut varier selon les recommandations de votre professionnel de la santé.', 'The intervention takes time to do and may cost money if provided by a health professional such as a psychologist. Your health insurance may cover some of these costs.', 'La thérapie cognitivocomportementale peut prendre du temps et coûter de l’argent si c’est fait avec le soutien d’un professionnel de la santé. Votre assurance maladie peut couvrir certains de ces frais.', 'Your healthcare team can help you access this treatment. Psychologists usually provide this treatment.', 'Votre équipe soignante peut vous aider à y avoir accès. Ce traitement est généralement offert par les psychologues.', 'It is important to see a well-trained professional.', 'Il est important de consulter un professionnel bien formé.', '\"uploads/1596920632501cognitive_therapy.jpg\"', 6, '2020-08-08 21:03:52', '2020-08-08 21:03:52'),
 (65, 'NSAIDs in Creams', 'AINS sous forme de crème', 'HCP', 7, 33, 'general', 'général', 'A cream (i.e., Voltaren®) that is rubbed on the joints and may help with pain, fever and inflammation.', 'Une crème (c.-à-d. Voltaren®) qui est frottée sur les articulations et peut aider à soulager la douleur, la fièvre et l’inflammation.', 2, 'NSAIDs in cream (Voltaren®) are not recommended in guidelines made by experts. They may sometimes be used by youth with JIA to manage pain after a discussion with their health care team.', 'Les lignes directrices élaborées par les experts ne recommandent pas les AINS sous forme de crème (Voltaren®). Les jeunes atteints d’AJI peuvent parfois en prendre pour soulager leur douleur après en avoir parlé à leur équipe soignante.', 'Experts in guidelines suggest that NSAIDs in creams (Voltaren®) are not recommended and should be avoided in JIA due to lack of scientific proofs. However, clinicians sometimes recommend them in practice.', 'Les lignes directrices élaborées par les experts ne recommandent pas les AINS sous forme de crème (Voltaren®) et ces derniers devraient être évités pour traiter l’AJI en raison du manque de preuves scientifiques. Cependant, les cliniciens les recommandent parfois dans leur pratique.', 'It is important to talk with your health care team first before using this treatment.', 'Il est important de parler avec votre équipe soignante avant d’en prendre.', 'NSAIDs in creams may take a few hours before you feel better, but everybody is different.', 'Les AINS sous forme de crème peuvent prendre quelques heures avant d’agir, mais tout le monde est différent.', 'NSAIDs in cream may cost money depending on your health insurance.', 'Les AINS sous forme de crème peuvent coûter de l’argent en fonction de la couverture de votre assurance maladie.', 'NSAIDs in cream can be available over the counter or as prescription drugs depending on where you live.', 'Certains AINS en crème sont disponibles en vente libre ou sous forme de médicaments sous ordonnance selon l’endroit où vous vivez.', '', '', '\"uploads/1596924261773NSAIDs_cream.jpg\"', 5, '2020-08-08 22:04:21', '2020-08-08 22:05:25'),
 (66, 'Opioids', 'Opioïdes', 'HCP', 9, 37, 'general', 'général', 'Opioids are a class of drugs naturally found in the opium poppy plant, that are often used in medicines to relax the body by blocking certain pain receptors to reduce pain. (E.g., morphine, codeine, oxycodone (OxyContin®)).', 'Les opioïdes sont une classe de médicaments naturellement présents dans le pavot à opium, qui sont souvent utilisés dans les médicaments pour détendre le corps en bloquant certains récepteurs de la douleur pour la soulager. (Par exemple, morphine, codéine, oxycodone [OxyContin®]).', 3, 'Opioids are usually not recommended by experts to manage pain in JIA because they have serious side effects. Youth should try other treatments before thinking about trying this treatment.', 'Les opioïdes ne sont généralement pas recommandés par les experts pour gérer la douleur causée par l’AJI, car ils ont des effets secondaires graves. Les jeunes devraient essayer d’autres traitements avant d’envisager celui-ci.', 'Opioids are not recommended in JIA guidelines for most patients. They are a last resort for JIA pain, because of the potential dangerous side effects.', 'Les opioïdes ne sont pas recommandés dans les lignes directrices pour l’AJI pour la plupart des patients. Ces médicaments sont un dernier recours pour soulager la douleur JIA, en raison des effets secondaires potentiellement dangereux.', 'If you have severe pain that is not going away with other treatments, opioids may be an option to discuss with your health care team. The use of opioids is often monitored by a chronic pain team.', 'Si vous ressentez une douleur intense qui ne disparaît pas avec d’autres traitements, les opioïdes peuvent être une option à discuter avec votre équipe soignante. L’utilisation d’opioïdes est souvent surveillée par une équipe spécialisée dans la douleur chronique.', 'It may take about 20 to 30 minutes for opioids to start working and may last up to 4 hours to feel better, but everybody is different.', 'Les opioïdes peuvent prendre environ 20 à 30 minutes pour commencer à agir et leur action peut durer jusqu’à 4 heures, mais tout le monde est différent.', 'Opioids may cost money depending on your health insurance.', 'Les opioïdes peuvent coûter de l’argent en fonction de votre assurance maladie.', 'Your healthcare team can give you information about opioids if it is indicated for you. It is very important not to take any opioids that are not prescribed to you because you do not know what the medication contains and it may be very dangerous. Also, it is very dangerous to give opioids to other people that were not prescribed this drug.', 'Votre équipe soignante peut vous donner des informations sur les opioïdes si cela vous est indiqué. Il est très important de ne prendre aucun opioïde qui ne vous a pas été prescrit, car vous ne savez pas ce que contient le médicament et cela peut être très dangereux. De plus, il est très dangereux de donner des opioïdes à d’autres personnes à qui ce médicament n’a pas été prescrit.', '', '', '\"uploads/1596925032322opioids.jpg\"', 5, '2020-08-08 22:17:12', '2020-08-08 22:17:31'),
-(67, 'Marijuana/Cannabinoids', 'Marijuana/Cannabinoïdes', 'HCP', 9, 38, 'general', 'général', 'A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.', 'Une substance qui peut être prise sous diverses formes (pilule, huile ou inhalation) provenant d’une plante de marijuana qui peut provoquer une perception accrue, affecter l’humeur et provoquer la relaxation.', 3, 'Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.', 'Les experts ne recommandent pas la marijuana pour soulager la douleur causée par l’AJI, car elle ne s’est pas révélée utile et a des effets secondaires graves sur le cerveau en développement. Les jeunes devraient essayer d’autres traitements avant d’envisager celui-ci. Il est important d’en discuter avec votre équipe soignante si vous souhaitez en consommer.', 'Marijuana or cannabinoids are not recommended in JIA guidelines.', 'Les lignes directrices pour l’AJI ne recommandent pas la marijuana ou les cannabinoïdes.', 'You can discuss this treatment with your health care team if have questions about Marijuana/cannabinoids.', 'Si vous avez des questions sur la marijuana ou les cannabinoïdes, vous pouvez en discuter avec votre équipe soignante.', 'It is difficult to say because of the lack of research. Improvements may vary depending on the type of product used and each person’s characteristics.', 'C\'est difficile à dire en raison du manque de recherche. Les bienfaits peuvent varier selon le type de produit utilisé et les caractéristiques de chaque personne.', 'Marijuana/cannabinoids may cost money. Health insurance may cover some of these costs.', 'La marijuana/cannabinoïdes peut coûter de l’argent. L’assurance maladie peut couvrir certains de ces frais.', 'Your healthcare team can give you information about Marijuana/cannabinoids/cannabinoid oils if it is indicated for you. It is very important to talk about it with your health care team if you have been using it on your own since these products can interact with your JIA treatments.', 'Votre équipe soignante peut vous donner de l’information sur la marijuana/les cannabinoïdes/les huiles de cannabinoïdes si cela vous est indiqué. Il est très important d’en parler avec votre équipe soignante si vous choisissez d’en prendre, car ces produits peuvent interagir avec vos traitements pour l’AJI.', 'It may be illegal depending on where you live.', 'Selon l’endroit où vous vivez, sa consommation peut être illégale.', '\"uploads/1596925167324marijuana.jpg\"', 5, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
+(67, 'Cannabis/Marijuana', 'Marijuana/Cannabinoïdes', 'HCP', 9, 38, 'general', 'général', 'A substance that can be taken in various forms (as a pill, oil or inhaled) that comes from a marijuana plant that may cause heightened perception, affect mood and can cause relaxation.', 'Une substance qui peut être prise sous diverses formes (pilule, huile ou inhalation) provenant d’une plante de marijuana qui peut provoquer une perception accrue, affecter l’humeur et provoquer la relaxation.', 3, 'Marijuana is not recommended by experts for JIA pain because it has not shown to be helpful and has serious side effects for the developing brain. Youth should try other treatments before thinking about trying this treatment. It is important to have a discussion about it with your health care team if you wish to use it.', 'Les experts ne recommandent pas la marijuana pour soulager la douleur causée par l’AJI, car elle ne s’est pas révélée utile et a des effets secondaires graves sur le cerveau en développement. Les jeunes devraient essayer d’autres traitements avant d’envisager celui-ci. Il est important d’en discuter avec votre équipe soignante si vous souhaitez en consommer.', 'Marijuana or Cannabis are not recommended in JIA guidelines.', 'Les lignes directrices pour l’AJI ne recommandent pas la marijuana ou les cannabinoïdes.', 'You can discuss this treatment with your health care team if have questions about Cannabis/Marijuana.', 'Si vous avez des questions sur la marijuana ou les cannabinoïdes, vous pouvez en discuter avec votre équipe soignante.', 'It is difficult to say because of the lack of research. Improvements may vary depending on the type of product used and each person’s characteristics.', 'C\'est difficile à dire en raison du manque de recherche. Les bienfaits peuvent varier selon le type de produit utilisé et les caractéristiques de chaque personne.', 'Cannabis/Marijuana may cost money. Health insurance may cover some of these costs.', 'La marijuana/cannabinoïdes peut coûter de l’argent. L’assurance maladie peut couvrir certains de ces frais.', 'Your healthcare team can give you information about Cannabis/Marijuana/cannabinoid oils if it is indicated for you. It is very important to talk about it with your health care team if you have been using it on your own since these products can interact with your JIA treatments.', 'Votre équipe soignante peut vous donner de l’information sur la marijuana/les cannabinoïdes/les huiles de cannabinoïdes si cela vous est indiqué. Il est très important d’en parler avec votre équipe soignante si vous choisissez d’en prendre, car ces produits peuvent interagir avec vos traitements pour l’AJI.', 'It may be illegal depending on where you live.', 'Selon l’endroit où vous vivez, sa consommation peut être illégale.', '\"uploads/1596925167324marijuana.jpg\"', 5, '2020-08-08 22:19:27', '2020-08-08 22:19:27'),
 (68, 'Acetylsalicylic Acid (Aspirin®)', 'Acide acétylsalicylique (Aspirin®)', 'HCP', 9, 39, 'general', 'général', 'A pill that is commonly used as a possible pain reliever for minor aches and to reduce fever. It is also called ASA (acetylsalicylic acid) (another brand name is Motrin®).', 'Une pilule couramment utilisée comme antidouleur pour soulager les douleurs mineures et faire baisser la fièvre. On l’appelle également ASA (acide acétylsalicylique). Un autre nom de marque est Motrin®.', 3, 'Aspirin® is not recommended for youth with JIA.', 'L’Aspirin® n’est pas recommandé pour les jeunes atteints d’AJI.', 'Aspirin® is not recommended in JIA guidelines, because this treatment can cause the Reye syndrome among youth.', 'Les lignes directrices pour l’AJI ne recommandent pas l’Aspirin®, car ce médicament peut provoquer le syndrome de Reye chez les jeunes.', 'You can discuss this treatment with your health care team if you have questions about Aspirin®.', 'Si vous avez des questions sur l’Aspirine, vous pouvez en discuter avec votre équipe soignante.', '', '', 'Aspirin® can cost money. Health insurance may cover some of these costs.', 'L’Aspirin® peut coûter de l’argent. L’assurance maladie peut couvrir certains de ces frais.', 'Aspirin® should be discussed with your health care team. It can be purchased over the counter in pharmacies.', 'Vous pouvez également en discuter avec votre équipe soignante. On peut en acheter en vente libre dans les pharmacies.', '', '', '\"uploads/1596925338220acetylsalicylic .jpg\"', 5, '2020-08-08 22:22:18', '2020-08-08 22:23:38'),
 (69, 'Healthy Diet', 'Saine alimentation', 'SC', 4, 21, 'general', 'général', 'A balanced diet of vegetables, fruits, protein, and whole grains that helps you stay healthy.', 'Une alimentation équilibrée composée de légumes, de fruits, de protéines et de grains entiers qui vous aide à rester en bonne santé.', 1, 'A healthy diet is recommended by experts for all. It should be used to stay healthy and may be used by youth with JIA to manage pain.', 'Les experts recommandent à tous d’avoir une saine alimentation. Une alimentation saine devrait être adoptée pour rester en bonne santé et elle peut être utile aux jeunes atteints d’AJI pour soulager leur douleur.', 'A healthy diet is recommended for all.', 'Une alimentation saine est recommandée pour tous.', 'Youth and caregivers can look online or talk to their health care team for ways to have a healthy diet. One of the best ways to eat well is to prepare you own food instead of eating processed food.', 'Les jeunes et les aidants peuvent chercher des moyens d’avoir une alimentation saine en ligne ou en discuter avec leur équipe soignante. L’un des meilleurs moyens de bien manger est de préparer ses propres repas au lieu de manger des aliments transformés.', 'It may take up to a few months to feel better, but everybody is different.', 'Cela peut prendre jusqu’à quelques mois avant de voir une amélioration, mais tout le monde est différent.', 'The intervention takes time to do. Food costs can vary.', 'Avoir une saine alimentation prend du temps. Les coûts de la nourriture peuvent varier.', 'You can read online for information and look at Canada’s Food Guide and the Dietary Guidelines for Americans online.', 'Des renseignements sont disponibles en ligne, dont le Guide alimentaire canadien et les Directives diététiques pour les Américains.', 'Healthy eating may be slightly more expensive and not as convenient because of meals cooked at home.', 'Une alimentation saine peut coûter légèrement plus cher et être moins pratique en raison des repas cuisinés à la maison.', '\"uploads/1596925822268healthy_diet.jpg\"', 8, '2020-08-08 22:30:22', '2020-08-08 22:30:22'),
 (70, 'Mediterranean Diet', 'Diète méditerranéenne', 'SC', 4, 24, 'general', 'général', 'A diet that mainly includes on fruits and vegetables, whole grains, beans, fish and olive oil, that helps you stay healthy.', 'Un régime qui comprend principalement des fruits et légumes, des grains entiers, des haricots, du poisson et de l’huile d’olive, et qui vous aide à rester en bonne santé.', 1, 'Mediterranean diets are often recommended by dieticians. It should be used to stay healthy and may be used by youth with JIA to help manage pain.', 'Les diététiciens recommandent souvent les régimes méditerranéens. Ces régimes devraient être suivis pour rester en bonne santé et peuvent être utilisés par les jeunes atteints d’AJI pour aider à soulager leur douleur.', 'The Mediterranean diet is often recommended by dieticians.', 'Les diététiciens recommandent souvent le régime méditerranéen.', 'Youth and caregivers can look online or talk to their health care team for specific guidelines for this diet.', 'Les jeunes et les aidants peuvent chercher de l’information sur ce régime en ligne ou en discuter avec leur équipe soignante.', 'It may take up to a few months to feel better, but everybody is different.', 'Cela peut prendre jusqu’à quelques mois avant de voir une amélioration, mais tout le monde est différent.', 'Food costs can vary.', 'Les coûts de la nourriture peuvent varier.', 'You can find Mediterranean diet guidelines online.', 'Vous pouvez trouver de l’information sur le régime méditerranéen en ligne.', 'Following a Mediterranean diet may be slightly more expensive and not as convenient because of meals that have to be cooked at home.', 'Suivre un régime méditerranéen peut être légèrement plus cher et pas aussi pratique en raison des repas qui doivent être cuisinés à la maison.', '\"uploads/1596925909914mediterranean_diet.jpg\"', 8, '2020-08-08 22:31:49', '2020-08-08 22:31:49'),
@@ -1046,9 +1042,9 @@ INSERT INTO `treatment_texts` (`id`, `text`, `user_id`, `created_at`, `updated_a
 (2, 'Test text updated', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(5, '', 111, '2021-03-16 03:21:15', '2021-04-28 03:37:08'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
 (6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(7, '', 112, '2021-04-22 02:16:29', '2021-04-27 23:36:30');
+(7, '', 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -1177,14 +1173,14 @@ INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) V
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 1, 7),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 1, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 1, 77),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 1, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 1, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 1, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 1, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 1, 114),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 10, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 10, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 10, 81),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 10, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 10, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 10, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 10, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 10, 114),
@@ -1197,7 +1193,7 @@ INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) V
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 51, 81),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 54, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 54, 77),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 54, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 54, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 54, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 54, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 54, 114);
@@ -1220,22 +1216,22 @@ CREATE TABLE `user_medication` (
 --
 
 INSERT INTO `user_medication` (`created_at`, `updated_at`, `medication_id`, `user_id`) VALUES
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 11, 111),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 14, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 14, 112),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 17, 112),
-('2021-04-27 22:33:52', '2021-04-27 22:33:52', 18, 111),
-('2021-04-28 03:34:30', '2021-04-28 03:34:30', 22, 111),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 22, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 22, 112),
-('2021-04-28 03:34:30', '2021-04-28 03:34:30', 24, 111),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 24, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 24, 112),
-('2021-04-27 22:33:16', '2021-04-27 22:33:16', 25, 111),
-('2021-04-27 22:33:16', '2021-04-27 22:33:16', 26, 111),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 29, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 29, 112),
-('2021-04-28 03:34:30', '2021-04-28 03:34:30', 32, 111),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 35, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 36, 112),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 39, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 39, 112),
-('2021-04-22 02:16:29', '2021-04-22 02:16:29', 43, 112),
-('2021-04-27 22:33:16', '2021-04-27 22:33:16', 46, 111);
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 43, 111),
+('2021-04-22 02:16:29', '2021-04-22 02:16:29', 43, 112);
 
 -- --------------------------------------------------------
 
@@ -1342,7 +1338,7 @@ INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VA
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 2, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 2, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 2, 81),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 2, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 2, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 2, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 2, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 2, 114),
@@ -1351,7 +1347,7 @@ INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VA
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 7, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 7, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 7, 81),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 7, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 7, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 7, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 7, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 7, 114),
@@ -1360,7 +1356,7 @@ INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VA
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 34, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 34, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 34, 81),
-('2021-04-28 03:37:08', '2021-04-28 03:37:08', 34, 111),
+('2021-04-27 21:02:24', '2021-04-27 21:02:24', 34, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 34, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 34, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 34, 114);
@@ -1410,30 +1406,31 @@ CREATE TABLE `user_treatment` (
 
 INSERT INTO `user_treatment` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 1, 67),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 1, 111),
 ('2020-08-04 00:13:52', '2020-08-04 00:13:52', 2, 7),
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 5, 67),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 6, 69),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 6, 111),
 ('2020-08-04 00:13:52', '2020-08-04 00:13:52', 7, 7),
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 7, 67),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 31, 69),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 34, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 35, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 36, 69),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 36, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 36, 112),
-('2021-04-27 22:33:52', '2021-04-27 22:33:52', 49, 111),
-('2021-04-27 22:33:52', '2021-04-27 22:33:52', 50, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 53, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 54, 69),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 55, 69),
-('2021-04-27 22:33:52', '2021-04-27 22:33:52', 58, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 61, 112),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 62, 69),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 63, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 65, 69),
 ('2021-04-11 16:51:28', '2021-04-11 16:51:28', 67, 111),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 71, 111),
-('2021-04-27 22:33:52', '2021-04-27 22:33:52', 73, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 75, 69),
-('2020-08-10 21:23:01', '2020-08-10 21:23:01', 76, 69);
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 76, 69),
+('2021-04-27 06:20:28', '2021-04-27 06:20:28', 76, 111);
 
 -- --------------------------------------------------------
 
@@ -1734,7 +1731,7 @@ ALTER TABLE `effectivenesses`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `motivations`
