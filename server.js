@@ -4,13 +4,12 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
-const path = require("path");
 let db = require('./database/database')
 
 app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
-app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
 app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
@@ -62,23 +61,12 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
+// app.get('/*', (req, res) => {
+//   console.log('hi from app.get')
+//   console.log(req)
+//   console.log(res)
+//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+// });
+
 const port = process.env.PORT || 3030;
-
-// Express only serves static assets in production
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use(express.static('jia-v2.0-master/public'));
-// }
-
-// app.get('*', (request, response) => {
-// 	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
-// });
-
-// app.get("/", (req, res) => {
-//   res.send("This is from express.js");
-// });
-
-app.get("/", (req, res) => {
- res.sendFile(path.join(__dirname, "jia-v2.0-master/public", "index.html"));
-});
-
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
