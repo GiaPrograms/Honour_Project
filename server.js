@@ -73,7 +73,7 @@ db.sync()
 // }
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
+	response.sendFile(path.join(__dirname, 'jia-v2.0-master/src', 'App.js'));
 });
 
 // app.get('/*', (req, res) => {
