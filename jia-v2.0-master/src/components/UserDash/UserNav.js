@@ -28,9 +28,9 @@ const UserNav = props => {
               <li><NavLink to="/userPanel/treatments">Treatments Used</NavLink></li><hr></hr>
             </ul>
           
-            <ul>
+            {/* <ul>
               <li><NavLink to="/userPanel/summary">Summaries</NavLink></li><hr></hr>
-            </ul>
+            </ul> */}
           </li>
         </ul>
       </div>

@@ -29,7 +29,7 @@ import NotFoundPage from './components/PageNotFound/PageNotFound';
 
 import PainAvg from './Containers/UserDash/PainAvg/PainAvg';
 import Plots from './Containers/UserDash/Plots/Plots';
-import PastSum from './Containers/UserDash/PastSum/PastSum';
+//import PastSum from './Containers/UserDash/PastSum/PastSum';
 import TreatmentAvg from './Containers/UserDash/TreatmentAvg/TreatmentAvg';
 
 const ScrollToTop = () => {
@@ -72,7 +72,7 @@ const App = () => {
           <PrivateRoute exact path="/userPanel/average" component={PainAvg}/>
           <PrivateRoute exact path="/userPanel/manage" component={Plots}/>
           <PrivateRoute exact path="/userPanel/treatments" component={TreatmentAvg}/>
-          <PrivateRoute exact path="/userPanel/summary" component={PastSum}/>
+         {/*  <PrivateRoute exact path="/userPanel/summary" component={PastSum}/> */}
 
           <Route path="" component={NotFoundPage} />
 
