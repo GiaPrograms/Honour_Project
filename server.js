@@ -68,12 +68,12 @@ db.sync()
 //   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 // });
 
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use(express.static('client/build'));
-// }
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('build'));
+}
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'jia-v2.0-master/src', 'App.js'));
+	response.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // app.get('/*', (req, res) => {
