@@ -181,7 +181,7 @@ const TreatmentAvg = () => {
             <XAxis dataKey="name" label={{value:'Treatment', position:"bottom", offset:0}}/>
             <YAxis dataKey="occurrences" allowDecimals={false} label={{value:"Times Used", position:"insideLeft", angle:-90}}/>
             <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="occurrences" fill="#482980" maxBarSize={50}/>
+            <Bar dataKey="occurrences" fill="#1f417e" maxBarSize={50}/>
           </BarChart>
 
         </div>

@@ -12,7 +12,12 @@ const PainAvg = () => {
   const [logs, setLogs] = useState([])
   const [logsExport, setLogsExport] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [dates, setDates] = useState()
+  const [date1, setDate1] = useState('default')
+  const [date2, setDate2] = useState('default')
+  const [limited, setLimited] = useState([])
 
+  //get current user's id
   const getUser = async() => {
     let response = await getRequest('/auth/users/current/me')
     let user = ''
@@ -23,6 +28,7 @@ const PainAvg = () => {
     }
   }
 
+  //get that user's logs
   const getLogs = async(user) => {
     const data = await getRequest(`/logs/${user}`)
     if(data) {
@@ -41,6 +47,7 @@ const PainAvg = () => {
     setIsLoading(false)
   }
   
+  //create map from logs of dates, pain levels, and other treatments
   const getData = (updatedLog) => {
     const exportList = updatedLog.map(el => {
      if(el.step_one !== null){ 
@@ -56,12 +63,73 @@ const PainAvg = () => {
     removeNull(exportList)
   }
 
+  //remove any null/undefined entries from the above
   const removeNull = (exportList) => {
     exportList = exportList.filter(function(element){
       return element !== undefined
     })
     setLogsExport(exportList)
+    firstTen(exportList)
+    getDates(exportList)
     return exportList
+  }
+
+  //use ten most recent logs to populate graph
+  const firstTen = (exportList) => {
+    if(exportList.length <= 10){
+      setLimited(exportList)
+    }else{
+      let firstTen = []
+      for(var i = 0; i < 10; i++){
+        firstTen.push(exportList[i])
+      }
+      setLimited(firstTen)
+    }
+  }
+
+  //get just the dates from those logs for dropdown
+  const getDates = (exportList) => {
+    const datelist = exportList.map(el => {
+      if(el !== null && el.length !== 0){
+        let dates = {
+          date: el.date
+        }
+        return dates
+      }
+    })
+    const noDups = [...new Map(datelist.map(item => [JSON.stringify(item), item])).values()]
+    setDates(noDups)
+    setIsLoading(false)
+  }
+
+  //state change of first dropdown
+  const handleDate1 = (e) => {
+    setDate1(e.target.value)
+  }
+
+  //state change of second dropdown
+  const handleDate2 = (e) => {
+    setDate2(e.target.value)
+  }
+
+  //onClick to load logs in range of selected dates
+  const onClick = (d1, d2, logs) => {
+    if(d1 === 'default' || d2 === 'default'){
+      alert ("Please provide a valid date")
+      return
+    }
+    let dateRange = []
+    var d1 = Date.parse(d1)
+    var d2 = Date.parse(d2)
+    logs.map(el => {
+      var logDate = Date.parse(el.date)
+      if(d1 <= logDate && logDate <= d2){
+        dateRange.push(el)
+      }else if(d2 <= logDate && logDate <= d1){
+        dateRange.push(el)
+      }
+    })
+    setLimited(dateRange)
   }
 
   useEffect(() => {
@@ -111,27 +179,26 @@ const PainAvg = () => {
             <b className="spacing">From: To:</b>
             <br></br><br></br><br></br>
           </div>
-
+          
           <div className="chooseTimes1">
-            <select id="logsExport">
+            <select disabled={isLoading} onChange={handleDate1} >
+              <option value='default'> -- Select a Date -- </option>
+              {dates!==undefined && dates.length!==0 && dates.map((list) => <option key={list.date} value={list.date}>{list.date}</option>)}
             </select>
           </div>
-
+        
           <div className="chooseTimes2">
-            <select id="datesList">
-              <option> </option>
-              <option>2021-03-16</option>
-              <option>In</option>
-              <option>Dates</option>
-              <option>Later</option>
+            <select disabled={isLoading} onChange={handleDate2} >
+              <option value='default'> -- Select a Date -- </option>
+              {dates!==undefined && dates.length!==0 && dates.map((list) => <option key={list.date} value={list.date}>{list.date}</option>)}
             </select>
           </div>
 
           <div className="button">
-            <Button className='load-btn'>Go!</Button>
+            <Button className='load-btn' onClick={() => onClick(date1, date2, logsExport)}>Go!</Button>
           </div>
 
-          <LineChart className="chart" width={1000} height={400} data={logsExport} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+          <LineChart className="chart" width={1000} height={400} data={limited} margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="date" label={{value:'Date', position:"bottom", offset:0}}/>
             <YAxis dataKey="level" tickCount={6} domain={[0,5]} label={{value:"Pain Average", position:"insideLeft", angle:-90}}/>
