@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
+const importAuth = require('./routes/auth/index')
 let db = require('./database/database')
 
 app.use(express.json())
@@ -61,8 +62,8 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
-app.get('/', function (req, res) {
-    res.send('hello world')
+app.get('/login', function (req, res) {
+    res.send(importAuth)
   })
 
 const port = process.env.PORT || 3030;
