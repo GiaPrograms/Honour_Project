@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
 // app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
-app.use(cors({credentials: false, origin: 'https://jia-project.herokuapp.com'}))
+app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
 app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
