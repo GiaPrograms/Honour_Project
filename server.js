@@ -4,7 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
-const importAuth = require('./build/manifest.json')
+const path = require("path");
 let db = require('./database/database')
 
 app.use(express.json())
@@ -73,8 +73,12 @@ const port = process.env.PORT || 3030;
 // 	response.sendFile(path.join(__dirname, 'jia-v2.0-master/public', 'index.html'));
 // });
 
+// app.get("/", (req, res) => {
+//   res.send("This is from express.js");
+// });
+
 app.get("/", (req, res) => {
-  res.send("This is from express.js");
+ res.sendFile(path.join(__dirname, "jia-v2.0-master/public", "index.html"));
 });
 
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))
