@@ -5,13 +5,14 @@ const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
 var path = require('path');
+
 let db = require('./database/database')
 
 app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
-//app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
+// app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
 app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
