@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
+var path = require('path');
 let db = require('./database/database')
 
 app.use(express.json())
