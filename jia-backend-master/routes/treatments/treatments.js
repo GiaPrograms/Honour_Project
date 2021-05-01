@@ -14,7 +14,7 @@ const fileFilter = (req, file, cb) => {
 }
 
 const storage = multer.diskStorage({
-  destination: '../../uploads',
+  // destination: '../../uploads',     <------------------------- fix route to upload issue
   filename: function(req, file, cb) {
     cb(null, Date.now() + file.originalname)
   }

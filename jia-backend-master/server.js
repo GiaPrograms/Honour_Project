@@ -4,12 +4,14 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const cookieParser = require('cookie-parser')
+var path = require('path');
 let db = require('./database/database')
 
 app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+//app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
 app.use('/uploads', express.static('uploads'))
 
 app.use('/auth', require('./routes/auth'))
@@ -61,5 +63,24 @@ app.use(require('./middleware/errorHandler'))
 
 db.sync()
 
-const port = process.env.port || 3030
+// app.get('/*', (req, res) => {
+//   console.log('hi from app.get')
+//   console.log(req)
+//   console.log(res)
+//   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+// });
+
+// app.get('/*', (req, res) => {
+//     res.send('Hello World')
+// });
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('build'));
+}
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const port = process.env.PORT || 3030;
 app.listen(port, () => console.log(`Server listening on port ${port} ...`))

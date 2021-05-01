@@ -1,4 +1,5 @@
-export const baseUrl = `http://localhost:3030`
+//export const baseUrl = `http://localhost:3030` <-------------------------uncomment to use local deployment
+export const baseUrl = `https://jia-project.herokuapp.com`
 //export const token = JSON.parse(localStorage.getItem('tokenKey'))
 
 export const getRequest = (path) => {
