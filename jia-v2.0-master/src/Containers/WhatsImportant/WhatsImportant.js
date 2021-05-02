@@ -47,7 +47,7 @@ const WhatsImportant = props => {
   // Get the what's important sliders from the DB
   const getPrefs = async () => {
     let data = await getRequest("/preferences")
-    if (data) data.forEach(el => el.value = 7)
+    if (data) data.forEach(el => el.value = 0)
     setSliders(prefs => ([...prefs, ...data]))
     setIsLoading(false)
   }

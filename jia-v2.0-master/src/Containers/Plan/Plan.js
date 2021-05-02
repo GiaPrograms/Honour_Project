@@ -22,8 +22,8 @@ import {getRequest, postRequest} from "../../API/ApiHandler"
 
 const Plan = props => {
   const [plan, setPlan] = useState([])
-  const [motivationLevel, setMotivationLevel] = useState(7)
-  const [confidenceLevel, setConfidenceLevel] = useState(7)
+  const [motivationLevel, setMotivationLevel] = useState(0)
+  const [confidenceLevel, setConfidenceLevel] = useState(0)
   const [userFactors, setUserFactors] = useState([])
   const [userSuggestions, setUserSuggestions] = useState([])
   const [review, setReview] = useState()

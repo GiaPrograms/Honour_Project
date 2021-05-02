@@ -15,6 +15,11 @@ li{
   align-items: center;
 }
 
+.login-translation{
+  position: relative;
+  left: 1700px;
+}
+
 .form-section:after{
   content: "";
   background: url('../../img/steps.png') bottom center no-repeat;
@@ -36,8 +41,10 @@ li{
   background-color: var(--primary-colour);
 }
 .title-section h1{
+  position: relative;
   font-size: 2rem;
   color: white;
+  right: 25px;
 }
 
 .form-section{
