@@ -32,7 +32,7 @@ import './Questionnaire.css'
 
 const Questionnaire = props => {
   // Q1 pain level value
-  const [painLevel, setPainLevel] = useState(7)
+  const [painLevel, setPainLevel] = useState(0)
   // Q2 pain areas values
   const [painAreas, setPainAreas] = useState()
   // Q3 selected meds
@@ -45,8 +45,8 @@ const Questionnaire = props => {
   const [howOften, setHowOften] = useState({})
   const [frHowOften, setFrHowOften] = useState({})
   // Q6 how well does your treatment
-  const [controlArthritis, setControlArthritis] = useState(7)
-  const [managePain, setManagePain] = useState(7)
+  const [controlArthritis, setControlArthritis] = useState(0)
+  const [managePain, setManagePain] = useState(0)
 
   const [saved, setSaved] = useState(true)
   const [displayNavDialog, setDisplayNavDialog] = useState(false)
@@ -72,7 +72,6 @@ const Questionnaire = props => {
       saveSelectedTreatments(),
       saveTreatmentText(),
       saveHowOften(),
-      saveFrHowOften(),
       saveHowWell()
     ]).then(data => {
       let failed = data.indexOf() !== -1
@@ -177,13 +176,7 @@ const Questionnaire = props => {
   const saveHowOften = () => {
     const input = {
       prescribed_meds: howOften.pres,
-      other_treatments: howOften.other
-    }
-    return postRequest('/frequently', input, setSaveStatus)
-  }
-
-  const saveFrHowOften = () => {
-    const input = {
+      other_treatments: howOften.other,
       fr_prescribed_meds: frHowOften.frPres,
       fr_other_treatments: frHowOften.frOther
     }

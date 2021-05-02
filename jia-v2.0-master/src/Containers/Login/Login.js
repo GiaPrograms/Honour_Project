@@ -9,6 +9,7 @@ import {postRequest} from '../../API/ApiHandler'
 
 import './Login.css'
 import {getUserType, getCurrentUser, type} from '../../components/AuthenticationService';
+import TranslateButton from "../../components/UI/TranslateButton";
 
 const Login = ({history}) => {
   const { register, handleSubmit, errors} = useForm();
@@ -36,6 +37,9 @@ const Login = ({history}) => {
   return(
     <div className="login-page">
       <div className="title-section">
+        <div>
+          <div className="login-translation"> <TranslateButton/> </div>
+        </div>
         <h1>JIA Option Map</h1>
       </div>
       <div className="form-section">

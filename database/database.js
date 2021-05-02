@@ -1,10 +1,12 @@
 const Sequelize = require('sequelize');
 
 // ! update DB
+
+// Code to connect to local database 
 // const db = new Sequelize('JIA', 'root', '', {
 //   host: 'localhost',
 //   dialect: 'mysql',
-//   logging: true,
+//   logging: false,
 
 //   pool: {
 //     max: 5,
@@ -14,6 +16,7 @@ const Sequelize = require('sequelize');
 //   }
 // });
 
+// Code to connect to global database 
 const db = new Sequelize('jia-optionmap-database', 'admin', 'admin', {
   host: 'us-mm-dca-ec51fe76a795.g5.cleardb.net',
   dialect: 'mysql',

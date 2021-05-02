@@ -11,7 +11,11 @@ let db = require('./database/database')
 app.use(express.json())
 app.use(cookieParser())
 // ! Update origin
-// app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+
+// Code to connect to local url
+//app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+
+// Code to connect to global url
 app.use(cors({credentials: true, origin: 'https://jia-project.herokuapp.com'}))
 app.use('/uploads', express.static('uploads'))
 

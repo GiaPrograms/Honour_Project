@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 11:16 PM
+-- Generation Time: May 02, 2021 at 08:47 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -100,7 +100,10 @@ INSERT INTO `confidences` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (9, 9.5, 7, '2020-06-08 18:12:21', '2020-08-06 03:32:32'),
 (10, 7.5, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
 (11, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
-(12, 5, 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19');
+(12, 5, 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19'),
+(13, 0, NULL, '2021-05-02 05:58:35', '2021-05-02 05:59:07'),
+(14, 7, NULL, '2021-05-02 06:00:36', '2021-05-02 06:01:12'),
+(15, 0, NULL, '2021-05-02 18:18:28', '2021-05-02 18:18:28');
 
 -- --------------------------------------------------------
 
@@ -128,9 +131,15 @@ INSERT INTO `effectivenesses` (`id`, `control_arthritis`, `manage_pain`, `user_i
 (5, 0.5, 3.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 8, 4, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (7, 7, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(8, 2, 4, 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
+(8, 5, 5, 111, '2021-03-16 03:21:15', '2021-05-02 18:45:01'),
 (9, 4, 4, NULL, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(10, 4, 4, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
+(10, 3, 3, 112, '2021-04-22 02:16:29', '2021-05-01 22:34:47'),
+(11, 5, 5, NULL, '2021-05-02 04:37:20', '2021-05-02 05:58:09'),
+(12, 7, 7, NULL, '2021-05-02 06:00:44', '2021-05-02 06:01:07'),
+(13, 7, 7, NULL, '2021-05-02 18:09:14', '2021-05-02 18:14:33'),
+(14, 7, 7, NULL, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(15, 0, 0, NULL, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(16, 0, 0, NULL, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -167,7 +176,7 @@ INSERT INTO `factors` (`id`, `title`, `fr_title`, `description`, `fr_description
 --
 
 CREATE TABLE `frequentlies` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
   `prescribed_meds` varchar(255) DEFAULT NULL,
   `fr_prescribed_meds` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
   `other_treatments` varchar(255) DEFAULT NULL,
@@ -182,13 +191,21 @@ CREATE TABLE `frequentlies` (
 --
 
 INSERT INTO `frequentlies` (`id`, `prescribed_meds`, `fr_prescribed_meds`, `other_treatments`, `fr_other_treatments`, `user_id`, `created_at`, `updated_at`) VALUES
-(0, 'Always', NULL, 'Most times', NULL, NULL, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(1, 'Some times', 'Parfois', 'Half the time', 'La moitié du temps', NULL, '2020-05-24 23:18:12', '2020-05-24 23:18:12'),
 (5, 'Not applicable', 'Sans objet', 'Sometimes', 'Parfois', 7, '2020-05-29 19:10:25', '2020-08-03 22:39:52'),
 (6, NULL, '', NULL, '', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (7, 'Not applicable', 'Sans objet', 'Most times', 'La plupart du temps', 69, '2020-08-10 21:22:12', '2020-08-10 21:23:01'),
 (8, NULL, '', NULL, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(9, 'Never', 'Jamais', 'Always', 'Toujours', 111, '2021-04-22 02:15:26', '2021-04-28 03:35:35');
+(9, 'Most times', 'La plupart', 'Sometimes', 'Parfois', 112, '2021-05-02 02:46:08', '2021-05-02 02:46:08'),
+(10, 'Not applicable', 'Sans objet', 'Always', 'Toujours', 111, '2021-05-02 02:46:38', '2021-05-02 04:36:07'),
+(11, 'Always', 'Toujours', 'Always', 'Toujours', NULL, '2021-05-02 04:37:20', '2021-05-02 05:57:38'),
+(12, NULL, NULL, NULL, NULL, NULL, '2021-05-02 06:00:44', '2021-05-02 06:00:44'),
+(13, NULL, NULL, NULL, NULL, NULL, '2021-05-02 06:00:44', '2021-05-02 06:00:44'),
+(14, NULL, NULL, NULL, NULL, NULL, '2021-05-02 18:09:14', '2021-05-02 18:09:14'),
+(15, NULL, NULL, NULL, NULL, NULL, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(16, NULL, NULL, NULL, NULL, NULL, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(17, 'Never', NULL, 'Always', NULL, NULL, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(18, NULL, 'Jamais', NULL, 'Toujours', NULL, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(19, 'Sometimes', 'Parfois', 'Always', 'Toujours', NULL, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -211,8 +228,8 @@ CREATE TABLE `learns` (
 --
 
 INSERT INTO `learns` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://teens.aboutkidshealth.ca/Article?contentid=2605&language=English&hub=jiateenhub', 'About kids health: Yoga (English)', 'About kids health : Yoga (anglais)', 1, '2020-08-24 05:07:37', '2020-08-24 05:07:37'),
-(2, 'https://teens.aboutkidshealth.ca/Article?contentid=2606&language=English&hub=jiateenhub', 'About kids health: Basic yoga poses (English)', 'About kids health : Postures de base du yoga', 1, '2020-08-24 05:07:37', '2020-08-24 05:07:37'),
+(1, 'https://teens.aboutkidshealth.ca/Article?contentid=2605&language=English&hub=jiateenhub', 'About kids health: Yoga (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
+(2, 'https://teens.aboutkidshealth.ca/Article?contentid=2606&language=English&hub=jiateenhub', 'About kids health: Basic yoga poses (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
 (190, 'http://education.arthritis.ca/en_us/learntousetoolsanddevices/topic6_9.aspx', 'wrist link 1', 'lien sur le poignet 1', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (191, 'https://www.aboutkidshealth.ca/Article?contentid=1079&language=English', 'wrist link name (English)', 'nom du lien sur le poignet', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (192, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2376&language=English', 'another web link (English)', 'un autre lien Web (anglais)', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
@@ -395,7 +412,18 @@ INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `preferences`, `step_th
 (135, NULL, '[{\"name\":\"Water Exercises\"}]', NULL, NULL, '{\"motivation_level\":\"3\",\"confidence_level\":\"5\",\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 06:21:27', '2021-04-27 06:21:27'),
 (136, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 06:58:25', '2021-04-27 06:58:25'),
 (137, NULL, '[{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":1},{\"description\":\"Using treatments that help me relax\",\"value\":2},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":4},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"2\"}],\"preference_text\":\"\"}', '{\"motivation_level\":3,\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 21:02:24', '2021-04-27 21:03:19'),
-(138, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 21:05:30', '2021-04-27 21:05:30');
+(138, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 21:05:30', '2021-04-27 21:05:30'),
+(139, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"elbows\"},{\"area\":\"ankles\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Sulfasalazine(Metoject®, Rheumatrex®)\"},{\"name\":\"Golimumab(Symponi®)\"},{\"name\":\"Abatacept (Orencia®)\"},{\"name\":\"Ixekizumab (Taltz®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Custom-Made Foot Orthotics\"},{\"name\":\"Osteopathic Manipulation\"},{\"name\":\"Pilates\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Mindfulness\"},{\"name\":\"Cannabis/Marijuana\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Always\",\"howOften_other\":\"Most times\",\"control_arthritis\":2,\"manage_pain\":4}', NULL, NULL, 111, '2021-05-01 22:18:48', '2021-05-01 22:18:48'),
+(140, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-05-01 22:19:11', '2021-05-01 22:19:11'),
+(141, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-05-01 22:30:49', '2021-05-01 22:30:49'),
+(142, NULL, NULL, '{\"pain_level\":\"0\",\"pain_areas\":[{\"area\":\"elbows\"},{\"area\":\"ankles\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Sulfasalazine(Metoject®, Rheumatrex®)\"},{\"name\":\"Golimumab(Symponi®)\"},{\"name\":\"Abatacept (Orencia®)\"},{\"name\":\"Ixekizumab (Taltz®)\"},{\"name\":\"Meloxicam (Mobics®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Acetylsalicylic acid (Aspirin®)\"},{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Custom-Made Foot Orthotics\"},{\"name\":\"Osteopathic Manipulation\"},{\"name\":\"Pilates\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Mindfulness\"},{\"name\":\"Cannabis/Marijuana\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Not applicable\",\"howOften_other\":\"Always\",\"control_arthritis\":\"5\",\"manage_pain\":\"5\"}', NULL, NULL, 111, '2021-05-02 04:36:07', '2021-05-02 04:36:07'),
+(143, 'Review information', '[{\"name\":\"Wrist Splints Worn at Night\"}]', '{\"pain_level\":4,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Tylenol®\"},{\"name\":\"Diclofenac (Voltaren®)\"},{\"name\":\"Custom-Made Foot Orthotics\"},{\"name\":\"Massage\"},{\"name\":\"Yoga\"},{\"name\":\"Educational Website\"},{\"name\":\"NSAIDs in Pills\"}],\"treatment_text\":\"\",\"control_arthritis\":5,\"manage_pain\":5}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"0\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"0\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"0\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"5\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"5\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}]}', '{\"motivation_level\":\"0\",\"confidence_level\":\"0\",\"factors\":[],\"suggestions\":[]}', 115, '2021-05-02 04:36:49', '2021-05-02 05:59:07'),
+(144, 'Review information', '[]', '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":7},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":7},{\"description\":\"Using treatments that help me relax\",\"value\":7},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":7},{\"description\":\"Using treatments that help me stay active\",\"value\":7},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":7}]}', '{\"motivation_level\":7,\"confidence_level\":7,\"factors\":[],\"suggestions\":[]}', 116, '2021-05-02 06:00:09', '2021-05-02 06:01:12'),
+(145, 'First time user', NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}]}', NULL, 117, '2021-05-02 18:09:02', '2021-05-02 18:14:33'),
+(146, NULL, '[]', '{\"pain_level\":0,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, '{\"motivation_level\":0,\"confidence_level\":0,\"factors\":[],\"suggestions\":[]}', 118, '2021-05-02 18:17:09', '2021-05-02 18:18:28'),
+(147, 'First time user', NULL, '{\"pain_level\":0,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"howOften_pres\":\"Never\",\"howOften_other\":\"Always\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 119, '2021-05-02 18:20:27', '2021-05-02 18:20:54'),
+(148, 'Change my plan', NULL, '{\"pain_level\":0,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"howOften_pres\":\"Sometimes\",\"howOften_other\":\"Always\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 120, '2021-05-02 18:23:20', '2021-05-02 18:23:36'),
+(149, NULL, NULL, '{\"pain_level\":\"4\",\"pain_areas\":[{\"area\":\"elbows\"},{\"area\":\"ankles\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Sulfasalazine(Metoject®, Rheumatrex®)\"},{\"name\":\"Meloxicam (Mobics®)\"},{\"name\":\"Golimumab(Symponi®)\"},{\"name\":\"Abatacept (Orencia®)\"},{\"name\":\"Ixekizumab (Taltz®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Acetylsalicylic acid (Aspirin®)\"},{\"name\":\"Opioids\"},{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Custom-Made Foot Orthotics\"},{\"name\":\"Osteopathic Manipulation\"},{\"name\":\"Pilates\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Mindfulness\"},{\"name\":\"Cannabis/Marijuana\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"control_arthritis\":5,\"manage_pain\":5}', NULL, NULL, 111, '2021-05-02 18:45:02', '2021-05-02 18:45:02');
 
 -- --------------------------------------------------------
 
@@ -475,7 +503,10 @@ INSERT INTO `motivations` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (3, 9, 7, '2020-06-08 18:13:13', '2020-08-06 03:32:32'),
 (4, 7, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
 (5, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
-(6, 3, 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19');
+(6, 3, 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19'),
+(7, 0, NULL, '2021-05-02 05:58:35', '2021-05-02 05:59:07'),
+(8, 7, NULL, '2021-05-02 06:00:36', '2021-05-02 06:01:12'),
+(9, 0, NULL, '2021-05-02 18:18:28', '2021-05-02 18:18:28');
 
 -- --------------------------------------------------------
 
@@ -513,9 +544,15 @@ INSERT INTO `pain_areas` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `low
 (5, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (6, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(8, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 111, '2021-03-17 17:24:48', '2021-04-27 06:20:28'),
+(8, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 111, '2021-03-17 17:24:48', '2021-05-02 18:45:01'),
 (9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
+(10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, '2021-04-22 02:16:29', '2021-05-01 22:34:47'),
+(11, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 115, '2021-05-02 04:37:20', '2021-05-02 05:58:09'),
+(12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 116, '2021-05-02 06:00:44', '2021-05-02 06:01:07'),
+(13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117, '2021-05-02 18:09:14', '2021-05-02 18:14:33'),
+(14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 118, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 119, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -540,9 +577,15 @@ INSERT INTO `pain_levels` (`id`, `level`, `user_id`, `created_at`, `updated_at`)
 (8, 4.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (9, 7.5, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (10, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(11, 3, 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
+(11, 4, 111, '2021-03-16 03:21:15', '2021-05-02 18:45:01'),
 (12, 3, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(13, 3, 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
+(13, 3, 112, '2021-04-22 02:16:29', '2021-05-01 22:34:47'),
+(14, 4, 115, '2021-05-02 04:37:20', '2021-05-02 05:58:09'),
+(15, 7, 116, '2021-05-02 06:00:44', '2021-05-02 06:01:07'),
+(16, 7, 117, '2021-05-02 18:09:14', '2021-05-02 18:14:33'),
+(17, 0, 118, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(18, 0, 119, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(19, 0, 120, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -626,7 +669,10 @@ INSERT INTO `preference_texts` (`id`, `text`, `user_id`, `created_at`, `updated_
 (3, NULL, 81, '2020-08-21 14:54:37', '2020-08-21 14:54:37'),
 (4, '', 111, '2021-03-16 03:21:23', '2021-04-27 21:02:24'),
 (5, '', 112, '2021-04-22 02:17:06', '2021-04-22 02:17:14'),
-(6, NULL, 114, '2021-04-22 02:18:45', '2021-04-22 02:18:45');
+(6, NULL, 114, '2021-04-22 02:18:45', '2021-04-22 02:18:45'),
+(7, NULL, 115, '2021-05-02 04:37:45', '2021-05-02 04:37:45'),
+(8, NULL, 116, '2021-05-02 06:01:10', '2021-05-02 06:01:10'),
+(9, NULL, 117, '2021-05-02 18:12:57', '2021-05-02 18:12:57');
 
 -- --------------------------------------------------------
 
@@ -651,9 +697,15 @@ INSERT INTO `prescribed_texts` (`id`, `text`, `user_id`, `created_at`, `updated_
 (2, 'Test text updateds', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(5, '', 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-05-02 18:45:01'),
 (6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(7, '', 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
+(7, '', 112, '2021-04-22 02:16:29', '2021-05-01 22:34:47'),
+(8, '', 115, '2021-05-02 04:37:20', '2021-05-02 05:58:09'),
+(9, '', 116, '2021-05-02 06:00:44', '2021-05-02 06:01:07'),
+(10, '', 117, '2021-05-02 18:09:14', '2021-05-02 18:14:33'),
+(11, '', 118, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(12, '', 119, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(13, '', 120, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -734,7 +786,10 @@ INSERT INTO `reviews` (`id`, `selection`, `user_id`, `created_at`, `updated_at`)
 (4, 'true', 7, '2020-06-10 05:19:16', '2020-08-06 03:32:32'),
 (5, 'false', 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
 (6, NULL, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
-(7, 'true', 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19');
+(7, 'true', 111, '2021-03-24 04:26:17', '2021-04-27 21:03:19'),
+(8, NULL, 115, '2021-05-02 05:58:35', '2021-05-02 05:59:07'),
+(9, NULL, 116, '2021-05-02 06:00:36', '2021-05-02 06:01:12'),
+(10, NULL, 118, '2021-05-02 18:18:28', '2021-05-02 18:18:28');
 
 -- --------------------------------------------------------
 
@@ -882,7 +937,7 @@ CREATE TABLE `treatments` (
 --
 
 INSERT INTO `treatments` (`id`, `name`, `fr_name`, `supervision`, `evidence_level`, `order_number`, `specification`, `fr_specification`, `description`, `fr_description`, `traffic_level`, `traffic_description`, `fr_traffic_description`, `experts_suggest`, `fr_experts_suggest`, `how_use`, `fr_how_use`, `how_soon`, `fr_how_soon`, `cost`, `fr_cost`, `where`, `fr_where`, `consider`, `fr_consider`, `image`, `treatment_classification_id`, `created_at`, `updated_at`) VALUES
-(1, 'Custom-Made Foot Orthotics', 'Orthèses plantaires sur mesure', 'HCP', 1, 1, 'legs', 'Jambes', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 'Les orthèses plantaires sur mesure sont des coussinets spécialement conçus pour votre pied que vous placez dans votre chaussure pour aider à soutenir, aligner et améliorer la fonction de votre pied.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Les orthèses plantaires sur mesure semblent être efficaces et sécuritaires pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent utiliser des orthèses plantaires pour soulager leur douleur après en avoir parlé à un professionnel de la santé.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'Les experts suggèrent que les orthèses plantaires peuvent être utilisées au besoin en suivant les conseils de votre équipe soignante.', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'Vous devrez peut-être porter des orthèses en tout temps dans vos chaussures. L’adaptation aux nouvelles orthèses plantaires sur mesure peut prendre environ deux semaines. Il est suggéré de porter des orthèses pendant une heure le premier jour, deux heures le deuxième jour et de progresser chaque jour pour qu’après deux semaines, vous soyez confortable toute la journée. Des ajustements pourraient être nécessaires.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Les orthèses plantaires sur mesure coûtent généralement plus cher que les semelles et les chaussures de soutien achetées en magasin. Votre assurance maladie peut couvrir certains de ces frais.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Les physiothérapeutes, les ergothérapeutes et les podiatres peuvent généralement fournir des orthèses plantaires sur mesure. Votre équipe soignante pourrait vous aider à y avoir accès.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', 'Étant donné que les orthèses plantaires sur mesure semblent être efficaces et sécuritaires, mais coûtent de l’argent, vous pouvez d’abord essayer de porter des chaussures confortables avec un bon support pour l’arche et acheter des semelles en magasin.  Ces options pourraient vous aider. Le type de chaussures et d’orthèses préférées varie d’une personne à l’autre. Vous pouvez en essayer pour voir si vous les aimez.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2020-08-24 05:07:37'),
+(1, 'Custom-Made Foot Orthotics', 'Orthèses plantaires sur mesure', 'HCP', 1, 1, 'legs', 'Jambes', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 'Les orthèses plantaires sur mesure sont des coussinets spécialement conçus pour votre pied que vous placez dans votre chaussure pour aider à soutenir, aligner et améliorer la fonction de votre pied.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Les orthèses plantaires sur mesure semblent être efficaces et sécuritaires pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent utiliser des orthèses plantaires pour soulager leur douleur après en avoir parlé à un professionnel de la santé.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'Les experts suggèrent que les orthèses plantaires peuvent être utilisées au besoin en suivant les conseils de votre équipe soignante.', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'Vous devrez peut-être porter des orthèses en tout temps dans vos chaussures. L’adaptation aux nouvelles orthèses plantaires sur mesure peut prendre environ deux semaines. Il est suggéré de porter des orthèses pendant une heure le premier jour, deux heures le deuxième jour et de progresser chaque jour pour qu’après deux semaines, vous soyez confortable toute la journée. Des ajustements pourraient être nécessaires.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Les orthèses plantaires sur mesure coûtent généralement plus cher que les semelles et les chaussures de soutien achetées en magasin. Votre assurance maladie peut couvrir certains de ces frais.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Les physiothérapeutes, les ergothérapeutes et les podiatres peuvent généralement fournir des orthèses plantaires sur mesure. Votre équipe soignante pourrait vous aider à y avoir accès.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', 'Étant donné que les orthèses plantaires sur mesure semblent être efficaces et sécuritaires, mais coûtent de l’argent, vous pouvez d’abord essayer de porter des chaussures confortables avec un bon support pour l’arche et acheter des semelles en magasin.  Ces options pourraient vous aider. Le type de chaussures et d’orthèses préférées varie d’une personne à l’autre. Vous pouvez en essayer pour voir si vous les aimez.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2021-05-02 18:27:23'),
 (2, 'Massage', 'Massothérapie', 'SC', 1, 3, 'general', 'général', 'Rubbing or kneading your muscle or joints to help you relax.', 'Frotter ou pétrir vos muscles ou vos articulations pour vous aider à vous détendre.', 1, 'Massage seems be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'La massothérapie semble être efficace et sans danger pour les jeunes atteints d’AJI. Elle peut être utilisée par les jeunes atteints d’AJI pour soulager la douleur.', 'Experts suggest that youth with JIA can use massage.', 'Les experts suggèrent que les jeunes atteints d’AJI peuvent recevoir des massages.', 'Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.', 'Même un massage de 15 minutes par jour peut aider à atténuer la douleur. Vous pourriez aussi recevoir un massage plus long moins souvent puisque chez les massothérapeutes, les massages durent au moins 30 minutes.', 'It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.', 'Vous pourriez ressentir les bienfaits tout de suite ou après jusqu’à un mois avec un massage par jour. Les bienfaits pourraient prendre plus de temps si vos massages sont plus espacés. Tout le monde est différent.', 'Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.', 'Vous pouvez recevoir des massages gratuitement si vous le faites vous-même ou si un membre de votre famille vous aide. Les massages professionnels sont parfois couverts par l’assurance maladie ou peuvent nécessiter des frais supplémentaires en fonction de votre assurance.', 'Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.', 'Ce traitement est généralement offert par des massothérapeutes. Il est préférable de consulter un massothérapeute agréé qui a déjà traité des patients atteints d’AJI. Vous pouvez également suivre une formation pour vous faire des massages ou acheter des appareils de massage à utiliser à la maison.', 'If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.', 'Si votre douleur empire avec le massage, vous devez cesser cette option de traitement. Vous devez également tenir compte de votre niveau de confort à recevoir un massage d’un professionnel qualifié qui est un étranger ou de vos parents. Si vous choisissez d’essayer le massage, assurez-vous de respecter votre niveau de confort.', '\"uploads/1595422649352massage.jpg\"', 3, '2020-06-10 00:33:38', '2020-08-08 04:17:47'),
 (5, 'Yoga', 'Yoga', 'SC', 3, 8, 'general', 'général', 'Exercises including stretching and focused breathing that help relax you.', 'Exercices axés sur les étirements et la respiration en profondeur qui vous aident à vous détendre.', 1, 'Yoga seems to be effective and safe for adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 'Le yoga semble être efficace et sans danger pour les adultes atteints de polyarthrite rhumatoïde (PR). Il peut être utilisé par les jeunes atteints d’AJI pour soulager la douleur.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Les experts suggèrent que les jeunes atteints d’AJI devraient pratiquer une activité physique de façon régulière.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'Les jeunes devraient faire environ une heure d’activité physique (intensité modérée à vigoureuse) par jour, mais vous pouvez la diviser en séances d’environ 15 minutes en fonction de votre emploi du temps. Il peut être important d’augmenter progressivement la fréquence et la durée de l’activité physique.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Yoga can cost money if you attend classes. You can avoid the cost by following an online program.', 'Il pourrait y avoir des coûts associés si vous suivez un cours de yoga. Suivre un programme en ligne vous permettrait d’éviter ces frais.', 'There are yoga classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'Des cours de yoga sont offerts dans les centres communautaires et dans les gyms. Des tutoriels sont également disponibles en ligne (voir les liens ci-dessous).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm up and end with cool down exercises to help prevent injuries.', 'Il est important de faire les mouvements à votre rythme pour éviter de vous blesser. Pour éviter les blessures, il est utile de commencer par un échauffement et de terminer par des exercices de récupération.', '\"uploads/1595423805028yoga.jpg\"', 2, '2020-06-12 20:21:18', '2020-08-14 19:32:51'),
 (6, 'Osteopathic Manipulation', 'Ostéopathie', 'HCP', 7, 31, 'general', 'général', 'Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.', 'L’ostéopathie comprend des traitements pratiques qui agissent sur les os, les muscles et les fascias pour optimiser l’alignement du corps.', 2, 'Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'L’ostéopathie n’est pas mentionnée dans les lignes directrices pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent recourir à l’ostéopathie pour soulager leur douleur après en avoir parlé à leur équipe soignante.', 'Osteopathy is not mentioned in guidelines for JIA.', 'L’ostéopathie n’est pas mentionnée dans les lignes directrices pour l’AJI.', 'The first few sessions may be about an hour each and follow-up visits may take up to 30 minutes. Weekly sessions may be recommended, but everybody is different.', 'Les premières séances peuvent durer environ une heure chacune et les visites de suivi peuvent prendre jusqu’à 30 minutes. Des sessions hebdomadaires pourraient vous être recommandées, mais tout le monde est différent.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'C’est difficile à dire en raison du manque de recherche. Les améliorations peuvent varier, car tout le monde est différent.', 'Osteopathy may take time to do and cost money depending on your health insurance.', 'L’ostéopathie peut prendre du temps et coûter de l’argent en fonction de votre assurance maladie.', 'Osteopaths provide this treatment. You can talk about it with your health care team to help you access it.', 'Ce traitement est offert par les ostéopathes. Votre équipe soignante pourrait vous aider à y avoir accès.', 'If you use this treatment, tt is important to see a well-trained osteopath who has experience with treating JIA. You may not feel comfortable with receiving osteopathic treatments from a stranger.', 'Si vous choisissez ce traitement, il est important de consulter un ostéopathe bien formé et qui connaît l’AJI. Il est possible de se sentir mal à l’aise de recevoir des traitements d’ostéopathie de la part d’un étranger.', '\"uploads/1596758628004osteoathy.jpg\"', 3, '2020-06-12 20:25:27', '2020-08-07 00:04:22'),
@@ -1042,9 +1097,15 @@ INSERT INTO `treatment_texts` (`id`, `text`, `user_id`, `created_at`, `updated_a
 (2, 'Test text updated', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
 (3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
 (4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
-(5, '', 111, '2021-03-16 03:21:15', '2021-04-27 06:20:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-05-02 18:45:01'),
 (6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
-(7, '', 112, '2021-04-22 02:16:29', '2021-04-22 02:16:53');
+(7, '', 112, '2021-04-22 02:16:29', '2021-05-01 22:34:47'),
+(8, '', 115, '2021-05-02 04:37:20', '2021-05-02 05:58:09'),
+(9, '', 116, '2021-05-02 06:00:44', '2021-05-02 06:01:07'),
+(10, '', 117, '2021-05-02 18:09:14', '2021-05-02 18:14:33'),
+(11, '', 118, '2021-05-02 18:17:09', '2021-05-02 18:17:09'),
+(12, '', 119, '2021-05-02 18:20:54', '2021-05-02 18:20:54'),
+(13, '', 120, '2021-05-02 18:23:36', '2021-05-02 18:23:36');
 
 -- --------------------------------------------------------
 
@@ -1134,6 +1195,7 @@ CREATE TABLE `user_favourite` (
 
 INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
 ('2020-08-06 03:27:15', '2020-08-06 03:27:15', 1, 7),
+('2021-05-02 05:58:24', '2021-05-02 05:58:24', 1, 115),
 ('2020-08-06 03:33:08', '2020-08-06 03:33:08', 2, 7),
 ('2020-08-21 13:57:02', '2020-08-21 13:57:02', 2, 81),
 ('2021-03-04 20:13:00', '2021-03-04 20:13:00', 5, 111),
@@ -1142,12 +1204,14 @@ INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_
 ('2021-04-21 00:28:22', '2021-04-21 00:28:22', 7, 112),
 ('2020-08-19 05:31:37', '2020-08-19 05:31:37', 31, 69),
 ('2021-04-27 21:02:58', '2021-04-27 21:02:58', 31, 111),
+('2021-05-02 05:58:25', '2021-05-02 05:58:25', 31, 115),
 ('2020-08-06 03:15:59', '2020-08-06 03:15:59', 34, 7),
 ('2020-08-21 15:07:27', '2020-08-21 15:07:27', 34, 81),
 ('2021-04-21 00:28:23', '2021-04-21 00:28:23', 34, 112),
 ('2020-08-06 03:27:16', '2020-08-06 03:27:16', 36, 7),
 ('2020-08-21 15:07:26', '2020-08-21 15:07:26', 36, 81),
 ('2021-04-27 21:02:58', '2021-04-27 21:02:58', 49, 111),
+('2021-05-02 05:58:26', '2021-05-02 05:58:26', 49, 115),
 ('2021-03-04 20:13:01', '2021-03-04 20:13:01', 50, 111),
 ('2020-08-10 21:25:57', '2020-08-10 21:25:57', 51, 69),
 ('2020-08-10 21:25:48', '2020-08-10 21:25:48', 54, 69);
@@ -1173,30 +1237,48 @@ INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) V
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 1, 7),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 1, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 1, 77),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 1, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 1, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 1, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 1, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 1, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 1, 115),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 1, 117),
+('2021-05-02 18:17:10', '2021-05-02 18:17:10', 1, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 1, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 1, 120),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 10, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 10, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 10, 81),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 10, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 10, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 10, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 10, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 10, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 10, 115),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 10, 116),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 10, 117),
+('2021-05-02 18:17:10', '2021-05-02 18:17:10', 10, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 10, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 10, 120),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 31, 7),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 36, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 36, 69),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 36, 81),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 36, 116),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 49, 69),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 51, 69),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 51, 81),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 51, 116),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 54, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 54, 77),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 54, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 54, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 54, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 54, 113),
-('2021-04-22 02:18:45', '2021-04-22 02:18:45', 54, 114);
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 54, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 54, 115),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 54, 117),
+('2021-05-02 18:17:10', '2021-05-02 18:17:10', 54, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 54, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 54, 120);
 
 -- --------------------------------------------------------
 
@@ -1217,21 +1299,27 @@ CREATE TABLE `user_medication` (
 
 INSERT INTO `user_medication` (`created_at`, `updated_at`, `medication_id`, `user_id`) VALUES
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 11, 111),
+('2021-05-02 04:36:07', '2021-05-02 04:36:07', 13, 111),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 14, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 14, 112),
+('2021-05-02 04:38:09', '2021-05-02 04:38:09', 14, 115),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 17, 112),
+('2021-05-02 05:57:38', '2021-05-02 05:57:38', 18, 115),
+('2021-05-02 04:36:07', '2021-05-02 04:36:07', 19, 111),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 22, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 22, 112),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 24, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 24, 112),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 29, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 29, 112),
+('2021-05-02 04:36:07', '2021-05-02 04:36:07', 31, 111),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 35, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 36, 112),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 39, 111),
 ('2021-04-22 02:16:29', '2021-04-22 02:16:29', 39, 112),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 43, 111),
-('2021-04-22 02:16:29', '2021-04-22 02:16:29', 43, 112);
+('2021-04-22 02:16:29', '2021-04-22 02:16:29', 43, 112),
+('2021-05-02 04:38:09', '2021-05-02 04:38:09', 47, 115);
 
 -- --------------------------------------------------------
 
@@ -1255,6 +1343,7 @@ INSERT INTO `user_plan` (`created_at`, `updated_at`, `treatment_id`, `user_id`) 
 ('2020-08-21 14:54:52', '2020-08-21 14:54:52', 2, 81),
 ('2020-08-10 21:26:25', '2020-08-10 21:26:25', 7, 69),
 ('2021-04-27 21:03:19', '2021-04-27 21:03:19', 31, 111),
+('2021-05-02 05:58:35', '2021-05-02 05:58:35', 31, 115),
 ('2020-08-06 03:32:32', '2020-08-06 03:32:32', 34, 7),
 ('2021-04-27 06:21:26', '2021-04-27 06:21:26', 50, 111),
 ('2020-08-10 21:26:25', '2020-08-10 21:26:25', 51, 69);
@@ -1284,36 +1373,54 @@ INSERT INTO `user_preferences` (`value`, `created_at`, `updated_at`, `preference
 (0, '2021-03-16 03:21:23', '2021-03-17 17:22:43', 1, 111),
 (3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 1, 112),
 (3, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 1, 114),
+(0, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 1, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 1, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 1, 117),
 (8.5, '2020-07-22 13:30:34', '2020-08-10 06:02:11', 2, 7),
 (9.5, '2020-08-10 21:23:20', '2020-08-16 16:22:52', 2, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 2, 81),
 (1, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 2, 111),
 (3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 2, 112),
 (2, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 2, 114),
+(0, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 2, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 2, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 2, 117),
 (1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 3, 7),
 (2, '2020-08-10 21:23:20', '2020-08-16 02:03:46', 3, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 3, 81),
 (2, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 3, 111),
 (1, '2021-04-22 02:17:06', '2021-04-22 02:17:14', 3, 112),
 (3, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 3, 114),
+(0, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 3, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 3, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 3, 117),
 (1.5, '2020-07-22 13:30:34', '2020-08-10 05:58:50', 4, 7),
 (4, '2020-08-10 21:23:20', '2020-08-16 02:13:22', 4, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 4, 81),
 (3, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 4, 111),
 (3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 4, 112),
 (4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 4, 114),
+(5, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 4, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 4, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 4, 117),
 (1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 5, 7),
 (3.5, '2020-08-10 21:23:20', '2020-08-16 16:22:47', 5, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 5, 81),
 (4, '2021-03-16 03:21:23', '2021-04-12 01:25:39', 5, 111),
 (3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 5, 112),
 (4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 5, 114),
+(5, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 5, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 5, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 5, 117),
 (1, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 6, 7),
 (0, '2020-08-10 21:23:20', '2020-08-16 03:16:49', 6, 69),
 (7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 6, 81),
 (2, '2021-03-16 03:21:23', '2021-04-27 21:02:24', 6, 111),
 (3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 6, 112),
-(4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 6, 114);
+(4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 6, 114),
+(5, '2021-05-02 04:37:45', '2021-05-02 04:37:45', 6, 115),
+(7, '2021-05-02 06:01:10', '2021-05-02 06:01:10', 6, 116),
+(0, '2021-05-02 18:12:57', '2021-05-02 18:12:57', 6, 117);
 
 -- --------------------------------------------------------
 
@@ -1338,28 +1445,46 @@ INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VA
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 2, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 2, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 2, 81),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 2, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 2, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 2, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 2, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 2, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 2, 115),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 2, 116),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 2, 117),
+('2021-05-02 18:17:09', '2021-05-02 18:17:09', 2, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 2, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 2, 120),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 7, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 7, 69),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 7, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 7, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 7, 81),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 7, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 7, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 7, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 7, 113),
 ('2021-04-22 02:18:45', '2021-04-22 02:18:45', 7, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 7, 115),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 7, 116),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 7, 117),
+('2021-05-02 18:17:09', '2021-05-02 18:17:09', 7, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 7, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 7, 120),
 ('2020-08-10 06:02:26', '2020-08-10 06:02:26', 34, 7),
 ('2020-08-23 02:51:55', '2020-08-23 02:51:55', 34, 69),
 ('2020-08-16 17:19:43', '2020-08-16 17:19:43', 34, 76),
 ('2020-08-17 20:54:12', '2020-08-17 20:54:12', 34, 77),
 ('2020-08-21 14:54:38', '2020-08-21 14:54:38', 34, 81),
-('2021-04-27 21:02:24', '2021-04-27 21:02:24', 34, 111),
+('2021-05-02 18:45:02', '2021-05-02 18:45:02', 34, 111),
 ('2021-04-22 02:17:14', '2021-04-22 02:17:14', 34, 112),
 ('2021-04-22 02:15:26', '2021-04-22 02:15:26', 34, 113),
-('2021-04-22 02:18:45', '2021-04-22 02:18:45', 34, 114);
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 34, 114),
+('2021-05-02 05:58:09', '2021-05-02 05:58:09', 34, 115),
+('2021-05-02 06:01:10', '2021-05-02 06:01:10', 34, 116),
+('2021-05-02 18:14:33', '2021-05-02 18:14:33', 34, 117),
+('2021-05-02 18:17:09', '2021-05-02 18:17:09', 34, 118),
+('2021-05-02 18:20:54', '2021-05-02 18:20:54', 34, 119),
+('2021-05-02 18:23:36', '2021-05-02 18:23:36', 34, 120);
 
 -- --------------------------------------------------------
 
@@ -1407,12 +1532,17 @@ CREATE TABLE `user_treatment` (
 INSERT INTO `user_treatment` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 1, 67),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 1, 111),
+('2021-05-02 04:37:20', '2021-05-02 04:37:20', 1, 115),
 ('2020-08-04 00:13:52', '2020-08-04 00:13:52', 2, 7),
+('2021-05-02 04:37:20', '2021-05-02 04:37:20', 2, 115),
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 5, 67),
+('2021-05-02 04:37:20', '2021-05-02 04:37:20', 5, 115),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 6, 69),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 6, 111),
 ('2020-08-04 00:13:52', '2020-08-04 00:13:52', 7, 7),
 ('2020-08-03 16:27:11', '2020-08-03 16:27:11', 7, 67),
+('2021-05-02 04:37:20', '2021-05-02 04:37:20', 7, 115),
+('2021-05-02 04:37:20', '2021-05-02 04:37:20', 10, 115),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 31, 69),
 ('2021-04-27 06:20:28', '2021-04-27 06:20:28', 34, 111),
 ('2020-08-10 21:23:01', '2020-08-10 21:23:01', 35, 69),
@@ -1453,7 +1583,7 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', 'Youtube : Yoga with Adriene (anglais)', 1, '2020-08-24 05:07:37', '2020-08-24 05:07:37'),
+(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
 (33, 'https://www.nhs.uk/conditions/nhs_fitness_studio/arthritis_pilates_exercise_video/\"', 'Arthritis pilates excercise', 'Arthritis pilates excercise (anglais)', 34, '2020-08-06 21:31:53', '2020-08-06 21:31:53'),
 (34, 'https://www.youtube.com/watch?v=0Kuv7blrV6U\"', 'Youtube watch 1', 'Youtube watch 1 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
 (35, 'https://www.youtube.com/watch?v=tED1RYb27ng', 'Youtube watch 2', 'Youtube watch 2 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
@@ -1719,67 +1849,73 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `confidences`
 --
 ALTER TABLE `confidences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `effectivenesses`
 --
 ALTER TABLE `effectivenesses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `frequentlies`
+--
+ALTER TABLE `frequentlies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT for table `motivations`
 --
 ALTER TABLE `motivations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pain_areas`
 --
 ALTER TABLE `pain_areas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pain_levels`
 --
 ALTER TABLE `pain_levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `preference_texts`
 --
 ALTER TABLE `preference_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `prescribed_texts`
 --
 ALTER TABLE `prescribed_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `treatment_texts`
 --
 ALTER TABLE `treatment_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- Constraints for dumped tables

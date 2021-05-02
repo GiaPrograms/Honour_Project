@@ -41,7 +41,6 @@ const styles = {
 
 
 const RadioButtons = ({setValue, minLabel, maxLabel, reversed, value, sliderId, forSlider}) => {
-  console.log('value', value)
   // console.log('setValue ****************************', setValue)
   const [number, setNumber] = useState('');
 
