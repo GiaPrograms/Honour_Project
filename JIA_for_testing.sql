@@ -2,9 +2,9 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 04:18 AM
--- Server version: 10.4.17-MariaDB
+-- Host: us-mm-dca-ec51fe76a795.g5.cleardb.net
+-- Generation Time: May 03, 2021 at 02:01 AM
+-- Server version: 5.7.31-log
 -- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `jia`
+-- Database: `jia-optionmap-database`
 --
 
 -- --------------------------------------------------------
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -55,7 +55,7 @@ INSERT INTO `categories` (`id`, `name`, `fr_name`, `created_at`, `updated_at`) V
 --
 
 CREATE TABLE `classifications` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(90) CHARACTER SET utf8 DEFAULT NULL,
   `section` varchar(255) NOT NULL,
@@ -91,6 +91,19 @@ CREATE TABLE `confidences` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `confidences`
+--
+
+INSERT INTO `confidences` (`id`, `level`, `user_id`, `created_at`, `updated_at`) VALUES
+(2, 8.5, NULL, '2020-06-06 22:55:01', '2020-06-06 22:55:01'),
+(9, 9.5, 7, '2020-06-08 18:12:21', '2020-08-06 03:32:32'),
+(10, 7.5, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
+(11, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(12, 1, 111, '2021-03-24 04:26:17', '2021-05-02 19:31:13'),
+(21, 5, 112, '2021-05-01 03:42:15', '2021-05-02 16:18:15'),
+(31, 1, 151, '2021-05-02 19:08:44', '2021-05-02 19:20:33');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +119,25 @@ CREATE TABLE `effectivenesses` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `effectivenesses`
+--
+
+INSERT INTO `effectivenesses` (`id`, `control_arthritis`, `manage_pain`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 7.5, NULL, NULL, '2020-06-06 23:05:40', '2020-06-06 23:05:40'),
+(2, 4.5, NULL, NULL, '2020-06-06 23:05:49', '2020-06-06 23:05:49'),
+(4, 2, 4, 7, '2020-06-08 17:33:10', '2020-08-10 05:59:00'),
+(5, 0.5, 3.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(6, 8, 4, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(7, 7, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(8, 0, 0, 111, '2021-03-16 03:21:15', '2021-05-02 19:51:27'),
+(9, 4, 4, NULL, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(10, 0, 0, 112, '2021-04-22 02:16:29', '2021-05-02 16:42:11'),
+(11, 7, 7, NULL, '2021-05-01 20:23:51', '2021-05-01 20:24:18'),
+(21, 5, 5, 131, '2021-05-02 06:11:37', '2021-05-02 19:49:24'),
+(31, 7, 7, 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(41, 1, 1, 151, '2021-05-02 19:08:35', '2021-05-02 19:20:50');
+
 -- --------------------------------------------------------
 
 --
@@ -113,7 +145,7 @@ CREATE TABLE `effectivenesses` (
 --
 
 CREATE TABLE `factors` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL,
   `fr_title` varchar(56) CHARACTER SET utf8 DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -151,6 +183,22 @@ CREATE TABLE `frequentlies` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `frequentlies`
+--
+
+INSERT INTO `frequentlies` (`id`, `prescribed_meds`, `fr_prescribed_meds`, `other_treatments`, `fr_other_treatments`, `user_id`, `created_at`, `updated_at`) VALUES
+(5, 'Not applicable', 'Sans objet', 'Sometimes', 'Parfois', 7, '2020-05-29 19:10:25', '2020-08-03 22:39:52'),
+(6, NULL, '', NULL, '', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(7, 'Not applicable', 'Sans objet', 'Most times', 'La plupart du temps', 69, '2020-08-10 21:22:12', '2020-08-10 21:23:01'),
+(8, NULL, '', NULL, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(9, 'Always', 'Toujours', 'Most times', 'La plupart du temps', 112, '2021-05-02 02:46:08', '2021-05-02 14:58:32'),
+(10, 'Sometimes', 'Parfois', 'Sometimes', 'Parfois', 111, '2021-05-02 02:46:38', '2021-05-02 19:30:46'),
+(11, 'Always', 'Toujours', 'Most times', 'La plupart du temps', 131, '2021-05-02 06:11:37', '2021-05-02 06:14:00'),
+(21, 'Always', 'Toujours', 'Most times', 'La plupart du temps', 131, '2021-05-02 06:11:37', '2021-05-02 06:14:00'),
+(31, 'Not applicable', 'Sans objet', 'Always', NULL, 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(41, 'Not applicable', 'Sans objet', 'Always', 'Toujours', 151, '2021-05-02 19:08:35', '2021-05-02 19:13:48');
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +206,7 @@ CREATE TABLE `frequentlies` (
 --
 
 CREATE TABLE `learns` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `link` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(49) CHARACTER SET utf8 DEFAULT NULL,
@@ -172,8 +220,6 @@ CREATE TABLE `learns` (
 --
 
 INSERT INTO `learns` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://teens.aboutkidshealth.ca/Article?contentid=2605&language=English&hub=jiateenhub', 'About kids health: Yoga (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
-(2, 'https://teens.aboutkidshealth.ca/Article?contentid=2606&language=English&hub=jiateenhub', 'About kids health: Basic yoga poses (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
 (190, 'http://education.arthritis.ca/en_us/learntousetoolsanddevices/topic6_9.aspx', 'wrist link 1', 'lien sur le poignet 1', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (191, 'https://www.aboutkidshealth.ca/Article?contentid=1079&language=English', 'wrist link name (English)', 'nom du lien sur le poignet', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (192, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2376&language=English', 'another web link (English)', 'un autre lien Web (anglais)', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
@@ -289,14 +335,105 @@ INSERT INTO `learns` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_
 CREATE TABLE `logs` (
   `id` int(11) NOT NULL,
   `purpose` varchar(255) DEFAULT NULL,
-  `plan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`plan`)),
-  `step_one` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`step_one`)),
-  `preferences` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`preferences`)),
-  `step_three` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`step_three`)),
+  `plan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `step_one` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `preferences` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `step_three` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`id`, `purpose`, `plan`, `step_one`, `preferences`, `step_three`, `user_id`, `created_at`, `updated_at`) VALUES
+(38, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', NULL, '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}], \"preference_text\": \"factor tests\"}', '{\"factors\": [\"Lack of information\"], \"suggestions\": [\"Talk with your parents\", \"Talk with your health care team\", \"Find out where I can get treatments nearby\", \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\", \"Dummy suggestion\"], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', 7, '2020-07-24 04:08:31', '2020-07-24 04:13:15'),
+(40, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"ankles\"}, {\"area\": \"knees\"}], \"pain_level\": 5.5, \"manage_pain\": 9, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Pill or Liquid (Prednisone™)\"}], \"treatment_text\": \"Test text\", \"prescribed_text\": \"Test text\", \"other_treatments\": [{\"name\": \"Tylenol®\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 4}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 6, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 9, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7.5, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}, {\"value\": 7, \"description\": \"Test prefernece\"}, {\"value\": 7, \"description\": \"New slider\"}], \"preference_text\": \"factor tests\"}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}, {\"title\": \"Dummy suggestion\"}], \"confidence_level\": 5.5, \"motivation_level\": 7.5}', 7, '2020-07-24 17:39:22', '2020-07-24 22:33:52'),
+(50, 'Change my plan', NULL, '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"elbows\"}, {\"area\": \"ankles\"}, {\"area\": \"knees\"}], \"pain_level\": 5.5, \"manage_pain\": 9, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}], \"treatment_text\": \"Test text\", \"prescribed_text\": \"Test text\", \"other_treatments\": [{\"name\": \"Tylenol®\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 4}', NULL, NULL, 7, '2020-07-29 15:38:33', '2020-07-29 15:40:54'),
+(52, 'Change my answers', '[{\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"ankles\"}, {\"area\": \"hips\"}], \"pain_level\": 8, \"manage_pain\": 3.5, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"Test text updated\", \"prescribed_text\": \"Test text updateds\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Custom-Made Foot Orthotics\"}, {\"name\": \"Yoga\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 0.5}', '{\"prefs\": [{\"value\": 2, \"description\": \"Relieving pain immediately\"}, {\"value\": 6, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 9.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 9, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor tests updates\"}', '{\"factors\": [{\"title\": \"Lack of time\"}, {\"title\": \"dummy factor\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out where I can get treatments nearby\"}], \"confidence_level\": 1, \"motivation_level\": 4.5}', 7, '2020-07-30 22:51:02', '2020-08-03 08:10:54'),
+(55, 'Change my answers', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}, {\"area\": \"knees\"}], \"pain_level\": 1.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Ibuprofen (Advil®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}], \"treatment_text\": \"req user id test\", \"prescribed_text\": \"req user id\", \"other_treatments\": [{\"name\": \"Acetylsalicylic acid (Aspirin®)\"}, {\"name\": \"Massage\"}, {\"name\": \"Educational Website\"}], \"control_arthritis\": 2}', '{\"prefs\": [{\"value\": 8.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 7.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 1.5, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 1.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 1, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"factor test\"}', '{\"factors\": [{\"title\": \"Lack of information\"}], \"suggestions\": [{\"title\": \"Talk with your parents\"}, {\"title\": \"Talk with your health care team\"}, {\"title\": \"Dummy suggestion with description\"}], \"confidence_level\": 9.5, \"motivation_level\": 9}', 7, '2020-08-03 16:56:33', '2020-08-04 05:26:52'),
+(90, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"elbows\"}, {\"area\": \"hips\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 8, \"description\": \"Relieving pain immediately\"}, {\"value\": 3.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 8, \"description\": \"Using treatments that help me relax\"}, {\"value\": 9, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-12 00:26:24', '2020-08-12 00:26:35'),
+(91, 'Change my plan', NULL, NULL, NULL, NULL, 72, '2020-08-13 18:05:40', '2020-08-13 18:05:40'),
+(92, 'Change my answers', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:05:51', '2020-08-13 18:05:51'),
+(93, 'Change my plan', NULL, NULL, NULL, NULL, 72, '2020-08-13 18:06:44', '2020-08-13 18:06:44'),
+(94, 'First time user', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:06:55', '2020-08-13 18:06:55'),
+(95, 'Change my answers', NULL, NULL, NULL, NULL, 72, '2020-08-13 18:09:49', '2020-08-13 18:09:49'),
+(96, 'Change my plan', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:09:59', '2020-08-13 18:09:59'),
+(97, 'Review information', NULL, NULL, NULL, NULL, 73, '2020-08-13 18:17:43', '2020-08-13 18:17:43'),
+(98, 'Change my plan', NULL, NULL, NULL, NULL, 73, '2020-08-13 18:18:21', '2020-08-13 18:18:21'),
+(99, 'Change my plan', NULL, NULL, NULL, NULL, 69, '2020-08-13 18:20:37', '2020-08-13 18:20:37'),
+(100, 'Change my answers', NULL, NULL, NULL, NULL, 75, '2020-08-13 18:21:16', '2020-08-13 18:21:16'),
+(101, 'Change my answers', NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-13 18:59:48', '2020-08-16 16:58:12'),
+(102, 'First time user', NULL, NULL, NULL, NULL, 76, '2020-08-16 17:18:41', '2020-08-16 17:18:41'),
+(103, 'Change my plan', NULL, NULL, NULL, NULL, 69, '2020-08-16 17:27:22', '2020-08-16 17:27:22'),
+(104, 'First time user', NULL, NULL, NULL, NULL, 77, '2020-08-17 20:54:08', '2020-08-17 20:54:08'),
+(105, 'Review information', NULL, NULL, NULL, NULL, 69, '2020-08-17 20:54:22', '2020-08-17 20:54:22'),
+(106, NULL, NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, NULL, 69, '2020-08-19 03:28:55', '2020-08-19 03:28:55'),
+(107, NULL, NULL, '{\"pain_areas\": [{\"area\": \"wrists\"}, {\"area\": \"hips\"}, {\"area\": \"lower_back\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}, {\"name\": \"Naproxen (Aleve®)\"}], \"treatment_text\": \"None\", \"prescribed_text\": \"None\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', '{\"prefs\": [{\"value\": 3.5, \"description\": \"Relieving pain immediately\"}, {\"value\": 9.5, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 2, \"description\": \"Using treatments that help me relax\"}, {\"value\": 4, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 3.5, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 0, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}], \"preference_text\": \"none\"}', NULL, 69, '2020-08-21 03:07:49', '2020-08-21 03:08:14'),
+(108, 'First time user', '[{\"name\": \"Massage\"}]', '{\"pain_areas\": [], \"pain_level\": 7, \"manage_pain\": 7, \"selected_meds\": [], \"treatment_text\": \"\", \"prescribed_text\": \"\", \"other_treatments\": [], \"control_arthritis\": 7}', '{\"prefs\": [{\"value\": 7, \"description\": \"Relieving pain immediately\"}, {\"value\": 7, \"description\": \"Avoiding pain medications on top of my prescribed arthritis medication\"}, {\"value\": 7, \"description\": \"Using treatments that help me relax\"}, {\"value\": 7, \"description\": \"Using nutritional approaches that help me stay healthy \"}, {\"value\": 7, \"description\": \"Using treatments that help me stay active\"}, {\"value\": 7, \"description\": \"Using treatments that help me learn to deal with JIA and its symptoms\"}]}', '{\"factors\": [], \"suggestions\": [], \"confidence_level\": 7, \"motivation_level\": 7}', 81, '2020-08-21 13:40:11', '2020-08-21 14:54:52'),
+(109, NULL, '[{\"name\": \"Educational Website\"}, {\"name\": \"Individualized Exercise Program\"}]', '{\"pain_areas\": [{\"area\": \"jaw\"}, {\"area\": \"shoulders\"}], \"pain_level\": 7.5, \"manage_pain\": 4, \"selected_meds\": [{\"name\": \"Naproxen (Aleve®)\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Etanercept (Enbrel®)\"}, {\"name\": \"Infliximab (Remicade®)\"}, {\"name\": \"Methotrexate(Metoject®, Rheumatrex®)\"}, {\"name\": \"Sulfasalazine(Metoject®, Rheumatrex®)\"}], \"treatment_text\": \"Update\", \"prescribed_text\": \"Update\", \"other_treatments\": [{\"name\": \"Opioids\"}, {\"name\": \"Tylenol®\"}, {\"name\": \"Diclofenac (Voltaren®)\"}, {\"name\": \"Osteopathy\"}, {\"name\": \"Wrist Splints Worn at Night\"}, {\"name\": \"Cardio\"}, {\"name\": \"Occupational Therapy Interventions\"}, {\"name\": \"Joint Protection Program\"}, {\"name\": \"Acetaminophen (Tylenol®)\"}, {\"name\": \"Relaxation\"}, {\"name\": \"Hypnosis\"}, {\"name\": \"NSAIDs in Creams\"}, {\"name\": \"Vegetarian & Vegan Diets\"}, {\"name\": \"Gluten-Free Diets\"}], \"control_arthritis\": 8}', NULL, '{\"factors\": [{\"title\": \"Lack of information\"}, {\"title\": \"Cost too much\"}, {\"title\": \"Not sure I want to follow this plan\"}], \"suggestions\": [{\"title\": \"Talk with your health care team\"}, {\"title\": \"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}], \"confidence_level\": 7.5, \"motivation_level\": 7}', 69, '2020-08-22 23:53:13', '2020-08-23 03:17:49'),
+(110, 'First time user', NULL, NULL, NULL, NULL, 88, '2020-08-24 14:37:51', '2020-08-24 14:37:52'),
+(111, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":7},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":7},{\"description\":\"Using treatments that help me relax\",\"value\":7},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":7},{\"description\":\"Using treatments that help me stay active\",\"value\":7},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":7}]}', NULL, 111, '2021-03-16 03:21:15', '2021-03-16 05:09:19'),
+(112, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-16 23:56:12', '2021-03-16 23:56:12'),
+(113, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":null}', NULL, 111, '2021-03-17 17:21:55', '2021-03-17 17:30:18'),
+(114, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Yoga\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Stretching\"}],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 111, '2021-03-18 01:18:41', '2021-03-18 01:18:42'),
+(115, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Yoga\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Stretching\"}],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 111, '2021-03-18 18:24:04', '2021-03-18 18:24:24'),
+(116, 'First time user', NULL, NULL, NULL, NULL, 112, '2021-03-22 17:18:39', '2021-03-22 17:18:39'),
+(117, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 17:38:40', '2021-03-23 17:40:30'),
+(118, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 18:00:48', '2021-03-23 18:00:48'),
+(119, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"knees\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-03-23 22:30:30', '2021-03-23 22:30:30'),
+(120, NULL, '[]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":\"\"}', '{\"motivation_level\":7,\"confidence_level\":7,\"factors\":[],\"suggestions\":[]}', 111, '2021-03-24 04:25:59', '2021-03-24 04:26:21'),
+(121, NULL, '[]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":0},{\"description\":\"Using treatments that help me relax\",\"value\":0},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":0},{\"description\":\"Using treatments that help me stay active\",\"value\":0},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":0}],\"preference_text\":\"\"}', '{\"motivation_level\":7,\"confidence_level\":7,\"factors\":[],\"suggestions\":[]}', 111, '2021-03-24 16:48:12', '2021-03-24 16:48:13'),
+(122, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-03-25 19:57:13', '2021-03-25 19:57:13'),
+(123, NULL, NULL, '{\"pain_level\":\"3\",\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-08 05:40:25', '2021-04-08 05:40:31'),
+(124, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-04-11 16:18:02', '2021-04-11 16:51:28'),
+(125, NULL, '[]', '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"ankles\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Cannabis/Marijuana\"}],\"treatment_text\":\"\",\"control_arthritis\":\"3\",\"manage_pain\":\"3\"}', NULL, '{\"motivation_level\":\"1\",\"confidence_level\":\"1\",\"factors\":[],\"suggestions\":[]}', 111, '2021-04-11 20:38:52', '2021-04-11 20:39:23'),
+(126, NULL, NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"3\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"\"}', NULL, 111, '2021-04-12 01:25:39', '2021-04-12 01:25:39'),
+(127, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-04-14 19:48:10', '2021-04-14 19:48:10'),
+(128, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-04-20 23:53:08', '2021-04-20 23:53:08'),
+(129, 'Change my plan', NULL, NULL, NULL, NULL, 112, '2021-04-20 23:53:34', '2021-04-20 23:53:34'),
+(130, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-22 02:13:26', '2021-04-22 02:13:26'),
+(131, NULL, NULL, '{\"pain_level\":\"3\",\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"howOften_pres\":\"Always\",\"howOften_other\":\"Most times\",\"control_arthritis\":\"4\",\"manage_pain\":\"4\"}', NULL, NULL, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(132, 'Change my answers', NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":3},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":3},{\"description\":\"Using treatments that help me relax\",\"value\":\"1\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":3},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":3}],\"preference_text\":null}', NULL, 112, '2021-04-22 02:16:11', '2021-04-22 02:17:14'),
+(133, NULL, NULL, NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"3\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"2\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"3\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"4\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"4\"}]}', NULL, 114, '2021-04-22 02:18:45', '2021-04-22 02:18:45'),
+(134, NULL, '[]', NULL, NULL, '{\"motivation_level\":1,\"confidence_level\":1,\"factors\":[],\"suggestions\":[]}', 111, '2021-04-22 02:20:21', '2021-04-22 02:20:21'),
+(135, NULL, '[{\"name\":\"Water Exercises\"}]', NULL, NULL, '{\"motivation_level\":\"3\",\"confidence_level\":\"5\",\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 06:21:27', '2021-04-27 06:21:27'),
+(136, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 06:58:25', '2021-04-27 06:58:25'),
+(137, NULL, '[{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":1},{\"description\":\"Using treatments that help me relax\",\"value\":2},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":4},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"2\"}],\"preference_text\":\"\"}', '{\"motivation_level\":3,\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-04-27 21:02:24', '2021-04-27 21:03:19'),
+(138, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-04-27 21:05:30', '2021-04-27 21:05:30'),
+(141, NULL, NULL, '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"elbows\"},{\"area\":\"ankles\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"},{\"area\":\"fingers\"}],\"selected_meds\":[{\"name\":\"Naproxen (Naprosyn®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Sulfasalazine(Metoject®, Rheumatrex®)\"},{\"name\":\"Golimumab(Symponi®)\"},{\"name\":\"Abatacept (Orencia®)\"},{\"name\":\"Ixekizumab (Taltz®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Custom-Made Foot Orthotics\"},{\"name\":\"Osteopathic Manipulation\"},{\"name\":\"Pilates\"},{\"name\":\"Occupational Therapy Interventions\"},{\"name\":\"Mindfulness\"},{\"name\":\"Cannabis/Marijuana\"},{\"name\":\"Fish Oil (Omega-3)\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Not applicable\",\"howOften_other\":\"Always\",\"control_arthritis\":2,\"manage_pain\":4}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"5\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"5\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"5\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"5\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"5\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"Test\"}', NULL, 111, '2021-05-01 01:57:15', '2021-05-01 01:59:31'),
+(151, NULL, '[{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', '{\"pain_level\":3,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"wrists\"},{\"area\":\"shoulders\"}],\"selected_meds\":[{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Hydroxychloroquine (Plaquenil®)\"},{\"name\":\"Rituximab (Rituxan®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"},{\"name\":\"Acetylsalicylic Acid (Aspirin®)\"},{\"name\":\"Vegetarian & Vegan Diets\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"control_arthritis\":1,\"manage_pain\":2}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"0\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"3\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"4\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":5}],\"preference_text\":\"Test\"}', '{\"motivation_level\":3,\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-05-01 02:29:20', '2021-05-01 02:30:09'),
+(161, 'Change my plan', NULL, NULL, NULL, NULL, 112, '2021-05-01 02:56:29', '2021-05-01 02:56:29'),
+(171, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-05-01 03:06:25', '2021-05-01 03:06:25'),
+(181, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-05-01 03:06:56', '2021-05-01 03:06:56'),
+(191, 'First time user', NULL, NULL, NULL, NULL, 112, '2021-05-01 03:19:41', '2021-05-01 03:19:41'),
+(201, 'Change my answers', '[{\"name\":\"Pilates\"},{\"name\":\"Acetaminophen (Tylenol®)\"}]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":3},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":3},{\"description\":\"Using treatments that help me relax\",\"value\":1},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":3},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":3}],\"preference_text\":\"\"}', '{\"motivation_level\":\"3\",\"confidence_level\":\"3\",\"factors\":[{\"title\":\"Lack of time\"}],\"suggestions\":[{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 112, '2021-05-01 03:39:09', '2021-05-01 03:42:16'),
+(211, 'Change my plan', NULL, NULL, NULL, NULL, 112, '2021-05-01 03:43:22', '2021-05-01 03:43:22'),
+(221, 'Change my answers', '[{\"name\":\"Massage\"},{\"name\":\"Acetaminophen (Tylenol®)\"},{\"name\":\"Relaxation\"}]', NULL, '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"5\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"5\"},{\"description\":\"Using treatments that help me relax\",\"value\":1},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":\"5\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":\"\"}', '{\"motivation_level\":5,\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of time\"}],\"suggestions\":[{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 112, '2021-05-01 03:51:11', '2021-05-01 03:57:26'),
+(231, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-05-01 04:07:42', '2021-05-01 04:07:42'),
+(241, 'First time user', NULL, NULL, NULL, NULL, 112, '2021-05-01 06:27:27', '2021-05-01 06:27:27'),
+(251, NULL, NULL, '{\"pain_level\":\"5\",\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"wrists\"},{\"area\":\"shoulders\"}],\"selected_meds\":[{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Hydroxychloroquine (Plaquenil®)\"},{\"name\":\"Rituximab (Rituxan®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"},{\"name\":\"Acetylsalicylic Acid (Aspirin®)\"},{\"name\":\"Vegetarian & Vegan Diets\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"control_arthritis\":1,\"manage_pain\":2}', NULL, NULL, 111, '2021-05-01 14:26:07', '2021-05-01 14:26:16'),
+(261, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-05-01 14:29:29', '2021-05-01 14:29:29'),
+(271, 'Review information', NULL, NULL, NULL, NULL, 121, '2021-05-01 20:23:25', '2021-05-01 20:23:25'),
+(281, 'Change my plan', NULL, NULL, NULL, NULL, 112, '2021-05-01 21:31:42', '2021-05-01 21:31:42'),
+(291, NULL, NULL, '{\"pain_level\":\"0\",\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"wrists\"},{\"area\":\"shoulders\"},{\"area\":\"lower_back\"}],\"selected_meds\":[{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Corticosteroid injections\"},{\"name\":\"Hydroxychloroquine (Plaquenil®)\"},{\"name\":\"Rituximab (Rituxan®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"},{\"name\":\"Acetylsalicylic Acid (Aspirin®)\"},{\"name\":\"Vegetarian & Vegan Diets\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"control_arthritis\":1,\"manage_pain\":2}', NULL, NULL, 111, '2021-05-01 21:56:26', '2021-05-01 21:56:26'),
+(301, NULL, '[{\"name\":\"Educational Website\"},{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', '{\"pain_level\":\"2\",\"pain_areas\":[{\"area\":\"shoulders\"},{\"area\":\"ankles\"},{\"area\":\"hips\"},{\"area\":\"lower_back\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Vegetarian & Vegan Diets\"},{\"name\":\"Gluten-Free Diets\"}],\"treatment_text\":\"\",\"control_arthritis\":1,\"manage_pain\":2}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":1},{\"description\":\"Using treatments that help me relax\",\"value\":2},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":4},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":5}],\"preference_text\":\"I\'ve fallen, and can\'t get up\"}', '{\"motivation_level\":\"0\",\"confidence_level\":\"0\",\"factors\":[{\"title\":\"Lack of information\"},{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"},{\"title\":\"Feeling overwhelmed\"},{\"title\":\"Not sure I want to follow this plan\"},{\"title\":\"Other\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Talk with your health care team\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-05-02 00:53:08', '2021-05-02 00:56:03'),
+(311, 'First time user', NULL, '{\"pain_level\":0,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"lower_back\"}],\"selected_meds\":[{\"name\":\"Corticosteroid injections\"},{\"name\":\"Leflunomide (Arava®)\"},{\"name\":\"Anakinra (Kineret®)\"},{\"name\":\"Indomethacin (Indocid®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Always\",\"howOften_other\":\"Most times\",\"control_arthritis\":5,\"manage_pain\":5}', NULL, NULL, 131, '2021-05-02 06:11:06', '2021-05-02 06:14:00'),
+(321, 'Review information', NULL, '{\"pain_level\":5,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"howOften_pres\":\"Not applicable\",\"howOften_other\":\"Always\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 141, '2021-05-02 06:15:11', '2021-05-02 06:18:10'),
+(331, NULL, NULL, '{\"pain_level\":7,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":7,\"manage_pain\":7}', NULL, NULL, 111, '2021-05-02 06:20:40', '2021-05-02 06:20:40'),
+(341, 'Review information', NULL, '{\"pain_level\":5,\"pain_areas\":[{\"area\":\"shoulders\"},{\"area\":\"hips\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Educational Website\"},{\"name\":\"Healthy Diet\"}],\"treatment_text\":\"\",\"howOften_pres\":\"Always\",\"howOften_other\":\"Most times\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 112, '2021-05-02 14:57:45', '2021-05-02 14:58:32'),
+(351, 'First time user', NULL, NULL, NULL, NULL, 112, '2021-05-02 16:03:10', '2021-05-02 16:03:10'),
+(361, 'First time user', '[{\"name\":\"Massage\"},{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Acetaminophen (Tylenol®)\"},{\"name\":\"Relaxation\"},{\"name\":\"Cognitive-Behavioural Therapy\"}]', '{\"pain_level\":\"5\",\"pain_areas\":[{\"area\":\"shoulders\"},{\"area\":\"hips\"},{\"area\":\"lower_back\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"},{\"name\":\"Ibuprofen (Advil®)\"},{\"name\":\"Educational Website\"},{\"name\":\"Healthy Diet\"}],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":2},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":3},{\"description\":\"Using treatments that help me relax\",\"value\":1},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":3},{\"description\":\"Using treatments that help me stay active\",\"value\":5},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":3}],\"preference_text\":\"\"}', '{\"motivation_level\":\"4\",\"confidence_level\":5,\"factors\":[{\"title\":\"Lack of information\"},{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"}],\"suggestions\":[{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 112, '2021-05-02 16:12:09', '2021-05-02 16:44:27'),
+(371, 'Review information', NULL, NULL, NULL, NULL, 112, '2021-05-02 16:44:53', '2021-05-02 16:44:53'),
+(381, 'Change my answers', NULL, NULL, NULL, NULL, 112, '2021-05-02 16:47:44', '2021-05-02 16:47:44'),
+(391, 'First time user', '[{\"name\":\"Acetaminophen (Tylenol®)\"},{\"name\":\"Healthy Diet\"}]', '{\"pain_level\":\"1\",\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"wrists\"},{\"area\":\"lower_back\"},{\"area\":\"neck\"}],\"selected_meds\":[{\"name\":\"Corticosteroid injections\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Opioids\"},{\"name\":\"Tylenol®\"},{\"name\":\"Cold\"}],\"treatment_text\":\"\",\"control_arthritis\":\"1\",\"manage_pain\":\"1\"}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":0},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":\"1\"},{\"description\":\"Using treatments that help me relax\",\"value\":\"2\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"2\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"5\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"5\"}],\"preference_text\":null}', '{\"motivation_level\":\"2\",\"confidence_level\":\"1\",\"factors\":[{\"title\":\"Lack of time\"}],\"suggestions\":[{\"title\":\"Talk with your health care team\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 151, '2021-05-02 19:07:47', '2021-05-02 19:20:50'),
+(401, NULL, NULL, '{\"pain_level\":\"0\",\"pain_areas\":[{\"area\":\"shoulders\"},{\"area\":\"ankles\"},{\"area\":\"hips\"},{\"area\":\"lower_back\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":\"0\",\"manage_pain\":\"0\"}', NULL, NULL, 111, '2021-05-02 19:26:39', '2021-05-02 19:26:39'),
+(411, NULL, '[{\"name\":\"Educational Website\"},{\"name\":\"Wrist Splints Worn at Night\"},{\"name\":\"Water Exercises\"}]', '{\"pain_level\":\"1\",\"pain_areas\":[{\"area\":\"shoulders\"},{\"area\":\"ankles\"},{\"area\":\"hips\"},{\"area\":\"lower_back\"}],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"howOften_pres\":\"Sometimes\",\"howOften_other\":\"Sometimes\",\"control_arthritis\":\"1\",\"manage_pain\":\"1\"}', '{\"prefs\":[{\"description\":\"Relieving pain immediately\",\"value\":\"1\"},{\"description\":\"Avoiding pain medications on top of my prescribed arthritis medication\",\"value\":1},{\"description\":\"Using treatments that help me relax\",\"value\":\"1\"},{\"description\":\"Using nutritional approaches that help me stay healthy \",\"value\":\"1\"},{\"description\":\"Using treatments that help me stay active\",\"value\":\"1\"},{\"description\":\"Using treatments that help me learn to deal with JIA and its symptoms\",\"value\":\"1\"}],\"preference_text\":\"\"}', '{\"motivation_level\":\"1\",\"confidence_level\":\"1\",\"factors\":[{\"title\":\"Lack of information\"},{\"title\":\"Lack of time\"},{\"title\":\"Cost too much\"},{\"title\":\"Feeling overwhelmed\"},{\"title\":\"Not sure I want to follow this plan\"},{\"title\":\"Other\"}],\"suggestions\":[{\"title\":\"Talk with your parents\"},{\"title\":\"Talk with your health care team\"},{\"title\":\"Find out where I can get treatments nearby\"},{\"title\":\"Find out how to pay for the treatments. (For example, does my health insurance pay for it?)\"}]}', 111, '2021-05-02 19:30:46', '2021-05-02 19:31:14'),
+(421, 'Review information', NULL, '{\"pain_level\":0,\"pain_areas\":[{\"area\":\"jaw\"},{\"area\":\"lower_back\"}],\"selected_meds\":[{\"name\":\"Corticosteroid injections\"},{\"name\":\"Leflunomide (Arava®)\"},{\"name\":\"Anakinra (Kineret®)\"},{\"name\":\"Indomethacin (Indocid®)\"}],\"prescribed_text\":\"\",\"other_treatments\":[{\"name\":\"Tylenol®\"}],\"treatment_text\":\"\",\"control_arthritis\":5,\"manage_pain\":5}', NULL, NULL, 131, '2021-05-02 19:49:20', '2021-05-02 19:49:24'),
+(431, 'First time user', NULL, NULL, NULL, NULL, 161, '2021-05-02 19:50:10', '2021-05-02 19:50:10'),
+(441, NULL, NULL, '{\"pain_level\":0,\"pain_areas\":[],\"selected_meds\":[],\"prescribed_text\":\"\",\"other_treatments\":[],\"treatment_text\":\"\",\"control_arthritis\":0,\"manage_pain\":0}', NULL, NULL, 111, '2021-05-02 19:51:28', '2021-05-02 19:51:28');
 
 -- --------------------------------------------------------
 
@@ -305,7 +442,7 @@ CREATE TABLE `logs` (
 --
 
 CREATE TABLE `medications` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `classification_id` int(11) DEFAULT NULL,
@@ -367,6 +504,19 @@ CREATE TABLE `motivations` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `motivations`
+--
+
+INSERT INTO `motivations` (`id`, `level`, `user_id`, `created_at`, `updated_at`) VALUES
+(2, 7.5, NULL, '2020-06-06 23:02:10', '2020-06-06 23:02:10'),
+(3, 9, 7, '2020-06-08 18:13:13', '2020-08-06 03:32:32'),
+(4, 7, 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
+(5, 7, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(6, 1, 111, '2021-03-24 04:26:17', '2021-05-02 19:31:13'),
+(11, 4, 112, '2021-05-01 03:42:15', '2021-05-02 16:18:15'),
+(21, 2, 151, '2021-05-02 19:08:44', '2021-05-02 19:20:33');
+
 -- --------------------------------------------------------
 
 --
@@ -391,6 +541,26 @@ CREATE TABLE `pain_areas` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pain_areas`
+--
+
+INSERT INTO `pain_areas` (`id`, `ankles`, `elbows`, `hips`, `jaw`, `knees`, `lower_back`, `shoulders`, `wrists`, `neck`, `fingers`, `toes`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 7, '2020-06-03 23:49:34', '2020-08-10 05:59:00'),
+(2, 1, 1, 0, 0, 0, 1, 0, 1, 0, NULL, NULL, 15, '2020-06-23 03:49:59', '2020-06-23 03:49:59'),
+(3, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, NULL, '2020-06-23 03:50:16', '2020-06-23 03:50:16'),
+(4, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, NULL, '2020-06-23 03:50:27', '2020-06-23 03:50:27'),
+(5, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(6, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(8, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 111, '2021-03-17 17:24:48', '2021-05-02 19:51:27'),
+(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(10, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 112, '2021-04-22 02:16:29', '2021-05-02 16:42:11'),
+(11, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 121, '2021-05-01 20:23:50', '2021-05-01 20:24:18'),
+(21, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 131, '2021-05-02 06:11:37', '2021-05-02 19:49:24'),
+(31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(41, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 151, '2021-05-02 19:08:35', '2021-05-02 19:20:50');
+
 -- --------------------------------------------------------
 
 --
@@ -405,6 +575,23 @@ CREATE TABLE `pain_levels` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pain_levels`
+--
+
+INSERT INTO `pain_levels` (`id`, `level`, `user_id`, `created_at`, `updated_at`) VALUES
+(7, 3.5, 7, '2020-06-08 16:15:05', '2020-08-10 05:59:00'),
+(8, 4.5, 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(9, 7.5, 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(10, 7, 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(11, 0, 111, '2021-03-16 03:21:15', '2021-05-02 19:51:27'),
+(12, 3, 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(13, 5, 112, '2021-04-22 02:16:29', '2021-05-02 16:42:11'),
+(21, 1, 121, '2021-05-01 20:23:50', '2021-05-01 20:24:18'),
+(31, 0, 131, '2021-05-02 06:11:37', '2021-05-02 19:49:24'),
+(41, 5, 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(51, 1, 151, '2021-05-02 19:08:35', '2021-05-02 19:20:50');
+
 -- --------------------------------------------------------
 
 --
@@ -412,7 +599,7 @@ CREATE TABLE `pain_levels` (
 --
 
 CREATE TABLE `preferences` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `description` varchar(255) NOT NULL,
   `fr_description` varchar(82) CHARACTER SET utf8 DEFAULT NULL,
   `recommends` tinyint(1) NOT NULL,
@@ -471,11 +658,24 @@ INSERT INTO `preference_category` (`created_at`, `updated_at`, `category_id`, `p
 
 CREATE TABLE `preference_texts` (
   `id` int(11) NOT NULL,
-  `text` text DEFAULT NULL,
+  `text` text,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `preference_texts`
+--
+
+INSERT INTO `preference_texts` (`id`, `text`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'factor test', 7, '2020-07-03 06:45:58', '2020-08-10 06:02:26'),
+(2, 'none', 69, '2020-08-10 21:23:20', '2020-08-21 03:08:14'),
+(3, NULL, 81, '2020-08-21 14:54:37', '2020-08-21 14:54:37'),
+(4, '', 111, '2021-03-16 03:21:23', '2021-05-02 19:31:00'),
+(5, '', 112, '2021-04-22 02:17:06', '2021-05-02 16:44:27'),
+(6, NULL, 114, '2021-04-22 02:18:45', '2021-04-22 02:18:45'),
+(11, '', 151, '2021-05-02 19:08:41', '2021-05-02 19:14:51');
 
 -- --------------------------------------------------------
 
@@ -485,11 +685,28 @@ CREATE TABLE `preference_texts` (
 
 CREATE TABLE `prescribed_texts` (
   `id` int(11) NOT NULL,
-  `text` text DEFAULT NULL,
+  `text` text,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prescribed_texts`
+--
+
+INSERT INTO `prescribed_texts` (`id`, `text`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'req user id', 7, '2020-07-03 04:27:01', '2020-08-10 05:59:00'),
+(2, 'Test text updateds', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-05-02 19:51:27'),
+(6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(7, '', 112, '2021-04-22 02:16:29', '2021-05-02 16:42:11'),
+(11, '', 121, '2021-05-01 20:23:50', '2021-05-01 20:24:18'),
+(21, '', 131, '2021-05-02 06:11:37', '2021-05-02 19:49:24'),
+(31, '', 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(41, '', 151, '2021-05-02 19:08:35', '2021-05-02 19:20:50');
 
 -- --------------------------------------------------------
 
@@ -498,7 +715,7 @@ CREATE TABLE `prescribed_texts` (
 --
 
 CREATE TABLE `results` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(54) CHARACTER SET utf8 DEFAULT NULL,
   `score` tinyint(4) NOT NULL,
@@ -561,6 +778,19 @@ CREATE TABLE `reviews` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `selection`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'true', NULL, '2020-05-24 23:18:36', '2020-05-24 23:18:36'),
+(4, 'true', 7, '2020-06-10 05:19:16', '2020-08-06 03:32:32'),
+(5, 'false', 69, '2020-08-10 21:26:25', '2020-08-23 03:17:49'),
+(6, NULL, 81, '2020-08-21 14:54:52', '2020-08-21 14:54:52'),
+(7, 'false', 111, '2021-03-24 04:26:17', '2021-05-02 19:31:13'),
+(11, 'true', 112, '2021-05-01 03:42:15', '2021-05-02 16:18:15'),
+(21, 'don\'t know', 151, '2021-05-02 19:08:44', '2021-05-02 19:20:33');
+
 -- --------------------------------------------------------
 
 --
@@ -568,7 +798,7 @@ CREATE TABLE `reviews` (
 --
 
 CREATE TABLE `studies` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) DEFAULT NULL,
   `fr_name` varchar(152) CHARACTER SET utf8 DEFAULT NULL,
   `does_work` varchar(512) NOT NULL,
@@ -645,7 +875,7 @@ INSERT INTO `studies` (`id`, `name`, `fr_name`, `does_work`, `fr_does_work`, `is
 --
 
 CREATE TABLE `suggestions` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `title` varchar(255) NOT NULL,
   `fr_title` varchar(131) CHARACTER SET utf8 DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -671,7 +901,7 @@ INSERT INTO `suggestions` (`id`, `title`, `fr_title`, `description`, `fr_descrip
 --
 
 CREATE TABLE `treatments` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(41) CHARACTER SET utf8 DEFAULT NULL,
   `supervision` varchar(255) NOT NULL,
@@ -696,7 +926,7 @@ CREATE TABLE `treatments` (
   `fr_where` varchar(384) CHARACTER SET utf8 DEFAULT NULL,
   `consider` varchar(1024) DEFAULT NULL,
   `fr_consider` varchar(418) CHARACTER SET utf8 DEFAULT NULL,
-  `image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`image`)),
+  `image` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `treatment_classification_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
@@ -707,7 +937,7 @@ CREATE TABLE `treatments` (
 --
 
 INSERT INTO `treatments` (`id`, `name`, `fr_name`, `supervision`, `evidence_level`, `order_number`, `specification`, `fr_specification`, `description`, `fr_description`, `traffic_level`, `traffic_description`, `fr_traffic_description`, `experts_suggest`, `fr_experts_suggest`, `how_use`, `fr_how_use`, `how_soon`, `fr_how_soon`, `cost`, `fr_cost`, `where`, `fr_where`, `consider`, `fr_consider`, `image`, `treatment_classification_id`, `created_at`, `updated_at`) VALUES
-(1, 'Custom-Made Foot Orthotics', 'Orthèses plantaires sur mesure', 'HCP', 1, 1, 'legs', 'Jambes', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 'Les orthèses plantaires sur mesure sont des coussinets spécialement conçus pour votre pied que vous placez dans votre chaussure pour aider à soutenir, aligner et améliorer la fonction de votre pied.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Les orthèses plantaires sur mesure semblent être efficaces et sécuritaires pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent utiliser des orthèses plantaires pour soulager leur douleur après en avoir parlé à un professionnel de la santé.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'Les experts suggèrent que les orthèses plantaires peuvent être utilisées au besoin en suivant les conseils de votre équipe soignante.', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'Vous devrez peut-être porter des orthèses en tout temps dans vos chaussures. L’adaptation aux nouvelles orthèses plantaires sur mesure peut prendre environ deux semaines. Il est suggéré de porter des orthèses pendant une heure le premier jour, deux heures le deuxième jour et de progresser chaque jour pour qu’après deux semaines, vous soyez confortable toute la journée. Des ajustements pourraient être nécessaires.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Les orthèses plantaires sur mesure coûtent généralement plus cher que les semelles et les chaussures de soutien achetées en magasin. Votre assurance maladie peut couvrir certains de ces frais.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Les physiothérapeutes, les ergothérapeutes et les podiatres peuvent généralement fournir des orthèses plantaires sur mesure. Votre équipe soignante pourrait vous aider à y avoir accès.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', 'Étant donné que les orthèses plantaires sur mesure semblent être efficaces et sécuritaires, mais coûtent de l’argent, vous pouvez d’abord essayer de porter des chaussures confortables avec un bon support pour l’arche et acheter des semelles en magasin.  Ces options pourraient vous aider. Le type de chaussures et d’orthèses préférées varie d’une personne à l’autre. Vous pouvez en essayer pour voir si vous les aimez.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2021-05-02 18:27:23'),
+(1, 'Custom-Made Foot Orthotics', 'Orthèses plantaires sur mesure', 'HCP', 1, 1, 'legs', 'Jambes', 'A custom-made foot orthotics are pads made specially for your foot that you place in your shoe to help support, align and improve the function of your foot.', 'Les orthèses plantaires sur mesure sont des coussinets spécialement conçus pour votre pied que vous placez dans votre chaussure pour aider à soutenir, aligner et améliorer la fonction de votre pied.', 1, 'Custom-made foot orthotics seem to be effective and safe for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with health professionals.', 'Les orthèses plantaires sur mesure semblent être efficaces et sécuritaires pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent utiliser des orthèses plantaires pour soulager leur douleur après en avoir parlé à un professionnel de la santé.', 'Experts suggest that foot orthotics can be used when needed with the guidance of your health care team', 'Les experts suggèrent que les orthèses plantaires peuvent être utilisées au besoin en suivant les conseils de votre équipe soignante.', 'You may have to wear orthotics all day, every day in your shoes. It may take about two weeks to adjust to new custom made foot orthotics. It is suggested to wear orthotics for an hour on the first day, two hours on the second day, and continuously progress each day so that by the end of the two weeks, you can wear orthotics comfortably all day. Fittings or adjustments may be needed.', 'Vous devrez peut-être porter des orthèses en tout temps dans vos chaussures. L’adaptation aux nouvelles orthèses plantaires sur mesure peut prendre environ deux semaines. Il est suggéré de porter des orthèses pendant une heure le premier jour, deux heures le deuxième jour et de progresser chaque jour pour qu’après deux semaines, vous soyez confortable toute la journée. Des ajustements pourraient être nécessaires.', 'It may help right away or it may take up a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Custom made foot orthotics usually cost more money than store bought soles and supportive shoes. Your health insurance may cover some of these costs.', 'Les orthèses plantaires sur mesure coûtent généralement plus cher que les semelles et les chaussures de soutien achetées en magasin. Votre assurance maladie peut couvrir certains de ces frais.', 'Physiotherapists, occupational therapists, and podiatrists usually provide custom made foot orthotics. You can talk about it with your health care team to help you access it.', 'Les physiothérapeutes, les ergothérapeutes et les podiatres peuvent généralement fournir des orthèses plantaires sur mesure. Votre équipe soignante pourrait vous aider à y avoir accès.', 'Since custom-made foot orthotics seem to be effective and safe but they cost money, you can try first wearing comfortable shoes with good arches and also buying insoles in a store.  These may be helpful. Not everybody likes the same type of footwear and orthotics. You can try them out to see if you like them.', 'Étant donné que les orthèses plantaires sur mesure semblent être efficaces et sécuritaires, mais coûtent de l’argent, vous pouvez d’abord essayer de porter des chaussures confortables avec un bon support pour l’arche et acheter des semelles en magasin.  Ces options pourraient vous aider. Le type de chaussures et d’orthèses préférées varie d’une personne à l’autre. Vous pouvez en essayer pour voir si vous les aimez.', '\"uploads/1597815299127foot_ortho.jpg\"', 1, '2020-06-09 23:11:49', '2021-05-01 18:43:55'),
 (2, 'Massage', 'Massothérapie', 'SC', 1, 3, 'general', 'général', 'Rubbing or kneading your muscle or joints to help you relax.', 'Frotter ou pétrir vos muscles ou vos articulations pour vous aider à vous détendre.', 1, 'Massage seems be effective and safe for youth with JIA. It may be used by youth with JIA to manage pain.', 'La massothérapie semble être efficace et sans danger pour les jeunes atteints d’AJI. Elle peut être utilisée par les jeunes atteints d’AJI pour soulager la douleur.', 'Experts suggest that youth with JIA can use massage.', 'Les experts suggèrent que les jeunes atteints d’AJI peuvent recevoir des massages.', 'Massages as short as 15 minutes a day can help to reduce pain. You could also have longer massages less often since most massage therapists will give a massage for at least 30 minutes.', 'Même un massage de 15 minutes par jour peut aider à atténuer la douleur. Vous pourriez aussi recevoir un massage plus long moins souvent puisque chez les massothérapeutes, les massages durent au moins 30 minutes.', 'It may help right away or it may take up to a month to feel better with a massage per day. It may take longer if you have massages less often. Everybody is different.', 'Vous pourriez ressentir les bienfaits tout de suite ou après jusqu’à un mois avec un massage par jour. Les bienfaits pourraient prendre plus de temps si vos massages sont plus espacés. Tout le monde est différent.', 'Massage can be free if done by yourself or a family member. Professional massages may be covered by health insurance or may require out-of-pocket cost depending on your insurance.', 'Vous pouvez recevoir des massages gratuitement si vous le faites vous-même ou si un membre de votre famille vous aide. Les massages professionnels sont parfois couverts par l’assurance maladie ou peuvent nécessiter des frais supplémentaires en fonction de votre assurance.', 'Massage therapists usually provide this treatment. It is better to consult with a registered massage therapist who has experience with treating patients who have JIA. You may also seek training to do massages on your own or purchase massaging devices that can be used at home.', 'Ce traitement est généralement offert par des massothérapeutes. Il est préférable de consulter un massothérapeute agréé qui a déjà traité des patients atteints d’AJI. Vous pouvez également suivre une formation pour vous faire des massages ou acheter des appareils de massage à utiliser à la maison.', 'If massages are causing more pain, then you should stop this treatment option. You should also consider your comfort level with receiving massage from a trained professional who is a stranger or from your parents. If you choose to try massage, make sure to advocate for yourself about your comfort level.', 'Si votre douleur empire avec le massage, vous devez cesser cette option de traitement. Vous devez également tenir compte de votre niveau de confort à recevoir un massage d’un professionnel qualifié qui est un étranger ou de vos parents. Si vous choisissez d’essayer le massage, assurez-vous de respecter votre niveau de confort.', '\"uploads/1595422649352massage.jpg\"', 3, '2020-06-10 00:33:38', '2020-08-08 04:17:47'),
 (5, 'Yoga', 'Yoga', 'SC', 3, 8, 'general', 'général', 'Exercises including stretching and focused breathing that help relax you.', 'Exercices axés sur les étirements et la respiration en profondeur qui vous aident à vous détendre.', 1, 'Yoga seems to be effective and safe for adults with rheumatoid arthritis (RA). It may be used by youth with JIA to manage pain.', 'Le yoga semble être efficace et sans danger pour les adultes atteints de polyarthrite rhumatoïde (PR). Il peut être utilisé par les jeunes atteints d’AJI pour soulager la douleur.', 'Experts suggest that youth with JIA should participate in regular physical activity.', 'Les experts suggèrent que les jeunes atteints d’AJI devraient pratiquer une activité physique de façon régulière.', 'Youth should do about an hour of physical activity (moderate to vigorous intensity) per day but you can do it in sessions of about 15 minutes depending on your schedule. It may be important to gradually increase how often and how long you do physical activity over time.', 'Les jeunes devraient faire environ une heure d’activité physique (intensité modérée à vigoureuse) par jour, mais vous pouvez la diviser en séances d’environ 15 minutes en fonction de votre emploi du temps. Il peut être important d’augmenter progressivement la fréquence et la durée de l’activité physique.', 'It may help right away or it may take up to a few months to feel better. Everybody is different.', 'Vous pouvez ressentir les bienfaits tout de suite ou après quelques mois. Tout le monde est différent.', 'Yoga can cost money if you attend classes. You can avoid the cost by following an online program.', 'Il pourrait y avoir des coûts associés si vous suivez un cours de yoga. Suivre un programme en ligne vous permettrait d’éviter ces frais.', 'There are yoga classes at community centres and gyms. Also, there are video tutorials online (see the links below).', 'Des cours de yoga sont offerts dans les centres communautaires et dans les gyms. Des tutoriels sont également disponibles en ligne (voir les liens ci-dessous).', 'It is important to do movements at your own pace to avoid hurting yourself. It helps to start with a warm up and end with cool down exercises to help prevent injuries.', 'Il est important de faire les mouvements à votre rythme pour éviter de vous blesser. Pour éviter les blessures, il est utile de commencer par un échauffement et de terminer par des exercices de récupération.', '\"uploads/1595423805028yoga.jpg\"', 2, '2020-06-12 20:21:18', '2020-08-14 19:32:51'),
 (6, 'Osteopathic Manipulation', 'Ostéopathie', 'HCP', 7, 31, 'general', 'général', 'Osteopathic manipulation includes hands-on-treatments that work on bones, muscles, and fascia to optimize the body’s alignment.', 'L’ostéopathie comprend des traitements pratiques qui agissent sur les os, les muscles et les fascias pour optimiser l’alignement du corps.', 2, 'Osteopathy is not mentioned in guidelines for youth with JIA. They may be used by youth with JIA to manage pain after a discussion with their health care team.', 'L’ostéopathie n’est pas mentionnée dans les lignes directrices pour les jeunes atteints d’AJI. Les jeunes atteints d’AJI peuvent recourir à l’ostéopathie pour soulager leur douleur après en avoir parlé à leur équipe soignante.', 'Osteopathy is not mentioned in guidelines for JIA.', 'L’ostéopathie n’est pas mentionnée dans les lignes directrices pour l’AJI.', 'The first few sessions may be about an hour each and follow-up visits may take up to 30 minutes. Weekly sessions may be recommended, but everybody is different.', 'Les premières séances peuvent durer environ une heure chacune et les visites de suivi peuvent prendre jusqu’à 30 minutes. Des sessions hebdomadaires pourraient vous être recommandées, mais tout le monde est différent.', 'It is difficult to say because of the lack of research. Improvements may vary because everybody is different.', 'C’est difficile à dire en raison du manque de recherche. Les améliorations peuvent varier, car tout le monde est différent.', 'Osteopathy may take time to do and cost money depending on your health insurance.', 'L’ostéopathie peut prendre du temps et coûter de l’argent en fonction de votre assurance maladie.', 'Osteopaths provide this treatment. You can talk about it with your health care team to help you access it.', 'Ce traitement est offert par les ostéopathes. Votre équipe soignante pourrait vous aider à y avoir accès.', 'If you use this treatment, tt is important to see a well-trained osteopath who has experience with treating JIA. You may not feel comfortable with receiving osteopathic treatments from a stranger.', 'Si vous choisissez ce traitement, il est important de consulter un ostéopathe bien formé et qui connaît l’AJI. Il est possible de se sentir mal à l’aise de recevoir des traitements d’ostéopathie de la part d’un étranger.', '\"uploads/1596758628004osteoathy.jpg\"', 3, '2020-06-12 20:25:27', '2020-08-07 00:04:22'),
@@ -824,7 +1054,7 @@ INSERT INTO `treatment_category` (`created_at`, `updated_at`, `category_id`, `tr
 --
 
 CREATE TABLE `treatment_classifications` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(40) CHARACTER SET utf8 NOT NULL,
   `created_at` datetime NOT NULL,
@@ -852,11 +1082,28 @@ INSERT INTO `treatment_classifications` (`id`, `name`, `fr_name`, `created_at`, 
 
 CREATE TABLE `treatment_texts` (
   `id` int(11) NOT NULL,
-  `text` text DEFAULT NULL,
+  `text` text,
   `user_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `treatment_texts`
+--
+
+INSERT INTO `treatment_texts` (`id`, `text`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'req user id test', 7, '2020-07-03 06:23:45', '2020-08-10 05:59:00'),
+(2, 'Test text updated', 67, '2020-08-03 16:27:11', '2020-08-03 16:27:11'),
+(3, 'Update', 69, '2020-08-10 21:22:12', '2020-08-23 02:51:55'),
+(4, '', 81, '2020-08-21 14:54:28', '2020-08-21 14:54:28'),
+(5, '', 111, '2021-03-16 03:21:15', '2021-05-02 19:51:27'),
+(6, '', 113, '2021-04-22 02:15:26', '2021-04-22 02:15:26'),
+(7, '', 112, '2021-04-22 02:16:29', '2021-05-02 16:42:11'),
+(11, '', 121, '2021-05-01 20:23:51', '2021-05-01 20:24:18'),
+(21, '', 131, '2021-05-02 06:11:37', '2021-05-02 19:49:24'),
+(31, '', 141, '2021-05-02 06:15:57', '2021-05-02 06:18:10'),
+(41, '', 151, '2021-05-02 19:08:35', '2021-05-02 19:20:50');
 
 -- --------------------------------------------------------
 
@@ -878,8 +1125,33 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `type`, `created_at`, `updated_at`) VALUES
+(7, 'u4', '$2b$14$JG/YHpMqIO69e/l1WUBX.OZtc3f4DqA54NvISYsMS8xum15NgGyPi', 'admin', '2020-05-26 16:57:49', '2020-07-28 19:42:01'),
+(67, 'IW4VDCQBQN', '$2b$14$dIksdWuTGjYweH5gos3jGuUiZEhkst0q7oHuo8wKxP3lAuT9Nmyb.', 'user', '2020-08-01 02:40:35', '2020-08-02 23:36:30'),
+(68, 'PCYP2XXYS', '$2b$14$2HUO.mqvgZc79MleDuj32u9CUdheUGAZ7HqNm4fBWczjRb4bcC09i', 'admin', '2020-08-06 04:09:18', '2020-08-06 04:10:18'),
+(69, 'R1SEWNNW', '$2b$14$ac8bYls9Sa4/6HV2CPONQufNB6FYzYZDwLNQuFGxgMVOYeDyMuqwO', 'admin', '2020-08-10 21:19:32', '2020-08-10 21:19:32'),
+(70, 'UXN7GI1U', '$2b$14$rFEYVvcQWlQUBB7sO3VYpeJRh7E9vchpCiru1Fz.FKRgNi/T0ka4W', 'user', '2020-08-11 20:03:33', '2020-08-11 20:03:33'),
+(71, 'EUALDX25', '$2b$14$SoO8Kb4UksHRh05EXSzJJ.jbEKxdBQhBYcCvDEoRXnTb6RwwQjS7m', 'user', '2020-08-12 20:58:11', '2020-08-12 20:58:11'),
+(73, 'J3LNI7II', '$2b$14$IVHyFsOzdg98f.5HgOEr0uTw7L/Db5ZoI91VaBrtzU/756ESO4LUG', 'admin', '2020-08-13 18:16:48', '2020-08-13 18:17:19'),
+(74, 'M7JDB9YP', '$2b$14$TvQrORqlF0mHYR8XaM/a4.CGCs2Wur1VcK/hoc0ONnfhriMkmatSW', 'user', '2020-08-13 18:19:34', '2020-08-13 18:19:44'),
+(75, 'OK7CH67E', '$2b$14$3jErynZ8MoyzlJpPGAhvUOeWwS8kKGiUkXnet.lbdsOGOdj3etiRu', 'user', '2020-08-13 18:20:51', '2020-08-13 18:21:02'),
+(76, '1JSX13OZ', '$2b$14$L77jOq7biJD/nMmrYNl/EO/fD..mbMR1lKEE06bR8it8v6NHA2HS2', 'user', '2020-08-16 17:18:32', '2020-08-16 17:18:32'),
+(77, 'SOYIO1FG', '$2b$14$Tq2BmpILhnH/CpweZGiacuMxZDi6L7xL2Ui7q10HVAlzevrkjKrEK', 'user', '2020-08-17 19:29:33', '2020-08-17 20:53:58'),
+(80, 'UR5ESXJP', '$2b$14$6XKB359jiTOJLHPZhOxZXOjZbOxoUucKToQA1mtgie/q3dmNCfS4q', 'admin', '2020-08-18 17:30:17', '2020-08-18 17:30:17'),
+(81, '9V6V7UVA', '$2b$14$x5d.uBXMDK96SHXpf5S3j.nZ.h1XwbkAY1GG5MPSrtBWIJoySbZIK', 'user', '2020-08-21 13:39:57', '2020-08-21 13:39:57'),
+(82, '67J9BMGF', '$2b$14$ThQy7SYvk8TIxtFm.wV1WOtGhOXyC.7ooMFf0ztDEpinoMp2l42A6', 'admin', '2020-08-24 03:50:38', '2020-08-24 03:50:38'),
+(83, '67J9BMGF2', '$2b$14$5ZeLPfZA9rZEvWqwwKaPTuIReC/6E0MApPqTu2JyHQdhJV7QGzjJC', 'admin', '2020-08-24 03:50:41', '2020-08-24 03:50:41'),
+(84, '67J9BMGF3', '$2b$14$k/eLiWvPiuwOS2l9TruCJ.rKnWKIvgYe.qXgZqH8ch4m8armkIOvu', 'admin', '2020-08-24 03:50:47', '2020-08-24 03:50:47'),
+(85, '67J9BMGF4', '$2b$14$zJ1xgeuoRBiIAhKBIiC6vufi/bvUBbUMiuwnFrR4mkZ4IDfWwHFPG', 'admin', '2020-08-24 03:50:47', '2020-08-24 03:50:47'),
+(86, 'JTBUOE6U', '$2b$14$n5O5G6F4XrtxrWI/Y.j4b.w29mzPaFLptQgRYF2X1KvQlDADONiSm', 'admin', '2020-08-24 03:52:47', '2020-08-24 03:52:47'),
+(87, 'YZQGGWZM', '$2b$14$zfsO/dWD0hX5CG.WWV83aeKUn9FpKG5x9oMjF.HGfv1Fs/r1WxH1C', 'user', '2020-08-24 04:08:48', '2020-08-24 04:08:58'),
+(88, 'TTNIMUI1', '$2b$14$3/mPnuG..z8xcthls6IQtuQDp6nSMsPMEqMN.7ddvY3ISARRL5Uz2', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
+(89, 'TTNIMUI12', '$2b$14$sP26f4N/n3FXaODtAJoDOODaLiF1HWRKLUBi8JP0ILTrdIHCGZALe', 'user', '2020-08-24 14:37:40', '2020-08-24 14:37:40'),
 (111, 'admin', '$2b$14$P6FNMJbuGmL9DNgMCPgj9.bUl7S23TaJcIm.5T0fETuTmY2aZOgjC', 'admin', '2021-02-03 12:07:34', '2021-02-03 22:34:06'),
-(112, 'user', '$2b$14$65rYBSSjUPb1g2mChqT3Oujg5aNMbYTEe4yFcPdAZGqtGfwkZ15iu', 'user', '2021-03-22 17:18:07', '2021-03-22 17:18:07');
+(112, 'user', '$2b$14$65rYBSSjUPb1g2mChqT3Oujg5aNMbYTEe4yFcPdAZGqtGfwkZ15iu', 'user', '2021-03-22 17:18:07', '2021-03-22 17:18:07'),
+(131, 'test', '$2b$14$NiAP03a7lLY6UCxN9vDupOXx/Espkv0AJr1m6KOrcA1qrOHtLtla.', 'user', '2021-05-02 06:10:49', '2021-05-02 06:10:49'),
+(141, 'test2', '$2b$14$d1BZsNzP0iYEiE0DAXiEluGAD6fXxVsmNQRdUP5cmGWNLK8tswLJ.', 'user', '2021-05-02 06:14:53', '2021-05-02 06:14:53'),
+(151, 'newuser', '$2b$14$.x4JmQpfil2TvUkSJdoIdeLzDq72xG93j5e0aCLVCYhfdpRQV/vfm', 'user', '2021-05-02 19:07:27', '2021-05-02 19:07:27'),
+(161, 'le', '$2b$14$iF6KBmSp/RBehcsY9IbOE.UVJzaM4pqs6KGjnQHKvokY2OMnFzARW', 'user', '2021-05-02 19:49:52', '2021-05-02 19:49:52');
 
 -- --------------------------------------------------------
 
@@ -894,6 +1166,26 @@ CREATE TABLE `user_factor` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_factor`
+--
+
+INSERT INTO `user_factor` (`created_at`, `updated_at`, `factor_id`, `user_id`) VALUES
+('2020-08-04 05:21:00', '2020-08-04 05:21:00', 1, 7),
+('2020-08-23 03:17:21', '2020-08-23 03:17:21', 1, 69),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 1, 111),
+('2021-05-02 16:18:15', '2021-05-02 16:18:15', 1, 112),
+('2021-04-27 06:21:26', '2021-04-27 06:21:26', 2, 111),
+('2021-05-01 03:42:15', '2021-05-01 03:42:15', 2, 112),
+('2021-05-02 19:18:14', '2021-05-02 19:18:14', 2, 151),
+('2020-08-23 03:17:49', '2020-08-23 03:17:49', 9, 69),
+('2021-04-27 06:21:27', '2021-04-27 06:21:27', 9, 111),
+('2021-05-02 16:18:15', '2021-05-02 16:18:15', 9, 112),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 10, 111),
+('2020-08-23 03:17:49', '2020-08-23 03:17:49', 11, 69),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 11, 111),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 12, 111);
+
 -- --------------------------------------------------------
 
 --
@@ -906,6 +1198,43 @@ CREATE TABLE `user_favourite` (
   `treatment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_favourite`
+--
+
+INSERT INTO `user_favourite` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
+('2020-08-06 03:27:15', '2020-08-06 03:27:15', 1, 7),
+('2020-08-06 03:33:08', '2020-08-06 03:33:08', 2, 7),
+('2020-08-21 13:57:02', '2020-08-21 13:57:02', 2, 81),
+('2021-05-02 16:16:59', '2021-05-02 16:16:59', 2, 112),
+('2021-05-02 19:15:34', '2021-05-02 19:15:34', 2, 151),
+('2021-03-04 20:13:00', '2021-03-04 20:13:00', 5, 111),
+('2020-08-06 03:27:09', '2020-08-06 03:27:09', 7, 7),
+('2020-08-10 21:25:49', '2020-08-10 21:25:49', 7, 69),
+('2021-05-01 02:30:02', '2021-05-01 02:30:02', 7, 111),
+('2021-05-02 16:17:31', '2021-05-02 16:17:31', 7, 112),
+('2021-05-02 16:17:02', '2021-05-02 16:17:02', 10, 112),
+('2020-08-19 05:31:37', '2020-08-19 05:31:37', 31, 69),
+('2021-04-27 21:02:58', '2021-04-27 21:02:58', 31, 111),
+('2021-05-02 16:17:09', '2021-05-02 16:17:09', 31, 112),
+('2020-08-06 03:15:59', '2020-08-06 03:15:59', 34, 7),
+('2020-08-21 15:07:27', '2020-08-21 15:07:27', 34, 81),
+('2021-05-01 02:30:02', '2021-05-01 02:30:02', 34, 111),
+('2020-08-06 03:27:16', '2020-08-06 03:27:16', 36, 7),
+('2020-08-21 15:07:26', '2020-08-21 15:07:26', 36, 81),
+('2021-04-27 21:02:58', '2021-04-27 21:02:58', 49, 111),
+('2021-03-04 20:13:01', '2021-03-04 20:13:01', 50, 111),
+('2020-08-10 21:25:57', '2020-08-10 21:25:57', 51, 69),
+('2020-08-10 21:25:48', '2020-08-10 21:25:48', 54, 69),
+('2021-05-01 03:40:53', '2021-05-01 03:40:53', 54, 112),
+('2021-05-02 19:16:30', '2021-05-02 19:16:30', 54, 151),
+('2021-05-01 03:52:27', '2021-05-01 03:52:27', 55, 112),
+('2021-05-01 03:59:49', '2021-05-01 03:59:49', 63, 112),
+('2021-05-01 03:59:47', '2021-05-01 03:59:47', 64, 112),
+('2021-05-01 03:40:55', '2021-05-01 03:40:55', 65, 112),
+('2021-05-02 19:16:50', '2021-05-02 19:16:50', 69, 151),
+('2021-05-02 19:16:47', '2021-05-02 19:16:47', 71, 151);
 
 -- --------------------------------------------------------
 
@@ -920,6 +1249,51 @@ CREATE TABLE `user_hcp` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_hcp`
+--
+
+INSERT INTO `user_hcp` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 1, 7),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 1, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 1, 77),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 1, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 1, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 1, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 1, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 1, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 1, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 1, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 1, 161),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 10, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 10, 77),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 10, 81),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 10, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 10, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 10, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 10, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 10, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 10, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 10, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 10, 161),
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 31, 7),
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 36, 7),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 36, 69),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 36, 81),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 49, 69),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 51, 69),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 51, 81),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 54, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 54, 77),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 54, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 54, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 54, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 54, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 54, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 54, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 54, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 54, 161);
+
 -- --------------------------------------------------------
 
 --
@@ -933,6 +1307,22 @@ CREATE TABLE `user_medication` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_medication`
+--
+
+INSERT INTO `user_medication` (`created_at`, `updated_at`, `medication_id`, `user_id`) VALUES
+('2021-05-02 19:13:48', '2021-05-02 19:13:48', 14, 151),
+('2021-05-01 03:44:24', '2021-05-01 03:44:24', 18, 112),
+('2021-05-02 06:11:37', '2021-05-02 06:11:37', 18, 131),
+('2021-05-02 19:13:48', '2021-05-02 19:13:48', 18, 151),
+('2021-05-02 06:11:37', '2021-05-02 06:11:37', 22, 131),
+('2021-05-02 19:13:48', '2021-05-02 19:13:48', 22, 151),
+('2021-05-02 06:11:37', '2021-05-02 06:11:37', 25, 131),
+('2021-05-02 06:11:37', '2021-05-02 06:11:37', 26, 131),
+('2021-04-22 02:16:29', '2021-04-22 02:16:29', 29, 112),
+('2021-05-02 06:11:37', '2021-05-02 06:11:37', 32, 131);
+
 -- --------------------------------------------------------
 
 --
@@ -945,6 +1335,27 @@ CREATE TABLE `user_plan` (
   `treatment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_plan`
+--
+
+INSERT INTO `user_plan` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
+('2020-08-06 03:32:32', '2020-08-06 03:32:32', 1, 7),
+('2020-08-21 14:54:52', '2020-08-21 14:54:52', 2, 81),
+('2021-05-02 16:18:15', '2021-05-02 16:18:15', 2, 112),
+('2020-08-10 21:26:25', '2020-08-10 21:26:25', 7, 69),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 7, 111),
+('2021-04-27 21:03:19', '2021-04-27 21:03:19', 31, 111),
+('2021-05-02 16:17:16', '2021-05-02 16:17:16', 31, 112),
+('2020-08-06 03:32:32', '2020-08-06 03:32:32', 34, 7),
+('2021-04-27 06:21:26', '2021-04-27 06:21:26', 50, 111),
+('2020-08-10 21:26:25', '2020-08-10 21:26:25', 51, 69),
+('2021-05-01 03:42:15', '2021-05-01 03:42:15', 54, 112),
+('2021-05-02 19:17:31', '2021-05-02 19:17:31', 54, 151),
+('2021-05-01 03:53:11', '2021-05-01 03:53:11', 55, 112),
+('2021-05-02 16:18:15', '2021-05-02 16:18:15', 64, 112),
+('2021-05-02 19:17:31', '2021-05-02 19:17:31', 69, 151);
 
 -- --------------------------------------------------------
 
@@ -960,6 +1371,54 @@ CREATE TABLE `user_preferences` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_preferences`
+--
+
+INSERT INTO `user_preferences` (`value`, `created_at`, `updated_at`, `preference_id`, `user_id`) VALUES
+(8.5, '2020-06-24 02:40:11', '2020-08-03 22:49:20', 1, 7),
+(3.5, '2020-08-10 21:23:20', '2020-08-16 16:22:47', 1, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 1, 81),
+(1, '2021-03-16 03:21:23', '2021-05-02 19:31:00', 1, 111),
+(2, '2021-04-22 02:17:06', '2021-05-02 16:16:22', 1, 112),
+(3, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 1, 114),
+(0, '2021-05-02 19:08:41', '2021-05-02 19:08:41', 1, 151),
+(8.5, '2020-07-22 13:30:34', '2020-08-10 06:02:11', 2, 7),
+(9.5, '2020-08-10 21:23:20', '2020-08-16 16:22:52', 2, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 2, 81),
+(1, '2021-03-16 03:21:23', '2021-05-01 02:29:49', 2, 111),
+(3, '2021-04-22 02:17:06', '2021-05-02 16:16:22', 2, 112),
+(2, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 2, 114),
+(1, '2021-05-02 19:08:41', '2021-05-02 19:14:51', 2, 151),
+(1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 3, 7),
+(2, '2020-08-10 21:23:20', '2020-08-16 02:03:46', 3, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 3, 81),
+(1, '2021-03-16 03:21:23', '2021-05-02 19:31:00', 3, 111),
+(1, '2021-04-22 02:17:06', '2021-04-22 02:17:14', 3, 112),
+(3, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 3, 114),
+(2, '2021-05-02 19:08:41', '2021-05-02 19:14:51', 3, 151),
+(1.5, '2020-07-22 13:30:34', '2020-08-10 05:58:50', 4, 7),
+(4, '2020-08-10 21:23:20', '2020-08-16 02:13:22', 4, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 4, 81),
+(1, '2021-03-16 03:21:23', '2021-05-02 19:31:00', 4, 111),
+(3, '2021-04-22 02:17:06', '2021-04-22 02:17:06', 4, 112),
+(4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 4, 114),
+(2, '2021-05-02 19:08:41', '2021-05-02 19:14:51', 4, 151),
+(1.5, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 5, 7),
+(3.5, '2020-08-10 21:23:20', '2020-08-16 16:22:47', 5, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 5, 81),
+(1, '2021-03-16 03:21:23', '2021-05-02 19:31:00', 5, 111),
+(5, '2021-04-22 02:17:06', '2021-05-01 03:51:43', 5, 112),
+(4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 5, 114),
+(5, '2021-05-02 19:08:41', '2021-05-02 19:14:51', 5, 151),
+(1, '2020-06-24 02:40:11', '2020-08-03 22:47:59', 6, 7),
+(0, '2020-08-10 21:23:20', '2020-08-16 03:16:49', 6, 69),
+(7, '2020-08-21 14:54:37', '2020-08-21 14:54:37', 6, 81),
+(1, '2021-03-16 03:21:23', '2021-05-02 19:31:00', 6, 111),
+(3, '2021-04-22 02:17:06', '2021-05-02 16:16:22', 6, 112),
+(4, '2021-04-22 02:18:45', '2021-04-22 02:18:45', 6, 114),
+(5, '2021-05-02 19:08:41', '2021-05-02 19:14:51', 6, 151);
+
 -- --------------------------------------------------------
 
 --
@@ -972,6 +1431,51 @@ CREATE TABLE `user_sc` (
   `treatment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_sc`
+--
+
+INSERT INTO `user_sc` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 2, 7),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 2, 69),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 2, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 2, 77),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 2, 81),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 2, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 2, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 2, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 2, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 2, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 2, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 2, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 2, 161),
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 7, 7),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 7, 69),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 7, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 7, 77),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 7, 81),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 7, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 7, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 7, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 7, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 7, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 7, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 7, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 7, 161),
+('2020-08-10 06:02:26', '2020-08-10 06:02:26', 34, 7),
+('2020-08-23 02:51:55', '2020-08-23 02:51:55', 34, 69),
+('2020-08-16 17:19:43', '2020-08-16 17:19:43', 34, 76),
+('2020-08-17 20:54:12', '2020-08-17 20:54:12', 34, 77),
+('2020-08-21 14:54:38', '2020-08-21 14:54:38', 34, 81),
+('2021-05-02 19:51:30', '2021-05-02 19:51:30', 34, 111),
+('2021-05-02 16:44:27', '2021-05-02 16:44:27', 34, 112),
+('2021-04-22 02:15:26', '2021-04-22 02:15:26', 34, 113),
+('2021-04-22 02:18:45', '2021-04-22 02:18:45', 34, 114),
+('2021-05-02 19:49:24', '2021-05-02 19:49:24', 34, 131),
+('2021-05-02 06:18:11', '2021-05-02 06:18:11', 34, 141),
+('2021-05-02 19:20:50', '2021-05-02 19:20:50', 34, 151),
+('2021-05-02 19:50:27', '2021-05-02 19:50:27', 34, 161);
 
 -- --------------------------------------------------------
 
@@ -986,6 +1490,23 @@ CREATE TABLE `user_suggestion` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_suggestion`
+--
+
+INSERT INTO `user_suggestion` (`created_at`, `updated_at`, `suggestion_id`, `user_id`) VALUES
+('2020-08-04 05:21:00', '2020-08-04 05:21:00', 1, 7),
+('2021-04-27 06:21:27', '2021-04-27 06:21:27', 1, 111),
+('2020-08-04 05:26:52', '2020-08-04 05:26:52', 2, 7),
+('2020-08-23 03:06:50', '2020-08-23 03:06:50', 2, 69),
+('2021-05-02 00:56:03', '2021-05-02 00:56:03', 2, 111),
+('2021-05-02 19:18:14', '2021-05-02 19:18:14', 2, 151),
+('2021-04-27 06:21:27', '2021-04-27 06:21:27', 3, 111),
+('2020-08-23 03:17:29', '2020-08-23 03:17:29', 4, 69),
+('2021-04-27 06:21:27', '2021-04-27 06:21:27', 4, 111),
+('2021-05-01 03:42:15', '2021-05-01 03:42:15', 4, 112),
+('2021-05-02 19:18:14', '2021-05-02 19:18:14', 4, 151);
+
 -- --------------------------------------------------------
 
 --
@@ -999,6 +1520,31 @@ CREATE TABLE `user_treatment` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `user_treatment`
+--
+
+INSERT INTO `user_treatment` (`created_at`, `updated_at`, `treatment_id`, `user_id`) VALUES
+('2020-08-03 16:27:11', '2020-08-03 16:27:11', 1, 67),
+('2020-08-04 00:13:52', '2020-08-04 00:13:52', 2, 7),
+('2020-08-03 16:27:11', '2020-08-03 16:27:11', 5, 67),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 6, 69),
+('2020-08-04 00:13:52', '2020-08-04 00:13:52', 7, 7),
+('2020-08-03 16:27:11', '2020-08-03 16:27:11', 7, 67),
+('2021-05-01 21:32:53', '2021-05-01 21:32:53', 7, 112),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 31, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 35, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 36, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 53, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 54, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 55, 69),
+('2021-05-02 19:13:48', '2021-05-02 19:13:48', 58, 151),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 62, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 65, 69),
+('2021-05-01 03:44:24', '2021-05-01 03:44:24', 69, 112),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 75, 69),
+('2020-08-10 21:23:01', '2020-08-10 21:23:01', 76, 69);
+
 -- --------------------------------------------------------
 
 --
@@ -1006,7 +1552,7 @@ CREATE TABLE `user_treatment` (
 --
 
 CREATE TABLE `videos` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL DEFAULT '0',
   `link` varchar(1024) NOT NULL,
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(37) CHARACTER SET utf8 DEFAULT NULL,
@@ -1020,7 +1566,7 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
+(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', NULL, 1, '2021-05-01 18:43:55', '2021-05-01 18:43:55'),
 (33, 'https://www.nhs.uk/conditions/nhs_fitness_studio/arthritis_pilates_exercise_video/\"', 'Arthritis pilates excercise', 'Arthritis pilates excercise (anglais)', 34, '2020-08-06 21:31:53', '2020-08-06 21:31:53'),
 (34, 'https://www.youtube.com/watch?v=0Kuv7blrV6U\"', 'Youtube watch 1', 'Youtube watch 1 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
 (35, 'https://www.youtube.com/watch?v=tED1RYb27ng', 'Youtube watch 2', 'Youtube watch 2 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
@@ -1286,73 +1832,73 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `confidences`
 --
 ALTER TABLE `confidences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `effectivenesses`
 --
 ALTER TABLE `effectivenesses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `frequentlies`
 --
 ALTER TABLE `frequentlies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=451;
 
 --
 -- AUTO_INCREMENT for table `motivations`
 --
 ALTER TABLE `motivations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `pain_areas`
 --
 ALTER TABLE `pain_areas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `pain_levels`
 --
 ALTER TABLE `pain_levels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `preference_texts`
 --
 ALTER TABLE `preference_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `prescribed_texts`
 --
 ALTER TABLE `prescribed_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `treatment_texts`
 --
 ALTER TABLE `treatment_texts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- Constraints for dumped tables
