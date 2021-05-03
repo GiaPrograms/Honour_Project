@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 04:18 AM
+-- Generation Time: May 04, 2021 at 01:10 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -158,7 +158,7 @@ CREATE TABLE `frequentlies` (
 --
 
 CREATE TABLE `learns` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
   `link` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(49) CHARACTER SET utf8 DEFAULT NULL,
@@ -498,7 +498,7 @@ CREATE TABLE `prescribed_texts` (
 --
 
 CREATE TABLE `results` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(54) CHARACTER SET utf8 DEFAULT NULL,
   `score` tinyint(4) NOT NULL,
@@ -1006,7 +1006,7 @@ CREATE TABLE `user_treatment` (
 --
 
 CREATE TABLE `videos` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
   `link` varchar(1024) NOT NULL,
   `name` varchar(255) NOT NULL,
   `fr_name` varchar(37) CHARACTER SET utf8 DEFAULT NULL,
@@ -1301,6 +1301,12 @@ ALTER TABLE `frequentlies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `learns`
+--
+ALTER TABLE `learns`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=310;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
@@ -1337,6 +1343,12 @@ ALTER TABLE `prescribed_texts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -1353,6 +1365,12 @@ ALTER TABLE `treatment_texts`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Constraints for dumped tables

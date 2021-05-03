@@ -31,8 +31,8 @@ const TranslateButton = () => {
     return (
         <div className='translate-btn'>
             <div className="translate-btn-container">
-                {status === 'English'  && <Button className="translate-btn-english" onClick={handleClickFR}>EN</Button>}
-                {status === 'French' && <Button className="translate-btn-french" onClick={handleClickEN}>FR</Button>}
+                {status === 'English'  && <Button className="translate-btn-english" onClick={handleClickFR}>FR</Button>}
+                {status === 'French' && <Button className="translate-btn-french" onClick={handleClickEN}>EN</Button>}
             </div>
         </div>
     );
