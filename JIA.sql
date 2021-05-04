@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2021 at 01:10 AM
+-- Generation Time: May 04, 2021 at 03:47 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -172,8 +172,8 @@ CREATE TABLE `learns` (
 --
 
 INSERT INTO `learns` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://teens.aboutkidshealth.ca/Article?contentid=2605&language=English&hub=jiateenhub', 'About kids health: Yoga (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
-(2, 'https://teens.aboutkidshealth.ca/Article?contentid=2606&language=English&hub=jiateenhub', 'About kids health: Basic yoga poses (English)', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
+(1, 'https://teens.aboutkidshealth.ca/Article?contentid=2605&language=English&hub=jiateenhub', 'About kids health: Yoga (English)', 'About kids health : Yoga (anglais)', 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
+(2, 'https://teens.aboutkidshealth.ca/Article?contentid=2606&language=English&hub=jiateenhub', 'About kids health: Basic yoga poses (English)', 'About kids health : Postures de base du yoga', 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
 (190, 'http://education.arthritis.ca/en_us/learntousetoolsanddevices/topic6_9.aspx', 'wrist link 1', 'lien sur le poignet 1', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (191, 'https://www.aboutkidshealth.ca/Article?contentid=1079&language=English', 'wrist link name (English)', 'nom du lien sur le poignet', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
 (192, 'https://teenstakingcharge.carragroup.org/en/jiateen/Article?contentid=2376&language=English', 'another web link (English)', 'un autre lien Web (anglais)', 31, '2020-08-06 20:17:26', '2020-08-06 20:17:26'),
@@ -1020,7 +1020,7 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `link`, `name`, `fr_name`, `treatment_id`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', NULL, 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
+(1, 'https://www.youtube.com/user/yogawithadriene/search?query=arthritis', 'Youtube: Yoga with Adriene', 'Youtube : Yoga with Adriene (anglais)', 1, '2021-05-02 18:27:24', '2021-05-02 18:27:24'),
 (33, 'https://www.nhs.uk/conditions/nhs_fitness_studio/arthritis_pilates_exercise_video/\"', 'Arthritis pilates excercise', 'Arthritis pilates excercise (anglais)', 34, '2020-08-06 21:31:53', '2020-08-06 21:31:53'),
 (34, 'https://www.youtube.com/watch?v=0Kuv7blrV6U\"', 'Youtube watch 1', 'Youtube watch 1 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
 (35, 'https://www.youtube.com/watch?v=tED1RYb27ng', 'Youtube watch 2', 'Youtube watch 2 (anglais)', 35, '2020-08-07 00:12:40', '2020-08-07 00:12:40'),
